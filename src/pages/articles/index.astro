@@ -155,7 +155,7 @@ function formatDate(dateStr: string) {
                         src={post.author?.avatarUrl || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80'}
                         alt={post.author?.name || 'Author'}
                         class="w-7 h-7 rounded-full object-cover shrink-0 border border-slate-200"
-                        loading="lazy"
+                        loading="eager" decoding="async"
                       />
                       <span class="text-xs font-semibold text-slate-900">
                         {post.author?.name || 'Tim Redaksi SAI'}
@@ -186,7 +186,7 @@ function formatDate(dateStr: string) {
                     src={post.featuredImage?.url || '/images/articles/article-thumb-2.jpg'}
                     alt={post.featuredImage?.alt || post.title}
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
+                    loading="eager" decoding="async"
                   />
                 </a>
                 <span class="text-xs font-semibold text-sky-600 block mb-1">
@@ -203,7 +203,7 @@ function formatDate(dateStr: string) {
                     src={post.author?.avatarUrl || 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80'}
                     alt={post.author?.name}
                     class="w-6 h-6 rounded-full object-cover shrink-0 border border-slate-200"
-                    loading="lazy"
+                    loading="eager" decoding="async"
                   />
                   <span class="text-xs font-semibold text-slate-900">{post.author?.name}</span>
                 </div>
@@ -283,7 +283,7 @@ function formatDate(dateStr: string) {
                   src={solutionCenterPost.featuredImage?.url || '/images/articles/article-thumb-4.jpg'}
                   alt={solutionCenterPost.featuredImage?.alt || solutionCenterPost.title}
                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
+                  loading="eager" decoding="async"
                 />
               </a>
               <span class="text-xs font-semibold text-sky-600 block mb-1">
@@ -303,7 +303,7 @@ function formatDate(dateStr: string) {
                   src={solutionCenterPost.author?.avatarUrl || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80'}
                   alt={solutionCenterPost.author?.name}
                   class="w-7 h-7 rounded-full object-cover shrink-0 border border-slate-200"
-                  loading="lazy"
+                  loading="eager" decoding="async"
                 />
                 <span class="text-xs font-semibold text-slate-900">{solutionCenterPost.author?.name}</span>
               </div>
