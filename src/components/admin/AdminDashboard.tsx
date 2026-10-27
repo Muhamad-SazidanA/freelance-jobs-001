@@ -1,6 +1,24 @@
-import { useState, useEffect, type SyntheticEvent } from 'react';
+import { useState, useEffect } from 'react';
 import type { Post } from '@/types/content';
 import mockPostsData from '@/content/mock/posts.json';
+import ArticleForm, { type ArticleFormData } from './ArticleForm';
+import CustomModal from './CustomModal';
+import {
+  FileText,
+  Users,
+  Search,
+  Filter,
+  Plus,
+  Edit3,
+  Trash2,
+  ExternalLink,
+  CheckCircle2,
+  Calendar,
+  Eye,
+  RefreshCw,
+  LogOut,
+  ShieldCheck,
+} from 'lucide-react';
 
 interface LeadItem {
   id: string | number;
@@ -41,19 +59,37 @@ const INITIAL_LEADS: LeadItem[] = [
 
 export default function AdminDashboard() {
   const [session, setSession] = useState<{ user: string; role: string } | null>(null);
-  const [activeTab, setActiveTab] = useState<'overview' | 'articles' | 'leads' | 'deploy'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'articles' | 'leads' | 'deploy'>('articles');
   const [posts, setPosts] = useState<Post[]>(mockPostsData as unknown as Post[]);
   const [leads] = useState<LeadItem[]>(INITIAL_LEADS);
   const [buildStatus, setBuildStatus] = useState<'idle' | 'building' | 'success'>('idle');
 
-  // Form State untuk Tambah Artikel
-  const [showAddArticle, setShowAddArticle] = useState(false);
-  const [newTitle, setNewTitle] = useState('');
-  const [newSlug, setNewSlug] = useState('');
-  const [newExcerpt, setNewExcerpt] = useState('');
-  const [newCategory, setNewCategory] = useState('Teknologi Web');
+  // Article Management Sub-Views
+  const [articleViewMode, setArticleViewMode] = useState<'list' | 'form'>('list');
+  const [editingArticle, setEditingArticle] = useState<Post | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('ALL');
+
+  // Modal State
+  const [modalConfig, setModalConfig] = useState<{
+    isOpen: boolean;
+    type: 'info' | 'success' | 'error' | 'warning' | 'confirm';
+    title: string;
+    message: string;
+    confirmLabel?: string;
+    cancelLabel?: string;
+    onConfirm: () => void;
+    onCancel?: () => void;
+  }>({
+    isOpen: false,
+    type: 'info',
+    title: '',
+    message: '',
+    onConfirm: () => {},
+  });
 
   useEffect(() => {
+    // 1. Check Session
     const rawSession = localStorage.getItem('solusi_admin_session');
     if (!rawSession) {
       window.location.href = '/login';
@@ -63,6 +99,22 @@ export default function AdminDashboard() {
       setSession(JSON.parse(rawSession));
     } catch {
       window.location.href = '/login';
+      return;
+    }
+
+    // 2. Load Persisted Articles from LocalStorage
+    const storedArticles = localStorage.getItem('sai_admin_articles');
+    if (storedArticles) {
+      try {
+        const parsed = JSON.parse(storedArticles);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setPosts(parsed);
+        }
+      } catch (e) {
+        console.error('Failed to parse stored articles:', e);
+      }
+    } else {
+      localStorage.setItem('sai_admin_articles', JSON.stringify(mockPostsData));
     }
   }, []);
 
@@ -104,49 +156,137 @@ export default function AdminDashboard() {
     document.body.removeChild(link);
   };
 
-  const handleSaveArticle = (e: SyntheticEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!newTitle.trim()) return;
+  // Handle Save / Publish Article
+  const handleSaveArticle = (formData: ArticleFormData) => {
+    const isNew = !formData.id;
+    const nowIso = new Date().toISOString();
 
-    const generatedSlug = newSlug.trim() || newTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    const newPost: Post = {
-      id: `post-${Date.now()}`,
-      slug: generatedSlug,
-      title: newTitle,
-      publishedAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      excerpt: newExcerpt,
-      quickAnswerSummary: newExcerpt,
-      content: `<p>${newExcerpt}</p>`,
+    const postObj: Post = {
+      id: formData.id || `article-${Date.now()}`,
+      slug: formData.slug,
+      title: formData.title,
+      publishedAt: initialDataPublishedAt(formData.id) || nowIso,
+      updatedAt: nowIso,
+      excerpt: formData.metaDescription || formData.subheading || formData.title,
+      quickAnswerSummary: formData.subheading || formData.metaDescription || formData.title,
+      content: formData.content,
       featuredImage: {
-        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200',
-        alt: newTitle,
+        url: formData.imageFile || '/images/articles/article-thumb-1.jpg',
+        alt: formData.title,
         width: 1200,
         height: 630,
       },
-      categories: [{ id: 'cat-1', name: newCategory, slug: newCategory.toLowerCase().replace(/\s+/g, '-') }],
-      tags: [{ id: 'tag-1', name: 'General', slug: 'general' }],
+      categories: [
+        {
+          id: `cat-${formData.category.toLowerCase().replace(/\s+/g, '-')}`,
+          name: formData.category,
+          slug: formData.category.toLowerCase().replace(/\s+/g, '-'),
+        },
+      ],
+      tags: formData.keywords.map((kw, i) => ({
+        id: `tag-${i}`,
+        name: kw,
+        slug: kw.toLowerCase().replace(/\s+/g, '-'),
+      })),
       author: {
-        id: 'auth-1',
-        name: 'Ahmad Fauzi',
-        slug: 'ahmad-fauzi',
-        role: 'Principal Solutions Architect',
-        bio: 'Praktisi arsitektur perangkat lunak enterprise.',
-        avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200',
+        id: 'auth-current',
+        name: formData.author || 'Tim SolusiAplikasi.id',
+        slug: (formData.author || 'tim-sai').toLowerCase().replace(/\s+/g, '-'),
+        role: formData.authorBadge || 'Penulis',
+        bio: formData.authorBio || 'Tim SolusiAplikasi.id',
+        avatarUrl:
+          formData.authorImage ||
+          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200',
       },
-      readingTimeMinutes: 4,
+      readingTimeMinutes: Math.max(2, Math.ceil(formData.content.split(/\s+/).length / 200)),
       seo: {
-        title: `${newTitle} | SolusiAplikasi.id`,
-        description: newExcerpt,
+        title: `${formData.title} | SolusiAplikasi.id`,
+        description: formData.metaDescription || formData.subheading,
       },
     };
 
-    setPosts([newPost, ...posts]);
-    setNewTitle('');
-    setNewSlug('');
-    setNewExcerpt('');
-    setShowAddArticle(false);
+    // Store custom extended properties for admin viewing
+    // @ts-expect-error extended property
+    postObj.subheading = formData.subheading;
+    // @ts-expect-error extended property
+    postObj.status = formData.status;
+    // @ts-expect-error extended property
+    postObj.showAuthor = formData.showAuthor;
+    // @ts-expect-error extended property
+    postObj.reviewerName = formData.reviewerName;
+    // @ts-expect-error extended property
+    postObj.reviewerImage = formData.reviewerImage;
+    // @ts-expect-error extended property
+    postObj.reviewerBadge = formData.reviewerBadge;
+    // @ts-expect-error extended property
+    postObj.reviewerBio = formData.reviewerBio;
+    // @ts-expect-error extended property
+    postObj.showReviewer = formData.showReviewer;
+
+    let updatedList: Post[];
+    if (isNew) {
+      updatedList = [postObj, ...posts];
+    } else {
+      updatedList = posts.map((p) => (p.id === formData.id ? postObj : p));
+    }
+
+    setPosts(updatedList);
+    localStorage.setItem('sai_admin_articles', JSON.stringify(updatedList));
+
+    setModalConfig({
+      isOpen: true,
+      type: 'success',
+      title: isNew ? 'Artikel Berhasil Dibuat!' : 'Artikel Berhasil Diperbarui!',
+      message: `Artikel "${formData.title}" telah tersimpan dengan status ${formData.status.toUpperCase()}.`,
+      confirmLabel: 'Kembali ke Daftar',
+      onConfirm: () => {
+        setModalConfig((prev) => ({ ...prev, isOpen: false }));
+        setArticleViewMode('list');
+        setEditingArticle(null);
+      },
+    });
   };
+
+  const initialDataPublishedAt = (id?: string) => {
+    if (!id) return null;
+    const found = posts.find((p) => p.id === id);
+    return found ? found.publishedAt : null;
+  };
+
+  const handleDeleteArticle = (articleId: string, articleTitle: string) => {
+    setModalConfig({
+      isOpen: true,
+      type: 'confirm',
+      title: 'Hapus Artikel',
+      message: `Apakah Anda yakin ingin menghapus artikel "${articleTitle}"? Tindakan ini tidak dapat dibatalkan.`,
+      confirmLabel: 'Ya, Hapus',
+      cancelLabel: 'Batal',
+      onConfirm: () => {
+        const remaining = posts.filter((p) => p.id !== articleId);
+        setPosts(remaining);
+        localStorage.setItem('sai_admin_articles', JSON.stringify(remaining));
+        setModalConfig((prev) => ({ ...prev, isOpen: false }));
+      },
+      onCancel: () => {
+        setModalConfig((prev) => ({ ...prev, isOpen: false }));
+      },
+    });
+  };
+
+  // Filtered Articles
+  const filteredArticles = posts.filter((p) => {
+    const matchesQuery =
+      searchQuery === '' ||
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.author.name.toLowerCase().includes(searchQuery.toLowerCase());
+
+    const matchesCategory =
+      categoryFilter === 'ALL' ||
+      p.categories.some((c) => c.name.toLowerCase() === categoryFilter.toLowerCase());
+
+    return matchesQuery && matchesCategory;
+  });
 
   if (!session) {
     return (
@@ -159,32 +299,32 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
       {/* Top Navbar */}
-      <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-30 px-6 py-3.5 flex items-center justify-between">
+      <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-30 px-4 sm:px-6 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center font-bold text-white text-sm shadow-md shadow-sky-600/30">
             S
           </div>
           <div>
-            <h1 className="text-sm font-bold text-white tracking-wide">
-              SolusiAplikasi<span className="text-sky-400">.id</span>
-              <span className="ml-2 text-[10px] uppercase font-semibold bg-sky-950 text-sky-400 border border-sky-800/60 px-2 py-0.5 rounded">
-                Astro Dashboard
+            <h1 className="text-sm font-bold text-white tracking-wide flex items-center gap-2">
+              <span>
+                SolusiAplikasi<span className="text-sky-400">.id</span>
+              </span>
+              <span className="text-[10px] uppercase font-semibold bg-sky-950 text-sky-400 border border-sky-800/60 px-2 py-0.5 rounded">
+                Admin Panel
               </span>
             </h1>
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <a
             href="https://solusiaplikasi.id/solution/wp-login.php?access=solusi_admin_secure_access_2026"
             target="_blank"
             rel="noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border border-indigo-800/60 rounded-md text-xs font-medium transition-colors"
           >
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.486 2 2 6.486 2 12c0 5.515 4.486 10 10 10 5.514 0 10-4.485 10-10 0-5.514-4.486-10-10-10zm-1.875 16.275L6.2 9.075h2.1l2.875 7.2h.05l2.85-7.2h2.025l-3.925 9.2h-2z" />
-            </svg>
-            WordPress (/solution) Admin
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>WP (/solution)</span>
           </a>
 
           <div className="text-right hidden md:block">
@@ -194,113 +334,332 @@ export default function AdminDashboard() {
 
           <button
             onClick={handleLogout}
-            className="px-3 py-1.5 bg-slate-800 hover:bg-rose-950/40 hover:text-rose-400 text-slate-300 border border-slate-700/80 rounded-md text-xs transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-rose-950/40 hover:text-rose-400 text-slate-300 border border-slate-700/80 rounded-md text-xs transition-colors"
           >
-            Keluar
+            <LogOut className="w-3.5 h-3.5" />
+            <span>Keluar</span>
           </button>
         </div>
       </header>
 
-      {/* Main Layout */}
-      <div className="flex-1 flex max-w-7xl w-full mx-auto p-4 md:p-6 gap-6">
-        {/* Sidebar Nav */}
-        <aside className="w-56 shrink-0 hidden md:block">
-          <nav className="space-y-1">
-            <button
-              onClick={() => setActiveTab('overview')}
-              className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
-                activeTab === 'overview'
-                  ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-900'
-              }`}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-              </svg>
-              Ringkasan (Overview)
-            </button>
+      {/* Main Container */}
+      <div className="flex-1 flex flex-col md:flex-row max-w-7xl w-full mx-auto p-4 sm:p-6 gap-6">
+        {/* Sidebar Nav (Hidden when in article create/edit form to focus writer) */}
+        {articleViewMode === 'list' && (
+          <aside className="w-full md:w-60 shrink-0">
+            <nav className="space-y-1.5 bg-slate-900/60 p-2 border border-slate-800 rounded-xl">
+              <button
+                onClick={() => {
+                  setActiveTab('articles');
+                  setArticleViewMode('list');
+                }}
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
+                  activeTab === 'articles'
+                    ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20 font-bold'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                }`}
+              >
+                <FileText className="w-4 h-4" />
+                <span>Articles & Wawasan</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab('articles')}
-              className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
-                activeTab === 'articles'
-                  ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-900'
-              }`}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-              </svg>
-              Artikel & Wawasan ({posts.length})
-            </button>
+              <button
+                onClick={() => setActiveTab('overview')}
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
+                  activeTab === 'overview'
+                    ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20 font-bold'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                }`}
+              >
+                <Eye className="w-4 h-4" />
+                <span>Ringkasan (Overview)</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab('leads')}
-              className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
-                activeTab === 'leads'
-                  ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-900'
-              }`}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              Leads & Konsultasi ({leads.length})
-            </button>
+              <button
+                onClick={() => setActiveTab('leads')}
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
+                  activeTab === 'leads'
+                    ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20 font-bold'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                }`}
+              >
+                <Users className="w-4 h-4" />
+                <span>Data Leads Konsultasi</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab('deploy')}
-              className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
-                activeTab === 'deploy'
-                  ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-900'
-              }`}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Deploy & Integrasi
-            </button>
-          </nav>
+              <button
+                onClick={() => setActiveTab('deploy')}
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium transition-all ${
+                  activeTab === 'deploy'
+                    ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20 font-bold'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                }`}
+              >
+                <RefreshCw className="w-4 h-4" />
+                <span>Deploy & Integrasi</span>
+              </button>
+            </nav>
 
-          <div className="mt-8 p-4 bg-slate-900/60 border border-slate-800 rounded-xl">
-            <h4 className="text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-2">WordPress Builder</h4>
-            <p className="text-[11px] text-slate-500 leading-relaxed mb-3">
-              Landing page standalone di <code>/solution/[slug]</code> dikelola langsung melalui WordPress.
-            </p>
-            <a
-              href="https://solusiaplikasi.id/solution/wp-login.php?access=solusi_admin_secure_access_2026"
-              target="_blank"
-              rel="noreferrer"
-              className="block text-center py-2 px-3 bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs font-medium rounded-lg transition-colors border border-slate-700/60"
-            >
-              Buka WP Admin &rarr;
-            </a>
-          </div>
-        </aside>
+            <div className="mt-6 p-4 bg-slate-900/60 border border-slate-800 rounded-xl">
+              <h4 className="text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-2">
+                WordPress Builder
+              </h4>
+              <p className="text-[11px] text-slate-400 leading-relaxed mb-3">
+                Landing page standalone di <code>/solution/[slug]</code> dikelola via WordPress.
+              </p>
+              <a
+                href="https://solusiaplikasi.id/solution/wp-login.php?access=solusi_admin_secure_access_2026"
+                target="_blank"
+                rel="noreferrer"
+                className="block text-center py-2 px-3 bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs font-medium rounded-lg transition-colors border border-slate-700/60"
+              >
+                Buka WP Admin &rarr;
+              </a>
+            </div>
+          </aside>
+        )}
 
         {/* Content Area */}
         <main className="flex-1 min-w-0">
-          {/* TAB 1: OVERVIEW */}
+          {/* TAB 1: ARTICLES (MAIN FEATURE) */}
+          {activeTab === 'articles' && (
+            <div>
+              {articleViewMode === 'form' ? (
+                <ArticleForm
+                  initialData={editingArticle}
+                  onSave={handleSaveArticle}
+                  onCancel={() => {
+                    setArticleViewMode('list');
+                    setEditingArticle(null);
+                  }}
+                />
+              ) : (
+                <div className="space-y-6">
+                  {/* Top Action Bar */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <h2 className="text-xl font-bold text-white tracking-tight">
+                        Manajemen Articles
+                      </h2>
+                      <p className="text-xs text-slate-400">
+                        Buat, edit, dan kelola seluruh artikel wawasan edukasi & SEO SolusiAplikasi.id
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        setEditingArticle(null);
+                        setArticleViewMode('form');
+                      }}
+                      className="px-4 py-2.5 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-xl shadow-md shadow-sky-600/30 transition-all flex items-center gap-2 cursor-pointer self-start sm:self-auto"
+                    >
+                      <Plus className="w-4 h-4" />
+                      <span>Tulis Artikel Baru</span>
+                    </button>
+                  </div>
+
+                  {/* Search and Filters */}
+                  <div className="p-4 bg-slate-900 border border-slate-800 rounded-xl flex flex-col sm:flex-row items-center gap-3">
+                    <div className="relative flex-1 w-full">
+                      <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Cari berdasarkan judul artikel, slug, atau nama penulis..."
+                        className="w-full pl-10 pr-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                      />
+                    </div>
+
+                    <div className="flex items-center gap-2 w-full sm:w-auto">
+                      <Filter className="w-3.5 h-3.5 text-slate-400" />
+                      <select
+                        value={categoryFilter}
+                        onChange={(e) => setCategoryFilter(e.target.value)}
+                        className="px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:ring-1 focus:ring-sky-500 w-full sm:w-auto"
+                      >
+                        <option value="ALL">Semua Kategori</option>
+                        <option value="Technology">Technology</option>
+                        <option value="AI & Automation">AI & Automation</option>
+                        <option value="Enterprise IT">Enterprise IT</option>
+                        <option value="Fintech and Economy">Fintech and Economy</option>
+                        <option value="Document Management">Document Management</option>
+                        <option value="Case Study">Case Study</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Articles Table */}
+                  <div className="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs text-left">
+                        <thead className="bg-slate-950/60 text-slate-400 border-b border-slate-800 uppercase tracking-wider font-semibold text-[11px]">
+                          <tr>
+                            <th className="py-3.5 px-4">Artikel</th>
+                            <th className="py-3.5 px-4">Kategori</th>
+                            <th className="py-3.5 px-4">Penulis</th>
+                            <th className="py-3.5 px-4">Status</th>
+                            <th className="py-3.5 px-4">Tanggal</th>
+                            <th className="py-3.5 px-4 text-right">Aksi</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60">
+                          {filteredArticles.length === 0 ? (
+                            <tr>
+                              <td colSpan={6} className="py-12 text-center text-slate-500">
+                                <FileText className="w-8 h-8 mx-auto mb-2 opacity-40" />
+                                <p className="text-xs font-semibold">Tidak ada artikel yang cocok.</p>
+                              </td>
+                            </tr>
+                          ) : (
+                            filteredArticles.map((article) => (
+                              <tr key={article.id} className="hover:bg-slate-800/40 transition-colors">
+                                {/* Article Title & Thumbnail */}
+                                <td className="py-3.5 px-4 max-w-sm">
+                                  <div className="flex items-center gap-3">
+                                    <img
+                                      src={article.featuredImage?.url || '/images/articles/article-thumb-1.jpg'}
+                                      alt={article.title}
+                                      className="w-12 h-10 object-cover rounded-lg border border-slate-800 shrink-0 bg-slate-950"
+                                    />
+                                    <div className="min-w-0">
+                                      <h4 className="font-bold text-white text-xs truncate hover:text-sky-400 transition-colors">
+                                        <a href={`/articles/${article.slug}`} target="_blank" rel="noreferrer">
+                                          {article.title}
+                                        </a>
+                                      </h4>
+                                      <div className="text-[11px] text-slate-400 font-mono truncate">
+                                        /articles/{article.slug}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+
+                                {/* Category */}
+                                <td className="py-3.5 px-4 whitespace-nowrap">
+                                  <span className="px-2.5 py-1 rounded-md text-[10px] font-semibold bg-sky-950/80 text-sky-400 border border-sky-800/60">
+                                    {article.categories[0]?.name || 'Umum'}
+                                  </span>
+                                </td>
+
+                                {/* Author */}
+                                <td className="py-3.5 px-4 whitespace-nowrap">
+                                  <div className="flex items-center gap-2">
+                                    <img
+                                      src={article.author.avatarUrl}
+                                      alt={article.author.name}
+                                      className="w-6 h-6 rounded-full object-cover border border-slate-700"
+                                    />
+                                    <span className="text-slate-300 font-medium">
+                                      {article.author.name}
+                                    </span>
+                                  </div>
+                                </td>
+
+                                {/* Status */}
+                                <td className="py-3.5 px-4 whitespace-nowrap">
+                                  {/* @ts-expect-error extended property */}
+                                  {article.status === 'draft' ? (
+                                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-950/80 text-amber-400 border border-amber-800/60">
+                                      Draft
+                                    </span>
+                                  ) : (
+                                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950/80 text-emerald-400 border border-emerald-800/60">
+                                      Published
+                                    </span>
+                                  )}
+                                </td>
+
+                                {/* Date */}
+                                <td className="py-3.5 px-4 text-slate-400 whitespace-nowrap text-[11px]">
+                                  <div className="flex items-center gap-1.5">
+                                    <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                                    <span>
+                                      {new Date(article.publishedAt).toLocaleDateString('id-ID', {
+                                        day: 'numeric',
+                                        month: 'short',
+                                        year: 'numeric',
+                                      })}
+                                    </span>
+                                  </div>
+                                </td>
+
+                                {/* Actions */}
+                                <td className="py-3.5 px-4 text-right whitespace-nowrap">
+                                  <div className="flex items-center justify-end gap-2">
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setEditingArticle(article);
+                                        setArticleViewMode('form');
+                                      }}
+                                      className="p-1.5 rounded-lg bg-slate-800 hover:bg-sky-600 text-slate-300 hover:text-white transition-colors"
+                                      title="Edit Artikel"
+                                    >
+                                      <Edit3 className="w-3.5 h-3.5" />
+                                    </button>
+
+                                    <a
+                                      href={`/articles/${article.slug}`}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+                                      title="Buka Halaman Artikel"
+                                    >
+                                      <ExternalLink className="w-3.5 h-3.5 text-sky-400" />
+                                    </a>
+
+                                    <button
+                                      type="button"
+                                      onClick={() => handleDeleteArticle(article.id, article.title)}
+                                      className="p-1.5 rounded-lg bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white transition-colors"
+                                      title="Hapus Artikel"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            ))
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 2: OVERVIEW */}
           {activeTab === 'overview' && (
             <div className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-5 bg-slate-900/80 border border-slate-800 rounded-xl">
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Artikel</div>
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    Total Articles
+                  </div>
                   <div className="text-3xl font-black text-white mt-2">{posts.length}</div>
-                  <div className="text-[11px] text-sky-400 mt-1">Statis di /articles</div>
+                  <div className="text-[11px] text-sky-400 mt-1">Tersedia di /articles</div>
                 </div>
 
                 <div className="p-5 bg-slate-900/80 border border-slate-800 rounded-xl">
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Leads Masuk</div>
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    Leads Masuk
+                  </div>
                   <div className="text-3xl font-black text-white mt-2">{leads.length}</div>
                   <div className="text-[11px] text-emerald-400 mt-1">Formulir Konsultasi</div>
                 </div>
 
                 <div className="p-5 bg-slate-900/80 border border-slate-800 rounded-xl">
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Status Situs</div>
-                  <div className="text-3xl font-black text-emerald-400 mt-2">Aktif</div>
-                  <div className="text-[11px] text-slate-400 mt-1">Astro + Apache 2.4</div>
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    Status Sistem
+                  </div>
+                  <div className="text-3xl font-black text-emerald-400 mt-2 flex items-center gap-2">
+                    <CheckCircle2 className="w-7 h-7 text-emerald-400" />
+                    <span>Aktif</span>
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-1">Astro + Vercel / cPanel</div>
                 </div>
               </div>
 
@@ -309,7 +668,7 @@ export default function AdminDashboard() {
                 <div>
                   <h3 className="text-sm font-bold text-white">Publikasi & Deploy Ulang Otomatis</h3>
                   <p className="text-xs text-slate-400 mt-1">
-                    Memicu rebuild Astro dan menyinkronkan seluruh halaman ke hosting cPanel melalui GitHub Actions.
+                    Memicu rebuild Astro dan menyinkronkan seluruh halaman ke hosting melalui GitHub Actions / Vercel.
                   </p>
                 </div>
                 <button
@@ -321,179 +680,6 @@ export default function AdminDashboard() {
                   {buildStatus === 'success' && <span>✅ Berhasil Dideploy!</span>}
                   {buildStatus === 'idle' && <span>⚡ Build Ulang Sekarang</span>}
                 </button>
-              </div>
-
-              {/* Recent Leads Preview */}
-              <div className="p-6 bg-slate-900/80 border border-slate-800 rounded-xl">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-bold text-white">Leads Terbaru Masuk</h3>
-                  <button onClick={() => setActiveTab('leads')} className="text-xs text-sky-400 hover:underline">
-                    Lihat Semua &rarr;
-                  </button>
-                </div>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full text-xs text-left">
-                    <thead className="bg-slate-800/60 text-slate-400 border-b border-slate-800">
-                      <tr>
-                        <th className="py-2.5 px-3">Nama</th>
-                        <th className="py-2.5 px-3">Kontak</th>
-                        <th className="py-2.5 px-3">Perusahaan</th>
-                        <th className="py-2.5 px-3">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-800/60">
-                      {leads.slice(0, 3).map((l) => (
-                        <tr key={l.id}>
-                          <td className="py-3 px-3 font-semibold text-white">{l.name}</td>
-                          <td className="py-3 px-3 text-slate-400">{l.email}</td>
-                          <td className="py-3 px-3 text-slate-300">{l.company}</td>
-                          <td className="py-3 px-3">
-                            <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-sky-950 text-sky-400 border border-sky-800/60">
-                              {l.status}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* TAB 2: ARTICLES */}
-          {activeTab === 'articles' && (
-            <div className="space-y-6">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                  <h2 className="text-base font-bold text-white">Daftar Artikel & Wawasan</h2>
-                  <p className="text-xs text-slate-400">Kelola artikel blog untuk arsitektur konten Astro statis</p>
-                </div>
-                <button
-                  onClick={() => setShowAddArticle(true)}
-                  className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold rounded-lg shadow-md transition-all flex items-center gap-1.5"
-                >
-                  <span>+</span> Tulis Artikel Baru
-                </button>
-              </div>
-
-              {/* Modal Add Article */}
-              {showAddArticle && (
-                <div className="p-6 bg-slate-900 border border-sky-600/40 rounded-xl shadow-2xl">
-                  <h3 className="text-sm font-bold text-white mb-4">Buat Artikel Baru</h3>
-                  <form onSubmit={handleSaveArticle} className="space-y-4">
-                    <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-1">Judul Artikel *</label>
-                      <input
-                        type="text"
-                        required
-                        value={newTitle}
-                        onChange={(e) => setNewTitle(e.target.value)}
-                        placeholder="Contoh: Mengoptimalkan Kecepatan Web Statis Enterprise"
-                        className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:ring-1 focus:ring-sky-500"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-medium text-slate-300 mb-1">Slug URL (Opsional)</label>
-                        <input
-                          type="text"
-                          value={newSlug}
-                          onChange={(e) => setNewSlug(e.target.value)}
-                          placeholder="mengoptimalkan-kecepatan-web"
-                          className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:ring-1 focus:ring-sky-500"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-medium text-slate-300 mb-1">Kategori</label>
-                        <select
-                          value={newCategory}
-                          onChange={(e) => setNewCategory(e.target.value)}
-                          className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:ring-1 focus:ring-sky-500"
-                        >
-                          <option value="Teknologi Web">Teknologi Web</option>
-                          <option value="Arsitektur Sistem">Arsitektur Sistem</option>
-                          <option value="Integrasi Enterprise">Integrasi Enterprise</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-1">
-                        Ringkasan / Ringkasan Jawaban GEO (40-60 kata)
-                      </label>
-                      <textarea
-                        rows={3}
-                        required
-                        value={newExcerpt}
-                        onChange={(e) => setNewExcerpt(e.target.value)}
-                        placeholder="Ringkasan padat dan jelas untuk featured snippet & AI citation..."
-                        className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:ring-1 focus:ring-sky-500"
-                      />
-                    </div>
-
-                    <div className="flex justify-end gap-2 pt-2">
-                      <button
-                        type="button"
-                        onClick={() => setShowAddArticle(false)}
-                        className="px-4 py-2 bg-slate-800 text-slate-400 hover:text-white rounded-lg text-xs"
-                      >
-                        Batal
-                      </button>
-                      <button
-                        type="submit"
-                        className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg text-xs font-semibold"
-                      >
-                        Simpan Artikel
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              )}
-
-              {/* Table of Articles */}
-              <div className="p-6 bg-slate-900/80 border border-slate-800 rounded-xl">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-xs text-left">
-                    <thead className="bg-slate-800/60 text-slate-400 border-b border-slate-800">
-                      <tr>
-                        <th className="py-2.5 px-3">Judul Artikel</th>
-                        <th className="py-2.5 px-3">Kategori</th>
-                        <th className="py-2.5 px-3">Penulis</th>
-                        <th className="py-2.5 px-3">Tanggal</th>
-                        <th className="py-2.5 px-3 text-right">Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-800/60">
-                      {posts.map((p) => (
-                        <tr key={p.id}>
-                          <td className="py-3 px-3 font-semibold text-white max-w-xs truncate">
-                            <a href={`/articles/${p.slug}`} target="_blank" rel="noreferrer" className="hover:text-sky-400">
-                              {p.title}
-                            </a>
-                          </td>
-                          <td className="py-3 px-3 text-slate-400">{p.categories[0]?.name || 'Umum'}</td>
-                          <td className="py-3 px-3 text-slate-300">{p.author.name}</td>
-                          <td className="py-3 px-3 text-slate-400">
-                            {new Date(p.publishedAt).toLocaleDateString('id-ID')}
-                          </td>
-                          <td className="py-3 px-3 text-right">
-                            <a
-                              href={`/articles/${p.slug}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="text-sky-400 hover:underline mr-3"
-                            >
-                              Lihat
-                            </a>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
               </div>
             </div>
           )}
@@ -510,9 +696,6 @@ export default function AdminDashboard() {
                   onClick={handleExportCSV}
                   className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-lg shadow-md transition-all flex items-center gap-1.5"
                 >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
                   Ekspor ke CSV
                 </button>
               </div>
@@ -605,6 +788,17 @@ export default function AdminDashboard() {
           )}
         </main>
       </div>
+
+      <CustomModal
+        isOpen={modalConfig.isOpen}
+        type={modalConfig.type}
+        title={modalConfig.title}
+        message={modalConfig.message}
+        confirmLabel={modalConfig.confirmLabel}
+        cancelLabel={modalConfig.cancelLabel}
+        onConfirm={modalConfig.onConfirm}
+        onCancel={modalConfig.onCancel}
+      />
     </div>
   );
 }
