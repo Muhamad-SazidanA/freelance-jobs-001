@@ -1,0 +1,1005 @@
+[
+  {
+    "id": "post-1",
+    "slug": "lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-1",
+    "title": "Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit",
+    "publishedAt": "2026-10-14T08:00:00Z",
+    "updatedAt": "2026-10-14T09:30:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "/images/articles/article-thumb-1.jpg",
+      "alt": "Penyedia Tanda Tangan Elektronik Tersertifikasi PSrE 2026",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-tech",
+        "name": "Technology",
+        "slug": "technology"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-psre",
+        "name": "PSrE",
+        "slug": "psre"
+      },
+      {
+        "id": "tag-esign",
+        "name": "E-Signature",
+        "slug": "e-signature"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 6,
+    "seo": {
+      "title": "Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-2",
+    "slug": "sed-do-eiusmod-tempor-incididunt-ut-labore-et-dolore-2",
+    "title": "Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore",
+    "publishedAt": "2026-10-13T09:00:00Z",
+    "updatedAt": "2026-10-13T10:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Panduan Lengkap Penagihan Perpajakan Bisnis Tanpa Repot",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-fintech",
+        "name": "Fintech and Economy",
+        "slug": "fintech-economy"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-tax",
+        "name": "Tax Automation",
+        "slug": "tax-automation"
+      },
+      {
+        "id": "tag-erp",
+        "name": "ERP",
+        "slug": "erp"
+      }
+    ],
+    "author": {
+      "id": "auth-2",
+      "name": "Ahmad Fauzi",
+      "slug": "ahmad-fauzi",
+      "role": "Principal Solutions Architect",
+      "bio": "Praktisi arsitektur enterprise dengan spesialisasi kepatuhan pajak digital dan financial workflow.",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 7,
+    "seo": {
+      "title": "Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-3",
+    "slug": "duis-aute-irure-dolor-in-reprehenderit-in-voluptate-3",
+    "title": "Duis Aute Irure Dolor in Reprehenderit in Voluptate",
+    "publishedAt": "2026-10-12T07:15:00Z",
+    "updatedAt": "2026-10-12T08:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Duis Aute Irure Dolor in Reprehenderit in Voluptate</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Cara Buat VCC dengan 3 Cara Mudah & Cepat",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-fintech",
+        "name": "Fintech and Economy",
+        "slug": "fintech-economy"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-vcc",
+        "name": "VCC",
+        "slug": "vcc"
+      },
+      {
+        "id": "tag-expense",
+        "name": "Expense Management",
+        "slug": "expense-management"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Duis Aute Irure Dolor in Reprehenderit in Voluptate | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-4",
+    "slug": "excepteur-sint-occaecat-cupidatat-non-proident-sunt-4",
+    "title": "Excepteur Sint Occaecat Cupidatat Non Proident Sunt",
+    "publishedAt": "2026-10-10T11:00:00Z",
+    "updatedAt": "2026-10-10T12:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Excepteur Sint Occaecat Cupidatat Non Proident Sunt</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "/images/articles/article-thumb-2.jpg",
+      "alt": "10 Document Management System Terbaik untuk Perusahaan RI",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-tech",
+        "name": "Technology",
+        "slug": "technology"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-dms",
+        "name": "DMS",
+        "slug": "dms"
+      },
+      {
+        "id": "tag-docuflo",
+        "name": "Docuflo",
+        "slug": "docuflo"
+      }
+    ],
+    "author": {
+      "id": "auth-3",
+      "name": "Dimas Saputra",
+      "slug": "dimas-saputra",
+      "role": "Enterprise Systems Consultant",
+      "bio": "Konsultan tata kelola arsip digital dan kepatuhan sistem informasi.",
+      "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 6,
+    "seo": {
+      "title": "Excepteur Sint Occaecat Cupidatat Non Proident Sunt | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-5",
+    "slug": "unde-omnis-iste-natus-error-sit-voluptatem-accusantium-5",
+    "title": "Unde Omnis Iste Natus Error Sit Voluptatem Accusantium",
+    "publishedAt": "2026-10-09T08:30:00Z",
+    "updatedAt": "2026-10-09T10:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Unde Omnis Iste Natus Error Sit Voluptatem Accusantium</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "/images/articles/article-thumb-3.jpg",
+      "alt": "10 OCR Terbaik di Indonesia untuk Bisnis",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-ai",
+        "name": "AI & Automation",
+        "slug": "ai-automation"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-ocr",
+        "name": "AI OCR",
+        "slug": "ai-ocr"
+      },
+      {
+        "id": "tag-nanonets",
+        "name": "Nanonets",
+        "slug": "nanonets"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 7,
+    "seo": {
+      "title": "Unde Omnis Iste Natus Error Sit Voluptatem Accusantium | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-6",
+    "slug": "totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-6",
+    "title": "Totam Rem Aperiam Eaque Ipsa Quae Ab Illo Inventore",
+    "publishedAt": "2026-10-08T10:00:00Z",
+    "updatedAt": "2026-10-08T11:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Totam Rem Aperiam Eaque Ipsa Quae Ab Illo Inventore</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "/images/articles/article-thumb-4.jpg",
+      "alt": "Cyclone RPA Otomasi Invoice Processing & 3 Way Matching",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-ai",
+        "name": "AI & Automation",
+        "slug": "ai-automation"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-rpa",
+        "name": "Cyclone RPA",
+        "slug": "cyclone-rpa"
+      },
+      {
+        "id": "tag-ap",
+        "name": "Accounts Payable",
+        "slug": "accounts-payable"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 6,
+    "seo": {
+      "title": "Totam Rem Aperiam Eaque Ipsa Quae Ab Illo Inventore | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-7",
+    "slug": "nemo-enim-ipsam-voluptatem-quia-voluptas-sit-aspernatur-7",
+    "title": "Nemo Enim Ipsam Voluptatem Quia Voluptas Sit Aspernatur",
+    "publishedAt": "2026-10-07T09:00:00Z",
+    "updatedAt": "2026-10-07T09:30:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Nemo Enim Ipsam Voluptatem Quia Voluptas Sit Aspernatur</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1450133064473-71024230f91b?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Apa itu DMS Document Management System",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-tech",
+        "name": "Technology",
+        "slug": "technology"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-dms",
+        "name": "DMS",
+        "slug": "dms"
+      }
+    ],
+    "author": {
+      "id": "auth-4",
+      "name": "Admin SAI",
+      "slug": "admin-sai",
+      "role": "Editorial & Research Team",
+      "bio": "Tim riset teknologi dan otomasi proses Solusi Aplikasi Integrasi.",
+      "avatarUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Nemo Enim Ipsam Voluptatem Quia Voluptas Sit Aspernatur | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-8",
+    "slug": "neque-porro-quisquam-est-qui-dolorem-ipsum-quia-dolor-8",
+    "title": "Neque Porro Quisquam Est Qui Dolorem Ipsum Quia Dolor",
+    "publishedAt": "2026-10-06T14:00:00Z",
+    "updatedAt": "2026-10-06T15:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Neque Porro Quisquam Est Qui Dolorem Ipsum Quia Dolor</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Partner Resmi Server HPE Indonesia & Storage Enterprise",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-infra",
+        "name": "IT Infrastructure",
+        "slug": "it-infrastructure"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-hpe",
+        "name": "HPE Server",
+        "slug": "hpe-server"
+      },
+      {
+        "id": "tag-storage",
+        "name": "Storage Enterprise",
+        "slug": "storage-enterprise"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Neque Porro Quisquam Est Qui Dolorem Ipsum Quia Dolor | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-9",
+    "slug": "ut-enim-ad-minima-veniam-quis-nostrum-exercitationem-9",
+    "title": "Ut Enim Ad Minima Veniam Quis Nostrum Exercitationem",
+    "publishedAt": "2026-10-05T08:00:00Z",
+    "updatedAt": "2026-10-05T09:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Ut Enim Ad Minima Veniam Quis Nostrum Exercitationem</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Nurse Call System Rumah Sakit Panduan Lengkap",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-tech",
+        "name": "Technology",
+        "slug": "technology"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-hospital",
+        "name": "Smart Hospital",
+        "slug": "smart-hospital"
+      },
+      {
+        "id": "tag-nursecall",
+        "name": "Nurse Call",
+        "slug": "nurse-call"
+      }
+    ],
+    "author": {
+      "id": "auth-3",
+      "name": "Dimas Saputra",
+      "slug": "dimas-saputra",
+      "role": "Enterprise Systems Consultant",
+      "bio": "Konsultan tata kelola arsip digital dan kepatuhan sistem informasi.",
+      "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Ut Enim Ad Minima Veniam Quis Nostrum Exercitationem | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-10",
+    "slug": "quis-autem-vel-eum-iure-reprehenderit-qui-in-ea-10",
+    "title": "Quis Autem Vel Eum Iure Reprehenderit Qui in Ea",
+    "publishedAt": "2026-10-04T10:30:00Z",
+    "updatedAt": "2026-10-04T11:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Quis Autem Vel Eum Iure Reprehenderit Qui in Ea</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
+      "alt": "OCR vs IDP Perbedaan Fungsi dan Cara Memilih",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-ai",
+        "name": "AI & Automation",
+        "slug": "ai-automation"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-ocr",
+        "name": "OCR",
+        "slug": "ocr"
+      },
+      {
+        "id": "tag-idp",
+        "name": "IDP",
+        "slug": "idp"
+      }
+    ],
+    "author": {
+      "id": "auth-2",
+      "name": "Ahmad Fauzi",
+      "slug": "ahmad-fauzi",
+      "role": "Principal Solutions Architect",
+      "bio": "Praktisi arsitektur enterprise dengan spesialisasi kepatuhan pajak digital dan financial workflow.",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Quis Autem Vel Eum Iure Reprehenderit Qui in Ea | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-11",
+    "slug": "at-vero-eos-et-accusamus-et-iusto-odio-dignissimos-11",
+    "title": "At Vero Eos Et Accusamus Et Iusto Odio Dignissimos",
+    "publishedAt": "2026-10-03T11:00:00Z",
+    "updatedAt": "2026-10-03T11:30:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>At Vero Eos Et Accusamus Et Iusto Odio Dignissimos</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Server vs Cloud untuk Rumah Sakit",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-infra",
+        "name": "IT Infrastructure",
+        "slug": "it-infrastructure"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-cloud",
+        "name": "Cloud",
+        "slug": "cloud"
+      },
+      {
+        "id": "tag-server",
+        "name": "Server",
+        "slug": "server"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 6,
+    "seo": {
+      "title": "At Vero Eos Et Accusamus Et Iusto Odio Dignissimos | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-12",
+    "slug": "nam-libero-tempore-cum-soluta-nobis-est-eligendi-12",
+    "title": "Nam Libero Tempore Cum Soluta Nobis Est Eligendi",
+    "publishedAt": "2026-10-02T13:00:00Z",
+    "updatedAt": "2026-10-02T13:45:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Nam Libero Tempore Cum Soluta Nobis Est Eligendi</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Apa Itu Smart Hospital",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-tech",
+        "name": "Technology",
+        "slug": "technology"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-iot",
+        "name": "IoT",
+        "slug": "iot"
+      },
+      {
+        "id": "tag-smarthospital",
+        "name": "Smart Hospital",
+        "slug": "smart-hospital"
+      }
+    ],
+    "author": {
+      "id": "auth-3",
+      "name": "Dimas Saputra",
+      "slug": "dimas-saputra",
+      "role": "Enterprise Systems Consultant",
+      "bio": "Konsultan tata kelola arsip digital dan kepatuhan sistem informasi.",
+      "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 4,
+    "seo": {
+      "title": "Nam Libero Tempore Cum Soluta Nobis Est Eligendi | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-13",
+    "slug": "temporibus-autem-quibusdam-et-aut-officiis-debitis-13",
+    "title": "Temporibus Autem Quibusdam Et Aut Officiis Debitis",
+    "publishedAt": "2026-10-01T15:00:00Z",
+    "updatedAt": "2026-10-01T16:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Temporibus Autem Quibusdam Et Aut Officiis Debitis</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Vendor DMS Terbaik di Indonesia",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-tech",
+        "name": "Technology",
+        "slug": "technology"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-dms",
+        "name": "DMS",
+        "slug": "dms"
+      },
+      {
+        "id": "tag-vendor",
+        "name": "Vendor Selection",
+        "slug": "vendor-selection"
+      }
+    ],
+    "author": {
+      "id": "auth-4",
+      "name": "Admin SAI",
+      "slug": "admin-sai",
+      "role": "Editorial & Research Team",
+      "bio": "Tim riset teknologi dan otomasi proses Solusi Aplikasi Integrasi.",
+      "avatarUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Temporibus Autem Quibusdam Et Aut Officiis Debitis | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-14",
+    "slug": "itaque-earum-rerum-hic-tenetur-a-sapiente-delectus-14",
+    "title": "Itaque Earum Rerum Hic Tenetur A Sapiente Delectus",
+    "publishedAt": "2026-09-28T09:00:00Z",
+    "updatedAt": "2026-09-28T10:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Itaque Earum Rerum Hic Tenetur A Sapiente Delectus</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Software Accounts Payable Automation Fitur dan Cara Kerja",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-fintech",
+        "name": "Fintech and Economy",
+        "slug": "fintech-economy"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-ap",
+        "name": "AP Automation",
+        "slug": "ap-automation"
+      },
+      {
+        "id": "tag-spensify",
+        "name": "Spensify",
+        "slug": "spensify"
+      }
+    ],
+    "author": {
+      "id": "auth-2",
+      "name": "Ahmad Fauzi",
+      "slug": "ahmad-fauzi",
+      "role": "Principal Solutions Architect",
+      "bio": "Praktisi arsitektur enterprise dengan spesialisasi kepatuhan pajak digital dan financial workflow.",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Itaque Earum Rerum Hic Tenetur A Sapiente Delectus | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-15",
+    "slug": "reiciendis-maioribus-alias-consequatur-aut-perferendis-15",
+    "title": "Reiciendis Maioribus Alias Consequatur Aut Perferendis",
+    "publishedAt": "2026-09-25T11:00:00Z",
+    "updatedAt": "2026-09-25T11:30:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Reiciendis Maioribus Alias Consequatur Aut Perferendis</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Apa itu RPA Pengertian Cara Kerja Manfaat",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-ai",
+        "name": "AI & Automation",
+        "slug": "ai-automation"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-rpa",
+        "name": "RPA",
+        "slug": "rpa"
+      },
+      {
+        "id": "tag-automation",
+        "name": "Hyperautomation",
+        "slug": "hyperautomation"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 6,
+    "seo": {
+      "title": "Reiciendis Maioribus Alias Consequatur Aut Perferendis | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-16",
+    "slug": "laboriosam-nisi-ut-aliquid-ex-ea-commodi-consequatur-16",
+    "title": "Laboriosam Nisi Ut Aliquid Ex Ea Commodi Consequatur",
+    "publishedAt": "2026-09-22T08:00:00Z",
+    "updatedAt": "2026-09-22T09:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Laboriosam Nisi Ut Aliquid Ex Ea Commodi Consequatur</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Cara Memilih Vendor RPA di Indonesia",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-ai",
+        "name": "AI & Automation",
+        "slug": "ai-automation"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-rpa",
+        "name": "RPA",
+        "slug": "rpa"
+      },
+      {
+        "id": "tag-vendor",
+        "name": "Vendor Selection",
+        "slug": "vendor-selection"
+      }
+    ],
+    "author": {
+      "id": "auth-3",
+      "name": "Dimas Saputra",
+      "slug": "dimas-saputra",
+      "role": "Enterprise Systems Consultant",
+      "bio": "Konsultan tata kelola arsip digital dan kepatuhan sistem informasi.",
+      "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Laboriosam Nisi Ut Aliquid Ex Ea Commodi Consequatur | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-17",
+    "slug": "quis-nostrud-exercitation-ullamco-laboris-nisi-ut-aliquip-17",
+    "title": "Quis Nostrud Exercitation Ullamco Laboris Nisi Ut Aliquip",
+    "publishedAt": "2026-09-20T10:00:00Z",
+    "updatedAt": "2026-09-20T10:30:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Quis Nostrud Exercitation Ullamco Laboris Nisi Ut Aliquip</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Robotic Process Automation Tren Hyperautomation",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-ai",
+        "name": "AI & Automation",
+        "slug": "ai-automation"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-ai",
+        "name": "Generative AI",
+        "slug": "generative-ai"
+      },
+      {
+        "id": "tag-rpa",
+        "name": "RPA",
+        "slug": "rpa"
+      }
+    ],
+    "author": {
+      "id": "auth-2",
+      "name": "Ahmad Fauzi",
+      "slug": "ahmad-fauzi",
+      "role": "Principal Solutions Architect",
+      "bio": "Praktisi arsitektur enterprise dengan spesialisasi kepatuhan pajak digital dan financial workflow.",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 6,
+    "seo": {
+      "title": "Quis Nostrud Exercitation Ullamco Laboris Nisi Ut Aliquip | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-18",
+    "slug": "velit-esse-cillum-dolore-eu-fugiat-nulla-pariatur-18",
+    "title": "Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur",
+    "publishedAt": "2026-09-18T13:00:00Z",
+    "updatedAt": "2026-09-18T14:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Nanonets Ekstrak Data Dokumen dalam Hitungan Detik",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-ai",
+        "name": "AI & Automation",
+        "slug": "ai-automation"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-nanonets",
+        "name": "Nanonets",
+        "slug": "nanonets"
+      },
+      {
+        "id": "tag-ocr",
+        "name": "AI OCR",
+        "slug": "ai-ocr"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-19",
+    "slug": "suscipit-laboriosam-nisi-ut-aliquid-ex-ea-commodi-19",
+    "title": "Suscipit Laboriosam Nisi Ut Aliquid Ex Ea Commodi",
+    "publishedAt": "2026-09-15T09:00:00Z",
+    "updatedAt": "2026-09-15T09:45:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Suscipit Laboriosam Nisi Ut Aliquid Ex Ea Commodi</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Biaya Implementasi RPA di Indonesia Panduan Lengkap",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-ai",
+        "name": "AI & Automation",
+        "slug": "ai-automation"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-rpa",
+        "name": "RPA",
+        "slug": "rpa"
+      },
+      {
+        "id": "tag-roi",
+        "name": "ROI",
+        "slug": "roi"
+      }
+    ],
+    "author": {
+      "id": "auth-2",
+      "name": "Ahmad Fauzi",
+      "slug": "ahmad-fauzi",
+      "role": "Principal Solutions Architect",
+      "bio": "Praktisi arsitektur enterprise dengan spesialisasi kepatuhan pajak digital dan financial workflow.",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 6,
+    "seo": {
+      "title": "Suscipit Laboriosam Nisi Ut Aliquid Ex Ea Commodi | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-20",
+    "slug": "corporis-suscipit-laboriosam-nisi-ut-aliquid-ex-ea-20",
+    "title": "Corporis Suscipit Laboriosam Nisi Ut Aliquid Ex Ea",
+    "publishedAt": "2026-09-12T14:00:00Z",
+    "updatedAt": "2026-09-12T15:00:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Corporis Suscipit Laboriosam Nisi Ut Aliquid Ex Ea</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Huawei WiFi 7 Solusi AirEngine untuk Campus Network",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-infra",
+        "name": "IT Infrastructure",
+        "slug": "it-infrastructure"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-wifi7",
+        "name": "WiFi 7",
+        "slug": "wifi-7"
+      },
+      {
+        "id": "tag-huawei",
+        "name": "Huawei",
+        "slug": "huawei"
+      }
+    ],
+    "author": {
+      "id": "auth-1",
+      "name": "Rian Pratama",
+      "slug": "rian-pratama",
+      "role": "Solutions Architect & Tech Lead",
+      "bio": "Spesialis arsitektur sistem keamanan digital dan integrasi enterprise.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Corporis Suscipit Laboriosam Nisi Ut Aliquid Ex Ea | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  },
+  {
+    "id": "post-21",
+    "slug": "fugiat-quo-voluptas-nulla-pariatur-at-vero-eos-21",
+    "title": "Fugiat Quo Voluptas Nulla Pariatur At Vero Eos",
+    "publishedAt": "2026-09-10T08:00:00Z",
+    "updatedAt": "2026-09-10T10:30:00Z",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "quickAnswerSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.",
+    "content": "<h2>Fugiat Quo Voluptas Nulla Pariatur At Vero Eos</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><h3>Principia et Consectetur Adipiscing</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><ul><li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li><li>Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</li><li>Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.</li><li>Dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum.</li></ul><blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.”</p></blockquote><h3>Temporibus Autem et Soluta Nobis</h3><p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>",
+    "featuredImage": {
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=80",
+      "alt": "Arsitektur Headless Astro dan WordPress",
+      "width": 1200,
+      "height": 630
+    },
+    "categories": [
+      {
+        "id": "cat-tech",
+        "name": "Technology",
+        "slug": "technology"
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-astro",
+        "name": "Astro",
+        "slug": "astro"
+      },
+      {
+        "id": "tag-headless",
+        "name": "Headless CMS",
+        "slug": "headless-cms"
+      }
+    ],
+    "author": {
+      "id": "auth-2",
+      "name": "Ahmad Fauzi",
+      "slug": "ahmad-fauzi",
+      "role": "Principal Solutions Architect",
+      "bio": "Praktisi arsitektur enterprise dengan spesialisasi kepatuhan pajak digital dan financial workflow.",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
+    },
+    "readingTimeMinutes": 5,
+    "seo": {
+      "title": "Fugiat Quo Voluptas Nulla Pariatur At Vero Eos | SAI Insights",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  }
+]

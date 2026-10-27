@@ -1,0 +1,67 @@
+# WordPress .htaccess di /solution/ subfolder
+# Upload ke: public_html/solution/.htaccess
+# ==============================================================================
+
+# Blok akses file-file sensitif WordPress
+<FilesMatch "(wp-config\.php|readme\.html|license\.txt|upgrade\.php|install\.php)">
+  Require all denied
+</FilesMatch>
+
+# Blok xmlrpc.php (vektor serangan umum — brute force, DDoS amplification)
+<Files xmlrpc.php>
+  Require all denied
+</Files>
+
+# Blok akses langsung ke wp-cron.php dari luar (jalankan via WP_CRON_LOCK)
+<Files wp-cron.php>
+  Require all denied
+</Files>
+
+# Blok akses ke file PHP di wp-content/uploads (upload exploit prevention)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^wp-content/uploads/.*\.php$ - [F,L]
+</IfModule>
+
+# Batasi metode HTTP yang diizinkan
+<LimitExcept GET POST PUT PATCH DELETE OPTIONS HEAD>
+  Require all denied
+</LimitExcept>
+
+# WordPress Rewrite Rules — WAJIB ada untuk clean URL
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /solution/
+
+    # Skip rewrite untuk file atau folder yang benar-benar ada
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Semua URL lain -> index.php WordPress
+    RewriteRule . /solution/index.php [L]
+</IfModule>
+
+# Cache headers untuk assets WordPress
+<IfModule mod_expires.c>
+    ExpiresActive On
+    <FilesMatch "\.(css|js|woff2|webp|avif|png|jpg|jpeg|svg|gif|ico)$">
+        ExpiresDefault "access plus 1 year"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|woff2|webp|avif|png|jpg|jpeg|svg|gif|ico)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    # No-cache untuk HTML WordPress (PHP-generated)
+    <FilesMatch "\.php$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+    </FilesMatch>
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json text/xml image/svg+xml
+</IfModule>

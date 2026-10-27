@@ -1,0 +1,27 @@
+---
+// src/components/common/SiteTemplate.astro
+// Unified Template: Header + Footer + Floating WhatsApp Icon (Bottom Right)
+import Header from '@/components/common/Header.astro';
+import Footer from '@/components/common/Footer.astro';
+import WhatsAppButton from '@/components/common/WhatsAppButton.astro';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+---
+
+<!-- Site Header -->
+<Header currentPath={currentPath} />
+
+<!-- Main Content Slot -->
+<main id="main-content" class="flex-1 w-full">
+  <slot />
+</main>
+
+<!-- Site Footer -->
+<Footer />
+
+<!-- Floating WhatsApp Button (Bottom-Right Corner) -->
+<WhatsAppButton />

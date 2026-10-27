@@ -1,0 +1,689 @@
+---
+// IntegratedSolutionsSection.astro
+// Pure Astro + Vanilla JS — no React hydration, no flash on refresh
+
+const products = [
+  {
+    id: 'nanonets',
+    name: 'Nanonets',
+    logo: '/images/home/Product/Logo/nanonets.webp',
+    neonColor: '#2563eb',
+    neonRgb: '37, 99, 235',
+    category: 'AI Document OCR',
+    tagline: 'Intelligent Document Processing & Data Extraction',
+    badge: 'Akurasi 99%+ • Multi-bahasa',
+    description:
+      'Ekstraksi data otomatis dari faktur, invoice, formulir pajak, dan dokumen keuangan secara instan dengan AI deep learning. Mengeliminasi 90% waktu input manual dengan akurasi teruji dan siap terintegrasi ke ERP perusahaan.',
+    features: [
+      'Ekstraksi OCR deep learning untuk tabel rumit, tulisan tangan & multi-format',
+      'Validasi otomatis 3-way matching terhadap Purchase Order & Faktur Pajak',
+      'Integrasi REST API & webhook instan ke SAP, Odoo, Oracle, dan SQL database',
+    ],
+    specs: [
+      { label: 'Efisiensi Waktu', value: 'Hingga 90%' },
+      { label: 'Tingkat Akurasi', value: '99.8%' },
+      { label: 'Waktu Pemrosesan', value: '< 3 Detik / Hal' },
+    ],
+    ctaUrl: '/products/nanonets',
+    dotColor: '#2563eb',
+    badgeCls: 'bg-sky-50 text-sky-700 border-sky-200',
+    previewBadge: 'Deep OCR Model v3.4',
+    previewBadgeCls: 'bg-sky-500/20 text-sky-300 border-sky-500/40',
+    preview: `<div class="space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <div>
+          <div class="text-[11px] text-slate-400 uppercase tracking-wider">Tipe Dokumen</div>
+          <div class="text-xs font-bold text-white">Faktur Pajak &amp; Invoice Komersial</div>
+        </div>
+        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40">Deep OCR Model v3.4</span>
+      </div>
+      <div class="bg-slate-900/90 rounded-lg p-3 border border-slate-800 space-y-2 text-xs">
+        <div class="flex justify-between items-center text-[11px]"><span class="text-slate-400">Nomor Invoice:</span><span class="font-mono font-bold text-sky-300">INV-2026/X/0842</span></div>
+        <div class="flex justify-between items-center text-[11px]"><span class="text-slate-400">Nama Vendor:</span><span class="font-semibold text-slate-200">PT Mitra Logistik Nusantara</span></div>
+        <div class="flex justify-between items-center text-[11px]"><span class="text-slate-400">Total Tagihan:</span><span class="font-mono font-bold text-emerald-400">Rp 184.250.000</span></div>
+        <div class="flex justify-between items-center text-[11px]"><span class="text-slate-400">3-Way PO Match:</span><span class="text-emerald-400 flex items-center gap-1 font-semibold">&#10003; Match PO #PO-991204</span></div>
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-center text-[11px]">
+        <div class="p-2 rounded bg-slate-900 border border-slate-800"><span class="text-slate-400 block text-[10px]">Akurasi OCR</span><span class="font-bold text-sky-400">99.85% Terverifikasi</span></div>
+        <div class="p-2 rounded bg-slate-900 border border-slate-800"><span class="text-slate-400 block text-[10px]">Status Integrasi</span><span class="font-bold text-emerald-400">Ekspor SAP Siap</span></div>
+      </div>
+    </div>`,
+  },
+  {
+    id: 'cyclone',
+    name: 'CYCLONE',
+    logo: '/images/home/Product/Logo/cyclone.webp',
+    neonColor: '#ea580c',
+    neonRgb: '234, 88, 12',
+    category: 'Enterprise RPA',
+    tagline: 'Next-Gen Robotic Process Automation Engine',
+    badge: 'Operasi 24/7 • Zero Human Error',
+    description:
+      'Bot RPA cerdas untuk mengeksekusi pekerjaan repetitif lintas software tanpa perlu merombak sistem legacy. Mengotomatiskan rekonsiliasi data, penarikan laporan harian, dan sinkronisasi antar cabang secara konsisten dan terukur.',
+    features: [
+      'Otomatisasi antarmuka desktop, web portal, & terminal mainframe',
+      'Centralized Orchestrator memonitor antrean kerja dan status bot secara real-time',
+      'Audit log detail dan proteksi keamanan tingkat perbankan',
+    ],
+    specs: [
+      { label: 'Waktu Operasi', value: '24/7 Tanpa Henti' },
+      { label: 'Error Rate', value: '0% Pada Task Rutin' },
+      { label: 'Konektor Legacy', value: 'Desktop / Web / DB' },
+    ],
+    ctaUrl: '/products/cyclone',
+    dotColor: '#ea580c',
+    badgeCls: 'bg-orange-50 text-orange-700 border-orange-200',
+    preview: `<div class="space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <div><div class="text-[11px] text-slate-400 uppercase tracking-wider">Bot Orchestrator</div><div class="text-xs font-bold text-white">3 Bot Aktif • 0 Antrean Terhenti</div></div>
+        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-500/20 text-orange-300 border border-orange-500/40">RPA Core v5.1</span>
+      </div>
+      <div class="space-y-2 text-xs">
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">Bot Rekonsiliasi Bank Harian</div><div class="text-[10px] text-slate-400">Pencocokan mutasi 4 bank nasional</div></div><span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">Berjalan (98%)</span></div>
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">Bot Input Surat Jalan ERP</div><div class="text-[10px] text-slate-400">Sinkronisasi gudang cabang ke SAP</div></div><span class="text-[10px] font-bold text-sky-400 bg-sky-950/60 px-2 py-0.5 rounded border border-sky-800">Siaga Antrean</span></div>
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">Bot Validasi Pajak e-Faktur</div><div class="text-[10px] text-slate-400">Penarikan status persetujuan DJP</div></div><span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">Selesai (0 Error)</span></div>
+      </div>
+      <div class="p-2 rounded bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-400 flex justify-between items-center"><span>Total Transaksi Diproses:</span><span class="font-mono font-bold text-white">1.482.930 Baris Data</span></div>
+    </div>`,
+  },
+  {
+    id: 'docuflo',
+    name: 'Docuflo',
+    logo: '/images/home/Product/Logo/docuflo.webp',
+    neonColor: '#dc2626',
+    neonRgb: '220, 38, 38',
+    category: 'Document Management (DMS)',
+    tagline: 'Centralized Digital Archive & Governance System',
+    badge: 'Enkripsi AES-256 • Kepatuhan UU PDP',
+    description:
+      'Repositori dokumen digital enterprise tersentralisasi dengan kontrol hak akses bertingkat, digital signature tersertifikasi, versioning terjamin, dan audit trail lengkap untuk menjamin kepatuhan tata kelola korporasi.',
+    features: [
+      'Pencarian cerdas berbasis metadata dan full-text search instan',
+      'Alur approval digital berjenjang dengan tanda tangan elektronik tersertifikasi',
+      'Retensi berkas otomatis sesuai aturan hukum dan standar ISO 27001',
+    ],
+    specs: [
+      { label: 'Standar Enkripsi', value: 'AES-256 / TLS 1.3' },
+      { label: 'Kepatuhan', value: 'UU PDP & ISO 27001' },
+      { label: 'Indexing Berkas', value: 'Full-text & Metadata' },
+    ],
+    ctaUrl: '/products/docuflo',
+    dotColor: '#dc2626',
+    badgeCls: 'bg-red-50 text-red-700 border-red-200',
+    preview: `<div class="space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <div><div class="text-[11px] text-slate-400 uppercase tracking-wider">Repositori Enterprise</div><div class="text-xs font-bold text-white">Tata Kelola &amp; Audit Trail Aktif</div></div>
+        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-500/20 text-red-300 border border-red-500/40">AES-256 Enkripsi</span>
+      </div>
+      <div class="space-y-2 text-xs">
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">PKS_Vendor_Logistik_2026.pdf</div><div class="text-[10px] text-slate-400">Digital Sign: Terverifikasi • Versi 3.2</div></div><span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">Signed</span></div>
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">Laporan_Audit_Keuangan_Q3.xlsx</div><div class="text-[10px] text-slate-400">Approval Direksi: Selesai • Versi 2.0</div></div><span class="text-[10px] font-bold text-sky-400 bg-sky-950/60 px-2 py-0.5 rounded border border-sky-800">Approved</span></div>
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">SOP_Keamanan_Data_PDP.docx</div><div class="text-[10px] text-slate-400">Retensi: 5 Tahun • Akses: Granular Legal</div></div><span class="text-[10px] font-bold text-red-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-800">Archived</span></div>
+      </div>
+      <div class="p-2 rounded bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-400 flex justify-between items-center"><span>Kepatuhan Regulasi:</span><span class="font-semibold text-emerald-400">UU PDP &amp; ISO 27001 Compliant</span></div>
+    </div>`,
+  },
+  {
+    id: 'syclus',
+    name: 'SYCLUS',
+    logo: '/images/home/Product/Logo/syclus.webp',
+    neonColor: '#0284c7',
+    neonRgb: '2, 132, 199',
+    category: 'AP Automation',
+    tagline: 'Automating Finance for Faster Payments',
+    badge: '3-Way Matching • Auto-Approved',
+    description:
+      'Sistem manajemen tiket insiden IT terpadu, pelacakan siklus hidup aset hardware dan software, service desk otomatis, serta SLA monitoring transparan untuk menjaga kelancaran operasional seluruh cabang.',
+    features: [
+      'Routing tiket otomatis berdasarkan prioritas bisnis dan keahlian tim',
+      'Inventarisasi aset hardware, pelacakan masa garansi & lisensi software',
+      'Dashboard analitik performa teknisi dan kepatuhan Service Level Agreement',
+    ],
+    specs: [
+      { label: 'Target SLA', value: '99.9% Uptime' },
+      { label: 'Framework', value: 'ITIL Best Practices' },
+      { label: 'Asset Tracking', value: 'Hardware & License' },
+    ],
+    ctaUrl: '/products/syclus',
+    dotColor: '#0284c7',
+    badgeCls: 'bg-cyan-50 text-cyan-800 border-cyan-200',
+    preview: `<div class="space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <div><div class="text-[11px] text-slate-400 uppercase tracking-wider">Service Desk &amp; Aset</div><div class="text-xs font-bold text-white">SLA Tracking Real-Time</div></div>
+        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">ITIL Certified</span>
+      </div>
+      <div class="space-y-2 text-xs">
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">[INC-4482] Gangguan Jaringan Cabang</div><div class="text-[10px] text-slate-400">Prioritas: Tinggi • Sisa Waktu SLA: 45 Menit</div></div><span class="text-[10px] font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800">In Progress</span></div>
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">[REQ-8910] Pengadaan Laptop &amp; Lisensi</div><div class="text-[10px] text-slate-400">Departemen: Finance • Status: Approval Manager</div></div><span class="text-[10px] font-bold text-sky-400 bg-sky-950/60 px-2 py-0.5 rounded border border-sky-800">Reviewing</span></div>
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">[AST-1044] Audit Lisensi Software Tahunan</div><div class="text-[10px] text-slate-400">Total Lisensi: 420 • Utilisasi: 96%</div></div><span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">Healthy</span></div>
+      </div>
+      <div class="p-2 rounded bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-400 flex justify-between items-center"><span>Pencapaian SLA Bulanan:</span><span class="font-mono font-bold text-emerald-400">99.92% (Target &gt; 99.0%)</span></div>
+    </div>`,
+  },
+  {
+    id: 'spensify',
+    name: 'Spensify',
+    logo: '/images/home/Product/Logo/spensify.webp',
+    neonColor: '#059669',
+    neonRgb: '5, 150, 105',
+    category: 'Expense Management System',
+    tagline: 'Simplify Expense Tracking, Control Spending & Improve Financial Visibility',
+    badge: 'Mobile OCR Scan • Anti-Fraud Matching',
+    description:
+      'Spensify adalah platform manajemen pengeluaran yang membantu perusahaan mencatat dan memantau biaya operasional, mengelola anggaran, mengatur persetujuan pengeluaran, serta memantau transaksi dalam satu sistem terintegrasi.',
+    features: [
+      'Scan struk/nota pengeluaran instan lewat kamera smartphone dengan auto-crop',
+      'Deteksi duplikasi struk dan anomali nominal klaim otomatis sebelum disetujui',
+      'Persetujuan bertingkat cepat dengan notifikasi WhatsApp dan integrasi ERP',
+    ],
+    specs: [
+      { label: 'Waktu Input Klaim', value: '< 30 Detik' },
+      { label: 'Proteksi Fraud', value: 'Auto-Duplicate Check' },
+      { label: 'Integrasi Dana', value: 'Multi-Bank Transfer' },
+    ],
+    ctaUrl: '/products/spensify',
+    dotColor: '#059669',
+    badgeCls: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    preview: `<div class="space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <div><div class="text-[11px] text-slate-400 uppercase tracking-wider">Klaim Pengeluaran</div><div class="text-xs font-bold text-white">Mobile Scan &amp; Otomatisasi Klaim</div></div>
+        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Mobile OCR Engine</span>
+      </div>
+      <div class="space-y-2 text-xs">
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">Bensin &amp; Tol Operasional Kunjungan</div><div class="text-[10px] text-slate-400">Scan OCR: Rp 450.000 • Nota Asli Terverifikasi</div></div><span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">Verified</span></div>
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">Tiket Pesawat &amp; Akomodasi Audit</div><div class="text-[10px] text-slate-400">Scan OCR: Rp 2.340.000 • Sesuai Plafon Travel</div></div><span class="text-[10px] font-bold text-sky-400 bg-sky-950/60 px-2 py-0.5 rounded border border-sky-800">Approved</span></div>
+        <div class="bg-slate-900/90 rounded-lg p-2.5 border border-slate-800 flex items-center justify-between"><div><div class="font-bold text-white text-[11px]">Deteksi Duplikasi Klaim</div><div class="text-[10px] text-slate-400">Sistem membandingkan nomor transaksi struk</div></div><span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">0 Anomali</span></div>
+      </div>
+      <div class="p-2 rounded bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-400 flex justify-between items-center"><span>Penyelesaian Reimbursement:</span><span class="font-semibold text-emerald-400">Transfer Otomatis ke Rekening Karyawan</span></div>
+    </div>`,
+  },
+];
+---
+
+<section id="solusi" class="py-12 md:py-16 bg-slate-50/60 border-y border-slate-200/70">
+  <div class="max-w-[1206px] mx-auto px-4 xl:px-0">
+
+    <!-- Section Header - Clean & Understated -->
+    <div class="max-w-2xl mx-auto text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+        5 Solusi Terintegrasi
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+        Pakai satu sesuai kebutuhan Anda sekarang, atau gabungkan bertahap seiring proses bisnis berkembang.
+      </p>
+    </div>
+
+    <!-- Floating Logo Tabs with Ambient Neon Glow -->
+    <div
+      id="iss-tabs"
+      class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6 mb-10 max-w-4xl mx-auto"
+      role="tablist"
+      aria-label="Pilihan Solusi Terintegrasi"
+    >
+      {products.map((product, i) => (
+        <button
+          type="button"
+          data-tab={product.id}
+          role="tab"
+          aria-selected={i === 0 ? "true" : "false"}
+          aria-controls={`panel-${product.id}`}
+          id={`tab-${product.id}`}
+          style={`--neon-rgb: ${product.neonRgb};`}
+          class={`iss-tab relative py-2.5 px-4 sm:px-6 rounded-xl cursor-pointer flex items-center justify-center transition-all duration-200 ${i === 0 ? 'active' : ''}`}
+          title={product.name}
+        >
+          <img
+            src={product.logo}
+            alt={product.name}
+            class="iss-tab-img h-6 sm:h-7 md:h-7.5 w-auto max-w-[90px] sm:max-w-[110px] md:max-w-[125px] object-contain transition-all duration-200 pointer-events-none select-none"
+            loading="lazy"
+          />
+        </button>
+      ))}
+    </div>
+
+    <!-- Product Panels -->
+    <div class="relative w-full">
+      {products.map((product, i) => {
+        if (product.id === 'nanonets') {
+          return (
+            <div
+              id={`panel-${product.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${product.id}`}
+              class={`iss-panel bg-white border border-slate-200/80 rounded-2xl md:rounded-3xl overflow-hidden shadow-xs p-6 sm:p-8 md:p-10 lg:py-4 lg:pl-10 lg:pr-6 xl:pl-11 xl:pr-8 w-full max-w-[1206px] min-h-[487px] lg:h-[487px] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center ${i !== 0 ? 'hidden' : ''}`}
+            >
+              {/* Nanonets Custom Clean Panel (following Cyclone typography & composition) */}
+              <div class="lg:col-span-6 flex flex-col justify-center items-start space-y-3.5 sm:space-y-4 pr-0 lg:pr-3 h-full">
+                <img
+                  src={product.logo}
+                  alt={product.name}
+                  class="h-8 sm:h-9 md:h-10 w-auto object-contain mb-1 sm:mb-2 self-start"
+                  loading="lazy"
+                />
+
+                {/* 3 Text Elements: Dibuat rapat jaraknya */}
+                <div class="w-full space-y-1.5 sm:space-y-2">
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight whitespace-normal xl:whitespace-nowrap">
+                    Intelligent Document Processing
+                  </h3>
+                  <p class="text-base sm:text-lg font-bold text-[#0866D3] leading-snug">
+                    AI-Powered Document Automation Platform
+                  </p>
+                  <p class="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal pt-0.5">
+                    Nanonets adalah platform cerdas untuk otomatisasi dokumen, dirancang untuk mengekstrak informasi penting dari berbagai dokumen seperti receipt, invoice, surat medis, dan formulir. Cocok untuk perusahaan di banyak sektor seperti keuangan, kesehatan, logistik, dan banyak lagi.
+                  </p>
+                </div>
+
+                <div class="pt-4 sm:pt-5 lg:pt-6">
+                  <a
+                    href="/products/nanonets"
+                    class="inline-flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-3 bg-[#0866D3] hover:bg-[#0756b3] text-white text-sm sm:text-base font-semibold rounded-xl shadow-md transition-all duration-200"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Content: Nanonets Visual Article Preview Graphic (Enlarged to almost card height) */}
+              <div class="lg:col-span-6 flex items-center justify-center lg:justify-end h-full">
+                <img
+                  src="/images/home/Product/Article/Nanonets/Nanonets.webp"
+                  alt="Nanonets Intelligent Document Processing Platform Preview"
+                  class="w-auto h-auto max-h-[380px] sm:max-h-[420px] lg:max-h-[455px] max-w-full object-contain drop-shadow-md"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        }
+
+        if (product.id === 'cyclone') {
+          return (
+            <div
+              id={`panel-${product.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${product.id}`}
+              class={`iss-panel relative rounded-2xl md:rounded-3xl overflow-hidden border border-slate-800 bg-slate-950 w-full max-w-[1206px] min-h-[487px] lg:h-[487px] shadow-xl ${i !== 0 ? 'hidden' : ''}`}
+              style="background-image: url('/images/home/Product/Article/Cyclone/Cyclone-BG.webp'); background-size: cover; background-position: center right;"
+            >
+              {/* Dark overlay gradient for readability */}
+              <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 lg:via-black/75 to-black/35 pointer-events-none z-0" />
+
+              {/* Left Content: Cyclone Brand & Details */}
+              <div class="relative z-10 w-full lg:w-[58%] xl:w-[56%] max-w-[690px] xl:max-w-[730px] h-full flex flex-col justify-center items-start p-6 sm:p-8 md:p-10 lg:p-11 xl:pl-12 space-y-3.5 sm:space-y-4">
+                <img
+                  src="/images/home/Product/Article/Cyclone/Cyclone-White.webp"
+                  alt="Cyclone RPA"
+                  class="h-8 sm:h-9 md:h-10 w-auto object-contain mb-1 sm:mb-2 self-start"
+                  loading="lazy"
+                />
+
+                {/* 3 Text Elements: Dibuat rapat jaraknya */}
+                <div class="w-full space-y-1.5 sm:space-y-2">
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight whitespace-normal xl:whitespace-nowrap">
+                    Robotic Process Automation
+                  </h3>
+                  <p class="text-base sm:text-lg font-bold text-[#f26522] leading-snug">
+                    Automating Repetitive Tasks with Speed &amp; Accuracy
+                  </p>
+                  <p class="text-xs sm:text-sm md:text-base text-slate-200/90 leading-relaxed font-normal max-w-[640px] xl:max-w-[680px] pt-0.5">
+                    Cyclone adalah platform Robotic Process Automation (RPA) yang dirancang untuk mengotomatisasi pekerjaan administratif yang repetitif, seperti input data, proses laporan, hingga integrasi antar sistem. Dengan Cyclone, perusahaan dapat bekerja lebih cepat, mengurangi human error.
+                  </p>
+                </div>
+
+                <div class="pt-5 sm:pt-6 lg:pt-7">
+                  <a
+                    href="/products/cyclone"
+                    class="inline-flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-3 bg-[#f26522] hover:bg-[#ea580c] text-white text-sm sm:text-base font-semibold rounded-xl shadow-md transition-all duration-200"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Visual: Cyclone Dashboard Preview (Shifted to right matching Image 1) */}
+              <div class="hidden lg:block absolute left-[54%] xl:left-[55%] bottom-0 w-[780px] xl:w-[820px] max-w-none pointer-events-none select-none">
+                <img
+                  src="/images/home/Product/Article/Cyclone/Cyclone-Dashboard.webp"
+                  alt="Cyclone Automation Marketplace Dashboard"
+                  class="w-full h-auto object-contain block drop-shadow-2xl"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Mobile View Visual (< lg) */}
+              <div class="lg:hidden w-full overflow-hidden flex justify-end pl-6 pb-0 pt-2 -mr-6 sm:-mr-10">
+                <img
+                  src="/images/home/Product/Article/Cyclone/Cyclone-Dashboard.webp"
+                  alt="Cyclone Automation Marketplace Dashboard"
+                  class="w-[120%] sm:w-[110%] max-w-none object-contain block"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        }
+
+        if (product.id === 'docuflo') {
+          return (
+            <div
+              id={`panel-${product.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${product.id}`}
+              class={`iss-panel bg-white border border-slate-200/80 rounded-2xl md:rounded-3xl overflow-hidden shadow-xs p-6 sm:p-8 md:p-10 lg:p-11 w-full max-w-[1206px] min-h-[487px] lg:h-[487px] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center ${i !== 0 ? 'hidden' : ''}`}
+            >
+              {/* Left Content: Docuflo Brand & Details */}
+              <div class="lg:col-span-6 flex flex-col justify-start items-start space-y-3.5 sm:space-y-4 pr-0 lg:pr-3">
+                <img
+                  src="/images/home/Product/Article/Docuflo/docuflo-Logo.webp"
+                  alt="Docuflo"
+                  class="h-8 sm:h-9 md:h-10 w-auto object-contain mb-1 sm:mb-2 self-start"
+                  loading="lazy"
+                />
+
+                {/* 3 Text Elements: Dibuat rapat jaraknya */}
+                <div class="w-full space-y-1.5 sm:space-y-2">
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight whitespace-normal xl:whitespace-nowrap">
+                    Document Management System
+                  </h3>
+                  <p class="text-base sm:text-lg font-bold text-red-600 leading-snug">
+                    Smart &amp; Secure Document Control
+                  </p>
+                  <p class="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal pt-0.5">
+                    Docuflo adalah sistem manajemen dokumen digital yang membantu perusahaan menyimpan, mengelola, dan mengakses dokumen dengan lebih mudah dan aman. Dengan Docuflo, organisasi dapat mengurangi ketergantungan pada dokumen fisik, meningkatkan kolaborasi, serta memastikan kepatuhan terhadap standar regulasi.
+                  </p>
+                </div>
+
+                <div class="pt-4 sm:pt-5 lg:pt-6">
+                  <a
+                    href="/products/docuflo"
+                    class="inline-flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-3 bg-red-600 hover:bg-red-700 text-white text-sm sm:text-base font-semibold rounded-xl shadow-md transition-all duration-200"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Visual: Docuflo Visual Preview Graphic */}
+              <div class="lg:col-span-6 flex items-center justify-center h-full">
+                <img
+                  src="/images/home/Product/Article/Docuflo/Docuflo.webp"
+                  alt="Docuflo Document Management System Preview"
+                  class="w-auto h-auto max-h-[350px] lg:max-h-[370px] max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        }
+
+        if (product.id === 'syclus') {
+          return (
+            <div
+              id={`panel-${product.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${product.id}`}
+              class={`iss-panel bg-white border border-slate-200/80 rounded-2xl md:rounded-3xl overflow-hidden shadow-xs p-6 sm:p-8 md:p-10 lg:p-11 w-full max-w-[1206px] min-h-[487px] lg:h-[487px] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center ${i !== 0 ? 'hidden' : ''}`}
+            >
+              {/* Left Content: Syclus Brand & Details */}
+              <div class="lg:col-span-6 flex flex-col justify-start items-start space-y-3.5 sm:space-y-4 pr-0 lg:pr-3">
+                <img
+                  src="/images/home/Product/Article/Syclus/syclus-Logo.webp"
+                  alt="Syclus"
+                  class="h-8 sm:h-9 md:h-10 w-auto object-contain mb-1 sm:mb-2 self-start"
+                  loading="lazy"
+                />
+
+                {/* 3 Text Elements: Dibuat rapat jaraknya */}
+                <div class="w-full space-y-1.5 sm:space-y-2">
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight whitespace-normal xl:whitespace-nowrap">
+                    AP Automation
+                  </h3>
+                  <p class="text-base sm:text-lg font-bold text-[#0284c7] leading-snug">
+                    Automating Finance for Faster Payments
+                  </p>
+                  <p class="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal pt-0.5">
+                    Syclus adalah solusi otomatisasi Accounts Payable yang mempercepat pembayaran, mengurangi kesalahan, dan menjaga arus kas tetap sehat melalui 3-Way Matching otomatis. Syclus memverifikasi invoice, purchase order, penerimaan barang, dan kontrak secara otomatis.
+                  </p>
+                </div>
+
+                <div class="pt-4 sm:pt-5 lg:pt-6">
+                  <a
+                    href="/products/syclus"
+                    class="inline-flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-3 bg-[#0284c7] hover:bg-[#0369a1] text-white text-sm sm:text-base font-semibold rounded-xl shadow-md transition-all duration-200"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Visual: Syclus Visual Preview Graphic */}
+              <div class="lg:col-span-6 flex items-center justify-center h-full">
+                <img
+                  src="/images/home/Product/Article/Syclus/Syclus.webp"
+                  alt="Syclus AP Automation Dashboard Preview"
+                  class="w-auto h-auto max-h-[350px] lg:max-h-[370px] max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        }
+
+        if (product.id === 'spensify') {
+          return (
+            <div
+              id={`panel-${product.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${product.id}`}
+              class={`iss-panel relative rounded-2xl md:rounded-3xl overflow-hidden border border-emerald-900/30 bg-[#094727] w-full max-w-[1206px] min-h-[487px] lg:h-[487px] shadow-xl ${i !== 0 ? 'hidden' : ''}`}
+              style="background-image: url('/images/home/Product/Article/Spensify/Spensify-BG.webp'); background-size: cover; background-position: center right;"
+            >
+              {/* Left Content: Spensify Brand & Details */}
+              <div class="relative z-10 w-full lg:w-[58%] xl:w-[56%] max-w-[690px] xl:max-w-[730px] h-full flex flex-col justify-center items-start p-6 sm:p-8 md:p-10 lg:p-11 xl:pl-12 space-y-3.5 sm:space-y-4">
+                <img
+                  src="/images/home/Product/Article/Spensify/Spensify-White.webp"
+                  alt="Spensify"
+                  class="h-8 sm:h-9 md:h-10 w-auto object-contain mb-1 sm:mb-2 self-start"
+                  loading="lazy"
+                />
+
+                {/* 3 Text Elements: Dibuat rapat jaraknya */}
+                <div class="w-full space-y-1.5 sm:space-y-2">
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight whitespace-normal xl:whitespace-nowrap">
+                    Expense Management System
+                  </h3>
+                  <p class="text-base sm:text-lg font-bold text-white leading-snug">
+                    Simplify Expense Tracking, Control Spending &amp; Improve Financial Visibility
+                  </p>
+                  <p class="text-xs sm:text-sm md:text-base text-white/90 leading-relaxed font-normal max-w-[640px] xl:max-w-[680px] pt-0.5">
+                    Spensify adalah platform manajemen pengeluaran yang membantu perusahaan mencatat dan memantau biaya operasional, mengelola anggaran, mengatur persetujuan pengeluaran, serta memantau transaksi dalam satu sistem terintegrasi.
+                  </p>
+                </div>
+
+                <div class="pt-5 sm:pt-6 lg:pt-7">
+                  <a
+                    href="/products/spensify"
+                    class="inline-flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-3 bg-white hover:bg-slate-100 text-[#094727] text-sm sm:text-base font-bold rounded-xl shadow-md transition-all duration-200"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Visual: Spensify Dashboard Preview (Uncropped image shifted so right widget overflow is hidden by card overflow-hidden) */}
+              <div class="hidden lg:block absolute left-[52%] xl:left-[53%] top-[65px] w-[790px] xl:w-[810px] max-w-none pointer-events-none select-none">
+                <img
+                  src="/images/home/Product/Article/Spensify/Spensify-Dashboard.webp"
+                  alt="Spensify Expense Management System Dashboard"
+                  class="w-full h-auto object-contain block drop-shadow-2xl"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Mobile View Visual (< lg) */}
+              <div class="lg:hidden w-full overflow-hidden flex justify-end pl-6 pb-0 pt-2 -mr-16 sm:-mr-24">
+                <img
+                  src="/images/home/Product/Article/Spensify/Spensify-Dashboard.webp"
+                  alt="Spensify Expense Management System Dashboard"
+                  class="w-[135%] sm:w-[125%] max-w-none object-contain block"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        }
+
+        return (
+          <div
+            id={`panel-${product.id}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${product.id}`}
+            class={`iss-panel bg-white border border-slate-200/80 rounded-2xl md:rounded-3xl shadow-xs p-5 sm:p-7 md:p-8 w-full max-w-[1206px] min-h-[487px] lg:h-[487px] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center ${i !== 0 ? 'hidden' : ''}`}
+          >
+            {/* Standard Content for other products */}
+            <div class="lg:col-span-6 space-y-3.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-xl sm:text-2xl font-black tracking-tight text-slate-900">{product.name}</span>
+                <span class="text-xs text-slate-300">/</span>
+                <span class="text-xs font-semibold text-slate-600 uppercase tracking-wider">{product.category}</span>
+                <span class={`inline-flex items-center text-[10px] font-semibold px-2 py-0.5 rounded border ${product.badgeCls}`}>{product.badge}</span>
+              </div>
+
+              <h3 class="text-base sm:text-lg md:text-xl font-bold text-slate-900 leading-snug">{product.tagline}</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{product.description}</p>
+
+              <!-- Feature Points -->
+              <div class="space-y-2 pt-0.5">
+                {product.features.map((feat) => (
+                  <div class="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
+                    <span class="w-4 h-4 rounded bg-sky-50 text-sky-700 border border-sky-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>{feat}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Specs Bar - Slim -->
+              <div class="grid grid-cols-3 gap-2 pt-2.5 pb-1 border-t border-slate-100">
+                {product.specs.map((spec) => (
+                  <div class="bg-slate-50/70 rounded-lg p-2 border border-slate-100 text-center">
+                    <div class="text-[10px] text-slate-500 font-medium">{spec.label}</div>
+                    <div class="text-xs sm:text-sm font-bold text-slate-900 mt-0.5">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+
+              <!-- CTAs -->
+              <div class="pt-2 flex flex-wrap items-center gap-2.5">
+                <a
+                  href={product.ctaUrl}
+                  class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold rounded-lg shadow-2xs transition-colors"
+                >
+                  <span>Pelajari {product.name}</span>
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+                <a
+                  href={`/request-demo?product=${product.id}`}
+                  class="px-3.5 py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200 text-xs sm:text-sm font-semibold rounded-lg transition-colors"
+                >
+                  Request Demo Terarah
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Product Console / Technical Inspector Preview -->
+            <div class="lg:col-span-6">
+              <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-900 text-white shadow-xs">
+                <!-- Console Status Bar -->
+                <div class="bg-slate-950 px-3.5 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span class="font-mono text-[11px] text-slate-300">app.solusiaplikasi.id/{product.id}</span>
+                  </div>
+                  <div class="flex items-center gap-1.5 text-[10px] text-slate-400 font-mono">
+                    <span>ENTERPRISE READY</span>
+                  </div>
+                </div>
+                <!-- Preview Body -->
+                <div class="p-4 sm:p-5 bg-slate-900/95 font-sans">
+                  <Fragment set:html={product.preview} />
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .iss-tab {
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Inactive tab state: clean, floating brand logos with muted natural colors */
+  .iss-tab:not(.active) .iss-tab-img {
+    opacity: 0.52;
+    filter: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  /* Inactive tab hover: soft lift & clear logo, no harsh borders */
+  .iss-tab:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .iss-tab:not(.active):hover .iss-tab-img {
+    opacity: 0.92;
+    transform: translateY(-1px);
+  }
+
+  /* Active tab: floating crisp white card with soft ambient neon glow underneath */
+  .iss-tab.active {
+    background-color: #ffffff;
+    border-color: rgba(var(--neon-rgb), 0.35);
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      0 6px 18px -2px rgba(var(--neon-rgb), 0.35),
+      0 12px 28px -4px rgba(var(--neon-rgb), 0.15);
+    transform: translateY(-2px);
+  }
+  .iss-tab.active .iss-tab-img {
+    opacity: 1;
+    filter: none;
+  }
+</style>
+
+<script>
+  // Vanilla JS tab switching — runs once DOM is ready, no hydration needed
+  const tabs = document.querySelectorAll<HTMLButtonElement>('#iss-tabs .iss-tab');
+  const panels = document.querySelectorAll<HTMLElement>('.iss-panel');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      // Update tab styles
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      // Show/hide panels
+      panels.forEach((panel) => {
+        const show = panel.id === `panel-${tab.dataset.tab}`;
+        panel.classList.toggle('hidden', !show);
+      });
+    });
+  });
+</script>

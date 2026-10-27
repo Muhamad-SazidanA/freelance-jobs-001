@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdminLogin from '@/components/admin/AdminLogin';
+---
+
+<BaseLayout
+  title="Admin Login | SolusiAplikasi.id"
+  description="Halaman autentikasi panel admin SolusiAplikasi.id."
+  noindex={true}
+>
+  <AdminLogin client:only="react" />
+</BaseLayout>

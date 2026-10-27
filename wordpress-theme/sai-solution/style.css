@@ -1,0 +1,381 @@
+/*
+Theme Name: SAI Solution
+Theme URI: https://solusiaplikasi.id/solution
+Author: PT Solusi Aplikasi Integrasi
+Author URI: https://solusiaplikasi.id
+Description: Custom landing page theme for SAI Solution portal. Brand: Digital Intelligent Automation. Designed to match the main Astro website identity.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+License: Proprietary - All Rights Reserved
+Text Domain: sai-solution
+Tags: landing-page, corporate, custom-colors, custom-logo, featured-images
+*/
+
+/* ==========================================================================
+   Design Tokens — mirrored from Astro global.css
+   ========================================================================== */
+:root {
+  --color-brand-primary: #0f172a;
+  --color-brand-accent:  #0284c7;
+  --color-brand-teal:    #0d9488;
+  --color-brand-slate:   #1e293b;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-brand-slate);
+  background: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* SAI Brand Scrollbar */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background-color: var(--color-brand-accent); border-radius: 9999px; transition: background-color 0.2s ease; }
+::-webkit-scrollbar-thumb:hover { background-color: #0369a1; }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--color-brand-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p { margin-bottom: 1.2em; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--color-brand-accent); text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: #0369a1; }
+
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
+.sai-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+}
+
+.sai-section { padding: clamp(3rem, 8vw, 6rem) 0; }
+.sai-section--sm { padding: clamp(2rem, 5vw, 4rem) 0; }
+.sai-section--dark { background: var(--color-brand-primary); color: #ffffff; }
+.sai-section--accent { background: var(--color-brand-accent); color: #ffffff; }
+.sai-section--light { background: #f8fafc; }
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.sai-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+}
+
+.sai-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 1rem;
+}
+
+.sai-header__logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+.sai-header__logo img { height: 36px; width: auto; }
+.sai-header__logo-text {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--color-brand-primary);
+  line-height: 1.2;
+}
+
+.sai-nav { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
+.sai-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  border-radius: 6px;
+  transition: background-color 0.15s, color 0.15s;
+}
+.sai-nav a:hover { background: #f1f5f9; color: var(--color-brand-primary); }
+.sai-nav a.active { color: var(--color-brand-accent); }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.sai-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.sai-btn--primary {
+  background: var(--color-brand-accent);
+  color: #ffffff;
+  border-color: var(--color-brand-accent);
+  box-shadow: 0 1px 3px rgb(2 132 199 / 0.3);
+}
+.sai-btn--primary:hover {
+  background: #0369a1;
+  border-color: #0369a1;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgb(2 132 199 / 0.4);
+  transform: translateY(-1px);
+}
+
+.sai-btn--outline {
+  background: transparent;
+  color: var(--color-brand-accent);
+  border-color: var(--color-brand-accent);
+}
+.sai-btn--outline:hover {
+  background: var(--color-brand-accent);
+  color: #ffffff;
+}
+
+.sai-btn--white {
+  background: #ffffff;
+  color: var(--color-brand-primary);
+  border-color: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+.sai-btn--white:hover {
+  background: #f1f5f9;
+  color: var(--color-brand-accent);
+  transform: translateY(-1px);
+}
+
+.sai-btn--lg {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.sai-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.sai-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-2px);
+  border-color: rgb(2 132 199 / 0.3);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.sai-footer {
+  background: linear-gradient(135deg, #0062e0 0%, #006bf5 50%, #0052cc 100%);
+  color: #ffffff;
+  padding: 3rem 0 1.5rem;
+  margin-top: auto;
+}
+
+.sai-footer__copy {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.25rem;
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ==========================================================================
+   Hero Sections (for Landing Page Templates)
+   ========================================================================== */
+.sai-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 12vw, 8rem) 0;
+  background: linear-gradient(135deg, var(--color-brand-primary) 0%, #1e3a5f 100%);
+  color: #ffffff;
+}
+
+.sai-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(2, 132, 199, 0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.sai-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sai-hero__tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(2, 132, 199, 0.2);
+  border: 1px solid rgba(2, 132, 199, 0.4);
+  color: #7dd3fc;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.sai-hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.sai-hero__subtitle {
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.sai-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   Testimonial / Social Proof
+   ========================================================================== */
+.sai-testimonial {
+  background: #f8fafc;
+  border-left: 4px solid var(--color-brand-accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #475569;
+}
+
+/* ==========================================================================
+   Trust Bar (logos)
+   ========================================================================== */
+.sai-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem 2.5rem;
+  padding: 1.5rem 0;
+}
+.sai-trust-bar img {
+  height: 32px;
+  width: auto;
+  filter: grayscale(60%);
+  opacity: 0.7;
+  transition: filter 0.2s, opacity 0.2s;
+}
+.sai-trust-bar img:hover { filter: grayscale(0%); opacity: 1; }
+
+/* ==========================================================================
+   Entry Content (WordPress Page/Post content area)
+   ========================================================================== */
+.entry-content { max-width: 100%; }
+.entry-content h1, .entry-content h2, .entry-content h3 { margin-top: 1.75em; margin-bottom: 0.75em; }
+.entry-content p { margin-bottom: 1.25em; line-height: 1.8; color: #334155; }
+.entry-content ul, .entry-content ol { padding-left: 1.5em; margin-bottom: 1.25em; }
+.entry-content li { margin-bottom: 0.4em; }
+.entry-content a { color: var(--color-brand-accent); text-decoration: underline; text-underline-offset: 2px; }
+.entry-content blockquote { border-left: 3px solid var(--color-brand-accent); padding: 0.75em 1em; margin: 1.5em 0; background: #f8fafc; border-radius: 0 8px 8px 0; color: #475569; }
+.entry-content img { border-radius: 12px; margin: 1.5em auto; }
+.entry-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 0.875rem; }
+.entry-content th, .entry-content td { border: 1px solid #e2e8f0; padding: 0.6em 0.9em; }
+.entry-content th { background: #f8fafc; font-weight: 600; }
+
+/* ==========================================================================
+   Responsive Utilities
+   ========================================================================== */
+@media (max-width: 768px) {
+  .sai-nav { display: none; }
+  .sai-header__mobile-toggle { display: block; }
+  .sai-hero { padding: 4rem 0; text-align: left; }
+  .sai-hero__content { text-align: left; }
+  .sai-hero__ctas { justify-content: flex-start; }
+}
+
+@media (min-width: 769px) {
+  .sai-header__mobile-toggle { display: none; }
+}
+
+/* Smooth fade-in for hero elements */
+@keyframes saiSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sai-animate-in { animation: saiSlideUp 0.6s ease forwards; }
+.sai-animate-in--delay-1 { animation-delay: 0.1s; opacity: 0; }
+.sai-animate-in--delay-2 { animation-delay: 0.2s; opacity: 0; }
+.sai-animate-in--delay-3 { animation-delay: 0.3s; opacity: 0; }

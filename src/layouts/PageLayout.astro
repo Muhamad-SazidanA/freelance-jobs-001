@@ -1,0 +1,51 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteTemplate from '@/components/common/SiteTemplate.astro';
+import Breadcrumb from '@/components/common/Breadcrumb.astro';
+import type { BreadcrumbItem } from '@/types/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
+  schema?: Record<string, unknown> | Array<Record<string, unknown> | null | undefined>;
+  htmlClass?: string;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  noindex,
+  breadcrumbs,
+  schema,
+  htmlClass,
+  bodyClass,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  noindex={noindex}
+  schema={schema}
+  htmlClass={htmlClass}
+  bodyClass={bodyClass}
+>
+  <SiteTemplate currentPath={Astro.url.pathname}>
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <div class="max-w-7xl mx-auto px-4 w-full">
+        <Breadcrumb items={breadcrumbs} />
+      </div>
+    )}
+
+    <slot />
+  </SiteTemplate>
+</BaseLayout>

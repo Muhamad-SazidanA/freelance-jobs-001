@@ -1,0 +1,97 @@
+---
+import PageLayout from './PageLayout.astro';
+import type { Post } from '@/types/content';
+import { generateBlogPostSchema, generateBreadcrumbSchema, generateFaqSchema } from '@/lib/schema-ld';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+
+const breadcrumbs = [
+  { name: 'Articles', url: '/articles' },
+  { name: post.title, url: `/articles/${post.slug}` },
+];
+
+const postSchema = generateBlogPostSchema(post);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+const faqSchema = post.faqs ? generateFaqSchema(post.faqs) : null;
+
+const fullSchema = [postSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+---
+
+<PageLayout
+  title={post.seo?.title || post.title}
+  description={post.seo?.description || post.excerpt}
+  canonical={post.seo?.canonical || `https://solusiaplikasi.id/articles/${post.slug}`}
+  ogImage={post.featuredImage?.url}
+  breadcrumbs={breadcrumbs}
+  schema={fullSchema}
+>
+  <article class="max-w-4xl mx-auto px-4 py-8" data-pagefind-body>
+    <!-- Post Header -->
+    <header class="mb-8">
+      <div class="flex items-center gap-2 text-xs text-sky-600 font-semibold mb-2">
+        {post.categories?.map((cat) => (
+          <a href={`/articles/category/${cat.slug}`} class="bg-sky-50 px-2 py-1 rounded hover:bg-sky-100">
+            {cat.name}
+          </a>
+        ))}
+        <span>•</span>
+        <span class="text-slate-500">{post.readingTimeMinutes} menit baca</span>
+      </div>
+
+      <h1 class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-4">
+        {post.title}
+      </h1>
+
+      <div class="flex items-center gap-3 text-xs text-slate-500 pb-4 border-b border-slate-200">
+        <div class="flex items-center gap-2 text-slate-700">
+          <img src={post.author.avatarUrl} alt={post.author.name} class="w-8 h-8 rounded-full object-cover" />
+          <span class="font-medium">{post.author.name}</span>
+        </div>
+        <span>•</span>
+        <time datetime={post.publishedAt}>
+          {new Date(post.publishedAt).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      </div>
+    </header>
+
+    <!-- GEO / AEO Direct Answer Summary Box (PRD Section 7) -->
+    {post.quickAnswerSummary && (
+      <div class="my-6 p-4 bg-sky-50 border-l-4 border-sky-600 rounded-r text-sm text-slate-800 leading-relaxed" data-pagefind-meta="summary">
+        <strong class="block text-sky-900 font-bold mb-1">Ringkasan Cepat:</strong>
+        {post.quickAnswerSummary}
+      </div>
+    )}
+
+    <!-- Featured Image -->
+    {post.featuredImage && (
+      <div class="my-6 rounded-lg overflow-hidden border border-slate-200">
+        <img
+          src={post.featuredImage.url}
+          alt={post.featuredImage.alt}
+          class="w-full h-auto object-cover max-h-96"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    )}
+
+    <!-- Article Content -->
+    <div class="prose prose-slate max-w-none text-sm md:text-base leading-relaxed mb-12">
+      <slot />
+    </div>
+
+    <!-- Author Card (E-E-A-T) -->
+    <div class="p-6 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-4 my-8">
+      <img src={post.author.avatarUrl} alt={post.author.name} class="w-16 h-16 rounded-full object-cover" />
+      <div>
+        <h3 class="font-bold text-sm text-slate-900">{post.author.name}</h3>
+        <p class="text-xs text-sky-600">{post.author.role}</p>
+        <p class="text-xs text-slate-600 mt-1">{post.author.bio}</p>
+      </div>
+    </div>
+  </article>
+</PageLayout>

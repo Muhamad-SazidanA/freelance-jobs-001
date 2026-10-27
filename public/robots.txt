@@ -1,0 +1,26 @@
+# robots.txt for https://solusiaplikasi.id (PRD Section 7)
+User-agent: *
+Allow: /
+
+# Disallow staging and preview environments
+Disallow: /preview/
+Disallow: /staging/
+
+# Allow major AI crawlers for GEO / AEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap
+Sitemap: https://solusiaplikasi.id/sitemap-index.xml

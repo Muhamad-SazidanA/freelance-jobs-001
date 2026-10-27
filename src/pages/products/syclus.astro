@@ -1,0 +1,1190 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import ConsultationCta from '@/components/common/ConsultationCta.astro';
+import { generateBreadcrumbSchema, generateProductSchema, generateFaqSchema } from '@/lib/schema-ld';
+import type { Product } from '@/types/content';
+
+const productData: Product = {
+  id: 'prod-syclus',
+  slug: 'syclus',
+  name: 'Syclus AP Automation',
+  headline: 'Otomatisasi proses Accounts Payable, dari dokumen sampai pembayaran',
+  tagline:
+    'SYCLUS menyederhanakan proses AP di organisasi Anda lewat digitalisasi, otomasi, dan integrasi langsung ke sistem ERP — mengubah verifikasi dokumen yang memakan hari menjadi hitungan menit.',
+  heroImage: '/images/home/home-city-banner.jpg',
+  overview:
+    'SYCLUS menyederhanakan proses AP di organisasi Anda lewat digitalisasi, otomasi, dan integrasi langsung ke sistem ERP — mengubah verifikasi dokumen yang memakan hari menjadi hitungan menit.',
+  features: [
+    {
+      title: 'Storage in a Central Repository',
+      description: 'Penyimpanan terpusat meminimalkan risiko dokumen rusak atau hilang, mengurangi redundansi, dan mempermudah kolaborasi.',
+    },
+    {
+      title: 'Fast Retrieval of Information',
+      description: 'Pengindeksan sistematis membuat konten berharga yang tersimpan di berbagai repositori dapat ditemukan dengan cepat.',
+    },
+    {
+      title: 'Availability of Audit Trail',
+      description: 'Jejak audit mendorong kepatuhan dan mencegah implikasi hukum karena akuntabilitas lebih terjamin dan pelacakan dokumen lebih sederhana.',
+    },
+    {
+      title: 'Promote a Paperless Environment',
+      description: 'Digitalisasi dokumen membantu organisasi mengurangi overhead dan limbah kantor dengan meminimalkan penggunaan kertas.',
+    },
+  ],
+  benefits: [
+    'Reduce Data Entry: Berkurang hingga 95%',
+    'Reduce Fraud: Berkurang hingga 100%',
+    'Improve Approval Time: Meningkat 70-80%',
+    'Pencocokan 4-Way Matching otomatis (PO, GRN, Invoice, Tax Document)',
+    'Integrasi mulus ke SAP, Oracle, Microsoft Dynamics, dan ERP korporasi',
+  ],
+  useCases: [
+    'Otomatisasi Pembayaran Faktur Supplier & Vendor',
+    'Rekonsiliasi 4-Way Matching Dokumen Finansial',
+    'Pencegahan Pembayaran Faktur Ganda dan Potensi Fraud',
+    'Digitalisasi Arsip Audit dan Kepatuhan Akuntansi',
+  ],
+  faqs: [
+    {
+      question: 'Bagaimana cara kerja 4-Way Matching di SYCLUS?',
+      answer:
+        'Saat faktur masuk, SYCLUS secara otomatis memvalidasi Vendor Master dan mencocokkan Purchase Order (PO), Good Received Notes (GRN), Invoice, dan Tax Document (Faktur Pajak). Jika semua data sesuai, sistem langsung meneruskan ke alur otorisasi pembayaran.',
+    },
+    {
+      question: 'Apakah SYCLUS mendukung integrasi dengan ERP yang sudah digunakan?',
+      answer:
+        'Ya. SYCLUS mendukung integrasi langsung ke SAP, Oracle NetSuite, Microsoft Dynamics 365, Odoo, Accurate, dan sistem ERP in-house lainnya.',
+    },
+  ],
+};
+
+const breadcrumbs = [
+  { name: 'Products', url: '/products/syclus' },
+  { name: 'Syclus (AP Automation)', url: '/products/syclus' },
+];
+
+const productSchema = generateProductSchema(productData);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+const faqSchema = generateFaqSchema(productData.faqs);
+const schema = [productSchema, breadcrumbSchema, faqSchema];
+---
+
+<PageLayout
+  title="Syclus AP Automation - Otomatisasi Proses Accounts Payable | SolusiAplikasi.id"
+  description="SYCLUS menyederhanakan proses AP di organisasi Anda lewat digitalisasi, otomasi, dan integrasi langsung ke sistem ERP — mengubah verifikasi dokumen yang memakan hari menjadi hitungan menit."
+  canonical="https://solusiaplikasi.id/products/syclus"
+  breadcrumbs={[]}
+  schema={schema}
+>
+  <div class="home-content-zoom w-full">
+  <!-- =========================================================================
+       BAGIAN 1: HERO SECTION (SESUAI FOTO 2)
+       ========================================================================= -->
+  <section class="syclus-hero-section text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Col Left: Headline & Text -->
+        <div class="lg:col-span-7">
+          <!-- Kicker Badge Sesuai Foto 2 -->
+          <div class="mb-4">
+            <span class="syclus-badge-pill">AP Automation Solution</span>
+          </div>
+
+          <!-- Main Title Sesuai Foto 2 -->
+          <h1 class="syclus-hero-title mb-5">
+            Otomatisasi proses<br />
+            <span class="text-blue-600">Accounts Payable</span>,<br />
+            dari dokumen sampai<br />
+            pembayaran.
+          </h1>
+
+          <!-- Subtitle Sesuai Foto 2 -->
+          <p class="syclus-hero-subtitle mb-8">
+            SYCLUS menyederhanakan proses AP di organisasi Anda lewat digitalisasi, otomasi, dan integrasi langsung ke sistem ERP &mdash; mengubah verifikasi dokumen yang memakan hari menjadi hitungan menit.
+          </p>
+
+          <!-- Action Buttons Sesuai Foto 2 -->
+          <div class="flex flex-wrap items-center gap-3.5 mb-8">
+            <a href="#form-konsultasi" class="syclus-btn-primary">
+              Jadwalkan Demo Gratis
+            </a>
+            <a href="#enam-langkah" class="syclus-btn-secondary">
+              Lihat Cara Kerja
+            </a>
+          </div>
+        </div>
+
+        <!-- Col Right: Hero Dashboard Graphic (Sesuai Foto 2) -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[410px] flex justify-center lg:justify-end">
+            <img
+              src="/images/product/syclus/Syclus-Dashboard.webp"
+              alt="Syclus AP Automation Dashboard - Menuju 2025"
+              class="w-full h-auto object-contain select-none pointer-events-none"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Target Sector Strip Sesuai Foto 2 -->
+      <div class="pt-8 mt-6 text-center">
+        <p class="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-3.5">
+          DIRANCANG UNTUK TIM FINANCE &amp; AP DI BERBAGAI SEKTOR
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <span class="syclus-sector-pill">Manufaktur</span>
+          <span class="syclus-sector-pill">Distribusi</span>
+          <span class="syclus-sector-pill">Ritel</span>
+          <span class="syclus-sector-pill">Jasa Profesional</span>
+          <span class="syclus-sector-pill">Konstruksi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 2: MANFAAT AP AUTOMATION (SESUAI FOTO 1)
+       ========================================================================= -->
+  <section class="syclus-section bg-slate-50/50 text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="syclus-section-title">
+          Manfaat AP Automation
+        </h2>
+        <p class="syclus-section-subtitle mx-auto">
+          Bebaskan tim finance Anda dari pekerjaan manual berulang, dan alihkan fokus mereka ke hal yang benar-benar penting bagi bisnis.
+        </p>
+      </div>
+
+      <!-- Checklist Benefits (2 Kolom Sesuai Foto 1) -->
+      <div class="max-w-4xl mx-auto mb-14">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-8">
+          <div class="syclus-check-item">
+            <div class="syclus-check-circle">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <span class="text-xs sm:text-sm font-medium text-slate-700 leading-snug">Mencapai akurasi tinggi dan menghilangkan human error</span>
+          </div>
+
+          <div class="syclus-check-item">
+            <div class="syclus-check-circle">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <span class="text-xs sm:text-sm font-medium text-slate-700 leading-snug">Menghemat biaya tenaga kerja dengan menghilangkan input dan review manual</span>
+          </div>
+
+          <div class="syclus-check-item">
+            <div class="syclus-check-circle">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <span class="text-xs sm:text-sm font-medium text-slate-700 leading-snug">Mempersingkat waktu proses faktur dari hitungan hari menjadi menit</span>
+          </div>
+
+          <div class="syclus-check-item">
+            <div class="syclus-check-circle">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <span class="text-xs sm:text-sm font-medium text-slate-700 leading-snug">Mengalihkan tim AP ke tugas bisnis yang lebih strategis</span>
+          </div>
+
+          <div class="syclus-check-item md:col-span-2">
+            <div class="syclus-check-circle">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <span class="text-xs sm:text-sm font-medium text-slate-700 leading-snug">Membangun proses yang skalabel untuk menangani volume data besar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Donut Stat Cards Sesuai Foto 1 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <!-- Card 1: 95% Reduce Data Entry -->
+        <div class="syclus-metric-card">
+          <div class="syclus-metric-donut">
+            <svg class="w-14 h-14 -rotate-90 transform" viewBox="0 0 60 60">
+              <circle cx="30" cy="30" r="23" stroke="#fef3c7" stroke-width="5.5" fill="none" />
+              <circle cx="30" cy="30" r="23" stroke="#f59e0b" stroke-width="5.5" stroke-dasharray="144.5" stroke-dashoffset="7.2" stroke-linecap="round" fill="none" />
+            </svg>
+            <span class="syclus-metric-donut-text">95%</span>
+          </div>
+          <div>
+            <h4 class="text-sm font-extrabold text-slate-900">Reduce Data Entry</h4>
+            <p class="text-xs text-slate-500 mt-0.5">Berkurang hingga 95%</p>
+          </div>
+        </div>
+
+        <!-- Card 2: 100% Reduce Fraud -->
+        <div class="syclus-metric-card">
+          <div class="syclus-metric-donut">
+            <svg class="w-14 h-14 -rotate-90 transform" viewBox="0 0 60 60">
+              <circle cx="30" cy="30" r="23" stroke="#f59e0b" stroke-width="5.5" fill="none" />
+            </svg>
+            <span class="syclus-metric-donut-text text-[11px]">100%</span>
+          </div>
+          <div>
+            <h4 class="text-sm font-extrabold text-slate-900">Reduce Fraud</h4>
+            <p class="text-xs text-slate-500 mt-0.5">Berkurang hingga 100%</p>
+          </div>
+        </div>
+
+        <!-- Card 3: 80% Improve Approval Time -->
+        <div class="syclus-metric-card">
+          <div class="syclus-metric-donut">
+            <svg class="w-14 h-14 -rotate-90 transform" viewBox="0 0 60 60">
+              <circle cx="30" cy="30" r="23" stroke="#fef3c7" stroke-width="5.5" fill="none" />
+              <circle cx="30" cy="30" r="23" stroke="#f59e0b" stroke-width="5.5" stroke-dasharray="144.5" stroke-dashoffset="28.9" stroke-linecap="round" fill="none" />
+            </svg>
+            <span class="syclus-metric-donut-text">80%</span>
+          </div>
+          <div>
+            <h4 class="text-sm font-extrabold text-slate-900">Improve Approval Time</h4>
+            <p class="text-xs text-slate-500 mt-0.5">Meningkat 70-80%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 3: KENAPA ORGANISASI MEMBUTUHKANNYA SEKARANG (SESUAI FOTO 2)
+       ========================================================================= -->
+  <section class="syclus-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <span class="syclus-badge-pill mb-3">Mengapa AP Automation</span>
+        <h2 class="syclus-section-title mt-2">
+          Kenapa organisasi Anda<br class="hidden sm:inline" />
+          membutuhkannya sekarang
+        </h2>
+      </div>
+
+      <!-- 3 Cards Grid (01, 02, 03 Sesuai Foto 2) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="syclus-card-reason">
+          <span class="syclus-card-number">01</span>
+          <h3 class="syclus-reason-title">
+            Hilangkan kertas dan input data manual
+          </h3>
+          <p class="syclus-reason-desc">
+            SYCLUS hadir dengan teknologi yang mendukung proses AP di organisasi Anda melalui digitalisasi, otomasi, dan integrasi ke sistem ERP.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="syclus-card-reason">
+          <span class="syclus-card-number">02</span>
+          <h3 class="syclus-reason-title">
+            Pangkas waktu persiapan audit
+          </h3>
+          <p class="syclus-reason-desc">
+            Audit tidak harus membuang waktu. Temukan faktur digital secara instan dan sajikan sebagai arsip yang rapi dan aman.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="syclus-card-reason">
+          <span class="syclus-card-number">03</span>
+          <h3 class="syclus-reason-title">
+            Otomatiskan workflow dan exception handling
+          </h3>
+          <p class="syclus-reason-desc">
+            Bangun persetujuan otomatis berdasarkan nominal, vendor, atau data lain, dan tangani pengecualian dengan rapi tanpa human error.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 4: ENAM LANGKAH, SATU SIKLUS (SESUAI FOTO 2 - DARK NAVY THEME)
+       ========================================================================= -->
+  <section id="enam-langkah" class="syclus-dark-section text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="syclus-dark-pill mb-3">AP Automation Approach</span>
+        <h2 class="syclus-dark-title mt-2">
+          Enam langkah, satu siklus yang<br class="hidden sm:inline" />
+          berjalan sendiri
+        </h2>
+        <p class="syclus-dark-subtitle mx-auto">
+          Dari penerimaan dokumen hingga arsip audit, setiap tahap saling terhubung dan berjalan otomatis.
+        </p>
+      </div>
+
+      <!-- 6 Dark Cards Grid (3x2 Sesuai Foto 2) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Step 1 -->
+        <div class="syclus-step-dark-card">
+          <div class="syclus-step-icon-circle">
+            <svg class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="syclus-step-title">Capture, Code &amp; Send</h3>
+          <p class="syclus-step-desc">
+            Dokumen ditangkap otomatis, diberi kode, dan dikirim ke alur kerja.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="syclus-step-dark-card">
+          <div class="syclus-step-icon-circle">
+            <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="syclus-step-title">Verify &amp; Approve</h3>
+          <p class="syclus-step-desc">
+            Sistem memverifikasi data dan merutekan ke penanggung jawab yang tepat.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="syclus-step-dark-card">
+          <div class="syclus-step-icon-circle">
+            <svg class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </div>
+          <h3 class="syclus-step-title">Send to ERP System</h3>
+          <p class="syclus-step-desc">
+            Data tervalidasi terkirim langsung ke sistem ERP perusahaan.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="syclus-step-dark-card">
+          <div class="syclus-step-icon-circle">
+            <svg class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+            </svg>
+          </div>
+          <h3 class="syclus-step-title">Payment Channel</h3>
+          <p class="syclus-step-desc">
+            Pembayaran diproses melalui kanal yang telah ditentukan.
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="syclus-step-dark-card">
+          <div class="syclus-step-icon-circle">
+            <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="syclus-step-title">Authorize for Payment</h3>
+          <p class="syclus-step-desc">
+            Otorisasi pembayaran dilakukan sesuai kebijakan internal.
+          </p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="syclus-step-dark-card">
+          <div class="syclus-step-icon-circle">
+            <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+            </svg>
+          </div>
+          <h3 class="syclus-step-title">Archive for Audit</h3>
+          <p class="syclus-step-desc">
+            Semua dokumen tersimpan rapi dan siap ditelusuri kapan saja.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 5: SEMUA YANG DIBUTUHKAN TIM AP (SESUAI FOTO 3)
+       ========================================================================= -->
+  <section class="syclus-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <span class="syclus-badge-pill mb-3">Syclus Features</span>
+        <h2 class="syclus-section-title mt-2">
+          Semua yang dibutuhkan tim AP<br class="hidden sm:inline" />
+          dalam satu sistem
+        </h2>
+      </div>
+
+      <!-- 4 Cards Grid (2x2 Sesuai Foto 3) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Feature 1 -->
+        <div class="syclus-feature-item-card">
+          <div class="syclus-feature-circle-icon">
+            <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="syclus-feature-title">Storage in a Central Repository</h3>
+            <p class="syclus-feature-desc">
+              Penyimpanan terpusat meminimalkan risiko dokumen rusak atau hilang, mengurangi redundansi, dan mempermudah kolaborasi.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="syclus-feature-item-card">
+          <div class="syclus-feature-circle-icon">
+            <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="syclus-feature-title">Fast Retrieval of Information</h3>
+            <p class="syclus-feature-desc">
+              Pengindeksan sistematis membuat konten berharga yang tersimpan di berbagai repositori dapat ditemukan dengan cepat.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="syclus-feature-item-card">
+          <div class="syclus-feature-circle-icon">
+            <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="syclus-feature-title">Availability of Audit Trail</h3>
+            <p class="syclus-feature-desc">
+              Jejak audit mendorong kepatuhan dan mencegah implikasi hukum karena akuntabilitas lebih terjamin dan pelacakan dokumen lebih sederhana.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="syclus-feature-item-card">
+          <div class="syclus-feature-circle-icon">
+            <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="syclus-feature-title">Promote a Paperless Environment</h3>
+            <p class="syclus-feature-desc">
+              Digitalisasi dokumen membantu organisasi mengurangi overhead dan limbah kantor dengan meminimalkan penggunaan kertas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 6: SATU ALUR, DARI DOKUMEN VENDOR SAMPAI PEMBAYARAN (SESUAI FOTO 3)
+       ========================================================================= -->
+  <section class="syclus-section bg-slate-50/60 text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="syclus-badge-pill mb-3">Syclus Flow Process</span>
+        <h2 class="syclus-section-title mt-2">
+          Satu alur, dari dokumen vendor<br class="hidden sm:inline" />
+          sampai pembayaran
+        </h2>
+      </div>
+
+      <!-- 4 Stages Workflow Box Sesuai Foto 3 -->
+      <div class="bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <!-- Col 1: Document Vendor -->
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Document Vendor</span>
+            <div class="space-y-3">
+              <div class="syclus-flow-box">
+                <div class="syclus-flow-icon-wrap">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Printed Document</span>
+              </div>
+              <div class="syclus-flow-box">
+                <div class="syclus-flow-icon-wrap">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Online Document</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 2: Processing -->
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Processing</span>
+            <div class="space-y-3">
+              <div class="syclus-flow-box">
+                <div class="syclus-flow-icon-wrap">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Intelligent Document Processing</span>
+              </div>
+              <div class="syclus-flow-box">
+                <div class="syclus-flow-icon-wrap">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Verification Document</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 3: System -->
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">System</span>
+            <div class="space-y-3">
+              <div class="syclus-flow-box">
+                <div class="syclus-flow-icon-wrap">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Repository &amp; ERP</span>
+              </div>
+              <div class="syclus-flow-box">
+                <div class="syclus-flow-icon-wrap">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Verified &amp; Approval Workflow</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 4: Output -->
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Output</span>
+            <div class="space-y-3">
+              <div class="syclus-flow-box">
+                <div class="syclus-flow-icon-wrap">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Payment Channel</span>
+              </div>
+              <div class="syclus-flow-box">
+                <div class="syclus-flow-icon-wrap">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Audit Purpose</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 7: 4-WAY MATCHING (SESUAI FOTO 4)
+       ========================================================================= -->
+  <section class="syclus-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="syclus-badge-pill mb-3">4-Way Matching</span>
+        <h2 class="syclus-section-title mt-2">
+          Setiap faktur dicocokkan otomatis,<br class="hidden sm:inline" />
+          sebelum dibayar
+        </h2>
+        <p class="syclus-section-subtitle mx-auto">
+          Saat faktur masuk, SYCLUS langsung bekerja mencari Vendor Master untuk mencocokkan dokumen terkait transaksi.
+        </p>
+      </div>
+
+      <!-- 4 Connected Nodes Pipeline Sesuai Foto 2 -->
+      <div class="relative max-w-4xl mx-auto mb-14">
+        <!-- Horizontal Connecting Line running between Node 1 and Node 5 centers -->
+        <div class="hidden sm:block absolute top-[18px] left-[10%] right-[10%] h-[2px] bg-[#e8ecf3] z-0 pointer-events-none"></div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-6 sm:gap-2 relative z-10">
+          <!-- Node 1 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-9 h-9 rounded-full bg-[#684895] text-white font-bold flex items-center justify-center text-xs shadow-sm ring-4 ring-white">
+              1
+            </div>
+            <h4 class="text-xs sm:text-[13px] font-bold text-slate-900 mt-3 mb-0.5">Purchase Order</h4>
+            <p class="text-[11px] text-slate-400">Dokumen pemesanan</p>
+          </div>
+
+          <!-- Node 2 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-9 h-9 rounded-full bg-[#684895] text-white font-bold flex items-center justify-center text-xs shadow-sm ring-4 ring-white">
+              2
+            </div>
+            <h4 class="text-xs sm:text-[13px] font-bold text-slate-900 mt-3 mb-0.5">Good Received Notes</h4>
+            <p class="text-[11px] text-slate-400">Bukti penerimaan</p>
+          </div>
+
+          <!-- Node 3 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-9 h-9 rounded-full bg-[#684895] text-white font-bold flex items-center justify-center text-xs shadow-sm ring-4 ring-white">
+              3
+            </div>
+            <h4 class="text-xs sm:text-[13px] font-bold text-slate-900 mt-3 mb-0.5">Invoice</h4>
+            <p class="text-[11px] text-slate-400">Tagihan vendor</p>
+          </div>
+
+          <!-- Node 4 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-9 h-9 rounded-full bg-[#684895] text-white font-bold flex items-center justify-center text-xs shadow-sm ring-4 ring-white">
+              4
+            </div>
+            <h4 class="text-xs sm:text-[13px] font-bold text-slate-900 mt-3 mb-0.5">Tax Document</h4>
+            <p class="text-[11px] text-slate-400">Dokumen pajak</p>
+          </div>
+
+          <!-- Validate Node Sesuai Foto 2 -->
+          <div class="flex flex-col items-center text-center col-span-2 sm:col-span-1">
+            <div class="h-9 flex items-center justify-center relative">
+              <svg class="w-11 h-10 select-none inline-block" viewBox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Document Body -->
+                <path d="M15 4C15 2.89543 15.8954 2 17 2H33L40 9V36C40 37.1046 39.1046 38 38 38H17C15.8954 38 15 37.1046 15 36V4Z" fill="#ffffff" stroke="#38bdf8" stroke-width="1.75" stroke-linejoin="round"/>
+                <!-- Folded Flap -->
+                <path d="M33 2V9H40" stroke="#38bdf8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Pie Chart Left -->
+                <circle cx="23" cy="14" r="4" stroke="#38bdf8" stroke-width="1.2"/>
+                <path d="M23 10V14H27" stroke="#38bdf8" stroke-width="1.2"/>
+                <path d="M23 14L20.5 16.5" stroke="#38bdf8" stroke-width="1.2"/>
+                <!-- Pie Chart Right -->
+                <circle cx="33" cy="14" r="4" stroke="#38bdf8" stroke-width="1.2"/>
+                <path d="M29 14H37" stroke="#38bdf8" stroke-width="1.2"/>
+                <path d="M33 10V18" stroke="#38bdf8" stroke-width="1.2"/>
+                <!-- Middle Lines -->
+                <path d="M20 22H35" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M20 25H35" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- Bar Charts -->
+                <rect x="20" y="30" width="3" height="5" rx="0.5" fill="#38bdf8"/>
+                <rect x="25" y="27" width="3" height="8" rx="0.5" fill="#38bdf8"/>
+                <rect x="30" y="29" width="3" height="6" rx="0.5" fill="#38bdf8"/>
+                <rect x="35" y="32" width="2.5" height="3" rx="0.5" fill="#38bdf8"/>
+                
+                <!-- Magnifying Glass Overlapping Left -->
+                <circle cx="14" cy="19" r="6" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+                <path d="M9.5 23.5L4 29" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 class="text-xs sm:text-[13px] font-bold text-slate-900 mt-3 mb-0.5">Validate</h4>
+            <p class="text-[11px] text-slate-400">Vendor Master</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert Box Sesuai Foto 2 -->
+      <div class="max-w-4xl mx-auto">
+        <div class="syclus-info-alert-box">
+          <svg class="w-6 h-6 text-[#1e3a8a] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.801 10A10 10 0 1 1 17 3.335" />
+            <path d="m9 11 3 3L22 4" />
+          </svg>
+          <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+            SYCLUS menganalisis dan membandingkan data untuk memastikan tagihan hanya berlaku untuk barang yang dipesan dan diterima, serta memverifikasi harga satuan dan biaya tambahan sudah benar sebelum pembayaran dilakukan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 8: INTELLIGENT CAPTURE (SESUAI FOTO 4)
+       ========================================================================= -->
+  <section class="syclus-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="syclus-badge-pill mb-3">Intelligent Capture</span>
+        <h2 class="syclus-section-title mt-2">
+          Kekuatan solusi kami dimulai dari AI<br class="hidden sm:inline" />
+          yang memahami dokumen
+        </h2>
+        <p class="syclus-section-subtitle mx-auto">
+          Sebuah sistem machine learning yang memahami dan mengekstrak data dari faktur, surat jalan, purchase order, hingga dokumen pajak &mdash; apa pun formatnya.
+        </p>
+      </div>
+
+      <!-- 4 AI Tech Cards Grid Sesuai Foto 4 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="syclus-ai-tech-card">
+          <div class="syclus-ai-icon-circle">
+            <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+            </svg>
+          </div>
+          <h3 class="syclus-ai-title">AI yang terus belajar</h3>
+          <p class="syclus-ai-desc">
+            Model semakin akurat setiap kali memproses dokumen baru, seiring pertumbuhan volume transaksi bisnis Anda.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="syclus-ai-tech-card">
+          <div class="syclus-ai-icon-circle">
+            <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="syclus-ai-title">Memahami dokumen</h3>
+          <p class="syclus-ai-desc">
+            AI membaca dokumen semi-terstruktur yang tidak mengikuti template baku, melampaui OCR generik.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="syclus-ai-tech-card">
+          <div class="syclus-ai-icon-circle">
+            <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="syclus-ai-title">Otomatisasi Entri Data</h3>
+          <p class="syclus-ai-desc">
+            Hilangkan input data yang membosankan agar tim bisa fokus pada hal yang lebih penting.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="syclus-ai-tech-card">
+          <div class="syclus-ai-icon-circle">
+            <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="syclus-ai-title">Validasi data ekstraksi</h3>
+          <p class="syclus-ai-desc">
+            Validasi cepat atas data yang diambil, dan AI terus membaik seiring bertambahnya penggunaan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 9: DI IKUTI CTA FORM (UNIFIED CONSULTATION CTA TEMPLATE)
+       ========================================================================= -->
+  <ConsultationCta defaultProduct="syclus" />
+  </div><!-- /home-content-zoom -->
+
+  <!-- =========================================================================
+       SCOPED CSS RULES: 100% KONSISTEN DENGAN REFERENSI SYCLUS AP & HOME SCALE
+       ========================================================================= -->
+  <style>
+    /* Base typography (Sesuai Home System Token) */
+    .syclus-hero-section,
+    .syclus-section,
+    .syclus-dark-section {
+      font-family: var(--font-sans);
+    }
+
+    /* Section vertical padding */
+    .syclus-hero-section {
+      background: linear-gradient(180deg, #edf4fb 0%, #f5f8fd 55%, #ffffff 100%);
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+
+    .syclus-section {
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
+
+    @media (max-width: 768px) {
+      .syclus-hero-section {
+        padding-top: 50px;
+        padding-bottom: 40px;
+      }
+      .syclus-section {
+        padding-top: 45px;
+        padding-bottom: 45px;
+      }
+    }
+
+    /* Pill Badges */
+    .syclus-badge-pill {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      background-color: #dbeafe;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Hero Typography (Mengikuti Skala Home 3xl–5xl) */
+    .syclus-hero-title {
+      font-size: clamp(1.875rem, 4vw, 3rem) !important;
+      font-weight: 900 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.03em !important;
+      color: #0f172a !important;
+    }
+
+    .syclus-hero-subtitle {
+      font-size: clamp(0.875rem, 1.5vw, 1rem) !important;
+      color: #475569 !important;
+      line-height: 1.65 !important;
+      max-width: 580px !important;
+    }
+
+    /* Buttons */
+    .syclus-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 26px;
+      border-radius: 8px;
+      background-color: #0d223a;
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px -4px rgba(13, 34, 58, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .syclus-btn-primary:hover {
+      background-color: #1e3a5f;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px -4px rgba(13, 34, 58, 0.45);
+    }
+
+    .syclus-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background-color: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .syclus-btn-secondary:hover {
+      background-color: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    /* Target Sector Pill */
+    .syclus-sector-pill {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      background-color: #dbeafe;
+      border: 1px solid #bfdbfe;
+      color: #173a63;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    /* Section Titles (Mengikuti Skala Home 2xl–3xl) */
+    .syclus-section-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem) !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.025em !important;
+      line-height: 1.25 !important;
+      color: #0f172a !important;
+    }
+
+    .syclus-section-subtitle {
+      color: #64748b !important;
+      font-size: clamp(0.875rem, 1.4vw, 1rem) !important;
+      max-width: 620px !important;
+      line-height: 1.6 !important;
+      margin-top: 10px !important;
+    }
+
+    /* Checklist benefit item */
+    .syclus-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .syclus-check-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 9999px;
+      background-color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Stat Cards with Donut */
+    .syclus-metric-card {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .syclus-metric-donut {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .syclus-metric-donut-text {
+      position: absolute;
+      font-size: 12px;
+      font-weight: 800;
+      color: #0f172a;
+      font-family: var(--font-sans);
+    }
+
+    /* 01, 02, 03 Reason Cards */
+    .syclus-card-reason {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .syclus-card-reason:hover {
+      border-color: #bfdbfe;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px -6px rgba(37, 99, 235, 0.06);
+    }
+
+    .syclus-card-number {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563eb;
+      margin-bottom: 16px;
+      font-family: var(--font-sans);
+      letter-spacing: 0.04em;
+    }
+
+    .syclus-reason-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .syclus-reason-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.65;
+    }
+
+    /* Dark Navy Section */
+    .syclus-dark-section {
+      background-color: #0b172a;
+      padding-top: 85px;
+      padding-bottom: 85px;
+    }
+
+    @media (max-width: 768px) {
+      .syclus-dark-section {
+        padding-top: 55px;
+        padding-bottom: 55px;
+      }
+    }
+
+    .syclus-dark-pill {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background-color: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: #fbbf24;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .syclus-dark-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem) !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.025em !important;
+      line-height: 1.25 !important;
+      color: #ffffff !important;
+    }
+
+    .syclus-dark-subtitle {
+      font-size: clamp(0.875rem, 1.4vw, 1rem) !important;
+      color: #94a3b8 !important;
+      max-width: 620px !important;
+      line-height: 1.6 !important;
+      margin-top: 10px !important;
+    }
+
+    .syclus-step-dark-card {
+      background-color: #11223b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 26px;
+      transition: all 0.2s ease;
+    }
+
+    .syclus-step-dark-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .syclus-step-icon-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .syclus-step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .syclus-step-desc {
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    /* 4 Features Cards (Sesuai Foto 3) */
+    .syclus-feature-item-card {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .syclus-feature-item-card:hover {
+      border-color: #bfdbfe;
+      transform: translateY(-2px);
+    }
+
+    .syclus-feature-circle-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: #f0f9ff;
+      border: 1px solid #e0f2fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .syclus-feature-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .syclus-feature-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Flow Boxes (Sesuai Foto 3) */
+    .syclus-flow-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background-color: #f8fafc;
+      border: 1px solid #f1f5f9;
+    }
+
+    .syclus-flow-icon-wrap {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background-color: #e0f2fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .syclus-info-alert-box {
+      background-color: #eef5fc;
+      border-radius: 16px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* AI Tech Cards (Sesuai Foto 4) */
+    .syclus-ai-tech-card {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .syclus-ai-tech-card:hover {
+      border-color: #bfdbfe;
+      transform: translateY(-2px);
+    }
+
+    .syclus-ai-icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #f0f9ff;
+      border: 1px solid #e0f2fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .syclus-ai-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .syclus-ai-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.65;
+    }
+  </style>
+
+</PageLayout>

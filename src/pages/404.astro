@@ -1,0 +1,29 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="404 - Halaman Tidak Ditemukan | SolusiAplikasi.id"
+  description="Maaf, halaman yang Anda cari tidak dapat ditemukan atau telah dipindahkan."
+  noindex={true}
+>
+  <div class="max-w-2xl mx-auto px-4 py-24 text-center">
+    <div class="text-6xl font-black text-sky-600 mb-4">404</div>
+    <h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Halaman Tidak Ditemukan</h1>
+    <p class="text-sm text-slate-600 mb-8 leading-relaxed">
+      Halaman yang Anda tuju mungkin telah dipindahkan, dihapus, atau alamat URL yang Anda masukkan salah.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/" class="px-5 py-2.5 bg-sky-600 hover:bg-sky-500 text-white rounded-lg text-sm font-semibold shadow">
+        Kembali ke Beranda
+      </a>
+      <a href="/articles" class="px-5 py-2.5 border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-lg text-sm font-medium">
+        Baca Artikel
+      </a>
+      <a href="/request-demo" class="px-5 py-2.5 border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-lg text-sm font-medium">
+        Request Demo
+      </a>
+    </div>
+  </div>
+</PageLayout>

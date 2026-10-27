@@ -1,0 +1,281 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import ConsultationCta from '@/components/common/ConsultationCta.astro';
+import { generateBreadcrumbSchema, generateOrganizationSchema } from '@/lib/schema-ld';
+import { getSiteOptions } from '@/content/loaders/wp-graphql-loader';
+
+const options = await getSiteOptions();
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'About Us', url: '/about-us' },
+];
+
+const schema = [
+  generateBreadcrumbSchema(breadcrumbs),
+  generateOrganizationSchema(options),
+];
+---
+
+<PageLayout
+  title="Tentang Kami (About Us) | PT Solusi Aplikasi Integrasi"
+  description="SolusiAplikasi.id hadir sebagai mitra transformasi digital terpercaya di Indonesia — menghadirkan Intelligent Document Processing, Robotic Process Automation, Workflow Automation, IT Service Management, hingga Expense Management."
+  schema={schema}
+>
+  <div class="home-content-zoom w-full">
+    <!-- =========================================================================
+         HERO SECTION: Empowering business with Digital Intelligent Automation
+         ========================================================================= -->
+    <section class="relative bg-white pt-8 pb-12 md:pt-12 md:pb-16 overflow-hidden border-b border-slate-100">
+      <!-- Subtle top ambient light glow -->
+      <div class="absolute inset-0 bg-radial-[at_50%_0%] from-blue-50/70 via-white to-transparent pointer-events-none -z-10"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+
+          <!-- Left Column: Narrative & CTA -->
+          <div class="lg:col-span-6">
+            <!-- Kicker Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[#0866D3] text-xs font-semibold mb-4">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0866D3]"></span>
+              <span>PT Solusi Aplikasi Integrasi</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.12] mb-4">
+              Empowering business with <span class="text-[#0866D3] block sm:inline">Digital Intelligent Automation</span>
+            </h1>
+
+            <!-- Body Description -->
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mb-6 font-normal">
+              SolusiAplikasi.id hadir sebagai mitra transformasi digital terpercaya di Indonesia — menghadirkan Intelligent Document Processing, Robotic Process Automation, Workflow Automation, IT Service Management, hingga Expense Management dalam satu ekosistem terpadu.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
+              <a
+                href="#solusi-ekosistem"
+                class="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-[#0866D3] hover:bg-[#0756b3] text-white font-semibold text-xs sm:text-sm shadow-xs transition-colors"
+              >
+                Jelajahi Solusi Kami
+              </a>
+              <a
+                href="#form-konsultasi"
+                class="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-200/90 shadow-2xs transition-colors"
+              >
+                Hubungi Tim Kami
+              </a>
+            </div>
+
+            <!-- Stat Metric Strip (Aligned to Home style) -->
+            <div class="flex items-center gap-10 sm:gap-14 pt-4 border-t border-slate-100">
+              <div>
+                <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">5</div>
+                <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1 leading-snug">Solusi Terpadu</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">1</div>
+                <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1 leading-snug">Ekosistem Cerdas</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Integrated Digital Solutions Visual Diagram -->
+          <div class="lg:col-span-6 flex items-center justify-center">
+            <div class="w-full max-w-[540px] select-none flex items-center justify-center">
+              <img
+                src="/images/about-us/Solution-About.webp"
+                alt="SolusiAplikasi.id Integrated Digital Solutions Ecosystem - Nanonets, Cyclone, Docuflo, Syclus, Spensify"
+                class="w-full h-auto object-contain drop-shadow-xs select-none"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2: Tentang Kami / Driving the future of hyperautomation
+         ========================================================================= -->
+    <section class="py-12 md:py-16 bg-slate-50/50 border-b border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+          <!-- Left Column: Vision & Narrative -->
+          <div class="lg:col-span-6">
+            <p class="text-xs font-semibold tracking-wider uppercase text-[#0866D3] mb-1.5">
+              Tentang SAI
+            </p>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Driving the future of hyperautomation
+            </h2>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-4">
+              PT. Solusi Aplikasi Integrasi (SAI) adalah distributor produk otomasi yang berfokus pada transformasi digital, dan telah membantu berbagai mitra bekerja menggunakan sistem digital yang terautomasi.
+            </p>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6">
+              Dengan sistem digital dan otomasi dari SAI, pekerjaan tim Anda menjadi lebih mudah, lebih cepat, lebih sederhana, dan lebih akurat. Kami senang melayani organisasi Anda untuk melangkah lebih jauh bersama solusi digital dan otomasi.
+            </p>
+
+            <!-- Operational HQ Badge -->
+            <div class="inline-flex items-center gap-3.5 px-4 py-3 bg-white border border-slate-200/80 rounded-2xl shadow-2xs">
+              <div class="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0866D3] shrink-0">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Head Office</span>
+                <span class="text-xs sm:text-sm font-bold text-slate-900 block">Jakarta Pusat, Indonesia</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 3 Pillars / Value Stacked Cards (Styled like Home "Kenapa SAI" cards) -->
+          <div class="lg:col-span-6 space-y-3.5">
+            <!-- Card 1 -->
+            <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs hover:border-slate-300 transition-colors">
+              <h3 class="text-sm sm:text-base font-bold text-[#0866D3] mb-1.5">
+                End-to-End Digital Transformation Provider
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                SAI berfokus menghadirkan otomatisasi sistem cerdas untuk membantu perusahaan bekerja lebih cepat, akurat, dan efisien.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs hover:border-slate-300 transition-colors">
+              <h3 class="text-sm sm:text-base font-bold text-[#0866D3] mb-1.5">
+                Intelligent Automation Ecosystem
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Kami mengintegrasikan solusi pemrosesan dokumen berbasis AI, otomatisasi keuangan, RPA, hingga manajemen dokumen terpusat skala enterprise.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs hover:border-slate-300 transition-colors">
+              <h3 class="text-sm sm:text-base font-bold text-[#0866D3] mb-1.5">
+                Enterprise Scalability &amp; Security
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Didesain fleksibel untuk memenuhi standar keamanan tinggi, efisiensi operasional, dan skalabilitas bisnis jangka panjang.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3: Our Solutions / 5 solusi terintegrasi, 1 ekosistem cerdas
+         ========================================================================= -->
+    <section id="solusi-ekosistem" class="py-12 md:py-16 bg-white border-b border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <!-- Section Header (Aligned to Home style) -->
+        <div class="mb-8 sm:mb-10">
+          <p class="text-xs font-semibold tracking-wider uppercase text-[#0866D3] mb-1.5">
+            Our Solutions
+          </p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            5 Solusi Terintegrasi, 1 Ekosistem Cerdas
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal max-w-2xl">
+            Setiap solusi SAI dirancang untuk saling terhubung — membentuk satu ekosistem digital intelligent automation yang menyeluruh untuk kebutuhan bisnis Anda.
+          </p>
+        </div>
+
+        <!-- Row 1: 3 Product Cards (Clean, harmonious white cards with SAI blue #0866D3) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+
+          <!-- Card 1: Nanonets -->
+          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col justify-between group hover:border-slate-300 hover:shadow-xs transition-all">
+            <div>
+              <span class="text-[11px] font-semibold text-[#0866D3] uppercase tracking-wider block mb-1.5">
+                Intelligent Document Processing
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mb-0.5">Nanonets</h3>
+              <div class="text-xs text-slate-400 mb-3 font-medium">AI OCR Document Extraction</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Mengekstrak data dari invoice, PO, BAST, dan dokumen tidak terstruktur lainnya secara otomatis, cepat, dan akurat — menghilangkan entry data manual.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Cyclone -->
+          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col justify-between group hover:border-slate-300 hover:shadow-xs transition-all">
+            <div>
+              <span class="text-[11px] font-semibold text-[#0866D3] uppercase tracking-wider block mb-1.5">
+                Robotic Process Automation
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mb-0.5">Cyclone</h3>
+              <div class="text-xs text-slate-400 mb-3 font-medium">Enterprise RPA</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Mengotomatisasi proses bisnis yang repetitif secara robotik, mempercepat alur kerja operasional lintas sistem.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Docuflo -->
+          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col justify-between group hover:border-slate-300 hover:shadow-xs transition-all">
+            <div>
+              <span class="text-[11px] font-semibold text-[#0866D3] uppercase tracking-wider block mb-1.5">
+                Document Management System
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mb-0.5">Docuflo</h3>
+              <div class="text-xs text-slate-400 mb-3 font-medium">Digital Document Workflow</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Mengelola, menyimpan, dan mengorganisasi dokumen perusahaan secara terpusat, aman, dan mudah diakses.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Row 2: 2 Product Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mt-4 sm:mt-5 max-w-4xl mx-auto">
+
+          <!-- Card 4: Syclus -->
+          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col justify-between group hover:border-slate-300 hover:shadow-xs transition-all">
+            <div>
+              <span class="text-[11px] font-semibold text-[#0866D3] uppercase tracking-wider block mb-1.5">
+                IT Service &amp; Asset Automation
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mb-0.5">Syclus</h3>
+              <div class="text-xs text-slate-400 mb-3 font-medium">ITIL Service Desk</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Mengotomasi proses hutang usaha, mulai dari verifikasi tagihan hingga persetujuan pembayaran, secara lebih cepat dan akurat.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5: Spensify -->
+          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col justify-between group hover:border-slate-300 hover:shadow-xs transition-all">
+            <div>
+              <span class="text-[11px] font-semibold text-[#0866D3] uppercase tracking-wider block mb-1.5">
+                Expense Management
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mb-0.5">Spensify</h3>
+              <div class="text-xs text-slate-400 mb-3 font-medium">Corporate Expense System</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Menyederhanakan pengelolaan dan pelaporan pengeluaran perusahaan dalam satu sistem yang terintegrasi.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4: Consultation CTA Template
+         ========================================================================= -->
+    <ConsultationCta />
+  </div>
+</PageLayout>

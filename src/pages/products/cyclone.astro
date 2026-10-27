@@ -1,0 +1,1323 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import ConsultationCta from "@/components/common/ConsultationCta.astro";
+import {
+  generateBreadcrumbSchema,
+  generateProductSchema,
+  generateFaqSchema,
+} from "@/lib/schema-ld";
+import type { Product } from "@/types/content";
+
+const productData: Product = {
+  id: "prod-cyclone",
+  slug: "cyclone",
+  name: "Cyclone RPA",
+  headline: "Robot yang Bekerja Tanpa Henti, Tepat Seperti yang Anda Minta",
+  tagline:
+    "Cyclone mengotomasi pekerjaan digital yang berulang dari membuka aplikasi hingga mengirim laporan langsung di atas sistem yang sudah Anda pakai, tanpa perlu mengganggunya.",
+  heroImage: "/images/product/cyclone/cyclone-dashboard-real.webp",
+  overview:
+    "Cyclone adalah platform Robotic Process Automation (RPA) modern yang menghubungkan aplikasi web, desktop legacy, mainframe, dan spreadsheet untuk menyelesaikan pekerjaan manual tanpa henti 24/7.",
+  features: [
+    {
+      title: "Cyclone Robot",
+      description:
+        "Robot perangkat lunak yang mengeksekusi pekerjaan secara attended maupun unattended 24 jam sehari.",
+    },
+    {
+      title: "Cyclone Designer",
+      description:
+        "Alat rancang alur kerja visual drag-and-drop tanpa butuh coding rumit.",
+    },
+    {
+      title: "Cyclone Controller",
+      description:
+        "Pusat kendali seluruh robot untuk penjadwalan, monitoring status, dan audit log real-time.",
+    },
+  ],
+  benefits: [
+    "Penghematan biaya operasional hingga ±60%",
+    "Peningkatan produktivitas pekerjaan berulang hingga ±80%",
+    "Nol human error pada proses yang terdefinisi dengan baik",
+    "Jam operasional 7x24 jam tanpa tambahan headcount",
+  ],
+  useCases: [
+    "Pemrosesan Faktur & Hutang Vendor",
+    "Sinkronisasi Stok E-Commerce & Gudang ERP",
+    "Penerbitan Sales Order Otomatis dari Email Masuk",
+  ],
+  faqs: [
+    {
+      question: "Apakah Cyclone membutuhkan perubahan pada sistem lama kami?",
+      answer:
+        "Tidak. Bot Cyclone berinteraksi dengan sistem lama melalui lapisan UI dan API, sehingga tidak mengganggu database sistem yang sedang aktif.",
+    },
+    {
+      question: "Bagaimana keamanan data dan kredensial akses pada bot?",
+      answer:
+        "Seluruh kredensial disimpan di brankas terenkripsi (Credential Vault) berstandar AES-256 dan hanya dapat diakses saat sesi eksekusi tugas berlangsung.",
+    },
+  ],
+};
+
+const breadcrumbs = [
+  { name: "Products", url: "/products/cyclone" },
+  { name: "Cyclone (RPA)", url: "/products/cyclone" },
+];
+
+const productSchema = generateProductSchema(productData);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+const faqSchema = generateFaqSchema(productData.faqs);
+const schema = [productSchema, breadcrumbSchema, faqSchema];
+---
+
+<PageLayout
+  title="Cyclone RPA - Robot yang Bekerja Tanpa Henti, Tepat Seperti yang Anda Minta | SolusiAplikasi.id"
+  description="Cyclone mengotomasi pekerjaan digital yang berulang dari membuka aplikasi hingga mengirim laporan langsung di atas sistem yang sudah Anda pakai, tanpa perlu mengganggunya."
+  canonical="https://solusiaplikasi.id/products/cyclone"
+  breadcrumbs={[]}
+  schema={schema}
+>
+  <div class="home-content-zoom w-full">
+  <!-- =========================================================================
+       BAGIAN 1 (FOTO 1): HERO SECTION (DARK THEME + DASHBOARD MOCKUP FLOATING)
+       ========================================================================= -->
+  <div class="cyclone-dark-hero text-white">
+    <section class="cyclone-hero-section px-4">
+      <!-- Glow ambient light melingkar -->
+      <div class="cyclone-hero-glow"></div>
+
+      <div class="max-w-5xl mx-auto relative z-10 text-center">
+        <!-- Badge Atas Sesuai Foto 1 -->
+        <div class="cyclone-badge">
+          <span class="cyclone-badge-dot">&bull;</span>
+          <span class="cyclone-badge-text"
+            >DIPERCAYA OLEH 320+ PERUSAHAAN DI INDONESIA</span
+          >
+        </div>
+
+        <!-- Headline Sesuai Foto 1: 3 baris rapi dengan "tanpa henti" dalam 1 baris yang sama -->
+        <h1 class="cyclone-hero-title">
+          <span class="cyclone-title-line"
+            >Robot yang bekerja <span
+              class="cyclone-text-orange whitespace-nowrap">tanpa henti</span
+            >,</span
+          >
+          <span class="cyclone-title-line">tepat seperti yang</span>
+          <span class="cyclone-title-line">Anda minta.</span>
+        </h1>
+
+        <!-- Subtitle Sesuai Foto 1: 3 baris presisi -->
+        <p class="cyclone-hero-subtitle">
+          Cyclone mengotomasi pekerjaan digital yang berulang dari membuka<br
+            class="hidden sm:inline"
+          />
+          aplikasi hingga mengirim laporan langsung di atas sistem yang sudah Anda<br
+            class="hidden sm:inline"
+          />
+          pakai, tanpa perlu mengganggunya.
+        </p>
+
+        <!-- CTA Buttons Sesuai Foto 1 -->
+        <div class="cyclone-btn-group">
+          <a href="#form-konsultasi" class="cyclone-btn-primary">
+            Jadwalkan Demo
+          </a>
+          <a href="#masalah-utama" class="cyclone-btn-secondary">
+            <span>Lihat Cara Kerja</span>
+            <span class="text-sm font-bold">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =========================================================================
+       DASHBOARD MOCKUP FLOATING: 20% DILATARI HITAM, 80% DILATARI PUTIH SESUAI REFERENSI
+       ========================================================================= -->
+  <div class="cyclone-mockup-section relative bg-white pb-14 sm:pb-20">
+    <!-- Strip background hitam: tepat 20% di bagian atas kartu gambar -->
+    <div class="cyclone-mockup-bg-black absolute inset-x-0 top-0 pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 relative z-10">
+      <div class="cyclone-dashboard-card">
+        <img
+          src="/images/product/cyclone/cyclone-dashboard-real.webp"
+          alt="Cyclone RPA Dashboard Interface"
+          class="w-full h-auto rounded-xl shadow-2xl block"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       BAGIAN 2 (FOTO 2): SEBELUM CYCLONE (WHITE THEME)
+       ========================================================================= -->
+  <section
+    id="masalah-utama"
+    class="cyclone-section-problems bg-white text-slate-900 border-b border-slate-100"
+  >
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-12">
+        <span class="cyclone-tag-orange">&mdash; SEBELUM CYCLONE</span>
+        <h2 class="cyclone-section-title">
+          Tim Anda menghabiskan waktu untuk<br />
+          pekerjaan yang seharusnya tidak<br />
+          butuh manusia
+        </h2>
+      </div>
+
+      <!-- 3 Cards Grid Sesuai Foto 2 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 01 -->
+        <div class="cyclone-problem-card">
+          <div class="flex items-center justify-between mb-5">
+            <div class="cyclone-problem-icon-wrapper">
+              <!-- Clock Icon -->
+              <svg
+                class="w-5 h-5 text-orange-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <span class="cyclone-number-badge">01</span>
+          </div>
+          <h3 class="cyclone-card-title">Waktu habis untuk input data</h3>
+          <p class="cyclone-card-desc">
+            Staf memindahkan data yang sama dari satu sistem ke sistem lain,
+            berulang setiap hari &mdash; waktu yang seharusnya bisa dipakai
+            untuk pekerjaan yang lebih bernilai.
+          </p>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="cyclone-problem-card">
+          <div class="flex items-center justify-between mb-5">
+            <div class="cyclone-problem-icon-wrapper">
+              <!-- Warning Triangle Icon -->
+              <svg
+                class="w-5 h-5 text-orange-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                ></path>
+              </svg>
+            </div>
+            <span class="cyclone-number-badge">02</span>
+          </div>
+          <h3 class="cyclone-card-title">Human error yang terus berulang</h3>
+          <p class="cyclone-card-desc">
+            Semakin banyak dan semakin cepat pekerjaan manual dikerjakan,
+            semakin besar peluang salah ketik, salah baca, atau data yang
+            terlewat.
+          </p>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="cyclone-problem-card">
+          <div class="flex items-center justify-between mb-5">
+            <div class="cyclone-problem-icon-wrapper">
+              <!-- People Icon -->
+              <svg
+                class="w-5 h-5 text-orange-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <span class="cyclone-number-badge">03</span>
+          </div>
+          <h3 class="cyclone-card-title">Sulit menambah kapasitas</h3>
+          <p class="cyclone-card-desc">
+            Saat volume transaksi naik, satu-satunya jalan yang terpikir adalah
+            menambah orang &mdash; biaya rekrutmen, training, dan waktu terus
+            bertambah.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 2 LANJUTAN (FOTO 2): ARSITEKTUR PRODUK (3 MODUL)
+       ========================================================================= -->
+  <section
+    class="cyclone-section-modules bg-white text-slate-900 border-b border-slate-100"
+  >
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-12">
+        <span class="cyclone-tag-orange">&mdash; ARSITEKTUR PRODUK</span>
+        <h2 class="cyclone-section-title">
+          Tiga modul, satu sistem otomasi yang<br />
+          terkendali
+        </h2>
+        <p class="cyclone-section-subtitle">
+          Cyclone dibangun dari tiga bagian yang saling terhubung &mdash;
+          masing-masing menangani perannya sendiri, dari merancang alur kerja
+          sampai menjalankan dan mengawasinya.
+        </p>
+      </div>
+
+      <!-- 3 Module Stacked Rows Sesuai Foto 2 -->
+      <div class="cyclone-modules-stack">
+        <!-- Row 01 -->
+        <div class="cyclone-module-row">
+          <div class="cyclone-module-col-num">01</div>
+          <div class="cyclone-module-col-title">
+            <h3 class="cyclone-module-name">Cyclone Robot</h3>
+            <span class="cyclone-module-role">Executor</span>
+          </div>
+          <div class="cyclone-module-col-desc">
+            <p class="cyclone-module-desc">
+              Robot perangkat lunak yang benar-benar menjalankan pekerjaan
+              &mdash; dalam mode ditemani (attended) maupun berjalan sendiri
+              (unattended), 24 jam sehari tanpa penurunan performa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 02 -->
+        <div class="cyclone-module-row">
+          <div class="cyclone-module-col-num">02</div>
+          <div class="cyclone-module-col-title">
+            <h3 class="cyclone-module-name">Cyclone Designer</h3>
+            <span class="cyclone-module-role">Builder</span>
+          </div>
+          <div class="cyclone-module-col-desc">
+            <p class="cyclone-module-desc">
+              Alat rancang alur kerja dengan cara tarik-dan-taruh secara visual.
+              Tim operasional bisa menyusun sendiri proses otomasi tanpa harus
+              menulis kode.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 03 -->
+        <div class="cyclone-module-row">
+          <div class="cyclone-module-col-num">03</div>
+          <div class="cyclone-module-col-title">
+            <h3 class="cyclone-module-name">Cyclone Controller</h3>
+            <span class="cyclone-module-role">Manager</span>
+          </div>
+          <div class="cyclone-module-col-desc">
+            <p class="cyclone-module-desc">
+              Pusat kendali seluruh robot &mdash; menjadwalkan tugas, memantau
+              status tiap bot secara real-time, dan menyimpan log audit dari
+              satu dashboard.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 3 (FOTO 3): MODE OPERASI (ATTENDED VS UNATTENDED)
+       ========================================================================= -->
+  <section
+    class="cyclone-section-types bg-white text-slate-900 border-b border-slate-100"
+  >
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-10">
+        <span class="cyclone-tag-orange">&mdash; MODE OPERASI</span>
+        <h2 class="cyclone-section-title">
+          Bot yang membantu, atau bot yang<br />
+          bekerja sendiri
+        </h2>
+      </div>
+
+      <!-- 2 Cards Grid Sesuai Foto 3 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Card 1: Attended -->
+        <div class="cyclone-type-card">
+          <div class="mb-4">
+            <span class="cyclone-pill-tag">Attended</span>
+          </div>
+          <h3 class="cyclone-type-title">Asisten di samping tim</h3>
+          <p class="cyclone-type-desc">
+            Diaktifkan oleh staf saat dibutuhkan, membantu di tengah proses yang
+            masih memerlukan keputusan manusia pada titik-titik tertentu.
+          </p>
+          <div class="cyclone-chips-container">
+            <span class="cyclone-chip">Layanan pelanggan</span>
+            <span class="cyclone-chip">Entri data terpandu</span>
+            <span class="cyclone-chip">Pengisian formulir</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Unattended -->
+        <div class="cyclone-type-card cyclone-type-card-orange">
+          <div class="mb-4">
+            <span class="cyclone-pill-tag cyclone-pill-tag-orange"
+              >Unattended</span
+            >
+          </div>
+          <h3 class="cyclone-type-title">Berjalan sepenuhnya mandiri</h3>
+          <p class="cyclone-type-desc">
+            Terjadwal atau terpicu oleh kejadian tertentu, tanpa perlu ditunggu
+            &mdash; cocok untuk volume tinggi dan proses yang menghubungkan
+            banyak sistem sekaligus.
+          </p>
+          <div class="cyclone-chips-container">
+            <span class="cyclone-chip">Pemrosesan faktur</span>
+            <span class="cyclone-chip">Konsolidasi data</span>
+            <span class="cyclone-chip">Integrasi antar sistem</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 3 LANJUTAN (FOTO 3): SIAPA YANG MEMAKAI (6 KOTAK INDUSTRI)
+       ========================================================================= -->
+  <section class="cyclone-section-industries bg-white text-slate-900">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-12">
+        <span class="cyclone-tag-orange">&mdash; SIAPA YANG MEMAKAI</span>
+        <h2 class="cyclone-section-title">
+          Dipakai lintas industri, di proses yang<br />
+          volumenya tinggi dan berulang
+        </h2>
+      </div>
+
+      <!-- 6 Industry Cards Grid Sesuai Foto 3 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Industry 1: Keuangan & Perbankan -->
+        <div class="cyclone-industry-card">
+          <div class="cyclone-industry-icon">
+            <svg
+              class="w-5 h-5 text-orange-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="cyclone-industry-name">Keuangan &amp; Perbankan</h3>
+          <ul class="cyclone-industry-list">
+            <li>&mdash;Pemrosesan faktur &amp; hutang vendor</li>
+            <li>&mdash;Rekonsiliasi akun antar sistem</li>
+          </ul>
+        </div>
+
+        <!-- Industry 2: Manufaktur -->
+        <div class="cyclone-industry-card">
+          <div class="cyclone-industry-icon">
+            <svg
+              class="w-5 h-5 text-orange-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="cyclone-industry-name">Manufaktur</h3>
+          <ul class="cyclone-industry-list">
+            <li>&mdash;Pembaruan stok &amp; laporan gudang</li>
+            <li>&mdash;Kompilasi data kontrol kualitas</li>
+          </ul>
+        </div>
+
+        <!-- Industry 3: Retail & Distribusi -->
+        <div class="cyclone-industry-card">
+          <div class="cyclone-industry-icon">
+            <svg
+              class="w-5 h-5 text-orange-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+          </div>
+          <h3 class="cyclone-industry-name">Retail &amp; Distribusi</h3>
+          <ul class="cyclone-industry-list">
+            <li>&mdash;Input pesanan dari email/portal</li>
+            <li>&mdash;Pembuatan Sales Order ke ERP</li>
+          </ul>
+        </div>
+
+        <!-- Industry 4: Logistik -->
+        <div class="cyclone-industry-card">
+          <div class="cyclone-industry-icon">
+            <svg
+              class="w-5 h-5 text-orange-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+            </svg>
+          </div>
+          <h3 class="cyclone-industry-name">Logistik</h3>
+          <ul class="cyclone-industry-list">
+            <li>&mdash;Pembaruan status pengiriman</li>
+            <li>&mdash;Proses retur barang &amp; dokumen</li>
+          </ul>
+        </div>
+
+        <!-- Industry 5: Kesehatan -->
+        <div class="cyclone-industry-card">
+          <div class="cyclone-industry-icon">
+            <svg
+              class="w-5 h-5 text-orange-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="cyclone-industry-name">Kesehatan</h3>
+          <ul class="cyclone-industry-list">
+            <li>&mdash;Input data rekam medis pasien</li>
+            <li>&mdash;Verifikasi klaim asuransi</li>
+          </ul>
+        </div>
+
+        <!-- Industry 6: Telekomunikasi -->
+        <div class="cyclone-industry-card">
+          <div class="cyclone-industry-icon">
+            <svg
+              class="w-5 h-5 text-orange-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a11.042 11.042 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="cyclone-industry-name">Telekomunikasi</h3>
+          <ul class="cyclone-industry-list">
+            <li>&mdash;Aktivasi &amp; verifikasi pelanggan baru</li>
+            <li>&mdash;Distribusi tagihan bulanan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 4 (FOTO 4): DAMPAK YANG BISA DIUKUR (DARK THEME)
+       ========================================================================= -->
+  <section class="cyclone-section-stats text-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-12">
+        <span class="cyclone-tag-orange-dark"
+          >&mdash; DAMPAK YANG BISA DIUKUR</span
+        >
+        <h2 class="cyclone-stats-title">
+          Yang berubah setelah proses berulang<br />
+          dipegang robot
+        </h2>
+      </div>
+
+      <!-- Single Dark Rounded Box Container dengan 4 Kolom Sesuai Foto 4 -->
+      <div class="cyclone-stats-box">
+        <!-- Col 1 -->
+        <div class="cyclone-stat-column">
+          <span class="cyclone-stat-num">&plusmn;60%</span>
+          <p class="cyclone-stat-label">
+            penghematan biaya operasional pada proses yang diotomasi
+          </p>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="cyclone-stat-column">
+          <span class="cyclone-stat-num">&plusmn;80%</span>
+          <p class="cyclone-stat-label">
+            peningkatan produktivitas pada pekerjaan berulang
+          </p>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="cyclone-stat-column">
+          <span class="cyclone-stat-num">~0</span>
+          <p class="cyclone-stat-label">
+            human error pada proses yang sudah terdefinisi dengan baik
+          </p>
+        </div>
+
+        <!-- Col 4 -->
+        <div class="cyclone-stat-column">
+          <span class="cyclone-stat-num">7&times;24</span>
+          <p class="cyclone-stat-label">
+            jam operasional tanpa tambahan headcount
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 4 LANJUTAN (FOTO 4): STUDI KASUS (DARI EMAIL MASUK SAMPAI SO JADI)
+       ========================================================================= -->
+  <section
+    id="alur-kerja"
+    class="cyclone-section-casestudy bg-white text-slate-900 border-b border-slate-100"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+        <!-- Col Left: Story narrative Sesuai Foto 2 (7 Kolom) -->
+        <div class="lg:col-span-7">
+          <span class="cyclone-tag-orange">STUDI KASUS</span>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-5"
+          >
+            Dari email masuk sampai Sales<br class="hidden sm:inline" />
+            Order jadi, tanpa disentuh<br class="hidden sm:inline" />
+            tangan
+          </h2>
+          <div
+            class="space-y-4 text-sm sm:text-[14px] text-slate-600 leading-relaxed max-w-2xl"
+          >
+            <p>
+              Sebuah perusahaan distribusi menerima Purchase Order dari puluhan
+              pelanggan setiap hari, lewat email dan portal, dengan format yang
+              berbeda-beda. Tim harus membaca satu per satu, mencocokkan item ke
+              database, lalu memasukkannya manual ke SAP &mdash; pekerjaan yang
+              menyita jam kerja dan rawan salah input.
+            </p>
+            <p>
+              Dengan Cyclone dipadukan AI OCR, seluruh alur ini berjalan
+              otomatis dari dokumen masuk sampai Sales Order terbit di SAP
+              &mdash; tim cukup meninjau hasil akhirnya.
+            </p>
+          </div>
+        </div>
+
+        <!-- Col Right: 7 List Items dengan Lingkaran Orange & Angka 01-07 Sesuai Foto 2 (5 Kolom) -->
+        <div class="lg:col-span-5 pt-2 lg:pt-6">
+          <ul class="cyclone-case-steps">
+            <!-- Step 1 -->
+            <li class="cyclone-case-item">
+              <span class="cyclone-case-circle"></span>
+              <span class="cyclone-case-num">01</span>
+              <span class="cyclone-case-text"
+                >PO masuk lewat email atau portal pelanggan</span
+              >
+            </li>
+
+            <!-- Step 2 -->
+            <li class="cyclone-case-item">
+              <span class="cyclone-case-circle"></span>
+              <span class="cyclone-case-num">02</span>
+              <span class="cyclone-case-text"
+                >Bot mengambil dokumen secara otomatis dari inbox</span
+              >
+            </li>
+
+            <!-- Step 3 -->
+            <li class="cyclone-case-item">
+              <span class="cyclone-case-circle"></span>
+              <span class="cyclone-case-num">03</span>
+              <span class="cyclone-case-text"
+                >AI OCR membaca dan mengekstrak isi PO</span
+              >
+            </li>
+
+            <!-- Step 4 -->
+            <li class="cyclone-case-item">
+              <span class="cyclone-case-circle"></span>
+              <span class="cyclone-case-num">04</span>
+              <span class="cyclone-case-text"
+                >Item dicocokkan ke database master</span
+              >
+            </li>
+
+            <!-- Step 5 -->
+            <li class="cyclone-case-item">
+              <span class="cyclone-case-circle"></span>
+              <span class="cyclone-case-num">05</span>
+              <span class="cyclone-case-text"
+                >Data order divalidasi secara otomatis</span
+              >
+            </li>
+
+            <!-- Step 6 -->
+            <li class="cyclone-case-item">
+              <span class="cyclone-case-circle"></span>
+              <span class="cyclone-case-num">06</span>
+              <span class="cyclone-case-text"
+                >Sales Order dibuat langsung di SAP</span
+              >
+            </li>
+
+            <!-- Step 7 -->
+            <li class="cyclone-case-item">
+              <span class="cyclone-case-circle"></span>
+              <span class="cyclone-case-num">07</span>
+              <span class="cyclone-case-text"
+                >Notifikasi selesai dikirim ke tim terkait</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 5: DI IKUTI CTA FORM (UNIFIED CONSULTATION CTA TEMPLATE)
+       ========================================================================= -->
+  <ConsultationCta defaultProduct="cyclone" />
+  </div>
+
+  <!-- =========================================================================
+       SCOPED CSS RULES: 100% KONSISTEN DENGAN 4 FOTO REFERENSI
+       ========================================================================= -->
+  <style>
+    /* Global Cyclone Base */
+    .cyclone-dark-hero {
+      background-color: #0c1017;
+      font-family:
+        "Plus Jakarta Sans",
+        system-ui,
+        -apple-system,
+        sans-serif;
+    }
+
+    /* 1. Hero Section Spacing Sesuai Foto 1 */
+    .cyclone-hero-section {
+      position: relative !important;
+      text-align: center !important;
+      padding-top: 130px !important;
+      padding-bottom: 48px !important;
+      background: radial-gradient(
+        ellipse 80% 55% at 50% -10%,
+        #431407 0%,
+        #0c1017 70%
+      ) !important;
+    }
+
+    @media (max-width: 768px) {
+      .cyclone-hero-section {
+        padding-top: 85px !important;
+        padding-bottom: 32px !important;
+      }
+    }
+
+    .cyclone-hero-glow {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 420px;
+      background: rgba(234, 88, 12, 0.18);
+      filter: blur(140px);
+      border-radius: 9999px;
+      pointer-events: none;
+    }
+
+    /* Badge Hero Sesuai Foto 1 */
+    .cyclone-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding: 6px 18px !important;
+      border-radius: 9999px !important;
+      background-color: rgba(67, 20, 7, 0.4) !important;
+      border: 1px solid rgba(234, 88, 12, 0.45) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+      margin-bottom: 28px !important;
+      backdrop-filter: blur(8px) !important;
+    }
+
+    .cyclone-badge-dot {
+      color: #ea580c;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .cyclone-badge-text {
+      color: #ea580c;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* Typography Hero (Mengikuti Skala Home 3xl–5xl) */
+    .cyclone-hero-title {
+      font-size: clamp(1.875rem, 4vw, 3rem) !important;
+      font-weight: 900 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.03em !important;
+      color: #ffffff !important;
+      margin-bottom: 22px !important;
+    }
+
+    .cyclone-title-line {
+      display: block !important;
+    }
+
+    .cyclone-text-orange {
+      color: #ea580c !important;
+      white-space: nowrap !important;
+    }
+
+    .cyclone-hero-subtitle {
+      font-size: clamp(0.875rem, 1.5vw, 1rem) !important;
+      color: #94a3b8 !important;
+      max-width: 660px !important;
+      margin: 0 auto 30px auto !important;
+      line-height: 1.65 !important;
+    }
+
+    /* CTA Buttons Sesuai Foto 1 */
+    .cyclone-btn-group {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 14px !important;
+      flex-wrap: wrap !important;
+    }
+
+    .cyclone-btn-primary {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 13px 32px !important;
+      border-radius: 8px !important;
+      background: #ea580c !important;
+      color: #ffffff !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 20px rgba(234, 88, 12, 0.45) !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .cyclone-btn-primary:hover {
+      background: #c2410c !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 25px rgba(234, 88, 12, 0.6) !important;
+    }
+
+    .cyclone-btn-secondary {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      padding: 13px 26px !important;
+      border-radius: 8px !important;
+      background: #1e293b !important;
+      border: 1px solid #334155 !important;
+      color: #e2e8f0 !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .cyclone-btn-secondary:hover {
+      background: #334155 !important;
+      color: #ffffff !important;
+    }
+
+    /* Floating Dashboard Card: Strip Hitam 20% di atas gambar, 80% putih */
+    .cyclone-mockup-section {
+      background-color: #ffffff;
+    }
+
+    .cyclone-mockup-bg-black {
+      height: 135px;
+      background-color: #0c1017;
+    }
+
+    @media (max-width: 1023px) {
+      .cyclone-mockup-bg-black {
+        height: calc((100vw - 32px) * 0.116);
+      }
+    }
+
+    .cyclone-dashboard-card {
+      background-color: #0b1120;
+      border-radius: 18px;
+      padding: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75);
+    }
+
+    /* General Tags & Titles (Mengikuti Skala Home 2xl–3xl) */
+    .cyclone-tag-orange {
+      color: #ea580c;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .cyclone-tag-orange-dark {
+      color: #ea580c;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .cyclone-section-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: #0f172a;
+    }
+
+    .cyclone-section-subtitle {
+      color: #64748b;
+      font-size: clamp(0.875rem, 1.4vw, 1rem);
+      max-width: 620px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    /* 2. Problems Section Sesuai Foto 2 */
+    .cyclone-section-problems {
+      padding-top: 50px;
+      padding-bottom: 90px;
+    }
+
+    @media (max-width: 768px) {
+      .cyclone-section-problems {
+        padding-top: 36px;
+        padding-bottom: 60px;
+      }
+    }
+
+    .cyclone-problem-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s ease;
+    }
+
+    .cyclone-problem-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .cyclone-problem-icon-wrapper {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #ffedd5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cyclone-number-badge {
+      font-size: 15px;
+      font-weight: 700;
+      color: #cbd5e1;
+      font-family:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .cyclone-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .cyclone-card-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* 3. Modules Section Sesuai Foto 2 */
+    .cyclone-section-modules {
+      padding: 56px 16px 72px;
+    }
+
+    .cyclone-modules-stack {
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .cyclone-module-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 30px 0;
+      border-bottom: 1px solid #e2e8f0;
+      align-items: baseline;
+    }
+
+    @media (min-width: 768px) {
+      .cyclone-module-row {
+        grid-template-columns: 60px 240px 1fr;
+        gap: 24px;
+      }
+    }
+
+    .cyclone-module-col-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ea580c;
+      font-family: ui-monospace, monospace;
+    }
+
+    .cyclone-module-col-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cyclone-module-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+
+    .cyclone-module-role {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    .cyclone-module-desc {
+      font-size: 13.5px;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    /* 4. Types Section Sesuai Foto 3 */
+    .cyclone-section-types {
+      padding: 56px 16px 72px;
+    }
+
+    .cyclone-type-card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+    }
+
+    .cyclone-type-card-orange {
+      background-color: #fffaf5;
+      border-color: #fed7aa;
+    }
+
+    .cyclone-pill-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background-color: #f1f5f9;
+      color: #64748b;
+    }
+
+    .cyclone-pill-tag-orange {
+      background-color: #ffedd5;
+      color: #c2410c;
+    }
+
+    .cyclone-type-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .cyclone-type-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .cyclone-chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cyclone-chip {
+      font-size: 11px;
+      color: #475569;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-weight: 500;
+    }
+
+    /* 5. Industries Section Sesuai Foto 3 */
+    .cyclone-section-industries {
+      padding: 56px 16px 72px;
+    }
+
+    .cyclone-industry-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 26px;
+      transition: all 0.2s ease;
+    }
+
+    .cyclone-industry-card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .cyclone-industry-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background-color: #ffedd5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .cyclone-industry-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .cyclone-industry-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cyclone-industry-list li {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.55;
+    }
+
+    /* 6. Stats Section Sesuai Foto 4 */
+    .cyclone-section-stats {
+      background-color: #0c1017;
+      padding: 60px 16px 72px;
+      border-top: 1px solid #1e293b;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .cyclone-stats-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    .cyclone-stats-box {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      overflow: hidden;
+    }
+
+    @media (min-width: 640px) {
+      .cyclone-stats-box {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cyclone-stats-box {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .cyclone-stat-column {
+      padding: 32px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    @media (min-width: 640px) {
+      .cyclone-stat-column:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cyclone-stat-column {
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .cyclone-stat-column:last-child {
+        border-right: none;
+      }
+    }
+
+    .cyclone-stat-num {
+      font-size: clamp(2.25rem, 4.5vw, 3rem);
+      font-weight: 900;
+      color: #ea580c;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        sans-serif;
+    }
+
+    .cyclone-stat-label {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.55;
+    }
+
+    /* 7. Case Study Section Sesuai Foto 2 */
+    .cyclone-section-casestudy {
+      padding: 64px 16px 80px;
+    }
+
+    @media (min-width: 768px) {
+      .cyclone-section-casestudy {
+        padding: 72px 16px 96px;
+      }
+    }
+
+    .cyclone-case-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .cyclone-case-steps {
+        gap: 22px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cyclone-case-steps {
+        gap: 24px;
+      }
+    }
+
+    .cyclone-case-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cyclone-case-circle {
+      width: 11px;
+      height: 11px;
+      border-radius: 9999px;
+      border: 2px solid #ea580c;
+      background-color: transparent;
+      flex-shrink: 0;
+    }
+
+    .cyclone-case-num {
+      font-size: 12px;
+      color: #94a3b8;
+      font-family: ui-monospace, monospace;
+      font-weight: 600;
+      flex-shrink: 0;
+      width: 22px;
+    }
+
+    .cyclone-case-text {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    @media (min-width: 640px) {
+      .cyclone-case-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+
+</PageLayout>

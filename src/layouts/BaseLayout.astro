@@ -1,0 +1,52 @@
+---
+import SeoHead from '@/components/seo/SeoHead.astro';
+import CookieConsent from '@/components/common/CookieConsent';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Array<Record<string, unknown> | null | undefined>;
+  htmlClass?: string;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  noindex,
+  schema,
+  htmlClass = '',
+  bodyClass = '',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" class={htmlClass || undefined}>
+  <head>
+    <SeoHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      noindex={noindex}
+      schema={schema}
+    />
+    <!-- Google Fonts: Plus Jakarta Sans for crisp enterprise typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Cloudflare Turnstile explicit script -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  </head>
+  <body class={`bg-white text-slate-900 min-h-screen flex flex-col font-sans ${bodyClass}`.trim()}>
+    <slot />
+    <!-- Lightweight Cookie Consent Island (client:idle) -->
+    <CookieConsent client:idle />
+  </body>
+</html>

@@ -1,0 +1,791 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import IntegratedSolutionsSection from "@/components/home/IntegratedSolutionsSection.astro";
+import TrustRecognition from "@/components/home/TrustRecognition.astro";
+import ConsultationCta from "@/components/common/ConsultationCta.astro";
+import {
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+} from "@/lib/schema-ld";
+import { getSiteOptions } from "@/content/loaders/wp-graphql-loader";
+
+const options = await getSiteOptions();
+const orgSchema = generateOrganizationSchema(options);
+const websiteSchema = generateWebSiteSchema();
+const schemas = [orgSchema, websiteSchema];
+---
+
+<PageLayout
+  title="SolusiAplikasi.id | Empowering Business with Digital Intelligent Automation"
+  description="Solusi Channel terpadu untuk percepatan ekosistem digital: AI Document OCR, Enterprise RPA, Document Management System, ITSM, dan Expense Management."
+  schema={schemas}
+>
+  <div class="home-content-zoom w-full">
+  <!-- =========================================================================
+       1. HERO SECTION - CLEAN, SLIM & ENTERPRISE
+       ========================================================================= -->
+  <section
+    class="relative pt-8 pb-12 md:pt-12 md:pb-16 overflow-hidden bg-white border-b border-slate-100"
+  >
+    <div class="max-w-6xl mx-auto px-4">
+      {/* Top Text & CTA */}
+      <div class="max-w-3xl mb-8 md:mb-10">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.12] mb-3.5"
+        >
+          Empowering business<br class="hidden sm:inline" />
+          with digital intelligent<br class="hidden sm:inline" />
+          automation.
+        </h1>
+
+        <p
+          class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mb-6"
+        >
+          Solusi Channel terpadu untuk akselerasi alur kerja korporasi: AI
+          Document OCR, Enterprise RPA, Document Management System, ITSM, dan
+          Expense Management dalam satu ekosistem yang tepat, efisien, dan siap
+          audit.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a
+            href="#form-konsultasi"
+            class="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold rounded-xl shadow-2xs transition-colors"
+          >
+            <svg
+              class="w-4 h-4 text-white shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+            </svg>
+            <span>Konsultasi Gratis</span>
+          </a>
+        </div>
+      </div>
+
+      {/* 3 Visual Hero Cards - Refined, Balanced & Slim */}
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4.5 items-stretch">
+        {/* Card 1: Metric & Testimonial Proof Card */}
+        <div
+          class="md:col-span-4 bg-gradient-to-b from-[#2563eb] to-[#4ba0fa] rounded-2xl p-5 text-white shadow-2xs flex flex-col justify-between group"
+        >
+          <div>
+            <div class="flex items-center gap-3">
+              <span
+                class="text-4xl sm:text-5xl font-black text-white tracking-tight leading-none"
+                >80%</span
+              >
+              <p
+                class="text-xs sm:text-sm text-blue-50 font-medium leading-snug"
+              >
+                Perusahaan melakukan RO, dengan<br />
+                kerjasama lebih dari 5 tahun*
+              </p>
+            </div>
+
+            {/* Testimonial Quote Box with layered depth */}
+            <div class="mt-5 relative">
+              <div class="w-[90%] mx-auto h-2 bg-white/25 rounded-t-xl -mb-1">
+              </div>
+              <div
+                class="bg-white rounded-2xl p-4 text-slate-800 shadow-sm relative z-10"
+              >
+                <svg
+                  class="w-6 h-6 text-slate-300 mb-1.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                  ></path>
+                </svg>
+                <p
+                  class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed"
+                >
+                  "Cepat tanggap dan dapat memberikan masukan ketika project
+                  dimulai.Sabar terhadap tim Kami"
+                </p>
+                <div
+                  class="mt-3 pt-2.5 border-t border-slate-100 text-xs font-bold text-slate-900"
+                >
+                  Rangga – Mandiri Healthcare
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 mt-3 text-center">
+            <a
+              href="#"
+              class="inline-flex items-center justify-center gap-2.5 text-xs sm:text-sm font-semibold text-white hover:text-blue-50 transition-colors"
+            >
+              <span>Lihat Pendapat Mereka</span>
+              <span
+                class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-[#2563eb] shadow-xs group-hover:scale-105 transition-transform"
+              >
+                <svg
+                  class="w-3 h-3 fill-current ml-0.5"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* Card 2: Mobile Interface & Live Workflow Preview */}
+        <div
+          class="md:col-span-4 relative flex items-center justify-center group rounded-2xl overflow-hidden"
+        >
+          <img
+            src="/images/home/center-bg.webp"
+            alt="Alur Kerja Lapangan & Mobile - Case Study SolusiAplikasi.id"
+            class="w-full h-auto object-contain rounded-2xl group-hover:scale-102 transition-transform duration-300"
+            loading="eager"
+          />
+
+          <!-- Floating Slim CTA Button Over Bottom of Image -->
+          <div
+            class="absolute bottom-3 sm:bottom-4 left-3 right-3 sm:left-4 sm:right-4 text-center z-10"
+          >
+            <a
+              href="#"
+              class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3.5 bg-white/95 backdrop-blur-xs hover:bg-white text-slate-800 text-xs sm:text-sm font-semibold rounded-xl border border-sky-200/80 hover:border-sky-300 shadow-sm hover:shadow transition-all"
+            >
+              <span>Lihat Case Study Project Kami</span>
+              <svg
+                class="w-3.5 h-3.5 text-sky-500 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        {/* Card 3: Client Enterprise Logos */}
+        <div class="md:col-span-4 flex items-center justify-center group">
+          <img
+            src="/images/home/as-client.webp"
+            alt="Ekosistem Mitra dan Klien Enterprise SolusiAplikasi.id"
+            class="w-full h-auto object-contain rounded-2xl group-hover:scale-102 transition-transform duration-300"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. NARRATIVE VALUE STATEMENT + 3 QUICK STATS - SLIM & REFINED
+       ========================================================================= -->
+  <section class="py-10 md:py-12 bg-slate-50/50 border-b border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
+        {/* Left: Paragraph narrative */}
+        <div class="lg:col-span-7">
+          <p
+            class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal"
+          >
+            <strong class="font-bold text-slate-900"
+              >Solusi Otomatisasi kami</strong
+            > dirancang dan berfungsi sebagai landasan untuk perkembangan transformasi
+            digital dalam bisnis Anda. Kami memberikan layanan yang berkualitas dan
+            terukur dalam menerapkan Otomatisasi Bisnis dan Proses Otomatisasi Robotik
+            dengan teknologi AI dan ML (Machine Learning) yang menyeimbangkan kebutuhan
+            bisnis Anda dengan teknologi inovasi.
+          </p>
+        </div>
+
+        {/* Right: 3 Key Metrics */}
+        <div
+          class="lg:col-span-5 grid grid-cols-3 gap-2.5 border-t lg:border-t-0 lg:border-l border-slate-200/80 pt-4 lg:pt-0 lg:pl-6 text-center"
+        >
+          <div>
+            <div
+              class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight"
+            >
+              80%
+            </div>
+            <div
+              class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug"
+            >
+              Percepatan waktu<br />approval dokumen
+            </div>
+          </div>
+          <div>
+            <div
+              class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight"
+            >
+              100%
+            </div>
+            <div
+              class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug"
+            >
+              Pengurangan risiko<br />fraud dokumen
+            </div>
+          </div>
+          <div>
+            <div
+              class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight"
+            >
+              95%
+            </div>
+            <div
+              class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug"
+            >
+              Pengurangan<br />entry data manual
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. TANTANGAN OPERASIONAL: SLIM, CLEAN & FOCUSED
+       ========================================================================= -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div
+        class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6"
+      >
+        <div class="shrink-0">
+          <p
+            class="text-xs font-semibold tracking-wider uppercase text-[#0866D3] mb-1.5"
+          >
+            Masalah Enterprise
+          </p>
+          <h2
+            class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug"
+          >
+            Proses Manual yang Bikin Bisnis<br class="hidden sm:inline" />
+            Anda Lambat
+          </h2>
+        </div>
+        <p
+          class="text-sm sm:text-base text-slate-600 max-w-lg leading-relaxed md:ml-auto"
+        >
+          Banyak perusahaan masih mengandalkan input manual, file Excel yang
+          tersebar di banyak folder, dan approval yang harus dikejar satu-satu
+          lewat chat atau email. Begitu bisnis makin besar, cara kerja ini nggak
+          lagi kekejar volumenya.
+        </p>
+      </div>
+
+      {/* 5 Operational Challenges - Minimalist Clean Layout */}
+      <div class="bg-white rounded-2xl md:rounded-3xl border border-slate-200/60 p-6 md:p-8 shadow-2xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 items-start">
+          {/* Item 1 */}
+          <div>
+            <div class="mb-3.5">
+              <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+              </svg>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+              Data tersebar di banyak sistem dan file berbeda
+            </p>
+          </div>
+
+          {/* Item 2 */}
+          <div>
+            <div class="mb-3.5">
+              <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                <line x1="9" y1="13" x2="15" y2="13"></line>
+              </svg>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+              Data tersebar di banyak sistem dan file berbeda
+            </p>
+          </div>
+
+          {/* Item 3 */}
+          <div>
+            <div class="mb-3.5">
+              <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 3h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
+                <path d="M4 7v12a2 2 0 002 2h12"></path>
+              </svg>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+              Human error meningkat seiring volume dokumen
+            </p>
+          </div>
+
+          {/* Item 4 */}
+          <div>
+            <div class="mb-3.5">
+              <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                <path d="M7 10l3 4 3-3 4 4"></path>
+              </svg>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+              Tim habis waktu buat kerjaan yang bisa diotomatisasi
+            </p>
+          </div>
+
+          {/* Item 5 */}
+          <div>
+            <div class="mb-3.5">
+              <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
+              </svg>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+              Biaya operasional terus naik seiring beban kerja manual
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. 5 SOLUSI TERINTEGRASI (SLIM INTERACTIVE TABS & PRODUCT PREVIEW)
+       ========================================================================= -->
+  <IntegratedSolutionsSection />
+
+  <!-- =========================================================================
+       5. KAMI MERANCANG SOLUSI, BUKAN HANYA SEKEDAR MENJUAL LISENSI
+       ========================================================================= -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 items-stretch">
+        {/* Cell 1: Heading Block */}
+        <div class="space-y-2.5 p-1 flex flex-col justify-start">
+          <p
+            class="text-xs font-semibold tracking-wider uppercase text-[#0866D3] mb-1.5"
+          >
+            Kenapa SAI?
+          </p>
+          <h2
+            class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight"
+          >
+            Kami merancang solusi, bukan hanya sekadar menjual lisensi.
+          </h2>
+        </div>
+
+        {/* Cell 2: Card 1 - End-to-End Implementation */}
+        <div
+          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
+        >
+          <div
+            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
+          >
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-slate-900">
+            End-to-End Implementation
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Mulai dari asesmen alur kerja mendalam, kustomisasi integrasi API,
+            implementasi bertahap, hingga pelatihan tim berkala.
+          </p>
+        </div>
+
+        {/* Cell 3: Card 2 - Konektor Native Terintegrasi */}
+        <div
+          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
+        >
+          <div
+            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
+          >
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-slate-900">
+            Konektor Native Terintegrasi
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Siap terhubung mulus ke SAP, Odoo, Oracle, core banking, dan
+            database SQL tanpa hambatan format berkas.
+          </p>
+        </div>
+
+        {/* Cell 4: Card 3 - Keamanan Skala Enterprise */}
+        <div
+          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
+        >
+          <div
+            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
+          >
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-slate-900">
+            Keamanan Skala Enterprise
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Enkripsi TLS 1.3 / AES-256, hak akses granular (RBAC), serta
+            kepatuhan penuh regulasi perlindungan data UU PDP 2022.
+          </p>
+        </div>
+
+        {/* Cell 5: Card 4 - Arsitektur Fleksibel & On-Premise */}
+        <div
+          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
+        >
+          <div
+            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
+          >
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-slate-900">
+            Arsitektur Fleksibel &amp; On-Premise
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Opsi deployment cloud privat, on-premise di data center internal,
+            atau hybrid sesuai regulasi audit industri Anda.
+          </p>
+        </div>
+
+        {/* Cell 6: Card 5 - Dukungan Teknis Lokal Indonesia */}
+        <div
+          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
+        >
+          <div
+            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
+          >
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-slate-900">
+            Dukungan Teknis Lokal Indonesia
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Tim arsitek solusi dan teknisi berdomisili di Indonesia siap
+            mendampingi secara remote maupun on-site dengan jaminan Service
+            Level Agreement (SLA) respon tanggap.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. PILIHAN UTAMA PERUSAHAAN TERKEMUKA DI ASIA PASIFIK
+       ========================================================================= -->
+  <TrustRecognition />
+
+  <!-- =========================================================================
+       7. WAWASAN BISNIS (ARTICLES) - SLIM & POLISHED
+       ========================================================================= -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4"
+      >
+        <div>
+          <h2
+            class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Wawasan Bisnis
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+            Temukan berbagai wawasan bisnis enterprise yang dapat membantu mengembangkan bisnis Anda.
+          </p>
+        </div>
+        <a
+          href="/articles"
+          class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0866D3] hover:bg-[#0756b3] text-white font-semibold text-xs sm:text-sm rounded-lg transition-colors whitespace-nowrap shadow-2xs"
+        >
+          <span>Lihat Semua Artikel</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      {/* 4 Article Cards with Category Tags & Reading Time */}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <article
+          class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group"
+        >
+          <div>
+            <a
+              href="/articles"
+              class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
+            >
+              <img
+                src="/images/articles/article-thumb-1.jpg"
+                alt="Arsitektur Cloud Modern & Integrasi API"
+                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                loading="lazy"
+              />
+              <span
+                class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-slate-900/80 text-white backdrop-blur-xs"
+              >
+                Arsitektur Cloud
+              </span>
+            </a>
+            <div class="p-4 space-y-1.5">
+              <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+                4 mnt baca • Strategi API
+              </div>
+              <h3
+                class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors"
+              >
+                <a href="/articles">
+                  Arsitektur Cloud Modern &amp; Integrasi API Enterprise
+                </a>
+              </h3>
+              <p
+                class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed"
+              >
+                Panduan merancang microservices dan API gateway aman untuk
+                volume transaksi korporasi tinggi.
+              </p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <a
+              href="/articles"
+              class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
+            >
+              <span>Baca Selengkapnya</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group"
+        >
+          <div>
+            <a
+              href="/articles"
+              class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
+            >
+              <img
+                src="/images/articles/article-thumb-2.jpg"
+                alt="Mengenal AI OCR untuk Tim Finance"
+                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                loading="lazy"
+              />
+              <span
+                class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-sky-900/80 text-white backdrop-blur-xs"
+              >
+                AI &amp; Finance
+              </span>
+            </a>
+            <div class="p-4 space-y-1.5">
+              <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+                5 mnt baca • Otomasi Faktur
+              </div>
+              <h3
+                class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors"
+              >
+                <a href="/articles">
+                  Mengenal AI OCR: Solusi Cepat untuk Tim Finance
+                </a>
+              </h3>
+              <p
+                class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed"
+              >
+                Cara memangkas 90% waktu input invoice dan verifikasi faktur
+                pajak dengan model AI vision adaptif.
+              </p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <a
+              href="/articles"
+              class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
+            >
+              <span>Baca Selengkapnya</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group"
+        >
+          <div>
+            <a
+              href="/articles"
+              class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
+            >
+              <img
+                src="/images/articles/article-thumb-3.jpg"
+                alt="Tren Otomatisasi & Robotic Process Automation"
+                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                loading="lazy"
+              />
+              <span
+                class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-blue-900/80 text-white backdrop-blur-xs"
+              >
+                Enterprise RPA
+              </span>
+            </a>
+            <div class="p-4 space-y-1.5">
+              <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+                4 mnt baca • Robotic Process
+              </div>
+              <h3
+                class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors"
+              >
+                <a href="/articles">
+                  Tren Otomatisasi &amp; Robotic Process Automation 2026
+                </a>
+              </h3>
+              <p
+                class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed"
+              >
+                Strategi bot RPA cerdas untuk menghubungkan software warisan
+                tanpa harus migrasi total berbiaya tinggi.
+              </p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <a
+              href="/articles"
+              class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
+            >
+              <span>Baca Selengkapnya</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group"
+        >
+          <div>
+            <a
+              href="/articles"
+              class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
+            >
+              <img
+                src="/images/articles/article-thumb-4.jpg"
+                alt="Best Practice Manajemen Dokumen Terpusat"
+                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                loading="lazy"
+              />
+              <span
+                class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-900/80 text-white backdrop-blur-xs"
+              >
+                Tata Kelola Arsip
+              </span>
+            </a>
+            <div class="p-4 space-y-1.5">
+              <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+                6 mnt baca • Standar UU PDP
+              </div>
+              <h3
+                class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors"
+              >
+                <a href="/articles">
+                  Best Practice Manajemen Dokumen Terpusat &amp; Tata Kelola
+                </a>
+              </h3>
+              <p
+                class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed"
+              >
+                Kepatuhan retensi berkas, approval berjenjang digital, dan
+                proteksi integritas arsip korporasi.
+              </p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <a
+              href="/articles"
+              class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
+            >
+              <span>Baca Selengkapnya</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. LEAD CAPTURE / CONSULTATION CTA TEMPLATE
+       ========================================================================= -->
+  <ConsultationCta />
+  </div>
+</PageLayout>

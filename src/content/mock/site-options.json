@@ -1,0 +1,27 @@
+{
+  "companyName": "Solusi Aplikasi Integrasi",
+  "tagline": "Transformasi Digital & Rekayasa Sistem Enterprise Terintegrasi",
+  "address": {
+    "street": "Jl. Siantar No.18, Cideng, Gambir",
+    "city": "Jakarta Pusat",
+    "province": "DKI Jakarta",
+    "postalCode": "10150",
+    "country": "ID"
+  },
+  "contact": {
+    "email": "sales@uti.co.id",
+    "phone": "+62 21 350 6050",
+    "whatsapp": "6287865000132",
+    "workingHours": "Senin - Jumat (9:00 - 17:00 WIB)"
+  },
+  "socialMedia": {
+    "linkedin": "https://linkedin.com/company/solusi-aplikasi-integrasi",
+    "github": "https://github.com/solusiaplikasi-id",
+    "twitter": "https://twitter.com/solusiaplikasi"
+  },
+  "organizationSchema": {
+    "legalName": "PT Solusi Aplikasi Integrasi",
+    "foundingYear": 2021,
+    "taxId": "01.234.567.8-012.000"
+  }
+}

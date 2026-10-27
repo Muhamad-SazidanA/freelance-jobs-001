@@ -1,0 +1,99 @@
+---
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import { getAllPosts } from '@/content/loaders/wp-graphql-loader';
+import type { Post } from '@/types/content';
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const allPosts = await getAllPosts();
+
+// Related posts (excluding current post)
+const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
+---
+
+<BlogLayout post={post}>
+  <div set:html={post.content} />
+
+  <!-- FAQ Section (AEO / GEO) -->
+  {post.faqs && post.faqs.length > 0 && (
+    <div class="my-10 pt-8 border-t border-slate-200">
+      <h3 class="text-xl font-bold text-slate-900 mb-4">Pertanyaan Terkait Artikel Ini</h3>
+      <div class="space-y-4">
+        {post.faqs.map((faq) => (
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+            <h4 class="font-semibold text-slate-900 text-sm mb-1">{faq.question}</h4>
+            <p class="text-sm text-slate-600">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- Share & Social Buttons -->
+  <div class="my-8 py-4 border-y border-slate-200 flex items-center justify-between">
+    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Bagikan Artikel:</span>
+    <div class="flex gap-2">
+      <a
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=https://solusiaplikasi.id/articles/${post.slug}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-3 py-1 bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-600 rounded text-xs font-medium"
+      >
+        LinkedIn
+      </a>
+      <a
+        href={`https://twitter.com/intent/tweet?url=https://solusiaplikasi.id/articles/${post.slug}&text=${encodeURIComponent(post.title)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-3 py-1 bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-600 rounded text-xs font-medium"
+      >
+        Twitter
+      </a>
+      <a
+        href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${post.title} - https://solusiaplikasi.id/articles/${post.slug}`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-3 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded text-xs font-medium"
+      >
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Related Articles -->
+  {relatedPosts.length > 0 && (
+    <div class="my-10 pt-6">
+      <h3 class="text-xl font-bold text-slate-900 mb-6">Artikel Terkait</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {relatedPosts.map((related) => (
+          <div class="p-4 border border-slate-200 rounded-lg hover:border-sky-500 transition-colors">
+            <h4 class="font-bold text-slate-900 text-sm mb-2">
+              <a href={`/articles/${related.slug}`} class="hover:text-sky-600">
+                {related.title}
+              </a>
+            </h4>
+            <p class="text-xs text-slate-500 line-clamp-2">{related.excerpt}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- Return Link -->
+  <div class="mt-8">
+    <a href="/articles" class="text-xs font-semibold text-sky-600 hover:underline">
+      &larr; Kembali ke Semua Artikel
+    </a>
+  </div>
+</BlogLayout>

@@ -1,0 +1,37 @@
+[
+  {
+    "fromPath": "/solusi-aplikasi-integrasi",
+    "toPath": "/about-us",
+    "statusCode": 301
+  },
+  {
+    "fromPath": "/tentang-kami",
+    "toPath": "/about-us",
+    "statusCode": 301
+  },
+  {
+    "fromPath": "/kontak",
+    "toPath": "/request-demo",
+    "statusCode": 301
+  },
+  {
+    "fromPath": "/blog",
+    "toPath": "/articles",
+    "statusCode": 301
+  },
+  {
+    "fromPath": "/layanan",
+    "toPath": "/products/nanonets",
+    "statusCode": 301
+  },
+  {
+    "fromPath": "/jasa-integrasi-api",
+    "toPath": "/products/nanonets",
+    "statusCode": 301
+  },
+  {
+    "fromPath": "/pembuatan-website-perusahaan",
+    "toPath": "/products/cyclone",
+    "statusCode": 301
+  }
+]

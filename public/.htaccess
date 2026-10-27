@@ -1,0 +1,144 @@
+# ==============================================================================
+# SolusiAplikasi.id - Apache 2.4 Configuration (.htaccess)
+# Architecture: Astro (Static Root) + WordPress in /solution/ (Landing Pages & Headless)
+# Reference: PRD Section 11A & User Architectural Directive
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Directory & Index Settings
+# ------------------------------------------------------------------------------
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# Prevent Directory Browsing
+Options -Indexes -MultiViews
+
+# Follow SymLinks for clean URLs
+Options +FollowSymLinks
+
+# ------------------------------------------------------------------------------
+# 2. Block Hidden & Sensitive Files (Excluding .well-known)
+# ------------------------------------------------------------------------------
+<FilesMatch "^\.(.*)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op]|env)|~)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule "^.well-known/" - [L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 3. Canonical HTTPS and Domain Normalization (non-www)
+# ------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Force HTTPS behind Cloudflare / Proxy
+    RewriteCond %{HTTP:CF-Visitor} '"scheme":"http"' [OR]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://solusiaplikasi.id/$1 [R=301,L]
+
+    # Force non-www
+    RewriteCond %{HTTP_HOST} ^www\.solusiaplikasi\.id$ [NC]
+    RewriteRule ^(.*)$ https://solusiaplikasi.id/$1 [R=301,L]
+
+    # Remove trailing slashes for non-directories (except root and /solution/)
+    RewriteCond %{REQUEST_URI} !^/solution/ [NC]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 4. Hide & Protect Admin Panels (User Directive)
+# (A) Astro Admin: /login and /admin
+# (B) WordPress Admin: /solution/wp-login.php and /solution/wp-admin
+# Blocks direct access unless ?access=solusi_admin_secure_access_2026 or cookie is present.
+# Returns 404 Not Found to obscure existence from crawlers & bots.
+# ------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Protect WordPress Admin
+    RewriteCond %{REQUEST_URI} ^/solution/wp-login\.php$ [NC,OR]
+    RewriteCond %{REQUEST_URI} ^/solution/wp-admin [NC]
+    RewriteCond %{QUERY_STRING} !access=solusi_admin_secure_access_2026 [NC]
+    RewriteCond %{HTTP_COOKIE} !solusi_admin_access=authorized [NC]
+    RewriteRule ^.*$ /404.html [L]
+
+    # Protect Astro Admin Dashboard
+    RewriteCond %{REQUEST_URI} ^/login/?$ [NC,OR]
+    RewriteCond %{REQUEST_URI} ^/admin/?.*$ [NC]
+    RewriteCond %{QUERY_STRING} !access=solusi_admin_secure_access_2026 [NC]
+    RewriteCond %{HTTP_COOKIE} !solusi_admin_access=authorized [NC]
+    RewriteRule ^.*$ /404.html [L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 5. WordPress /solution/ Subdirectory Handling (PRD v4.1)
+# /solution/ (indeks) diarahkan 301 ke Home.
+# /solution/[slug] diteruskan langsung ke WordPress.
+# ------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^solution/?$ / [R=301,L]
+    RewriteRule ^solution/.+$ - [L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 6. Security Headers (PRD Section 9 & 11A)
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com;"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 7. Caching Strategy (PRD Section 8 & 11A)
+# ------------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|woff2|webp|avif|png|jpg|jpeg|svg)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=0, must-revalidate, public"
+    </FilesMatch>
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 8. Gzip Compression (mod_deflate)
+# ------------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript text/xml text/plain application/javascript application/json image/svg+xml
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 9. Dynamic 301 Redirects from WordPress (Injected during build)
+# ------------------------------------------------------------------------------
+# BEGIN WP_DYNAMIC_REDIRECTS
+# END WP_DYNAMIC_REDIRECTS

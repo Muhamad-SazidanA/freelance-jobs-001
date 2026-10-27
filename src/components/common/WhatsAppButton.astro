@@ -1,0 +1,43 @@
+---
+interface Props {
+  phoneNumber?: string;
+  message?: string;
+  placement?: string;
+}
+
+const {
+  phoneNumber = '6281234567890',
+  message = 'Halo SolusiAplikasi.id, saya ingin konsultasi mengenai solusi sistem.',
+  placement = 'floating_button',
+} = Astro.props;
+
+const encodedMessage = encodeURIComponent(message);
+const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+---
+
+<a
+  href={waUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed bottom-6 right-6 z-40 bg-[#00a884] hover:bg-[#008f6f] text-white px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 text-sm font-semibold transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+  aria-label="Konsultasi via WhatsApp"
+  data-placement={placement}
+  id="whatsapp-direct-btn"
+>
+  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.072-.472-1.616-.64-2.671-2.28-2.753-2.389-.081-.11-.649-.864-.649-1.645 0-.78.406-1.164.55-1.32.144-.155.312-.193.416-.193.104 0 .208.001.298.006.096.005.225-.036.352.269.13.312.443 1.077.482 1.156.04.078.066.169.013.273-.052.104-.078.169-.156.26-.078.091-.163.204-.234.273-.078.078-.16.163-.069.319.091.156.403.666.866 1.078.596.53 1.099.694 1.255.772.156.078.247.065.338-.039.091-.104.39-.455.494-.611.104-.156.208-.13.351-.078.143.052.909.429 1.065.507.156.078.26.117.299.182.039.065.039.377-.105.782z"/>
+  </svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+  import { trackWhatsAppClick } from '@/lib/analytics';
+
+  const waBtn = document.getElementById('whatsapp-direct-btn');
+  if (waBtn) {
+    waBtn.addEventListener('click', () => {
+      const placement = waBtn.getAttribute('data-placement') || 'floating';
+      trackWhatsAppClick(window.location.href, placement);
+    });
+  }
+</script>

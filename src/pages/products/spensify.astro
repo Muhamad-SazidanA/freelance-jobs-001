@@ -1,0 +1,1018 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import ConsultationCta from '@/components/common/ConsultationCta.astro';
+import { generateBreadcrumbSchema, generateProductSchema, generateFaqSchema } from '@/lib/schema-ld';
+import type { Product } from '@/types/content';
+
+const productData: Product = {
+  id: 'prod-spensify',
+  slug: 'spensify',
+  name: 'Spensify',
+  headline: 'Kendalikan Setiap Pengeluaran, Tanpa Ribet.',
+  tagline:
+    'Spensify menyatukan pengajuan, approval, budgeting, dan pelaporan pengeluaran perusahaan dalam satu platform — bisa diakses lewat web maupun aplikasi mobile.',
+  heroImage: '/images/home/home-city-banner.jpg',
+  overview:
+    'Spensify mengubah proses reimbursement yang kompleks dan manual menjadi proses digital yang lebih cepat, terstruktur, dan terintegrasi dalam satu platform.',
+  features: [
+    {
+      title: 'Smart Scan',
+      description: 'OCR Gen AI membaca karakter & kata secara global dari foto kwitansi dan nota belanja.',
+    },
+    {
+      title: 'Budgeting & Pagu Anggaran',
+      description: 'Kontrol anggaran per divisi, proyek, atau cabang dengan peringatan batas overspending.',
+    },
+    {
+      title: 'Approval Bertingkat',
+      description: 'Routing otomatis mengikuti hierarki organisasi berdasarkan kebijakan dan nominal transaksi.',
+    },
+    {
+      title: 'Deteksi Struk Duplikat',
+      description: 'Deteksi duplikasi otomatis berbasis SHA-256 dan metadata transaksi sebelum dana dicairkan.',
+    },
+  ],
+  benefits: [
+    'Transparansi penuh atas seluruh pengeluaran operasional perusahaan',
+    'Kecepatan pencairan klaim real-time tanpa menunggu siklus bulanan',
+    'Ketepatan data dan kategori terstruktur mengurangi kesalahan laporan',
+    'Kemudahan akses melalui aplikasi mobile iOS, Android, dan portal web',
+  ],
+  useCases: [
+    'Reimbursement Biaya Operasional & Klaim Transportasi',
+    'Pengelolaan Petty Cash & Kas Kecil Proyek',
+    'Alokasi Anggaran Departemen & Pagu Biaya Perjalanan Dinas',
+    'Deteksi Anti-Fraud & Integrasi Sistem ERP Korporat',
+  ],
+  faqs: [
+    {
+      question: 'Bagaimana cara kerja Smart Scan OCR di Spensify?',
+      answer:
+        'Cukup ambil foto struk dari smartphone atau upload via web. Teknologi OCR Gen AI Spensify langsung mengekstrak nama merchant, tanggal, total nominal, dan kategori biaya secara otomatis.',
+    },
+    {
+      question: 'Bagaimana Spensify mendeteksi nota duplikat?',
+      answer:
+        'Sistem membandingkan hash SHA-256 dari file gambar, nomor transaksi, tanggal, jumlah, dan vendor. Jika terindikasi ganda, pengajuan otomatis ditahan untuk review.',
+    },
+  ],
+};
+
+const breadcrumbs = [
+  { name: 'Products', url: '/products/spensify' },
+  { name: 'Spensify (Expense)', url: '/products/spensify' },
+];
+
+const productSchema = generateProductSchema(productData);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+const faqSchema = generateFaqSchema(productData.faqs);
+const schema = [productSchema, breadcrumbSchema, faqSchema];
+---
+
+<PageLayout
+  title="Spensify - Kendalikan Setiap Pengeluaran, Tanpa Ribet. | SolusiAplikasi.id"
+  description="Spensify menyatukan pengajuan, approval, budgeting, dan pelaporan pengeluaran perusahaan dalam satu platform — bisa diakses lewat web maupun aplikasi mobile."
+  canonical="https://solusiaplikasi.id/products/spensify"
+  breadcrumbs={[]}
+  schema={schema}
+>
+  <div class="home-content-zoom w-full">
+  <!-- =========================================================================
+       BAGIAN 1: HERO SECTION (SESUAI FOTO 2)
+       ========================================================================= -->
+  <section class="spensify-hero-section text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <!-- Kicker Badge Sesuai Foto 2 -->
+        <div class="mb-5">
+          <span class="spensify-badge-pill-hero">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5"></span>
+            Smart Expense Management untuk Bisnis Modern
+          </span>
+        </div>
+
+        <!-- Headline Sesuai Foto 2 -->
+        <h1 class="spensify-hero-title mb-5">
+          Kendalikan Setiap<br />
+          Pengeluaran, Tanpa Ribet.
+        </h1>
+
+        <!-- Subtitle Sesuai Foto 2 -->
+        <p class="spensify-hero-subtitle mb-8 mx-auto">
+          Spensify menyatukan pengajuan, approval, budgeting, dan pelaporan pengeluaran perusahaan dalam satu platform &mdash; bisa diakses lewat web maupun aplikasi mobile.
+        </p>
+
+        <!-- CTA Buttons Sesuai Foto 2 -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+          <a href="#form-konsultasi" class="spensify-btn-gold">
+            Jadwalkan Demo
+          </a>
+          <a
+            href="https://wa.me/6281234567890?text=Halo%20SolusiAplikasi.id%2C%20saya%20ingin%20tanya%20mengenai%20Spensify."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="spensify-btn-wa"
+          >
+            Chat via WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Dashboard Mockup Image Sesuai Foto 2 -->
+      <div class="max-w-4xl mx-auto relative px-2 sm:px-4 flex justify-center">
+        <img
+          src="/images/product/spensify/spensify-dashboard.webp"
+          alt="Spensify Smart Expense Management Dashboard"
+          class="w-full h-auto object-contain select-none pointer-events-none"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+
+      <!-- Bottom Quote & 4 Pills Strip Sesuai Foto 2 -->
+      <div class="pt-10 mt-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <p class="text-xs sm:text-sm text-emerald-100/90 text-center md:text-left max-w-lg leading-relaxed">
+          &ldquo;Menjadi sistem kontrol keuangan andalan bagi perusahaan yang tumbuh tanpa kehilangan kendali atas pengeluarannya.&rdquo;
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs">
+          <span class="spensify-pill-prop">Transparansi</span>
+          <span class="spensify-pill-prop">Kecepatan</span>
+          <span class="spensify-pill-prop">Ketepatan</span>
+          <span class="spensify-pill-prop">Kemudahan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 2: TENTANG KAMI & TANTANGAN & S.A.V.E (SESUAI FOTO 2)
+       ========================================================================= -->
+  <section class="spensify-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-24">
+      <!-- 2.1: Tentang Kami (Visi & Misi Sesuai Foto 2) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <span class="spensify-badge-tag">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block mr-1"></span>
+            Tentang Kami
+          </span>
+          <h2 class="spensify-section-title">
+            Satu Sistem untuk Seluruh Alur<br class="hidden sm:inline" />
+            Keuangan Operasional Anda
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
+            Spensify mengubah proses reimbursement yang kompleks dan manual menjadi proses digital yang lebih cepat, terstruktur, dan terintegrasi dalam satu platform.
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
+            Tinggalkan ketergantungan pada nota fisik serta approval lewat chat atau kertas &mdash; karyawan mengajukan reimbursement dengan mudah, sementara tim Finance mengontrol dan melaporkan pengeluaran perusahaan dengan lebih efektif.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <!-- Visi Card -->
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+            <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider block mb-1">VISI</span>
+            <p class="text-sm sm:text-[15px] font-bold text-slate-900 leading-snug">
+              Satu sistem untuk seluruh alur keuangan operasional Anda.
+            </p>
+          </div>
+
+          <!-- Misi Card -->
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+            <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider block mb-1">MISI</span>
+            <p class="text-sm sm:text-[15px] font-bold text-slate-900 leading-snug">
+              Mengubah proses finansial yang tadinya manual menjadi otomatis, transparan, dan bisa diakses kapan saja.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2: Pengeluaran Bisnis yang Sulit Dilacak? (Tantangan 01-04 Sesuai Foto 2) -->
+      <div>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="spensify-badge-tag mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block mr-1"></span>
+            Tantangan
+          </span>
+          <h2 class="spensify-section-title mt-2">
+            Pengeluaran Bisnis yang Sulit<br class="hidden sm:inline" />
+            Dilacak?
+          </h2>
+          <p class="spensify-section-subtitle mx-auto">
+            Tantangan reimbursement yang menghambat tim Finance &mdash; lihat bedanya kalau prosesnya masih berjalan manual.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 01 -->
+          <div class="spensify-card-challenge">
+            <div class="flex justify-between items-center mb-4">
+              <div class="spensify-challenge-icon">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              </div>
+              <span class="text-xs font-mono font-bold text-slate-300">01</span>
+            </div>
+            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-2">Dokumen Tidak Lengkap</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Nota hilang, tidak jelas, atau dokumen pendukung kurang sehingga verifikasi terhambat.
+            </p>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="spensify-card-challenge">
+            <div class="flex justify-between items-center mb-4">
+              <div class="spensify-challenge-icon">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <span class="text-xs font-mono font-bold text-slate-300">02</span>
+            </div>
+            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-2">Status Approval Sulit Dilacak</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Approval lewat chat, email, atau kertas membuat status pengajuan sulit dipantau.
+            </p>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="spensify-card-challenge">
+            <div class="flex justify-between items-center mb-4">
+              <div class="spensify-challenge-icon">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+              </div>
+              <span class="text-xs font-mono font-bold text-slate-300">03</span>
+            </div>
+            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-2">Visibilitas Terbatas</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Transaksi tersebar sehingga sulit memantau pengeluaran secara real-time.
+            </p>
+          </div>
+
+          <!-- Card 04 -->
+          <div class="spensify-card-challenge">
+            <div class="flex justify-between items-center mb-4">
+              <div class="spensify-challenge-icon">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              </div>
+              <span class="text-xs font-mono font-bold text-slate-300">04</span>
+            </div>
+            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-2">Rekap Laporan Manual</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Pengecekan memakan waktu serta meningkatkan risiko human error.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.3: Kerangka S.A.V.E (Solusi Sesuai Foto 2) -->
+      <div>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="spensify-badge-tag mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block mr-1"></span>
+            Solusi
+          </span>
+          <h2 class="spensify-section-title mt-2">
+            Kerangka S.A.V.E
+          </h2>
+          <p class="spensify-section-subtitle mx-auto">
+            Empat pilar yang menjawab tantangan finance di atas &mdash; Speed, Accuracy, Visibility, Efficiency.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+          <!-- Cara Lama: Reimbursement Manual Sesuai Foto 2 -->
+          <div class="p-8 sm:p-9 rounded-[24px] bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between">
+            <div>
+              <span class="inline-block px-3.5 py-1 rounded-full bg-[#f3e4dc] text-[#8c3e21] font-bold text-xs mb-4">
+                Cara Lama
+              </span>
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight mb-6">Reimbursement Manual</h3>
+              <div class="divide-y divide-slate-100">
+                <div class="py-3.5 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-[#ea580c] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  <span class="text-xs sm:text-sm text-slate-600 font-medium leading-snug">Nota fisik hilang atau dokumen pendukung kurang lengkap</span>
+                </div>
+                <div class="py-3.5 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-[#ea580c] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  <span class="text-xs sm:text-sm text-slate-600 font-medium leading-snug">Approval berjalan lewat chat, email, atau kertas</span>
+                </div>
+                <div class="py-3.5 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-[#ea580c] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  <span class="text-xs sm:text-sm text-slate-600 font-medium leading-snug">Transaksi tersebar, sulit dipantau real-time</span>
+                </div>
+                <div class="py-3.5 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-[#ea580c] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  <span class="text-xs sm:text-sm text-slate-600 font-medium leading-snug">Rekap laporan manual, rawan human error</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dengan Spensify: S.A.V.E Framework Sesuai Foto 2 -->
+          <div class="p-8 sm:p-9 rounded-[24px] bg-[#0a4728] text-white shadow-xl flex flex-col justify-between">
+            <div>
+              <span class="inline-block px-3.5 py-1 rounded-full bg-[#1b5437] text-[#a7f3d0] font-bold text-xs mb-4">
+                Dengan Spensify
+              </span>
+              <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight mb-6">S.A.V.E Framework</h3>
+              <div class="border-t border-[#175033] divide-y divide-[#175033]">
+                <div class="py-3.5 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div class="text-xs sm:text-sm leading-snug">
+                    <span class="font-bold text-white">Speed</span>
+                    <span class="text-white/85"> &mdash; approval &amp; reimbursement real-time, tidak menunggu siklus bulanan</span>
+                  </div>
+                </div>
+                <div class="py-3.5 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div class="text-xs sm:text-sm leading-snug">
+                    <span class="font-bold text-white">Accuracy</span>
+                    <span class="text-white/85"> &mdash; data dan kategori terstruktur, kurangi risiko kesalahan laporan</span>
+                  </div>
+                </div>
+                <div class="py-3.5 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div class="text-xs sm:text-sm leading-snug">
+                    <span class="font-bold text-white">Visibility</span>
+                    <span class="text-white/85"> &mdash; dashboard budget per divisi/proyek bisa dipantau kapan saja</span>
+                  </div>
+                </div>
+                <div class="py-3.5 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div class="text-xs sm:text-sm leading-snug">
+                    <span class="font-bold text-white">Efficiency</span>
+                    <span class="text-white/85"> &mdash; kebijakan pengeluaran otomatis, kurangi pemborosan</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons Sesuai Foto 2 -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-12">
+          <a href="#form-konsultasi" class="spensify-btn-gold">
+            Jadwalkan Demo
+          </a>
+          <a
+            href="https://wa.me/6281234567890?text=Halo%20SolusiAplikasi.id%2C%20saya%20ingin%20tanya%20mengenai%20Spensify."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="spensify-btn-wa-light"
+          >
+            Chat via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 3 & 4: SPENSIFY DALAM SATU KALIMAT (4 ROW SESUAI FOTO 3 & 4)
+       ========================================================================= -->
+  <section id="fitur-spensify" class="spensify-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="spensify-badge-tag mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block mr-1"></span>
+          Produk
+        </span>
+        <h2 class="spensify-section-title mt-2">
+          Spensify dalam Satu Kalimat
+        </h2>
+        <p class="spensify-section-subtitle mx-auto">
+          Platform yang menghubungkan pengeluaran, budget, dan reimbursement dalam satu sistem &mdash; dari pengajuan sampai laporan.
+        </p>
+      </div>
+
+      <!-- Divider line below header matching Image 2 -->
+      <div class="w-full border-b border-slate-100/90 mb-16"></div>
+
+      <div class="space-y-20 lg:space-y-24">
+        <!-- Feature 1: OCR AI (Text Left, feature-shot.webp Right Sesuai Foto 2) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <h3 class="spensify-feature-row-title">OCR AI: Foto Struk, Data Terisi Otomatis</h3>
+            <p class="spensify-feature-row-desc">
+              Transaksi harian tanpa isi manual satu per satu. Foto atau upload struk dari HP maupun web, sistem baca datanya secara otomatis.
+            </p>
+            <ul class="space-y-3 pt-1">
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Take &amp; Review: cek dan sesuaikan hasil scan sebelum disimpan</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Quick Submit: unggah banyak struk sekaligus dalam satu waktu</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Badge "Scanned" menandai mana input otomatis, mana manual</span>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:col-span-5 flex justify-center items-center">
+            <img
+              src="/images/product/spensify/feature-shot.webp"
+              alt="Spensify OCR AI Upload Receipts"
+              class="w-full max-w-[330px] sm:max-w-[360px] lg:max-w-[350px] max-h-[340px] h-auto object-contain select-none pointer-events-none drop-shadow-sm"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Feature 2: Cegah Overspending (cegar-overstanding.webp Left, Text Right Sesuai Foto 2) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-5 flex justify-center items-center order-2 lg:order-1">
+            <img
+              src="/images/product/spensify/cegar-overstanding.webp"
+              alt="Spensify Budget Overview Cegah Overspending"
+              class="w-full max-w-[310px] sm:max-w-[340px] lg:max-w-[330px] max-h-[340px] h-auto object-contain select-none pointer-events-none drop-shadow-sm"
+              loading="lazy"
+            />
+          </div>
+          <div class="lg:col-span-7 space-y-4 order-1 lg:order-2">
+            <h3 class="spensify-feature-row-title">Cegah Overspending Sebelum Terjadi</h3>
+            <p class="spensify-feature-row-desc">
+              Alokasi budget per divisi, proyek, atau cabang. Setiap transaksi baru otomatis dicek terhadap sisa anggaran sebelum disetujui.
+            </p>
+            <ul class="space-y-3 pt-1">
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Buat budget per tim dengan periode bulanan, kuartalan, atau tahunan</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Monitoring real-time dan notifikasi mendekati limit anggaran</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Kebijakan over-budget diatur sendiri: Warning atau blokir transaksi</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 3: Approval Bertingkat (Text Left, 3 Stacked Pills Right Sesuai Foto 4) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <h3 class="spensify-feature-row-title">Approval Bertingkat untuk Struktur Organisasi Kompleks</h3>
+            <p class="spensify-feature-row-desc">
+              Fleksibel mengikuti hierarki perusahaan. Routing otomatis berdasarkan kebijakan dan nominal transaksi.
+            </p>
+            <ul class="space-y-3 pt-1">
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Status tiap step terlihat jelas: approved atau pending</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Expense ringan otomatis Auto-Approved, tidak menunggu approver</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Riwayat approval tercatat lengkap dengan nama &amp; waktu</span>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:col-span-5 flex justify-center items-center">
+            <div class="w-full max-w-[340px] space-y-3">
+              <!-- 3 Stacked Tier Pills Sesuai Foto 4 -->
+              <div class="p-3.5 sm:p-4 rounded-xl bg-[#032414] text-white flex justify-between items-center shadow-md">
+                <span class="font-bold text-xs sm:text-sm font-mono">&gt; Rp 10 juta</span>
+                <span class="text-xs text-emerald-300 font-semibold">Direktur</span>
+              </div>
+              <div class="p-3.5 sm:p-4 rounded-xl bg-[#065f46] text-white flex justify-between items-center shadow-md">
+                <span class="font-bold text-xs sm:text-sm font-mono">Rp 2 &ndash; 10 juta</span>
+                <span class="text-xs text-emerald-200 font-semibold">Finance Manager</span>
+              </div>
+              <div class="p-3.5 sm:p-4 rounded-xl bg-[#10b981] text-white flex justify-between items-center shadow-md">
+                <span class="font-bold text-xs sm:text-sm font-mono">&lt; Rp 2 juta</span>
+                <span class="text-xs text-emerald-950 font-bold">Team Lead</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4: Deteksi Struk Duplikat (Image Left, Text Right Sesuai Foto) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-5 flex justify-center items-center order-2 lg:order-1">
+            <img
+              src="/images/product/spensify/deteksi-struck-duplikat.webp"
+              alt="Spensify Deteksi Struk Duplikat"
+              class="w-full max-w-[340px] sm:max-w-[370px] lg:max-w-[360px] max-h-[320px] h-auto object-contain select-none pointer-events-none drop-shadow-sm"
+              loading="lazy"
+            />
+          </div>
+          <div class="lg:col-span-7 space-y-4 order-1 lg:order-2">
+            <h3 class="spensify-feature-row-title">Deteksi Struk Duplikat</h3>
+            <p class="spensify-feature-row-desc">
+              Receipt ditandai ketika cocok dengan expense lain berdasarkan minimal satu indikator berikut.
+            </p>
+            <ul class="space-y-3 pt-1">
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Hash SHA-256 dari isi biner kedua file sama persis</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Data transaksi identik: vendor, tanggal, jumlah, mata uang</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-snug">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Expense terindikasi duplikat otomatis ditahan sampai direview</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 5: KLAIM TERPUSAT (DARK FOREST GREEN BANNER SESUAI FOTO 4)
+       ========================================================================= -->
+  <section class="spensify-dark-section text-white border-y border-emerald-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Col Left: Text & Stats Sesuai Foto 2 -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="spensify-badge-pill-hero">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5"></span>
+            Klaim Terpusat
+          </span>
+          <h2 class="text-2xl sm:text-3xl lg:text-[2rem] font-black text-white tracking-tight leading-tight">
+            Semua Klaim Terpantau di<br />
+            Satu Tempat
+          </h2>
+          <p class="text-sm sm:text-base text-emerald-100/90 leading-relaxed max-w-lg">
+            Bukan lagi form kertas atau email berantai &mdash; semua status ada dalam satu tabel pengeluaran yang rapi. Dari klaim disetujui sampai dana masuk rekening, semua tercatat.
+          </p>
+
+          <div class="border-t border-white/10 my-6"></div>
+
+          <div class="grid grid-cols-2 gap-6 pt-1">
+            <div>
+              <span class="text-2xl sm:text-3xl font-black text-white font-mono block">Rp 1.250.000</span>
+              <p class="text-xs sm:text-sm text-emerald-200/90 mt-1 leading-relaxed">
+                Contoh dana yang berhasil dicairkan ke rekening karyawan
+              </p>
+            </div>
+            <div>
+              <span class="text-2xl sm:text-3xl font-black text-white font-mono block">1 Tabel</span>
+              <p class="text-xs sm:text-sm text-emerald-200/90 mt-1 leading-relaxed">
+                Semua status pengeluaran, tanpa catatan tercecer
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col Right: Showcase Media Klaim Terpusat Sesuai Foto 2 -->
+        <div class="lg:col-span-6 flex justify-center items-center">
+          <img
+            src="/images/product/spensify/showcase-media-klaim-terpusat.webp"
+            alt="Spensify Showcase Media Klaim Terpusat"
+            class="w-full max-w-[540px] h-auto object-contain select-none pointer-events-none"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 6: TECHNOLOGY OUTPLAY (8 CARDS SESUAI FOTO 5)
+       ========================================================================= -->
+  <section class="spensify-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="spensify-badge-tag mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block mr-1"></span>
+          Fitur
+        </span>
+        <h2 class="spensify-section-title mt-2">
+          Technology Outplay
+        </h2>
+        <p class="spensify-section-subtitle mx-auto">
+          Satu platform, delapan kapabilitas yang menjawab kebutuhan finance dari harian sampai audit.
+        </p>
+      </div>
+
+      <!-- 8 Feature Cards Grid (4 cols x 2 rows Sesuai Foto 5) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1: Smart Scan -->
+        <div class="spensify-tech-card">
+          <div class="spensify-tech-icon">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h4 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5">Smart Scan</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            OCR Gen AI membaca karakter &amp; kata secara global.
+          </p>
+        </div>
+
+        <!-- Card 2: Bahasa >200 -->
+        <div class="spensify-tech-card">
+          <div class="spensify-tech-icon">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+          </div>
+          <h4 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5">Bahasa &gt;200</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Mendukung karakter dan kata dari berbagai bahasa dunia.
+          </p>
+        </div>
+
+        <!-- Card 3: Duplicate -->
+        <div class="spensify-tech-card">
+          <div class="spensify-tech-icon">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" /></svg>
+          </div>
+          <h4 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5">Duplicate</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Deteksi duplikasi otomatis sebelum dana dicairkan.
+          </p>
+        </div>
+
+        <!-- Card 4: Budgeting -->
+        <div class="spensify-tech-card">
+          <div class="spensify-tech-icon">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h4 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5">Budgeting</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Kontrol anggaran per divisi, proyek, atau cabang.
+          </p>
+        </div>
+
+        <!-- Card 5: Akses Control -->
+        <div class="spensify-tech-card">
+          <div class="spensify-tech-icon">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h4 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5">Akses Control</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Pembatasan permission sesuai peran pengguna.
+          </p>
+        </div>
+
+        <!-- Card 6: Audit Trail -->
+        <div class="spensify-tech-card">
+          <div class="spensify-tech-icon">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h4 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5">Audit Trail</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Rekam jejak perubahan akun dan aktivitas keamanan.
+          </p>
+        </div>
+
+        <!-- Card 7: Dashboard -->
+        <div class="spensify-tech-card">
+          <div class="spensify-tech-icon">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <h4 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5">Dashboard</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Overview dan statistik pengeluaran secara real-time.
+          </p>
+        </div>
+
+        <!-- Card 8: API Integration -->
+        <div class="spensify-tech-card">
+          <div class="spensify-tech-icon">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+          </div>
+          <h4 class="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5">API Integration</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Hasil JSON &amp; XML yang siap dihubungkan ke sistem ERP.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 7: DI IKUTI CTA FORM (UNIFIED CONSULTATION CTA TEMPLATE)
+       ========================================================================= -->
+  <ConsultationCta defaultProduct="spensify" />
+  </div><!-- /home-content-zoom -->
+
+  <!-- =========================================================================
+       SCOPED CSS RULES: 100% KONSISTEN DENGAN 5 FOTO REFERENSI SPENSIFY
+       ========================================================================= -->
+  <style>
+    /* Base typography (Sesuai Home System Token) */
+    .spensify-hero-section,
+    .spensify-section,
+    .spensify-dark-section {
+      font-family: var(--font-sans);
+    }
+
+    /* Hero section styles Sesuai Foto 2 */
+    .spensify-hero-section {
+      background: radial-gradient(85% 65% at 50% 12%, #134e34 0%, #062a18 60%, #031c10 100%);
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+
+    .spensify-section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .spensify-dark-section {
+      background: linear-gradient(180deg, #022413 0%, #032e18 50%, #022413 100%);
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .spensify-hero-section {
+        padding-top: 50px;
+        padding-bottom: 40px;
+      }
+      .spensify-section,
+      .spensify-dark-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+    }
+
+    /* Hero Badges */
+    .spensify-badge-pill-hero {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 16px;
+      border-radius: 9999px;
+      background-color: rgba(6, 78, 59, 0.7);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #a7f3d0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .spensify-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background-color: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #047857;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Hero Typography (Mengikuti Skala Home 3xl–5xl) */
+    .spensify-hero-title {
+      font-size: clamp(1.875rem, 4vw, 3rem) !important;
+      font-weight: 900 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.03em !important;
+      color: #ffffff !important;
+    }
+
+    .spensify-hero-subtitle {
+      font-size: clamp(0.9375rem, 1.3vw, 1.0625rem) !important;
+      color: #a7f3d0 !important;
+      line-height: 1.68 !important;
+      max-width: 600px !important;
+    }
+
+    /* Hero Action Buttons Sesuai Foto 2 */
+    .spensify-btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      background-color: #d9a043;
+      color: #052917;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 25px -4px rgba(217, 160, 67, 0.45);
+      transition: all 0.2s ease;
+    }
+
+    .spensify-btn-gold:hover {
+      background-color: #e5ab4c;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px -4px rgba(217, 160, 67, 0.55);
+    }
+
+    .spensify-btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      background-color: rgba(2, 36, 19, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .spensify-btn-wa:hover {
+      background-color: rgba(6, 78, 59, 0.6);
+      border-color: rgba(255, 255, 255, 0.45);
+      color: #ffffff;
+    }
+
+    .spensify-btn-wa-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      background-color: #ffffff;
+      border: 1px solid #dcd7cf;
+      color: #0f172a;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .spensify-btn-wa-light:hover {
+      background-color: #f9fafb;
+      border-color: #9ca3af;
+      color: #000000;
+    }
+
+    /* Hero Bottom Pills Sesuai Foto 2 */
+    .spensify-pill-prop {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      background-color: rgba(6, 78, 59, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    /* Section Titles (Mengikuti Skala Home 2xl–3xl) */
+    .spensify-section-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem) !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.025em !important;
+      line-height: 1.25 !important;
+      color: #0f172a !important;
+    }
+
+    .spensify-section-subtitle {
+      color: #64748b !important;
+      font-size: clamp(0.9375rem, 1.3vw, 1.0625rem) !important;
+      max-width: 640px !important;
+      line-height: 1.65 !important;
+      margin-top: 10px !important;
+    }
+
+    /* Challenge 01-04 Cards */
+    .spensify-card-challenge {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .spensify-card-challenge:hover {
+      border-color: #a7f3d0;
+      transform: translateY(-2px);
+    }
+
+    .spensify-challenge-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background-color: #ecfdf5;
+      border: 1px solid #d1fae5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Feature Row Titles */
+    .spensify-feature-row-title {
+      font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .spensify-feature-row-desc {
+      font-size: clamp(0.875rem, 1.2vw, 0.975rem);
+      color: #475569;
+      line-height: 1.68;
+    }
+
+    .spensify-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 6px;
+    }
+
+    .spensify-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.55;
+    }
+
+    /* Mockup Frames */
+    .spensify-mockup-frame {
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    /* Tech Cards Sesuai Foto 5 */
+    .spensify-tech-card {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .spensify-tech-card:hover {
+      border-color: #a7f3d0;
+      transform: translateY(-2px);
+    }
+
+    .spensify-tech-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #044e2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+  </style>
+
+</PageLayout>

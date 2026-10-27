@@ -1,0 +1,405 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { getAllPosts } from '@/content/loaders/wp-graphql-loader';
+import ConsultationCta from '@/components/common/ConsultationCta.astro';
+import { generateBreadcrumbSchema } from '@/lib/schema-ld';
+import type { Post } from '@/types/content';
+
+const allPosts: Post[] = await getAllPosts();
+
+// Section 1: Top 3-Column Data (UTI Structure with SAI Theme)
+const featuredCarouselPosts = allPosts.slice(0, 4);
+const popularPosts = [allPosts[3], allPosts[4], allPosts[5], allPosts[6], allPosts[7]].filter(Boolean);
+const latestPosts = [
+  allPosts[0],
+  allPosts[8],
+  allPosts[9],
+  allPosts[10],
+  allPosts[11],
+  allPosts[12],
+  allPosts[13],
+  allPosts[1],
+].filter(Boolean);
+
+// Section 2: "Eksplor Bisnis" Showcase Grid Data (Matching Mockup Image 1)
+const solutionLeftPosts = [allPosts[14], allPosts[15], allPosts[16], allPosts[17]].filter(Boolean);
+const solutionCenterPost = allPosts[2] || allPosts[5] || allPosts[0];
+const solutionRightPosts = [allPosts[18], allPosts[10], allPosts[4], allPosts[19]].filter(Boolean);
+const solutionBottomPosts = [allPosts[20], allPosts[16], allPosts[15]].filter(Boolean);
+
+const schema = [
+  generateBreadcrumbSchema([
+    { name: 'Beranda', url: '/' },
+    { name: 'Articles', url: '/articles' },
+  ]),
+];
+
+function formatDate(dateStr: string) {
+  try {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+  } catch {
+    return dateStr;
+  }
+}
+---
+
+<PageLayout
+  title="SAI Insights - Artikel IT, AI & Otomasi Proses Enterprise | SolusiAplikasi.id"
+  description="Dapatkan riset terbaru, tren teknologi, tips bisnis, dan wawasan mendalam mengenai AI OCR, RPA, Document Management System, dan infrastruktur IT dari tim ahli SolusiAplikasi.id."
+  schema={schema}
+>
+  <!-- =========================================================================
+       1. HERO BANNER - SAI INSIGHTS (Dark Tech & Neural Circuit Theme)
+       ========================================================================= -->
+  <section class="relative overflow-hidden bg-[#040d21] text-white py-16 sm:py-20 md:py-24 border-b border-sky-950/40">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/articles/sai-insights-hero.jpg"
+        alt="SAI Insights Hero Banner"
+        class="w-full h-full object-cover object-bottom opacity-75 sm:opacity-85"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <!-- Radial gradient for text legibility -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#040d21]/90 via-[#040d21]/60 to-[#040d21]/95"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-500/15 via-transparent to-transparent"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15] mb-4 drop-shadow-sm">
+        Stay Ahead with <span class="bg-gradient-to-r from-sky-400 via-sky-300 to-white bg-clip-text text-transparent">SAI Insights</span>
+      </h1>
+
+      <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+        Stay ahead of the curve, with our curated articles on AI, IT trends, automation, and real-world enterprise case studies.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. MAIN ARTICLES CONTAINER (Matching Mockup Image 1 & UTI Layout)
+       ========================================================================= -->
+  <main class="bg-slate-50/50 py-10 md:py-14 font-sans text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- ===================================================================
+           SECTION 1: TOP 3-COLUMN HIGHLIGHT GRID
+           Left: Carousel Slider (1/4) | Middle: Paling banyak dibaca | Right: Terbaru
+           =================================================================== -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Column 1: Featured Slider Card (col-span-4, Sticky) -->
+        <div class="lg:col-span-4 lg:sticky lg:top-24 self-start">
+          <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow relative">
+            <div id="featured-carousel" class="relative">
+              {featuredCarouselPosts.map((post, index) => (
+                <div
+                  data-carousel-slide={index}
+                  class={`carousel-item ${index === 0 ? 'block' : 'hidden'} transition-opacity duration-300`}
+                >
+                  <!-- Image thumbnail -->
+                  <div class="relative overflow-hidden rounded-xl aspect-[16/10] sm:aspect-[21/9] lg:aspect-[16/10] w-full bg-slate-100 group mb-3.5">
+                    <a href={`/articles/${post.slug}`} class="block w-full h-full">
+                      <img
+                        src={post.featuredImage?.url || '/images/articles/article-thumb-1.jpg'}
+                        alt={post.featuredImage?.alt || post.title}
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                      />
+                    </a>
+
+                    <!-- Slider Controls Badge (Bottom-Right, SAI Slate & Sky) -->
+                    <div class="absolute bottom-2.5 right-2.5 flex items-center bg-slate-900/90 backdrop-blur-md rounded-lg overflow-hidden border border-slate-700/60 shadow-md select-none z-10">
+                      <span class="text-white text-xs font-semibold px-2.5 py-1 select-none">
+                        <span data-carousel-current>{index + 1}</span> / {featuredCarouselPosts.length}
+                      </span>
+                      <button
+                        type="button"
+                        data-carousel-prev
+                        aria-label="Artikel Sebelumnya"
+                        class="p-1.5 bg-white/95 hover:bg-sky-50 text-slate-700 hover:text-sky-600 transition-colors cursor-pointer border-l border-slate-200 active:bg-sky-100"
+                      >
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        data-carousel-next
+                        aria-label="Artikel Selanjutnya"
+                        class="p-1.5 bg-white/95 hover:bg-sky-50 text-slate-700 hover:text-sky-600 transition-colors cursor-pointer border-l border-slate-200 active:bg-sky-100"
+                      >
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Text Details -->
+                  <div class="space-y-1.5">
+                    <span class="text-xs font-semibold text-sky-600 hover:text-sky-700 tracking-wide block transition-colors">
+                      {post.categories?.[0]?.name || 'Technology'}
+                    </span>
+                    <h3 class="text-slate-900 font-bold text-base sm:text-lg leading-snug hover:text-sky-600 transition-colors block line-clamp-2">
+                      <a href={`/articles/${post.slug}`}>{post.title}</a>
+                    </h3>
+                    <p class="text-xs text-slate-500 font-medium">
+                      {formatDate(post.publishedAt)} • {post.readingTimeMinutes} min read
+                    </p>
+                    <div class="flex items-center gap-2.5 pt-2">
+                      <img
+                        src={post.author?.avatarUrl || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80'}
+                        alt={post.author?.name || 'Author'}
+                        class="w-7 h-7 rounded-full object-cover shrink-0 border border-slate-200"
+                        loading="lazy"
+                      />
+                      <span class="text-xs font-semibold text-slate-900">
+                        {post.author?.name || 'Tim Redaksi SAI'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Paling banyak dibaca (col-span-5) -->
+        <div class="lg:col-span-5 space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 mb-4 tracking-tight border-b border-slate-200/80 pb-2.5 flex items-center justify-between">
+            <span>Paling banyak dibaca</span>
+            <span class="text-xs font-medium text-slate-400">Popular Reads</span>
+          </h2>
+
+          <div class="space-y-6">
+            {popularPosts.map((post) => (
+              <article class="group">
+                <a
+                  href={`/articles/${post.slug}`}
+                  class="block relative overflow-hidden rounded-xl aspect-[21/9] w-full bg-slate-100 mb-2.5 group"
+                >
+                  <img
+                    src={post.featuredImage?.url || '/images/articles/article-thumb-2.jpg'}
+                    alt={post.featuredImage?.alt || post.title}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </a>
+                <span class="text-xs font-semibold text-sky-600 block mb-1">
+                  {post.categories?.[0]?.name || 'Technology'}
+                </span>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug hover:text-sky-600 transition-colors line-clamp-2">
+                  <a href={`/articles/${post.slug}`}>{post.title}</a>
+                </h3>
+                <p class="text-xs text-slate-500 font-medium my-1.5">
+                  {formatDate(post.publishedAt)} • {post.readingTimeMinutes} min read
+                </p>
+                <div class="flex items-center gap-2 mt-2">
+                  <img
+                    src={post.author?.avatarUrl || 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80'}
+                    alt={post.author?.name}
+                    class="w-6 h-6 rounded-full object-cover shrink-0 border border-slate-200"
+                    loading="lazy"
+                  />
+                  <span class="text-xs font-semibold text-slate-900">{post.author?.name}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <!-- Column 3: Terbaru (col-span-3, with left border separator) -->
+        <div class="lg:col-span-3 min-[1050px]:border-l min-[1050px]:border-slate-200/80 min-[1050px]:pl-6">
+          <h2 class="text-lg font-bold text-slate-900 mb-4 tracking-tight border-b border-slate-200/80 pb-2.5 flex items-center justify-between">
+            <span>Terbaru</span>
+            <span class="text-xs font-medium text-slate-400">Latest</span>
+          </h2>
+
+          <div class="space-y-4">
+            {latestPosts.map((post) => (
+              <div class="border-b border-slate-200/70 pb-3.5 last:border-b-0 space-y-1">
+                <span class="text-xs font-semibold text-sky-600 block">
+                  {post.categories?.[0]?.name || 'Technology'}
+                </span>
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 leading-snug hover:text-sky-600 transition-colors line-clamp-2">
+                  <a href={`/articles/${post.slug}`}>{post.title}</a>
+                </h3>
+                <p class="text-xs text-slate-500 font-medium pt-0.5">
+                  {formatDate(post.publishedAt)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================
+           SECTION 2: EKSPLOR BISNIS (Showcase Grid Matching Mockup Image 1)
+           Left: 4 compact | Center: 1 Large Spotlight | Right: 4 compact
+           Bottom: 3-column row with clean borders
+           =================================================================== -->
+      <section class="mt-16 pt-12 border-t border-slate-200/80 font-sans">
+        <div class="mb-8">
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600 block mb-1">
+            Topik Pilihan & Analisis Industri
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            Eksplor Bisnis
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+          <!-- Left Column: 4 compact articles -->
+          <div class="lg:col-span-3 space-y-4">
+            {solutionLeftPosts.map((post) => (
+              <div class="border-b border-slate-200/80 pb-4 last:border-b-0 space-y-1">
+                <span class="text-xs font-semibold text-sky-600 block">
+                  {post.categories?.[0]?.name || 'AI & Automation'}
+                </span>
+                <h4 class="text-sm font-bold text-slate-900 leading-snug hover:text-sky-600 transition-colors line-clamp-2">
+                  <a href={`/articles/${post.slug}`}>{post.title}</a>
+                </h4>
+                <p class="text-xs text-slate-500 font-medium pt-0.5">
+                  {formatDate(post.publishedAt)}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Center Column: 1 Spotlight Featured Card with border dividers -->
+          <div class="lg:col-span-6 min-[1050px]:border-x min-[1050px]:border-slate-200/60 min-[1050px]:px-6">
+            <article class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+              <a
+                href={`/articles/${solutionCenterPost.slug}`}
+                class="block relative overflow-hidden rounded-xl aspect-[21/9] w-full bg-slate-100 mb-4 group"
+              >
+                <img
+                  src={solutionCenterPost.featuredImage?.url || '/images/articles/article-thumb-4.jpg'}
+                  alt={solutionCenterPost.featuredImage?.alt || solutionCenterPost.title}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </a>
+              <span class="text-xs font-semibold text-sky-600 block mb-1">
+                {solutionCenterPost.categories?.[0]?.name || 'Fintech and Economy'}
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 leading-snug hover:text-sky-600 transition-colors mb-2">
+                <a href={`/articles/${solutionCenterPost.slug}`}>{solutionCenterPost.title}</a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed mb-3">
+                {solutionCenterPost.excerpt}
+              </p>
+              <p class="text-xs text-slate-500 font-medium mb-3">
+                {formatDate(solutionCenterPost.publishedAt)} • {solutionCenterPost.readingTimeMinutes} min read
+              </p>
+              <div class="flex items-center gap-2.5">
+                <img
+                  src={solutionCenterPost.author?.avatarUrl || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80'}
+                  alt={solutionCenterPost.author?.name}
+                  class="w-7 h-7 rounded-full object-cover shrink-0 border border-slate-200"
+                  loading="lazy"
+                />
+                <span class="text-xs font-semibold text-slate-900">{solutionCenterPost.author?.name}</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Right Column: 4 compact articles -->
+          <div class="lg:col-span-3 space-y-4">
+            {solutionRightPosts.map((post) => (
+              <div class="border-b border-slate-200/80 pb-4 last:border-b-0 space-y-1">
+                <span class="text-xs font-semibold text-sky-600 block">
+                  {post.categories?.[0]?.name || 'AI & Automation'}
+                </span>
+                <h4 class="text-sm font-bold text-slate-900 leading-snug hover:text-sky-600 transition-colors line-clamp-2">
+                  <a href={`/articles/${post.slug}`}>{post.title}</a>
+                </h4>
+                <p class="text-xs text-slate-500 font-medium pt-0.5">
+                  {formatDate(post.publishedAt)}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+        <!-- Bottom Row: 3 Articles with Dividers -->
+        <div class="mt-10 pt-8 border-t border-slate-200/80 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {solutionBottomPosts.map((post) => (
+            <div class="md:border-r md:border-slate-200/60 md:pr-6 md:last:border-r-0 space-y-1.5">
+              <span class="text-xs font-semibold text-sky-600 block">
+                {post.categories?.[0]?.name || 'AI & Automation'}
+              </span>
+              <h4 class="text-sm font-bold text-slate-900 leading-snug hover:text-sky-600 transition-colors line-clamp-2">
+                <a href={`/articles/${post.slug}`}>{post.title}</a>
+              </h4>
+              <p class="text-xs text-slate-500 font-medium pt-0.5">
+                {formatDate(post.publishedAt)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       3. ENTERPRISE CONSULTATION CTA (Matching Mockup Image 1)
+       ========================================================================= -->
+  <ConsultationCta />
+
+  <!-- =========================================================================
+       4. CLIENT-SIDE INTERACTIVITY SCRIPT (Carousel Slider Logic)
+       ========================================================================= -->
+  <script is:inline>
+    // Featured Carousel Slider Logic
+    (function () {
+      const carousel = document.getElementById('featured-carousel');
+      if (!carousel) return;
+
+      const slides = carousel.querySelectorAll('[data-carousel-slide]');
+      const totalSlides = slides.length;
+      if (totalSlides <= 1) return;
+
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.remove('hidden');
+            slide.classList.add('block');
+          } else {
+            slide.classList.remove('block');
+            slide.classList.add('hidden');
+          }
+        });
+
+        // Update counter numbers
+        const counters = carousel.querySelectorAll('[data-carousel-current]');
+        counters.forEach((el) => {
+          el.textContent = index + 1;
+        });
+      }
+
+      carousel.addEventListener('click', function (e) {
+        const prevBtn = e.target.closest('[data-carousel-prev]');
+        const nextBtn = e.target.closest('[data-carousel-next]');
+
+        if (prevBtn) {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          showSlide(currentIndex);
+        } else if (nextBtn) {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          showSlide(currentIndex);
+        }
+      });
+    })();
+  </script>
+</PageLayout>

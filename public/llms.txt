@@ -1,0 +1,20 @@
+# Solusi Aplikasi Integrasi (solusiaplikasi.id)
+> Company Profile & Ekosistem Solusi Digital & Integrasi Sistem Enterprise di Indonesia.
+
+## Ringkasan Eksekutif
+Solusi Aplikasi Integrasi (solusiaplikasi.id) adalah penyedia jasa transformasi digital, rekayasa perangkat lunak, integrasi sistem enterprise, dan solusi web performa tinggi untuk korporasi, instansi, dan UMKM di Indonesia.
+
+## Layanan Utama
+- **Integrasi Sistem & API:** Menghubungkan ERP, CRM, payment gateway, dan sistem warisan (legacy) secara aman dan modular.
+- **Pengembangan Web & Aplikasi Kustom:** Arsitektur modern headless (Astro, React, Next.js), cepat, ramah SEO, dan aman.
+- **Modernisasi Infrastruktur Cloud & DevOps:** Setup CI/CD otomatis, containerization, migrasi cloud, dan optimasi cPanel/Apache/Cloudflare.
+- **Konsultasi IT & Arsitektur Solusi:** Audit keamanan, optimasi performa Core Web Vitals, dan perencanaan arsitektur sistem berskala besar.
+
+## Kontak Resmi
+- Website: https://solusiaplikasi.id
+- Email: kontak@solusiaplikasi.id
+- WhatsApp: +62 812-3456-7890
+- Lokasi: Jakarta / Indonesia
+
+## Kebijakan Akses LLM & AI
+Situs ini mengizinkan crawling dan kutipan oleh mesin pencari AI dan agen AI seperti GPTBot, ClaudeBot, PerplexityBot, dan Google-Extended untuk tujuan sitasi dan penelusuran informasi yang akurat.

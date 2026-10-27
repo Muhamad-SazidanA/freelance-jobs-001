@@ -1,0 +1,1311 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import ConsultationCta from '@/components/common/ConsultationCta.astro';
+import { generateBreadcrumbSchema, generateProductSchema, generateFaqSchema } from '@/lib/schema-ld';
+import type { Product } from '@/types/content';
+
+const productData: Product = {
+  id: 'prod-docuflo',
+  slug: 'docuflo',
+  name: 'Docuflo DMS',
+  headline: 'Dari Dokumen yang Berantakan Menuju Kendali Bisnis Penuh',
+  tagline:
+    'Docuflo menyatukan capture, penyimpanan, pencarian, dan workflow persetujuan dokumen perusahaan Anda dalam satu repository terpusat yang aman dan siap diaudit.',
+  heroImage: '/images/home/home-city-banner.jpg',
+  overview:
+    'Docuflo menyatukan capture, penyimpanan, pencarian, dan workflow persetujuan dokumen perusahaan Anda dalam satu repository terpusat yang aman dan siap diaudit.',
+  features: [
+    {
+      title: 'Content Capture',
+      description: 'Digitalisasi email, PDF, dokumen hasil scan, hingga file dari aplikasi bisnis lain secara otomatis.',
+    },
+    {
+      title: 'Process Workflow',
+      description: 'Rute dokumen ke approver yang tepat dengan workflow otomatis dan notifikasi real-time.',
+    },
+    {
+      title: 'Pencarian Cerdas',
+      description: 'Temukan dokumen dalam hitungan detik lewat simple search, index search, hingga pencarian isi dokumen.',
+    },
+    {
+      title: 'Indexing Otomatis',
+      description: 'Zone OCR dan single-click entry mempercepat klasifikasi dokumen terstruktur maupun tidak terstruktur.',
+    },
+    {
+      title: 'Version Control',
+      description: 'Setiap revisi tercatat rapi, tim dapat berkolaborasi tanpa risiko duplikasi atau versi yang tertukar.',
+    },
+    {
+      title: 'Integrasi Sistem',
+      description: 'Tersedia API & SDK untuk terhubung dengan Active Directory, Single Sign-On, dan aplikasi bisnis lainnya.',
+    },
+  ],
+  benefits: [
+    'Peningkatan turnaround time lebih dari 55%',
+    'Terpasang di 200+ lokasi klien enterprise',
+    'Pencarian dokumen lebih dari 75% lebih cepat',
+    'Reduksi biaya operasional pengelolaan arsip hingga lebih dari 60%',
+    '10.000+ pengguna terdaftar aktif',
+  ],
+  useCases: [
+    'Digitalisasi dan sentralisasi arsip berkas fisik',
+    'Manajemen persetujuan dan rute dokumen (Approval Workflow)',
+    'Kontrol versi dokumen kolaboratif multi-departemen',
+    'Audit trail dan kepatuhan regulasi keamanan enterprise',
+  ],
+  faqs: [
+    {
+      question: 'Apakah Docuflo aman untuk data rahasia perbankan dan finansial?',
+      answer:
+        'Ya. Docuflo mengadopsi enkripsi AES-256 untuk data at rest dan TLS 1.3 untuk data in transit, serta mendukung deployment on-premise di data center internal Anda.',
+    },
+    {
+      question: 'Apakah Docuflo bisa diintegrasikan dengan ERP seperti SAP atau Microsoft Dynamics?',
+      answer:
+        'Docuflo menyediakan REST API dan Webhook yang komprehensif untuk integrasi seamless dua arah dengan sistem ERP dan CRM terkemuka.',
+    },
+  ],
+};
+
+const breadcrumbs = [
+  { name: 'Products', url: '/products/docuflo' },
+  { name: 'Docuflo (DMS)', url: '/products/docuflo' },
+];
+
+const productSchema = generateProductSchema(productData);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+const faqSchema = generateFaqSchema(productData.faqs);
+const schema = [productSchema, breadcrumbSchema, faqSchema];
+---
+
+<PageLayout
+  title="Docuflo DMS - Dari Dokumen yang Berantakan Menuju Kendali Bisnis Penuh | SolusiAplikasi.id"
+  description="Docuflo menyatukan capture, penyimpanan, pencarian, dan workflow persetujuan dokumen perusahaan Anda dalam satu repository terpusat yang aman dan siap diaudit."
+  canonical="https://solusiaplikasi.id/products/docuflo"
+  breadcrumbs={[]}
+  schema={schema}
+>
+  <div class="home-content-zoom w-full">
+  <!-- =========================================================================
+       BAGIAN 1: HERO SECTION BANNER CARD (SESUAI FOTO REFERENSI)
+       ========================================================================= -->
+  <section class="docuflo-hero-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="docuflo-hero-card relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl min-h-[460px] sm:min-h-[500px] lg:min-h-[540px] flex items-center">
+        <!-- Background Image Container with cover & dark gradient overlay -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="/images/product/docuflo/docuflo-dashboard.webp"
+            alt="Docuflo Enterprise Document Management System"
+            class="w-full h-full object-cover object-right"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="docuflo-hero-card-overlay absolute inset-0"></div>
+        </div>
+
+        <!-- Content Overlay on Left Side -->
+        <div class="relative z-10 max-w-2xl p-6 sm:p-10 md:p-12 lg:p-14 text-white">
+          <!-- Badge Atas Sesuai Foto Referensi -->
+          <div class="mb-5 sm:mb-6">
+            <span class="docuflo-badge-pill-card">Enterprise Document Management System</span>
+          </div>
+
+          <!-- Headline Sesuai Foto Referensi (3 baris rapi, warna putih) -->
+          <h1 class="docuflo-hero-card-title mb-4 sm:mb-5">
+            Dari Dokumen yang<br />
+            Berantakan Menuju<br />
+            Kendali Bisnis Penuh
+          </h1>
+
+          <!-- Subtitle Sesuai Foto Referensi -->
+          <p class="docuflo-hero-card-subtitle mb-6 sm:mb-8">
+            Docuflo menyatukan capture, penyimpanan, pencarian, dan workflow persetujuan dokumen perusahaan Anda dalam satu repository terpusat yang aman dan siap diaudit.
+          </p>
+
+          <!-- CTA Buttons Sesuai Foto Referensi -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <a href="#form-konsultasi" class="docuflo-btn-primary">
+              Jadwalkan Demo
+            </a>
+            <a href="#modul-docuflo" class="docuflo-btn-card-secondary">
+              Lihat Kemampuan Produk
+            </a>
+          </div>
+
+          <!-- Trust Stats Line Sesuai Foto Referensi -->
+          <div class="docuflo-hero-card-metrics">
+            <span><strong>200+</strong> lokasi klien</span>
+            <span class="bullet">&bull;</span>
+            <span><strong>10.000+</strong> pengguna terdaftar</span>
+            <span class="bullet">&bull;</span>
+            <span><strong>75%</strong> lebih cepat dalam pencarian dokumen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 2: KEMAMPUAN INTI (6 CARDS GRID SESUAI FOTO 1)
+       ========================================================================= -->
+  <section class="docuflo-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <span class="docuflo-badge-pill mb-3">Kemampuan Inti</span>
+        <h2 class="docuflo-section-title mt-2">
+          Satu Platform untuk Seluruh Siklus Hidup Dokumen
+        </h2>
+        <p class="docuflo-section-subtitle">
+          Dari email, PDF, hasil scan, hingga dokumen hasil aplikasi bisnis &mdash; Docuflo menangkap, mengindeks, dan mengamankan semuanya secara otomatis.
+        </p>
+      </div>
+
+      <!-- 6 Cards Grid (3 cols desktop, 1 col mobile) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1: Content Capture -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Content Capture</h3>
+          <p class="docuflo-card-desc">
+            Digitalisasi email, PDF, dokumen hasil scan, hingga file dari aplikasi bisnis lain secara otomatis.
+          </p>
+        </div>
+
+        <!-- Card 2: Process Workflow -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Process Workflow</h3>
+          <p class="docuflo-card-desc">
+            Rute dokumen ke approver yang tepat dengan workflow otomatis dan notifikasi real-time.
+          </p>
+        </div>
+
+        <!-- Card 3: Pencarian Cerdas -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Pencarian Cerdas</h3>
+          <p class="docuflo-card-desc">
+            Temukan dokumen dalam hitungan detik lewat simple search, index search, hingga pencarian isi dokumen.
+          </p>
+        </div>
+
+        <!-- Card 4: Indexing Otomatis -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Indexing Otomatis</h3>
+          <p class="docuflo-card-desc">
+            Zone OCR dan single-click entry mempercepat klasifikasi dokumen terstruktur maupun tidak terstruktur.
+          </p>
+        </div>
+
+        <!-- Card 5: Version Control -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Version Control</h3>
+          <p class="docuflo-card-desc">
+            Setiap revisi tercatat rapi, tim dapat berkolaborasi tanpa risiko duplikasi atau versi yang tertukar.
+          </p>
+        </div>
+
+        <!-- Card 6: Integrasi Sistem -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Integrasi Sistem</h3>
+          <p class="docuflo-card-desc">
+            Tersedia API &amp; SDK untuk terhubung dengan Active Directory, Single Sign-On, dan aplikasi bisnis lainnya.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 3: VALUE PROPOSITION (DARK SECTION SESUAI FOTO 2)
+       ========================================================================= -->
+  <section class="docuflo-dark-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <span class="docuflo-dark-pill mb-3">Value Proposition</span>
+        <h2 class="docuflo-dark-title mt-2">
+          Mengapa Perusahaan Memilih Docuflo
+        </h2>
+        <p class="docuflo-dark-subtitle">
+          Docuflo dirancang untuk mendukung transformasi digital sekaligus menjaga dokumen Anda tetap aman dan mudah diakses.
+        </p>
+      </div>
+
+      <!-- 3 Value Proposition Cards (Sesuai Foto 2) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="docuflo-dark-card">
+          <div class="docuflo-dark-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="docuflo-dark-card-title">Mempercepat Transformasi Digital</h3>
+          <p class="docuflo-dark-card-desc">
+            Mendukung digitalisasi dokumen fisik dan proses manual sebagai fondasi transformasi digital perusahaan.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="docuflo-dark-card">
+          <div class="docuflo-dark-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="docuflo-dark-card-title">Repository Aman &amp; Terpusat</h3>
+          <p class="docuflo-dark-card-desc">
+            Deployment on-premise maupun cloud memastikan dokumen selalu mudah diakses namun tetap terlindungi.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="docuflo-dark-card">
+          <div class="docuflo-dark-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <h3 class="docuflo-dark-card-title">Proses yang Sederhana</h3>
+          <p class="docuflo-dark-card-desc">
+            Alur kerja digital menghilangkan kerumitan eskalasi dan kolaborasi dokumen antar tim.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 4: MODUL DOCUFLO (4 ALTERNATING ROWS SESUAI FOTO 3)
+       ========================================================================= -->
+  <section id="modul-docuflo" class="docuflo-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-10 sm:mb-12">
+        <span class="docuflo-badge-pill mb-3">Modul Docuflo</span>
+        <h2 class="docuflo-section-title mt-2">
+          Dirancang Menyeluruh dari Capture hingga Integrasi
+        </h2>
+      </div>
+
+      <div class="space-y-12 lg:space-y-16">
+        <!-- Row 1: Capturing (Text Left, Card Right) Sesuai Foto 3 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-6 space-y-4">
+            <div class="docuflo-sub-badge">
+              <svg class="w-3.5 h-3.5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+              </svg>
+              <span>Capturing</span>
+            </div>
+            <h3 class="docuflo-module-title">Digitalisasi Dokumen dalam Volume Besar</h3>
+            <p class="docuflo-module-desc">
+              Ubah tumpukan dokumen fisik dan digital menjadi arsip terstruktur yang siap dicari kapan saja.
+            </p>
+            <ul class="docuflo-checklist">
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Digitalisasi hardcopy dalam volume tinggi</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Web upload, batch import, dan Outlook Add-In</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Indexing otomatis berdasarkan kriteria pencarian</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Ekspor langsung ke Docuflo Web Portal</span>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="docuflo-mockup-box">
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Batch Import</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">128 dokumen diproses</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Hardcopy Scanning</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Production &amp; MFP Scanner</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Web Upload</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Drag &amp; drop langsung dari browser</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Web Admin (Card Left, Text Right) Sesuai Foto 3 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-6 order-2 lg:order-1">
+            <div class="docuflo-mockup-box">
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Audit Log</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Ekspor laporan ke CSV</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Role Based Access</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Kontrol akses per folder &amp; dokumen</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Workflow Report</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Pantau progres tiap tahap approval</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 space-y-4 order-1 lg:order-2">
+            <div class="docuflo-sub-badge">
+              <svg class="w-3.5 h-3.5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>Web Admin</span>
+            </div>
+            <h3 class="docuflo-module-title">Kontrol Penuh atas Dokumen dan Pengguna</h3>
+            <p class="docuflo-module-desc">
+              Administrator memiliki visibilitas lengkap atas aktivitas sistem, workflow, dan hak akses pengguna.
+            </p>
+            <ul class="docuflo-checklist">
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>User rights management &amp; workflow setup</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Audit log dan laporan aktivitas scan</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Statistical report dan users report</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Housekeeping dan system maintenance</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Row 3: OCR AI (Text Left, Card Right) Sesuai Foto 3 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-6 space-y-4">
+            <div class="docuflo-sub-badge">
+              <svg class="w-3.5 h-3.5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span>OCR AI</span>
+            </div>
+            <h3 class="docuflo-module-title">Ekstraksi Data Otomatis dengan Kecerdasan Buatan</h3>
+            <p class="docuflo-module-desc">
+              OCR AI membaca tulisan tangan maupun dokumen hasil scan (JPG, PDF, TIFF) untuk mendefinisikan metadata dan indexing secara otomatis.
+            </p>
+            <ul class="docuflo-checklist">
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Structured document dengan Zone OCR</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Manual indexing &amp; single click entry</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Auto indexing dan barcode indexing</span>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="docuflo-mockup-box">
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Invoice PT Cahaya Baru</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Metadata terisi otomatis</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Formulir Tulisan Tangan</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Dikenali OCR AI</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Kontrak Sewa 12 hlm</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Terindeks dalam 3 detik</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Pencarian & Universal Viewer (Card Left, Text Right) Sesuai Foto 3 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-6 order-2 lg:order-1">
+            <div class="docuflo-mockup-box">
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Pencarian "SOP Keuangan"</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">4 hasil ditemukan</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Universal Viewer</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">300+ tipe dokumen didukung</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Dashboard Penyimpanan</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Pantau kuota &amp; jumlah file</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 space-y-4 order-1 lg:order-2">
+            <div class="docuflo-sub-badge">
+              <svg class="w-3.5 h-3.5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              <span>Pencarian &amp; Universal Viewer</span>
+            </div>
+            <h3 class="docuflo-module-title">Ubah Pencarian Dokumen Menjadi Penemuan Pengetahuan</h3>
+            <p class="docuflo-module-desc">
+              Simple search, index search, profile search, hingga pencarian isi dokumen &mdash; semua tersedia dalam satu Universal Viewer yang mendukung 300+ tipe dokumen.
+            </p>
+            <ul class="docuflo-checklist">
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Simple, advance, dan profile search</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Content search di dalam isi dokumen</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Mendukung 300+ tipe dokumen termasuk arsip video</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 5: KEAMANAN & KEPATUHAN (6 CARDS GRID SESUAI FOTO 4)
+       ========================================================================= -->
+  <section class="docuflo-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <span class="docuflo-badge-pill mb-3">Keamanan &amp; Kepatuhan</span>
+        <h2 class="docuflo-section-title mt-2">
+          Dokumen Aman, Patuh, dan Dapat Ditelusuri
+        </h2>
+        <p class="docuflo-section-subtitle">
+          Docuflo dibangun mengikuti standar keamanan enterprise agar setiap dokumen tetap terlindungi dan audit-ready.
+        </p>
+      </div>
+
+      <!-- 6 Cards Grid (3 cols desktop, 1 col mobile) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1: Enkripsi Data -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Enkripsi Data</h3>
+          <p class="docuflo-card-desc">
+            Enkripsi AES-256 untuk data at rest dan dukungan Microsoft SQL Server TDE.
+          </p>
+        </div>
+
+        <!-- Card 2: Access Control -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Access Control</h3>
+          <p class="docuflo-card-desc">
+            Role based access control hingga level folder dan dokumen individual.
+          </p>
+        </div>
+
+        <!-- Card 3: Audit Trail -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Audit Trail</h3>
+          <p class="docuflo-card-desc">
+            Log lengkap aktivitas dokumen, login/ logout, dan perubahan keamanan sistem.
+          </p>
+        </div>
+
+        <!-- Card 4: Watermarking -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Watermarking</h3>
+          <p class="docuflo-card-desc">
+            Tambahkan watermark logo perusahaan untuk mencegah pengambilan dokumen ilegal.
+          </p>
+        </div>
+
+        <!-- Card 5: Expiry Monitoring -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Expiry Monitoring</h3>
+          <p class="docuflo-card-desc">
+            Pengingat otomatis via email saat tanggal kedaluwarsa dokumen mendekat.
+          </p>
+        </div>
+
+        <!-- Card 6: Regulatory Compliance -->
+        <div class="docuflo-feature-card">
+          <div class="docuflo-feature-icon">
+            <svg class="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+          </div>
+          <h3 class="docuflo-card-title">Regulatory Compliance</h3>
+          <p class="docuflo-card-desc">
+            Selaras dengan panduan kepatuhan regulasi sektor keuangan dan pemerintahan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 6: KOLABORASI & PERSETUJUAN (2 ROWS SESUAI FOTO 4)
+       ========================================================================= -->
+  <section class="docuflo-section bg-white text-slate-900 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-10 sm:mb-12">
+        <span class="docuflo-badge-pill mb-3">Kolaborasi &amp; Persetujuan</span>
+        <h2 class="docuflo-section-title mt-2">
+          Kolaborasi Dokumen Tanpa Hambatan
+        </h2>
+      </div>
+
+      <div class="space-y-12 lg:space-y-16">
+        <!-- Row 1: Version Control & Sharing (Text Left, Card Right) Sesuai Foto 4 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-6 space-y-4">
+            <div class="docuflo-sub-badge">
+              <svg class="w-3.5 h-3.5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+              </svg>
+              <span>Version Control &amp; Sharing</span>
+            </div>
+            <h3 class="docuflo-module-title">Satu Sumber Kebenaran untuk Setiap Dokumen</h3>
+            <p class="docuflo-module-desc">
+              Beberapa orang dapat mengedit dokumen yang sama tanpa risiko duplikasi. Dokumen dapat dibagikan lewat email atau link dengan pengaturan SLA.
+            </p>
+            <ul class="docuflo-checklist">
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Riwayat versi lengkap dan check-out/draft</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Berbagi dokumen via email dengan catatan</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Berbagi via link dengan pengaturan SLA</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Web editor Word &amp; Excel tanpa lisensi Microsoft Office</span>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="docuflo-mockup-box">
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Kontrak Kerjasama v4</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Dibagikan ke 3 approver</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Laporan Keuangan Q3</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Draft langsung via web</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Proposal Klien ABC</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value">Link aktif hingga 5 hari</span>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Workflow & E-Signature (Card Left with Status Badges, Text Right) Sesuai Foto 4 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-6 order-2 lg:order-1">
+            <div class="docuflo-mockup-box">
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">Approval PO #44521</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value hidden sm:inline">Menunggu Manager Finance</span>
+                  <span class="docuflo-status-pending">Pending</span>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">NDA Klien Baru</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value hidden sm:inline">Ditandatangani secara digital</span>
+                  <span class="docuflo-status-selesai">Selesai</span>
+                </div>
+              </div>
+              <div class="docuflo-mockup-row">
+                <span class="docuflo-row-label">SOP Operasional v2</span>
+                <div class="docuflo-row-right">
+                  <span class="docuflo-row-value hidden sm:inline">Disetujui 3 dari 3 approver</span>
+                  <span class="docuflo-status-selesai">Selesai</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 space-y-4 order-1 lg:order-2">
+            <div class="docuflo-sub-badge">
+              <svg class="w-3.5 h-3.5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+              <span>Workflow &amp; E-Signature</span>
+            </div>
+            <h3 class="docuflo-module-title">Dari Pengajuan hingga Tanda Tangan Digital</h3>
+            <p class="docuflo-module-desc">
+              Dokumen dapat diedarkan ke beberapa approver bertahap, lengkap dengan notification center dan e-signature terintegrasi.
+            </p>
+            <ul class="docuflo-checklist">
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Notifikasi task via email atau WhatsApp</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Status pending, approved, dan rejected yang transparan</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>Catatan tiap approver di setiap tahap keputusan</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <span>E-signature langsung pada tahap persetujuan</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 7: DAMPAK NYATA (CRIMSON RED STATS BANNER SESUAI FOTO 4)
+       ========================================================================= -->
+  <section class="docuflo-stats-section text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-10 sm:mb-12">
+        <span class="docuflo-stats-pill mb-3">Dampak Nyata</span>
+        <h2 class="docuflo-stats-title mt-2">
+          Hasil yang Dirasakan Langsung oleh Klien Docuflo
+        </h2>
+      </div>
+
+      <!-- 5 Stats Columns (Sesuai Foto 4) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 text-left">
+        <div class="docuflo-stat-col">
+          <span class="docuflo-stat-number">&gt;55%</span>
+          <p class="docuflo-stat-text">Peningkatan turnaround time</p>
+        </div>
+        <div class="docuflo-stat-col">
+          <span class="docuflo-stat-number">200+</span>
+          <p class="docuflo-stat-text">Lokasi klien terpasang</p>
+        </div>
+        <div class="docuflo-stat-col">
+          <span class="docuflo-stat-number">&gt;75%</span>
+          <p class="docuflo-stat-text">Pencarian dokumen lebih cepat</p>
+        </div>
+        <div class="docuflo-stat-col">
+          <span class="docuflo-stat-number">&gt;60%</span>
+          <p class="docuflo-stat-text">Reduksi biaya operasional</p>
+        </div>
+        <div class="docuflo-stat-col">
+          <span class="docuflo-stat-number">10.000+</span>
+          <p class="docuflo-stat-text">Pengguna terdaftar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BAGIAN 8: DI IKUTI CTA FORM (UNIFIED CONSULTATION CTA TEMPLATE)
+       ========================================================================= -->
+  <ConsultationCta defaultProduct="docuflo" />
+  </div>
+
+  <!-- =========================================================================
+       SCOPED CSS RULES: 100% KONSISTEN DENGAN 4 FOTO REFERENSI DOCUFLO
+       ========================================================================= -->
+  <style>
+    /* Base typography */
+    .docuflo-hero-section,
+    .docuflo-section,
+    .docuflo-dark-section,
+    .docuflo-stats-section {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    /* Section vertical padding */
+    .docuflo-hero-section {
+      padding-top: 36px;
+      padding-bottom: 48px;
+    }
+
+    .docuflo-section {
+      padding-top: 48px;
+      padding-bottom: 56px;
+    }
+
+    @media (min-width: 768px) {
+      .docuflo-hero-section {
+        padding-top: 44px;
+        padding-bottom: 56px;
+      }
+      .docuflo-section {
+        padding-top: 56px;
+        padding-bottom: 72px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .docuflo-hero-section {
+        padding-top: 48px;
+        padding-bottom: 64px;
+      }
+    }
+
+    /* Pill Badges (Light Sections) */
+    .docuflo-badge-pill {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background-color: #fef2f2;
+      border: 1px solid #fee2e2;
+      color: #e11d48;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    /* Sub-badge inside feature rows */
+    .docuflo-sub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background-color: #fef2f2;
+      border: 1px solid #fee2e2;
+      color: #e11d48;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Hero Banner Card Sesuai Foto Referensi */
+    .docuflo-hero-card {
+      background-color: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35);
+    }
+
+    .docuflo-hero-card-overlay {
+      background: linear-gradient(
+        90deg,
+        #000000 0%,
+        rgba(0, 0, 0, 0.95) 32%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0.35) 68%,
+        rgba(0, 0, 0, 0.05) 100%
+      );
+    }
+
+    @media (max-width: 767px) {
+      .docuflo-hero-card-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.94) 0%,
+          rgba(0, 0, 0, 0.86) 65%,
+          rgba(0, 0, 0, 0.5) 100%
+        );
+      }
+    }
+
+    .docuflo-badge-pill-card {
+      display: inline-block;
+      padding: 5px 16px;
+      border-radius: 9999px;
+      background-color: #ffffff;
+      border: 1px solid rgba(225, 29, 72, 0.25);
+      color: #e11d48;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .docuflo-hero-card-title {
+      font-size: clamp(1.875rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+    }
+
+    .docuflo-hero-card-subtitle {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      color: #cbd5e1;
+      line-height: 1.6;
+      max-width: 540px;
+    }
+
+    /* Hero CTA Buttons */
+    .docuflo-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 28px;
+      border-radius: 8px;
+      background-color: #e11d48;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(225, 29, 72, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .docuflo-btn-primary:hover {
+      background-color: #be123c;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+    }
+
+    .docuflo-btn-card-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background-color: #ffffff;
+      border: 1px solid #ffffff;
+      color: #e11d48;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .docuflo-btn-card-secondary:hover {
+      background-color: #f8fafc;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Hero Trust Metrics Line */
+    .docuflo-hero-card-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .docuflo-hero-card-metrics strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .docuflo-hero-card-metrics .bullet {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* Section Titles & Subtitles (Mengikuti Skala Home 2xl-3xl) */
+    .docuflo-section-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: #0f172a;
+    }
+
+    .docuflo-section-subtitle {
+      color: #64748b;
+      font-size: clamp(0.875rem, 1.4vw, 1rem);
+      max-width: 660px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    /* 6 Cards Grid (Kemampuan Inti & Keamanan) */
+    .docuflo-feature-card {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 16px;
+      padding: 22px 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .docuflo-feature-card:hover {
+      border-color: #fecdd3;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -6px rgba(225, 29, 72, 0.06);
+    }
+
+    .docuflo-feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background-color: #fef2f2;
+      border: 1px solid #fee2e2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .docuflo-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .docuflo-card-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.65;
+    }
+
+    /* Dark Section: Value Proposition */
+    .docuflo-dark-section {
+      background-color: #12151c;
+      padding-top: 48px;
+      padding-bottom: 56px;
+    }
+
+    @media (min-width: 768px) {
+      .docuflo-dark-section {
+        padding-top: 56px;
+        padding-bottom: 72px;
+      }
+    }
+
+    .docuflo-dark-pill {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background-color: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .docuflo-dark-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    .docuflo-dark-subtitle {
+      font-size: clamp(0.875rem, 1.4vw, 1rem);
+      color: #94a3b8;
+      max-width: 660px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .docuflo-dark-card {
+      background-color: #1a1e28;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 24px 26px;
+      transition: all 0.2s ease;
+    }
+
+    .docuflo-dark-card:hover {
+      border-color: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .docuflo-dark-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .docuflo-dark-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .docuflo-dark-card-desc {
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.65;
+    }
+
+    /* Alternating Modules Typography */
+    .docuflo-module-title {
+      font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .docuflo-module-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.65;
+    }
+
+    .docuflo-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 6px;
+    }
+
+    .docuflo-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* Mockup Container (Soft Pinkish Blush Container) */
+    .docuflo-mockup-box {
+      background-color: #fbf3f3;
+      border: 1px solid #fee2e2;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 4px 20px -4px rgba(225, 29, 72, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .docuflo-mockup-row {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .docuflo-row-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .docuflo-row-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .docuflo-row-value {
+      font-size: 12px;
+      color: #64748b;
+      text-align: right;
+    }
+
+    /* Status Pill Badges in Row 2 of Kolaborasi */
+    .docuflo-status-pending {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      background-color: #fef3c7;
+      border: 1px solid #fde68a;
+      color: #d97706;
+      letter-spacing: 0.02em;
+    }
+
+    .docuflo-status-selesai {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      background-color: #dcfce7;
+      border: 1px solid #bbf7d0;
+      color: #16a34a;
+      letter-spacing: 0.02em;
+    }
+
+    /* Dampak Nyata Stats Banner (Deep Crimson Red) */
+    .docuflo-stats-section {
+      background: linear-gradient(135deg, #a30814 0%, #8c0711 50%, #70050e 100%);
+      padding-top: 52px;
+      padding-bottom: 56px;
+    }
+
+    @media (min-width: 768px) {
+      .docuflo-stats-section {
+        padding-top: 60px;
+        padding-bottom: 68px;
+      }
+    }
+
+    .docuflo-stats-pill {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background-color: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .docuflo-stats-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    .docuflo-stat-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .docuflo-stat-number {
+      font-size: clamp(2.25rem, 4.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .docuflo-stat-text {
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+  </style>
+
+</PageLayout>

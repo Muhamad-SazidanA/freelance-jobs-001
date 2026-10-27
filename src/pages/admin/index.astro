@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdminDashboard from '@/components/admin/AdminDashboard';
+---
+
+<BaseLayout
+  title="Admin Dashboard | SolusiAplikasi.id"
+  description="Panel administrasi internal SolusiAplikasi.id."
+  noindex={true}
+>
+  <AdminDashboard client:only="react" />
+</BaseLayout>

@@ -1,0 +1,201 @@
+[
+  {
+    "id": "prod-1",
+    "slug": "nanonets",
+    "name": "Nanonets",
+    "headline": "AI-Powered Document Processing & Intelligent Data Extraction",
+    "tagline": "Otomatisasi ekstraksi data invoice, faktur, kwitansi, dan dokumen bisnis dengan akurasi 99%+",
+    "heroImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
+    "overview": "Nanonets memanfaatkan deep learning vision untuk membaca dan mengonversi jutaan dokumen tidak terstruktur (PDF, scan kertas, foto kwitansi) menjadi data terstruktur siap integrasi ke ERP internal Anda secara instan.",
+    "features": [
+      {
+        "title": "OCR Adaptif Berbasis AI",
+        "description": "Mampu membaca tulisan tangan, teks miring, tabel kompleks, dan multi-bahasa tanpa perlu template kaku."
+      },
+      {
+        "title": "Validasi Otomatis & Rule Matching",
+        "description": "Mencocokkan nomor faktur pajak, PO (Purchase Order), dan total nominal secara real-time sebelum data diinput."
+      },
+      {
+        "title": "Integrasi API Langsung",
+        "description": "Kirim data terekstraksi langsung ke SAP, Odoo, Oracle, atau database internal melalui webhook & REST API."
+      }
+    ],
+    "benefits": [
+      "Memangkas waktu input data dokumen hingga 90%",
+      "Mengeliminasi human-error dalam rekonsiliasi keuangan",
+      "Kepatuhan standar keamanan enkripsi TLS 1.3 dan audit ISO 27001"
+    ],
+    "useCases": [
+      "Pengolahan Faktur Pajak & Invoice Supplier Skala Besar",
+      "Digitalisasi Klaim Asuransi & Form Registrasi Medis",
+      "Verifikasi Dokumen Identitas (KYC) dan Legalitas Finansial"
+    ],
+    "faqs": [
+      {
+        "question": "Berapa lama waktu yang dibutuhkan untuk mengekstrak 1 halaman dokumen?",
+        "answer": "Rata-rata waktu pemrosesan adalah 2-3 detik per halaman dengan tingkat akurasi hingga 99%."
+      },
+      {
+        "question": "Apakah Nanonets mendukung integrasi on-premise atau private cloud?",
+        "answer": "Ya, kami menyediakan opsi deployment cloud maupun hybrid on-premise sesuai regulasi perbankan dan enterprise."
+      }
+    ]
+  },
+  {
+    "id": "prod-2",
+    "slug": "cyclone",
+    "name": "Cyclone",
+    "headline": "Robotic Process Automation & End-to-End Enterprise Workflow",
+    "tagline": "Otomatisasi proses kerja repetitif lintas departemen tanpa hambatan integrasi sistem legacy",
+    "heroImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200",
+    "overview": "Cyclone adalah platform Robotic Process Automation (RPA) modern yang menghubungkan aplikasi web, desktop legacy, mainframe, dan spreadsheet untuk menyelesaikan pekerjaan manual tanpa henti 24/7.",
+    "features": [
+      {
+        "title": "Bot Cerdas Tanpa Istirahat",
+        "description": "Menjalankan tugas rekonsiliasi, perpindahan data antar aplikasi, dan download laporan secara terjadwal."
+      },
+      {
+        "title": "Orchestrator Terpusat",
+        "description": "Dashboard monitoring kesehatan bot, antrean kerja, audit trail, dan log eksekusi transparan."
+      },
+      {
+        "title": "Low-Code Workflow Designer",
+        "description": "Memudahkan tim merancang alur kerja visual tanpa butuh waktu berbulan-bulan coding."
+      }
+    ],
+    "benefits": [
+      "Peningkatan produktivitas operasional hingga 5x lipat",
+      "Bekerja 24/7 tanpa risiko kelelahan atau salah klik",
+      "ROI terukur dalam waktu kurang dari 6 bulan"
+    ],
+    "useCases": [
+      "Rekonsiliasi Transaksi Harian Bank & Settlement Merchant",
+      "Sinkronisasi Stok Antara Marketplace dan Gudang ERP",
+      "Pembuatan Laporan Manajerial Berkala dari Berbagai Sumber"
+    ],
+    "faqs": [
+      {
+        "question": "Apakah Cyclone membutuhkan perubahan pada sistem lama kami?",
+        "answer": "Tidak. Bot Cyclone berinteraksi dengan sistem lama melalui lapisan UI dan API, sehingga tidak mengganggu database sistem yang sedang aktif."
+      }
+    ]
+  },
+  {
+    "id": "prod-3",
+    "slug": "docuflo",
+    "name": "Docuflo",
+    "headline": "Enterprise Document Management & Secure Digital Archival",
+    "tagline": "Sistem repositori dokumen terpusat dengan kontrol hak akses granular, versioning, dan tanda tangan digital",
+    "heroImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200",
+    "overview": "Docuflo menyatukan jutaan arsip digital perusahaan dalam satu gudang data aman berkecepatan tinggi, memudahkan pencarian instan dan kepatuhan audit hukum.",
+    "features": [
+      {
+        "title": "Pencarian Dokumen Full-Text Instan",
+        "description": "Cari arsip berdasarkan nomor kontrak, isi paragraf, metadata tanggal, atau nama pihak terkait dalam milidetik."
+      },
+      {
+        "title": "Role-Based Access Control (RBAC)",
+        "description": "Batasi hak akses download, edit, view, dan print per level jabatan dan divisi kerja."
+      },
+      {
+        "title": "Integrasi Tanda Tangan Digital Tersertifikasi",
+        "description": "Alur persetujuan dokumen multi-tahap langsung terhubung ke sertifikat digital terpercaya."
+      }
+    ],
+    "benefits": [
+      "Menghemat biaya ruang penyimpanan fisik dan pencetakan kertas",
+      "Pencarian dokumen kontrak hanya butuh hitungan detik",
+      "Kepatuhan audit kepatuhan ISO 9001 & UU Perlindungan Data Pribadi"
+    ],
+    "useCases": [
+      "Manajemen Kontrak Legal & Perjanjian Kerjasama Vendor",
+      "Arsip Personalia HRD & Riwayat Karyawan",
+      "Dokumentasi Proyek Teknikal & SOP Standar Operasional"
+    ],
+    "faqs": [
+      {
+        "question": "Apakah Docuflo menjamin dokumen terenkripsi saat disimpan?",
+        "answer": "Ya, seluruh dokumen dienkripsi dengan standar AES-256 saat idle (at rest) dan TLS 1.3 saat transit."
+      }
+    ]
+  },
+  {
+    "id": "prod-4",
+    "slug": "syclus",
+    "name": "Syclus",
+    "headline": "Lifecycle Management & Enterprise Systems Integration Hub",
+    "tagline": "Platform manajemen siklus hidup aplikasi dan penghubung arsitektur sistem enterprise modern",
+    "heroImage": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200",
+    "overview": "Syclus mengelola seluruh daur hidup aset teknologi, lisensi, dan aliran data antar aplikasi bisnis dengan arsitektur message queue dan API gateway tangguh.",
+    "features": [
+      {
+        "title": "Universal API Gateway",
+        "description": "Jembatan penghubung protokol REST, SOAP, GraphQL, gRPC, dan Message Broker (Kafka/RabbitMQ)."
+      },
+      {
+        "title": "Automated Lifecycle Tracking",
+        "description": "Pantau jadwal pembaruan lisensi software, garansi hardware, dan SLA layanan IT secara proaktif."
+      },
+      {
+        "title": "Real-Time Telemetry & Alerting",
+        "description": "Deteksi anomali kegagalan integrasi sebelum berdampak ke proses bisnis pengguna akhir."
+      }
+    ],
+    "benefits": [
+      "Eliminasi downtime integrasi antar divisi hingga 99.9%",
+      "Visibilitas komprehensif aset IT perusahaan",
+      "Pengurangan biaya lisensi software yang tidak terpakai"
+    ],
+    "useCases": [
+      "Integrasi Ekosistem Multi-Cloud dan On-Premise",
+      "Manajemen Siklus Aset TI & Audit Lisensi Perangkat Lunak",
+      "Event-Driven Architecture untuk Transaksi Finansial"
+    ],
+    "faqs": [
+      {
+        "question": "Apakah Syclus cocok untuk skala transaksi tinggi?",
+        "answer": "Sangat cocok. Arsitektur Syclus dirancang untuk menangani beban jutaan throughput transaksi per hari secara elastis."
+      }
+    ]
+  },
+  {
+    "id": "prod-5",
+    "slug": "spensify",
+    "name": "Spensify",
+    "headline": "Smart Corporate Expense & Reimbursement Automation",
+    "tagline": "Automasi pengelolaan biaya operasional, approval klaim dinas, dan integrasi akuntansi tanpa kertas",
+    "heroImage": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200",
+    "overview": "Spensify memodernisasi cara karyawan mengajukan reimbursement dan tim finance memvalidasi pengeluaran perusahaan secara otomatis, realtime, dan akurat.",
+    "features": [
+      {
+        "title": "Scan Struk Cerdas di Ponsel",
+        "description": "Karyawan cukup memotret kwitansi; sistem otomatis mendeteksi nominal, tanggal, dan nama merchant."
+      },
+      {
+        "title": "Multi-Level Approval Flow",
+        "description": "Persetujuan berjenjang sesuai limit wewenang manajerial dan kepatuhan SOP perusahaan."
+      },
+      {
+        "title": "Posting Otomatis ke Akuntansi ERP",
+        "description": "Klaim yang disetujui langsung membuat jurnal pengeluaran kas/bank di sistem akuntansi."
+      }
+    ],
+    "benefits": [
+      "Mempercepat waktu pencairan klaim dari 2 minggu menjadi 1 hari kerja",
+      "Mencegah klaim ganda dan kecurangan nota palsu",
+      "Laporan arus kas pengeluaran operasional tersedia secara real-time"
+    ],
+    "useCases": [
+      "Klaim Perjalanan Dinas & Biaya Representasi Tim Lapangan",
+      "Pengelolaan Petty Cash & Kas Kecil Cabang Operasional",
+      "Pengendalian Anggaran Departemen Berbasis Real-Time Cap"
+    ],
+    "faqs": [
+      {
+        "question": "Apakah Spensify dapat diintegrasikan dengan internet banking perusahaan?",
+        "answer": "Bisa. Kami mendukung integrasi host-to-host perbankan untuk pembayaran klaim masal (bulk disbursement)."
+      }
+    ]
+  }
+]
