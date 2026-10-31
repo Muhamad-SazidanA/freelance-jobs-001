@@ -366,10 +366,105 @@ add_shortcode( 'sai_consultation_cta', function ( $atts ) {
         'badge_subtitle'  => 'Solusi Teruji Skala Nasional',
         'primary_btn'     => 'Request Demo Gratis',
         'whatsapp_btn'    => 'Dapatkan Konsultasi Gratis',
-        'whatsapp_number' => '6287865000132',
+        'whatsapp_number' => '6282110009519',
     ], $atts, 'sai_consultation_cta' );
 
     ob_start();
     get_template_part( 'template-parts/consultation-cta', null, $atts );
     return ob_get_clean();
 } );
+
+/* ==========================================================================
+   12. REST API: LEAD & CONTACT SUBMISSION (/wp-json/solusi/v1/lead)
+   Handles form submissions from Astro frontend, sends email to sales@solusiaplikasi.id,
+   and persists lead in database.
+   ========================================================================== */
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'solusi/v1', '/lead', [
+        'methods'             => [ 'POST', 'OPTIONS' ],
+        'permission_callback' => '__return_true',
+        'callback'            => 'sai_handle_lead_rest_submission',
+    ] );
+} );
+
+function sai_handle_lead_rest_submission( WP_REST_Request $request ) {
+    // Handle CORS preflight
+    if ( $request->get_method() === 'OPTIONS' ) {
+        $response = new WP_REST_Response( [ 'status' => 'ok' ], 200 );
+        $response->header( 'Access-Control-Allow-Origin', '*' );
+        $response->header( 'Access-Control-Allow-Methods', 'POST, OPTIONS' );
+        $response->header( 'Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With' );
+        return $response;
+    }
+
+    $params = $request->get_json_params();
+    if ( empty( $params ) ) {
+        $params = $request->get_body_params();
+    }
+
+    $name         = sanitize_text_field( $params['name'] ?? '' );
+    $email        = sanitize_email( $params['email'] ?? '' );
+    $phone        = sanitize_text_field( $params['phone'] ?? '' );
+    $company      = sanitize_text_field( $params['company'] ?? '' );
+    $position     = sanitize_text_field( $params['position'] ?? '' );
+    $requirements = sanitize_textarea_field( $params['requirements'] ?? ( $params['message'] ?? '' ) );
+    $source_url   = esc_url_raw( $params['sourceUrl'] ?? ( $params['source_url'] ?? '' ) );
+
+    if ( empty( $name ) || empty( $email ) ) {
+        $res = new WP_REST_Response( [
+            'success' => false,
+            'message' => 'Nama dan email wajib diisi.',
+        ], 400 );
+        $res->header( 'Access-Control-Allow-Origin', '*' );
+        return $res;
+    }
+
+    // 1. Send Email to sales@solusiaplikasi.id
+    $to      = 'sales@solusiaplikasi.id';
+    $subject = '[Lead Baru Website] Permintaan Demo / Konsultasi: ' . $name;
+    
+    $body  = "Halo Tim Sales PT Solusi Aplikasi Integrasi,\n\n";
+    $body .= "Ada calon klien yang mengajukan permintaan demo/konsultasi melalui website:\n\n";
+    $body .= "--------------------------------------------------\n";
+    $body .= "Nama           : " . $name . "\n";
+    $body .= "Email          : " . $email . "\n";
+    $body .= "No. WhatsApp   : " . $phone . "\n";
+    $body .= "Perusahaan     : " . ( $company ?: '-' ) . "\n";
+    $body .= "Jabatan        : " . ( $position ?: '-' ) . "\n";
+    $body .= "Halaman Sumber : " . ( $source_url ?: '-' ) . "\n";
+    $body .= "Kebutuhan      :\n" . ( $requirements ?: '-' ) . "\n";
+    $body .= "--------------------------------------------------\n\n";
+    $body .= "Waktu Masuk: " . current_time( 'mysql' ) . " WIB\n";
+
+    $headers = [
+        'From: Website SolusiAplikasi.id <no-reply@solusiaplikasi.id>',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    ];
+
+    @wp_mail( $to, $subject, $body, $headers );
+
+    // 2. Persist to database if sai_leads table exists
+    global $wpdb;
+    $table_check = $wpdb->get_col( "SHOW TABLES LIKE '%sai_leads%'" );
+    if ( ! empty( $table_check ) ) {
+        $table_name = $table_check[0];
+        @$wpdb->insert( $table_name, [
+            'first_name'   => $name,
+            'email'        => $email,
+            'phone'        => $phone,
+            'company'      => $company,
+            'position'     => $position,
+            'requirements' => $requirements,
+            'source_url'   => $source_url,
+            'status'       => 'new',
+            'created_at'   => current_time( 'mysql' ),
+        ] );
+    }
+
+    $res = new WP_REST_Response( [
+        'success' => true,
+        'message' => 'Terima kasih, tim konsultan kami akan menghubungi Anda 1x24 jam',
+    ], 200 );
+    $res->header( 'Access-Control-Allow-Origin', '*' );
+    return $res;
+}

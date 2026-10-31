@@ -91,20 +91,49 @@ export default function ContactForm({
         (typeof import.meta !== 'undefined' && import.meta.env?.PUBLIC_WP_REST_API_URL) ||
         'https://solusiaplikasi.id/solution/wp-json/solusi/v1/lead';
 
-      await fetch(restEndpoint, {
+      const res = await fetch(restEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          ...payload,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          position: formData.position,
+          requirements: formData.requirements,
+        }),
       });
 
-      setStatus('success');
-      setResponseMsg('Terima kasih! Pesan Anda telah kami terima. Tim konsultan solusi kami akan segera menghubungi Anda.');
-      trackFormSubmission(formType, payload.sourceUrl);
+      if (!res.ok) throw new Error('WP REST failed, using fallback');
     } catch {
-      setStatus('success');
-      setResponseMsg('Terima kasih! Pesan Anda telah tersimpan. Tim kami akan menghubungi Anda segera.');
-      trackFormSubmission(formType, payload.sourceUrl);
+      // Fallback: Kirim email via FormSubmit langsung ke sales@solusiaplikasi.id
+      try {
+        await fetch('https://formsubmit.co/ajax/sales@solusiaplikasi.id', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            _subject: `[Lead Demo Baru] ${fullName} - ${formData.company || 'Perusahaan'}`,
+            _template: 'table',
+            _captcha: 'false',
+            Nama: fullName,
+            Email: formData.email,
+            'No. WhatsApp': formData.phone,
+            Perusahaan: formData.company || '-',
+            Jabatan: formData.position || '-',
+            Kebutuhan: formData.requirements || '-',
+            'Halaman Sumber': currentUrl,
+          }),
+        });
+      } catch (fallbackErr) {
+        console.warn('Form fallback email logged:', fallbackErr);
+      }
     }
+
+    setStatus('success');
+    setResponseMsg('Terima kasih, tim konsultan kami akan menghubungi Anda 1x24 jam.');
+    trackFormSubmission(formType, payload.sourceUrl);
   };
 
   const handleReset = () => {

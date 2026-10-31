@@ -20,7 +20,7 @@ $badge          = ! empty( $args['badge'] ) ? $args['badge'] : 'ENTERPRISE READY
 $badge_subtitle = ! empty( $args['badge_subtitle'] ) ? $args['badge_subtitle'] : 'Solusi Teruji Skala Nasional';
 $primary_btn    = ! empty( $args['primary_btn'] ) ? $args['primary_btn'] : 'Request Demo Gratis';
 $whatsapp_btn   = ! empty( $args['whatsapp_btn'] ) ? $args['whatsapp_btn'] : 'Dapatkan Konsultasi Gratis';
-$wa_number      = ! empty( $args['whatsapp_number'] ) ? $args['whatsapp_number'] : '6287865000132';
+$wa_number      = ! empty( $args['whatsapp_number'] ) ? $args['whatsapp_number'] : '6282110009519';
 $instance_id    = 'wp-cta-' . wp_generate_password( 6, false, false );
 ?>
 
@@ -225,12 +225,12 @@ $instance_id    = 'wp-cta-' . wp_generate_password( 6, false, false );
       var prod = (prodSelect && prodSelect.selectedIndex >= 0) ? prodSelect.options[prodSelect.selectedIndex].text : '';
       var msg = (form.querySelector('textarea[name="message"]') || {}).value || '';
 
-      var text = 'Halo Tim Konsultan PT Solusi Aplikasi Integrasi, saya ingin konsultasi mengenai solusi otomatisasi bisnis.';
+      var text = 'Halo PT Solusi Aplikasi Integrasi (SAI), saya tertarik dengan solusi IT dan layanan Anda. Mohon info lebih lanjut.';
       if (name.trim()) text += '\n\nNama: ' + name.trim();
       if (prod && prodSelect.value) text += '\nProduk: ' + prod;
       if (msg.trim()) text += '\nKebutuhan: ' + msg.trim();
 
-      var num = waBtn.getAttribute('data-wa-number') || '6287865000132';
+      var num = waBtn.getAttribute('data-wa-number') || '6282110009519';
       window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
     });
   }
@@ -238,17 +238,42 @@ $instance_id    = 'wp-cta-' . wp_generate_password( 6, false, false );
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var name = (form.querySelector('input[name="name"]') || {}).value || '';
+    var email = (form.querySelector('input[name="email"]') || {}).value || '';
+    var phone = (form.querySelector('input[name="phone"]') || {}).value || '';
+    var prodSelect = form.querySelector('select[name="product"]');
+    var prod = (prodSelect && prodSelect.selectedIndex >= 0) ? prodSelect.options[prodSelect.selectedIndex].text : '';
+    var indSelect = form.querySelector('select[name="industry"]');
+    var ind = (indSelect && indSelect.selectedIndex >= 0) ? indSelect.options[indSelect.selectedIndex].text : '';
+    var msg = (form.querySelector('textarea[name="message"]') || {}).value || '';
+
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerText = 'Memproses Permintaan...';
     }
+
+    // Post to WP REST API endpoint
+    fetch('<?php echo esc_url( rest_url( "solusi/v1/lead" ) ); ?>', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        company: ind,
+        requirements: '[Produk: ' + prod + '] ' + msg,
+        sourceUrl: window.location.href
+      })
+    }).catch(function(err) {
+      console.warn('REST submit fallback:', err);
+    });
+
     setTimeout(function() {
       if (statusBox) {
         statusBox.style.display = 'block';
         statusBox.style.background = '#ecfdf5';
         statusBox.style.color = '#065f46';
         statusBox.style.border = '1px solid #a7f3d0';
-        statusBox.innerHTML = '<strong>Terima kasih, ' + (name || 'Bapak/Ibu') + '!</strong> Permintaan demo dan konsultasi Anda telah berhasil kami terima. Tim konsultan kami akan menghubungi Anda dalam kurun waktu 1x24 jam kerja.';
+        statusBox.innerHTML = '<strong>Terima kasih, ' + (name || 'Bapak/Ibu') + '!</strong> Terima kasih, tim konsultan kami akan menghubungi Anda 1x24 jam.';
       }
       form.reset();
       if (submitBtn) {

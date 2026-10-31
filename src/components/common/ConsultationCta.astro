@@ -31,8 +31,8 @@ const {
   defaultProduct = "",
   primaryButtonText = "Request Demo Gratis",
   whatsappButtonText = "Dapatkan Konsultasi Gratis",
-  whatsappMessage = "Halo Tim Konsultan PT Solusi Aplikasi Integrasi, saya ingin konsultasi mengenai solusi otomatisasi enterprise.",
-  whatsappNumber = "6287865000132",
+  whatsappMessage = "Halo PT Solusi Aplikasi Integrasi (SAI), saya tertarik dengan solusi IT dan layanan Anda. Mohon info lebih lanjut.",
+  whatsappNumber = "6282110009519",
   class: className = "",
   bgClass = "bg-white",
 } = Astro.props;
@@ -244,26 +244,31 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
             const product = productSelect && productSelect.value ? productSelect.options[productSelect.selectedIndex].text : '';
             const msg = messageText ? messageText.value.trim() : '';
 
-            let waText = waBtn.getAttribute('data-wa-default-msg') || 'Halo Tim Konsultan SolusiAplikasi.id, saya ingin konsultasi mengenai solusi otomatisasi bisnis.';
+            let waText = waBtn.getAttribute('data-wa-default-msg') || 'Halo PT Solusi Aplikasi Integrasi (SAI), saya tertarik dengan solusi IT dan layanan Anda. Mohon info lebih lanjut.';
             if (name) waText += `\n\nNama: ${name}`;
             if (product) waText += `\nProduk: ${product}`;
             if (msg) waText += `\nKebutuhan: ${msg}`;
 
-            const phoneNum = waBtn.getAttribute('data-wa-number') || '6287865000132';
+            const phoneNum = waBtn.getAttribute('data-wa-number') || '6282110009519';
             const waUrl = `https://wa.me/${phoneNum}?text=${encodeURIComponent(waText)}`;
             window.open(waUrl, '_blank', 'noopener,noreferrer');
           });
         }
 
         // Form Submit Handler
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', async function (e) {
           e.preventDefault();
 
           const name = form.querySelector('input[name="name"]')?.value.trim();
           const phone = form.querySelector('input[name="phone"]')?.value.trim();
           const email = form.querySelector('input[name="email"]')?.value.trim();
-          const product = form.querySelector('select[name="product"]')?.value;
-          const industry = form.querySelector('select[name="industry"]')?.value;
+          const productSelect = form.querySelector('select[name="product"]');
+          const product = productSelect ? productSelect.value : '';
+          const productLabel = productSelect && productSelect.selectedIndex >= 0 ? productSelect.options[productSelect.selectedIndex].text : '';
+          const industrySelect = form.querySelector('select[name="industry"]');
+          const industry = industrySelect ? industrySelect.value : '';
+          const industryLabel = industrySelect && industrySelect.selectedIndex >= 0 ? industrySelect.options[industrySelect.selectedIndex].text : '';
+          const messageText = form.querySelector('textarea[name="message"]')?.value.trim() || '';
 
           if (!name || !phone || !email || !product || !industry) {
             if (statusBox) {
@@ -284,21 +289,82 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
             `;
           }
 
-          setTimeout(() => {
-            if (statusBox) {
-              statusBox.className = 'p-3 rounded-lg text-xs leading-relaxed bg-emerald-50 border border-emerald-200 text-emerald-800 block';
-              statusBox.innerHTML = `
-                <strong>Terima kasih, ${name}!</strong> Permintaan demo dan konsultasi Anda telah berhasil kami terima. Tim konsultan solusi enterprise kami akan menghubungi Anda dalam kurun waktu 1x24 jam kerja.
-              `;
-            }
+          // Save to localStorage for Admin Dashboard
+          try {
+            const stored = localStorage.getItem('solusi_leads_data');
+            const leads = stored ? JSON.parse(stored) : [];
+            leads.unshift({
+              id: `lead-${Date.now()}`,
+              name: name,
+              email: email,
+              phone: phone,
+              company: industryLabel || 'Enterprise',
+              position: 'Lead Web CTA',
+              requirements: `[Produk: ${productLabel}] ${messageText}`,
+              message: `[Industri: ${industryLabel}] [Produk: ${productLabel}] ${messageText}`,
+              sourceUrl: window.location.href,
+              createdAt: new Date().toISOString(),
+              status: 'Baru',
+            });
+            localStorage.setItem('solusi_leads_data', JSON.stringify(leads));
+          } catch (err) {
+            console.warn('Failed to store lead in localStorage:', err);
+          }
 
-            form.reset();
-
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = `<span>Request Demo Gratis</span>`;
+          // Send Lead Notification to sales@solusiaplikasi.id
+          try {
+            const restEndpoint = 'https://solusiaplikasi.id/solution/wp-json/solusi/v1/lead';
+            const wpRes = await fetch(restEndpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: name,
+                email: email,
+                phone: phone,
+                company: industryLabel,
+                position: 'Lead Web CTA',
+                requirements: `[Produk: ${productLabel}] ${messageText}`,
+                sourceUrl: window.location.href,
+              }),
+            });
+            if (!wpRes.ok) throw new Error('WP REST fallback');
+          } catch {
+            // Fallback delivery via FormSubmit to sales@solusiaplikasi.id
+            try {
+              await fetch('https://formsubmit.co/ajax/sales@solusiaplikasi.id', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                  _subject: `[Lead CTA Baru] ${name} - ${productLabel}`,
+                  _template: 'table',
+                  _captcha: 'false',
+                  Nama: name,
+                  Email: email,
+                  'No. WhatsApp': phone,
+                  Produk: productLabel,
+                  Industri: industryLabel,
+                  Pesan: messageText || '-',
+                  'Halaman Sumber': window.location.href,
+                }),
+              });
+            } catch (fallbackErr) {
+              console.warn('Fallback error:', fallbackErr);
             }
-          }, 800);
+          }
+
+          if (statusBox) {
+            statusBox.className = 'p-3.5 rounded-lg text-xs leading-relaxed bg-emerald-50 border border-emerald-200 text-emerald-800 block';
+            statusBox.innerHTML = `
+              <strong>Terima kasih, ${name}!</strong> Terima kasih, tim konsultan kami akan menghubungi Anda 1x24 jam.
+            `;
+          }
+
+          form.reset();
+
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `<span>Request Demo Gratis</span>`;
+          }
         });
       });
     });
