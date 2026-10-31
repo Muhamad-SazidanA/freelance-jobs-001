@@ -40,38 +40,12 @@ export default function AdminLogin() {
       try {
         if (typeof window === 'undefined') return;
 
-        const isLocalhost =
-          window.location.hostname === 'localhost' ||
-          window.location.hostname === '127.0.0.1';
+        // Mode Dev / Tanpa Token: Langsung izinkan akses login
+        setHasSecretAccess(true);
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const accessParam = urlParams.get('access');
-        const cookieAuthorized = document.cookie.includes('solusi_admin_access=authorized');
-
-        let isTokenValid = false;
-        if (accessParam) {
-          if (accessParam.trim() === ACCESS_TOKEN) {
-            isTokenValid = true;
-          } else {
-            const hashedParam = await computeSha256(accessParam.trim());
-            isTokenValid = hashedParam === ACCESS_HASH;
-          }
-        }
-
-        // Di localhost atau jika token/cookie valid, izinkan akses form login
-        if (isLocalhost || isTokenValid || cookieAuthorized) {
-          const isSecure = window.location.protocol === 'https:';
-          document.cookie = `solusi_admin_access=authorized; path=/; max-age=604800; SameSite=Lax${
-            isSecure ? '; Secure' : ''
-          }`;
-          setHasSecretAccess(true);
-
-          // Jika sudah login sebelumnya, langsung teruskan ke /admin
-          if (localStorage.getItem('solusi_admin_session')) {
-            window.location.href = '/admin';
-          }
-        } else {
-          setHasSecretAccess(false);
+        // Jika sudah login sebelumnya, langsung teruskan ke /admin
+        if (localStorage.getItem('solusi_admin_session')) {
+          window.location.href = '/admin';
         }
       } catch (err) {
         console.error('Error during access check:', err);

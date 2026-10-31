@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # temporary root comparison screenshots
 /*.png
+
+# archives
+*.zip
