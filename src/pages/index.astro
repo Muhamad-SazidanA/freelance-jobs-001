@@ -22,168 +22,175 @@ const schemas = [orgSchema, websiteSchema];
 >
   <div class="home-content-zoom w-full">
   <!-- =========================================================================
-       1. HERO SECTION - CLEAN, SLIM & ENTERPRISE
+       1. HERO SECTION - FUTURISTIC AUTOMATION BANNER WITH 5 SOLUTIONS DOCK
        ========================================================================= -->
-  <section
-    class="relative pt-8 pb-12 md:pt-12 md:pb-16 overflow-hidden bg-white border-b border-slate-100"
-  >
-    <div class="max-w-6xl mx-auto px-4">
+  <section class="relative overflow-hidden bg-[#030712] text-white border-b border-slate-900">
+    <!-- Background Image with Gradient Overlays -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/home/Banner_Home.webp"
+        alt="Solusi Digital Automation untuk Bisnis"
+        class="w-full h-full object-cover object-right md:object-center"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <!-- Gradient overlay: Deep dark on left for text readability, blending into the banner on right -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/85 md:via-[#030712]/70 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]/30"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-10 md:pt-24 md:pb-14 flex flex-col justify-between min-h-[580px] lg:min-h-[640px]">
       {/* Top Text & CTA */}
-      <div class="max-w-3xl mb-8 md:mb-10">
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.12] mb-3.5"
-        >
-          Empowering business<br class="hidden sm:inline" />
-          with digital intelligent<br class="hidden sm:inline" />
+      <div class="max-w-2xl mb-12 md:mb-16">
+        <!-- Eyebrow Tag -->
+        <p class="text-xs sm:text-[13px] font-semibold text-slate-300 tracking-wider uppercase mb-3 sm:mb-4">
+          SOLUSI DIGITAL AUTOMATION UNTUK BISNIS
+        </p>
+
+        <!-- Main Title -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white tracking-tight leading-[1.12] mb-4 sm:mb-5">
+          Empowering business<br />
+          with digital intelligent<br />
           automation.
         </h1>
 
-        <p
-          class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mb-6"
-        >
-          Distributor dan penyedia solusi Hyperautomation, AI-driven Intelligent Document Processing, dan Robotic Process Automation terkemuka di Indonesia — membuat kerja tim Anda lebih cepat, akurat, dan sederhana.
+        <!-- Subtitle -->
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl mb-7 sm:mb-8 font-normal">
+          Distributor dan penyedia solusi Hyperautomation, AI-driven Intelligent Document Processing, dan Robotic Process Automation terkemuka di Indonesia membuat kerja tim Anda lebih cepat, akurat, dan sederhana.
         </p>
 
-        <div class="flex flex-wrap items-center gap-3">
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center gap-3.5">
+          <a
+            href="/request-demo"
+            class="inline-flex items-center justify-center px-7 py-3 bg-white hover:bg-slate-100 text-[#0f172a] text-xs sm:text-sm font-bold rounded-full shadow-lg shadow-white/10 hover:shadow-white/20 transition-all duration-200"
+          >
+            Kontak Kami
+          </a>
           <a
             href="#form-konsultasi"
-            class="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold rounded-xl shadow-2xs transition-colors"
+            class="inline-flex items-center justify-center px-7 py-3 bg-white/5 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold rounded-full border border-white/35 hover:border-white/60 backdrop-blur-xs transition-all duration-200"
           >
-            <svg
-              class="w-4 h-4 text-white shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
-            </svg>
-            <span>Konsultasi Gratis</span>
+            Mulai Konsultasi
           </a>
         </div>
       </div>
 
-      {/* 3 Visual Hero Cards - Refined, Balanced & Slim */}
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-4.5 items-stretch">
-        {/* Card 1: Metric & Testimonial Proof Card */}
-        <div
-          class="md:col-span-4 bg-gradient-to-b from-[#2563eb] to-[#4ba0fa] rounded-2xl p-5 text-white shadow-2xs flex flex-col justify-between group"
-        >
-          <div>
-            <div class="flex items-center gap-3">
-              <span
-                class="text-4xl sm:text-5xl font-black text-white tracking-tight leading-none"
-                >80%</span
-              >
-              <p
-                class="text-xs sm:text-sm text-blue-50 font-medium leading-snug"
-              >
-                Perusahaan melakukan RO, dengan<br />
-                kerjasama lebih dari 5 tahun*
-              </p>
-            </div>
-
-            {/* Testimonial Quote Box with layered depth */}
-            <div class="mt-5 relative">
-              <div class="w-[90%] mx-auto h-2 bg-white/25 rounded-t-xl -mb-1">
-              </div>
-              <div
-                class="bg-white rounded-2xl p-4 text-slate-800 shadow-sm relative z-10"
-              >
-                <svg
-                  class="w-6 h-6 text-slate-300 mb-1.5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-                  ></path>
+      {/* Bottom 5-Solutions Blue Dock */}
+      <div class="w-full">
+        <div class="bg-[#1877F2] rounded-2xl md:rounded-3xl shadow-xl shadow-blue-950/40 overflow-hidden">
+          <div class="flex overflow-x-auto lg:grid lg:grid-cols-5 divide-x divide-white/20 no-scrollbar">
+            <!-- 1. Intelligent Document Processing -->
+            <a
+              href="/products/nanonets"
+              class="min-w-[220px] sm:min-w-[240px] lg:min-w-0 flex items-center gap-3 px-4 py-3.5 sm:px-4 sm:py-4 hover:bg-white/10 transition-colors group shrink-0 lg:shrink"
+            >
+              <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
                 </svg>
-                <p
-                  class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed"
-                >
-                  "Cepat tanggap dan dapat memberikan masukan ketika project
-                  dimulai.Sabar terhadap tim Kami"
+              </div>
+              <div class="min-w-0">
+                <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                  Intelligent Document<br class="hidden xl:inline" /> Processing
+                </h4>
+                <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                  Ekstraksi Data Otomatis
                 </p>
-                <div
-                  class="mt-3 pt-2.5 border-t border-slate-100 text-xs font-bold text-slate-900"
-                >
-                  Rangga – Mandiri Healthcare
-                </div>
               </div>
-            </div>
-          </div>
+            </a>
 
-          <div class="pt-4 mt-3 text-center">
+            <!-- 2. Robotic Process Automation -->
             <a
-              href="#"
-              class="inline-flex items-center justify-center gap-2.5 text-xs sm:text-sm font-semibold text-white hover:text-blue-50 transition-colors"
+              href="/products/cyclone"
+              class="min-w-[220px] sm:min-w-[240px] lg:min-w-0 flex items-center gap-3 px-4 py-3.5 sm:px-4 sm:py-4 hover:bg-white/10 transition-colors group shrink-0 lg:shrink"
             >
-              <span>Lihat Pendapat Mereka</span>
-              <span
-                class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-[#2563eb] shadow-xs group-hover:scale-105 transition-transform"
-              >
-                <svg
-                  class="w-3 h-3 fill-current ml-0.5"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M8 5v14l11-7z"></path>
+              <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22v-5"/>
+                  <path d="M9 8V2"/>
+                  <path d="M15 8V2"/>
+                  <path d="M18 8v5a6 6 0 0 1-12 0V8z"/>
                 </svg>
-              </span>
+              </div>
+              <div class="min-w-0">
+                <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                  Robotic Process<br class="hidden xl:inline" /> Automation
+                </h4>
+                <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                  Otomasi Tugas Berulang
+                </p>
+              </div>
             </a>
-          </div>
-        </div>
 
-        {/* Card 2: Mobile Interface & Live Workflow Preview */}
-        <div
-          class="md:col-span-4 relative flex items-center justify-center group rounded-2xl overflow-hidden"
-        >
-          <img
-            src="/images/home/center-bg.webp"
-            alt="Alur Kerja Lapangan & Mobile - Case Study SolusiAplikasi.id"
-            class="w-full h-auto object-contain rounded-2xl group-hover:scale-102 transition-transform duration-300"
-            loading="eager"
-          />
-
-          <!-- Floating Slim CTA Button Over Bottom of Image -->
-          <div
-            class="absolute bottom-3 sm:bottom-4 left-3 right-3 sm:left-4 sm:right-4 text-center z-10"
-          >
+            <!-- 3. Document Management System -->
             <a
-              href="#"
-              class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3.5 bg-white/95 backdrop-blur-xs hover:bg-white text-slate-800 text-xs sm:text-sm font-semibold rounded-xl border border-sky-200/80 hover:border-sky-300 shadow-sm hover:shadow transition-all"
+              href="/products/docuflo"
+              class="min-w-[220px] sm:min-w-[240px] lg:min-w-0 flex items-center gap-3 px-4 py-3.5 sm:px-4 sm:py-4 hover:bg-white/10 transition-colors group shrink-0 lg:shrink"
             >
-              <span>Lihat Case Study Project Kami</span>
-              <svg
-                class="w-3.5 h-3.5 text-sky-500 shrink-0"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
+              <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div class="min-w-0">
+                <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                  Document<br class="hidden xl:inline" /> Management System
+                </h4>
+                <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                  Pengelolaan Dokumen Digital
+                </p>
+              </div>
+            </a>
+
+            <!-- 4. Account Payable Automation -->
+            <a
+              href="/products/syclus"
+              class="min-w-[220px] sm:min-w-[240px] lg:min-w-0 flex items-center gap-3 px-4 py-3.5 sm:px-4 sm:py-4 hover:bg-white/10 transition-colors group shrink-0 lg:shrink"
+            >
+              <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="2"/>
+                  <line x1="2" y1="10" x2="22" y2="10"/>
+                  <line x1="6" y1="15" x2="6.01" y2="15"/>
+                  <line x1="10" y1="15" x2="14" y2="15"/>
+                </svg>
+              </div>
+              <div class="min-w-0">
+                <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                  Account Payable<br class="hidden xl:inline" /> Automation
+                </h4>
+                <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                  Otomasi Utang Usaha
+                </p>
+              </div>
+            </a>
+
+            <!-- 5. Expense Management System -->
+            <a
+              href="/products/spensify"
+              class="min-w-[220px] sm:min-w-[240px] lg:min-w-0 flex items-center gap-3 px-4 py-3.5 sm:px-4 sm:py-4 hover:bg-white/10 transition-colors group shrink-0 lg:shrink"
+            >
+              <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z"/>
+                  <line x1="8" y1="7" x2="16" y2="7"/>
+                  <line x1="8" y1="11" x2="16" y2="11"/>
+                  <line x1="8" y1="15" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <div class="min-w-0">
+                <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                  Expense Management<br class="hidden xl:inline" /> System
+                </h4>
+                <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                  Pengelolaan Pengeluaran
+                </p>
+              </div>
             </a>
           </div>
-        </div>
-
-        {/* Card 3: Client Enterprise Logos */}
-        <div class="md:col-span-4 flex items-center justify-center group">
-          <img
-            src="/images/home/as-client.webp"
-            alt="Ekosistem Mitra dan Klien Enterprise SolusiAplikasi.id"
-            class="w-full h-auto object-contain rounded-2xl group-hover:scale-102 transition-transform duration-300"
-            loading="eager"
-          />
         </div>
       </div>
     </div>
@@ -202,11 +209,7 @@ const schemas = [orgSchema, websiteSchema];
           >
             <strong class="font-bold text-slate-900"
               >Solusi Otomatisasi kami</strong
-            > dirancang dan berfungsi sebagai landasan untuk perkembangan transformasi
-            digital dalam bisnis Anda. Kami memberikan layanan yang berkualitas dan
-            terukur dalam menerapkan Otomatisasi Bisnis dan Proses Otomatisasi Robotik
-            dengan teknologi AI dan ML (Machine Learning) yang menyeimbangkan kebutuhan
-            bisnis Anda dengan teknologi inovasi.
+            > dirancang dan berfungsi sebagai landasan untuk perkembangan transformasi digital dalam bisnis Anda. Kami memberikan layanan yang berkualitas dan terukur dalam menerapkan Otomatisasi Bisnis dan Proses Otomatisasi Robotik dengan teknologi AI dan ML (Machine Learning) yang menyeimbangkan kebutuhan bisnis Anda dengan teknologi inovasi.
           </p>
         </div>
 
