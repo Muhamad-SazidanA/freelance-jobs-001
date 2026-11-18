@@ -1,5 +1,6 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
+import ClientsMarquee from "@/components/home/ClientsMarquee.astro";
 import IntegratedSolutionsSection from "@/components/home/IntegratedSolutionsSection.astro";
 import TrustRecognition from "@/components/home/TrustRecognition.astro";
 import ConsultationCta from "@/components/common/ConsultationCta.astro";
@@ -197,6 +198,11 @@ const schemas = [orgSchema, websiteSchema];
   </section>
 
   <!-- =========================================================================
+       CLIENT / PARTNER MARQUEE
+       ========================================================================= -->
+  <ClientsMarquee />
+
+  <!-- =========================================================================
        2. NARRATIVE VALUE STATEMENT + 3 QUICK STATS - SLIM & REFINED
        ========================================================================= -->
   <section class="py-10 md:py-12 bg-slate-50/50 border-b border-slate-200/60">
@@ -213,13 +219,15 @@ const schemas = [orgSchema, websiteSchema];
           </p>
         </div>
 
-        {/* Right: 3 Key Metrics */}
+        {/* Right: 3 Key Metrics with Smooth Counter Animation */}
         <div
           class="lg:col-span-5 grid grid-cols-3 gap-2.5 border-t lg:border-t-0 lg:border-l border-slate-200/80 pt-4 lg:pt-0 lg:pl-6 text-center"
         >
           <div>
             <div
-              class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight"
+              class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
+              data-target="80"
+              data-suffix="%"
             >
               80%
             </div>
@@ -231,7 +239,9 @@ const schemas = [orgSchema, websiteSchema];
           </div>
           <div>
             <div
-              class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight"
+              class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
+              data-target="100"
+              data-suffix="%"
             >
               100%
             </div>
@@ -243,7 +253,9 @@ const schemas = [orgSchema, websiteSchema];
           </div>
           <div>
             <div
-              class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight"
+              class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
+              data-target="95"
+              data-suffix="%"
             >
               95%
             </div>
@@ -316,7 +328,7 @@ const schemas = [orgSchema, websiteSchema];
               </svg>
             </div>
             <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-              Data tersebar di banyak sistem dan file berbeda
+              Dokumen tidak terpusat di satu tempat
             </p>
           </div>
 
@@ -786,4 +798,43 @@ const schemas = [orgSchema, websiteSchema];
        ========================================================================= -->
   <ConsultationCta />
   </div>
+
+  <script>
+    function setupCounters() {
+      const counters = document.querySelectorAll<HTMLElement>('.stat-count[data-target]');
+      if (!counters.length) return;
+
+      const animate = (el: HTMLElement) => {
+        const target = Number(el.dataset.target || 0);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1200;
+        const start = performance.now();
+
+        const step = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        };
+        requestAnimationFrame(step);
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate(entry.target as HTMLElement);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      counters.forEach((c) => observer.observe(c));
+    }
+
+    document.addEventListener('DOMContentLoaded', setupCounters);
+    document.addEventListener('astro:page-load', setupCounters);
+    setupCounters();
+  </script>
 </PageLayout>

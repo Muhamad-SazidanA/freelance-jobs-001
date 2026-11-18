@@ -1,0 +1,56 @@
+---
+// ClientsMarquee.astro
+// Partner & Client Enterprise Marquee
+const clients = [
+  'Zurich',
+  'Avrist',
+  'Prudential',
+  'BRI Life',
+  'Pertamina',
+  'Indomaret',
+  'Elnusa',
+  'Erajaya',
+  'Mandiri Healthcare',
+];
+---
+
+<section class="py-8 bg-slate-50/70 border-b border-slate-200/60 overflow-hidden" aria-label="Klien dan Mitra Enterprise Kami">
+  <div class="max-w-6xl mx-auto px-4 mb-4 text-center">
+    <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest">
+      Dipercaya oleh Berbagai Perusahaan &amp; Institusi Terkemuka
+    </p>
+  </div>
+
+  <div class="marquee-wrapper relative overflow-hidden">
+    <!-- Gradient edges for smooth fade -->
+    <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+
+    <div class="marquee-track flex gap-8 sm:gap-12 w-max py-2 select-none">
+      {/* Duplicate list 3 times for seamless infinite loop */}
+      {[...clients, ...clients, ...clients].map((name) => (
+        <div class="flex items-center gap-2.5 text-slate-700 font-bold text-sm sm:text-base tracking-tight shrink-0 px-3.5 py-1.5 rounded-xl bg-white/70 border border-slate-200/50 shadow-2xs hover:text-[#0866D3] hover:border-blue-200 hover:bg-white transition-all">
+          <span class="w-2 h-2 rounded-full bg-[#0866D3]/70"></span>
+          <span>{name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-track {
+    animation: marquee-scroll 28s linear infinite;
+  }
+  .marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% / 3));
+    }
+  }
+</style>
