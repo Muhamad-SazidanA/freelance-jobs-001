@@ -186,6 +186,7 @@ const technologyCards = [
 
 const deploymentOptions = [
   {
+    id: 'cloud',
     tag: 'DEPLOYMENT CEPAT',
     tagColor: 'text-blue-600',
     title: 'Cloud',
@@ -193,6 +194,7 @@ const deploymentOptions = [
     image: '/images/product/nanonets/Pemrosesan_Dokumen_AI/Cloud.webp',
   },
   {
+    id: 'hybrid',
     tag: 'INTEGRASI FLEKSIBEL',
     tagColor: 'text-indigo-600',
     title: 'Hybrid',
@@ -200,12 +202,30 @@ const deploymentOptions = [
     image: '/images/product/nanonets/Pemrosesan_Dokumen_AI/Hybrid.webp',
   },
   {
+    id: 'onprem',
     tag: 'KONTROL INFRASTRUKTUR',
     tagColor: 'text-purple-600',
     title: 'On-Premise',
     description: 'Host model AI yang kompatibel di server Anda sendiri untuk kontrol infrastruktur lebih besar.',
     image: '/images/product/nanonets/Pemrosesan_Dokumen_AI/On-Premise.webp',
   },
+];
+
+const jsonOutputLines = [
+  '{',
+  '  "invoice_no": "INV-2026-0418",',
+  '  "vendor": "PT Solusi Aplikasi Integrasi",',
+  '  "invoice_date": "2026-04-14",',
+  '  "currency": "IDR",',
+  '  "line_items": [',
+  '    { "item": "Lisensi Nanonets IDP Enterprise", "qty": 1, "amount": 25000000 },',
+  '    { "item": "Implementasi & Integrasi ERP API", "qty": 1, "amount": 15000000 }',
+  '  ],',
+  '  "subtotal": 40000000,',
+  '  "tax_ppn_11": 4400000,',
+  '  "total_amount": 44400000,',
+  '  "confidence_score": 0.994',
+  '}',
 ];
 ---
 
@@ -246,20 +266,24 @@ const deploymentOptions = [
           tabel kompleks — tanpa perlu setup rules atau template manual.
         </p>
 
-        <!-- CTA Button Coba Gratis (Sesuai Foto 1: pill elegan dengan icon kilauan) -->
-        <div class="flex items-center justify-center pt-2">
+        <!-- CTA Buttons: Jadwalkan Demo & Lihat cara Kerja (Sesuai Foto & Brief) -->
+        <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
           <a href="#form-konsultasi" class="nanonets-btn-coba-gratis">
             <svg class="nanonets-btn-icon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" />
             </svg>
-            <span>Coba Gratis</span>
+            <span>Jadwalkan Demo</span>
+          </a>
+          <a href="#cara" class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-semibold text-slate-200 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all duration-200 shadow-sm hover:scale-[1.02]">
+            <span>Lihat cara Kerja</span>
+            <span aria-hidden="true">&darr;</span>
           </a>
         </div>
       </div>
     </section>
 
     <!-- Comparison Section: KENAPA NANONETS BERBEDA (Sesuai Foto 1) -->
-    <section class="nanonets-comparison-section px-4">
+    <section id="kenapa" class="nanonets-comparison-section px-4">
       <div class="max-w-5xl mx-auto">
         <div class="mb-10 text-left">
           <span class="nanonets-tag-sky">
@@ -353,7 +377,7 @@ const deploymentOptions = [
        ========================================================================= -->
   <div class="bg-white text-slate-900">
     <!-- Section: Satu platform, lima cara kerja (Sesuai Foto 2) -->
-    <section class="nanonets-section-platform px-4 border-b border-slate-100">
+    <section id="cara" class="nanonets-section-platform px-4 border-b border-slate-100">
       <div class="max-w-6xl mx-auto">
         <h2 class="nanonets-platform-title">
           <span class="text-[#3b82f6]">Satu platform,</span> lima cara kerja<br />
@@ -372,6 +396,7 @@ const deploymentOptions = [
                   data-way-tab={index}
                   aria-controls={`way-panel-${index}`}
                   aria-selected={index === 0 ? 'true' : 'false'}
+                  tabindex={index === 0 ? 0 : -1}
                   class={`w-full text-left px-5 py-3 rounded-xl text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
                     index === 0
                       ? 'bg-[#3b82f6] text-white font-semibold shadow-md shadow-blue-500/25'
@@ -631,7 +656,7 @@ const deploymentOptions = [
         </div>
 
         <!-- Middle Visual: Hasil_Ekstraksi.webp (Sesuai Foto 2) -->
-        <div class="my-6 sm:my-10 flex justify-center">
+        <div class="my-6 sm:my-8 flex justify-center">
           <div class="w-full max-w-4xl">
             <img
               src="/images/product/nanonets/Hasil_Ekstraksi.webp"
@@ -642,6 +667,43 @@ const deploymentOptions = [
               decoding="async"
               class="w-full h-auto object-contain mx-auto drop-shadow-sm rounded-2xl"
             />
+          </div>
+        </div>
+
+        <!-- Interactive JSON Terminal Player (Contoh Output JSON) -->
+        <div class="mb-10 max-w-4xl mx-auto">
+          <div class="bg-[#0b1020] text-slate-200 rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
+            <!-- Terminal Title Bar -->
+            <div class="flex items-center justify-between px-4 sm:px-6 py-3 bg-[#111a33] border-b border-slate-800/80">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                <span class="ml-2 sm:ml-3 text-xs font-mono text-emerald-400 font-semibold flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  ● 200 OK
+                </span>
+                <span class="text-xs font-mono text-slate-400 ml-1.5 sm:ml-2">response.json</span>
+              </div>
+              <button
+                type="button"
+                id="btn-play-json"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold cursor-pointer transition-all duration-150 shadow-sm active:scale-95"
+                title="Putar contoh animasi JSON"
+              >
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <span>Putar contoh</span>
+              </button>
+            </div>
+
+            <!-- Terminal Code Body -->
+            <pre class="p-4 sm:p-6 overflow-x-auto font-mono text-xs sm:text-[13px] leading-relaxed text-slate-300 selection:bg-blue-600 selection:text-white"><code>{
+              jsonOutputLines.map((line, idx) => (
+                <span class="json-line block opacity-0 transition-opacity duration-200" data-line-index={idx}>{line}</span>
+              ))
+            }</code></pre>
           </div>
         </div>
 
@@ -732,37 +794,62 @@ const deploymentOptions = [
             <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-sm">
               Nanonets menggabungkan ekstraksi dokumen berbasis AI dengan opsi deployment fleksibel untuk memenuhi kebutuhan integrasi, infrastruktur, dan operasional bisnis Anda.
             </p>
+            <div class="mt-6 p-3 rounded-2xl bg-blue-50/80 border border-blue-200/70 inline-flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
+              <p class="text-xs text-slate-700" aria-live="polite">
+                Dipilih: <strong id="deploy-selected-label" class="text-blue-700 font-bold">Cloud</strong>
+              </p>
+            </div>
           </div>
 
-          <!-- Col 2: 3 Deployment Cards (Sesuai Foto 2) -->
+          <!-- Col 2: 3 Deployment Cards (Sesuai Foto 2 & Brief) -->
           <div class="lg:col-span-8">
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
               {
-                deploymentOptions.map((item) => (
-                  <div class="bg-white rounded-3xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300/80 transition-all duration-200 p-4 sm:p-5 flex flex-col justify-between text-left">
-                    <div class="rounded-2xl overflow-hidden mb-4">
-                      <img
-                        src={item.image}
-                        alt={`${item.title} Deployment`}
-                        width="320"
-                        height="200"
-                        loading="eager"
-                        decoding="async"
-                        class="w-full h-auto object-contain rounded-2xl"
-                      />
-                    </div>
+                deploymentOptions.map((item, index) => (
+                  <button
+                    type="button"
+                    role="button"
+                    tabindex="0"
+                    data-deploy-btn
+                    data-deploy-name={item.title}
+                    aria-pressed={index === 0 ? 'true' : 'false'}
+                    class={`deploy-option-card text-left bg-white rounded-3xl border transition-all duration-200 p-4 sm:p-5 flex flex-col justify-between cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                      index === 0
+                        ? 'border-blue-600 ring-2 ring-blue-500/30 shadow-md shadow-blue-500/10 is-active'
+                        : 'border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300/80'
+                    }`}
+                  >
                     <div>
-                      <span class={`text-[10px] sm:text-[11px] font-bold ${item.tagColor} uppercase tracking-wider block mb-1.5`}>
-                        {item.tag}
-                      </span>
-                      <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
-                        {item.title}
-                      </h3>
-                      <p class="text-xs text-slate-500 leading-relaxed">
-                        {item.description}
-                      </p>
+                      <div class="rounded-2xl overflow-hidden mb-4 relative">
+                        <img
+                          src={item.image}
+                          alt={`${item.title} Deployment`}
+                          width="320"
+                          height="200"
+                          loading="eager"
+                          decoding="async"
+                          class="w-full h-auto object-contain rounded-2xl"
+                        />
+                        <span class={`deploy-active-badge absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-xs transition-opacity duration-200 ${
+                          index === 0 ? 'opacity-100' : 'opacity-0'
+                        }`}>
+                          Aktif
+                        </span>
+                      </div>
+                      <div>
+                        <span class={`text-[10px] sm:text-[11px] font-bold ${item.tagColor} uppercase tracking-wider block mb-1.5`}>
+                          {item.tag}
+                        </span>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
+                          {item.title}
+                        </h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </button>
                 ))
               }
             </div>
@@ -1090,51 +1177,189 @@ const deploymentOptions = [
     }
 
     // Five Ways of Working Interactive Tabs
+    // Five Ways of Working Interactive Tabs (Click + Keyboard Arrow Navigation)
     function setupWaysTabs() {
-      const tabButtons = document.querySelectorAll<HTMLButtonElement>('[data-way-tab]');
-      const tabPanels = document.querySelectorAll<HTMLElement>('.way-panel');
+      const tabButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-way-tab]'));
+      const tabPanels = Array.from(document.querySelectorAll<HTMLElement>('.way-panel'));
       if (!tabButtons.length || !tabPanels.length) return;
 
       const activeClasses = ['bg-[#3b82f6]', 'text-white', 'font-semibold', 'shadow-md', 'shadow-blue-500/25'];
       const inactiveClasses = ['text-slate-700', 'font-medium', 'hover:text-slate-900', 'hover:bg-slate-50'];
 
-      tabButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const targetIndex = btn.getAttribute('data-way-tab');
+      const selectTab = (targetIndex: number, shouldFocus = false) => {
+        // Update tab buttons
+        tabButtons.forEach((b, i) => {
+          const isSelected = i === targetIndex;
+          b.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+          b.tabIndex = isSelected ? 0 : -1;
+          if (isSelected) {
+            b.classList.remove(...inactiveClasses);
+            b.classList.add(...activeClasses);
+          } else {
+            b.classList.remove(...activeClasses);
+            b.classList.add(...inactiveClasses);
+          }
+        });
 
-          // Update tab buttons
-          tabButtons.forEach((b) => {
-            const isSelected = b.getAttribute('data-way-tab') === targetIndex;
-            b.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-            if (isSelected) {
-              b.classList.remove(...inactiveClasses);
-              b.classList.add(...activeClasses);
-            } else {
-              b.classList.remove(...activeClasses);
-              b.classList.add(...inactiveClasses);
-            }
-          });
+        // Update tab panels
+        tabPanels.forEach((p, i) => {
+          const isTarget = i === targetIndex;
+          if (isTarget) {
+            p.classList.remove('hidden');
+            requestAnimationFrame(() => {
+              p.classList.remove('opacity-0');
+              p.classList.add('opacity-100');
+            });
+          } else {
+            p.classList.add('hidden', 'opacity-0');
+            p.classList.remove('opacity-100');
+          }
+        });
 
-          // Update tab panels
-          tabPanels.forEach((p) => {
-            const isTarget = p.id === `way-panel-${targetIndex}`;
-            if (isTarget) {
-              p.classList.remove('hidden');
-              requestAnimationFrame(() => {
-                p.classList.remove('opacity-0');
-                p.classList.add('opacity-100');
-              });
-            } else {
-              p.classList.add('hidden', 'opacity-0');
-              p.classList.remove('opacity-100');
-            }
-          });
+        if (shouldFocus && tabButtons[targetIndex]) {
+          tabButtons[targetIndex].focus();
+        }
+      };
+
+      tabButtons.forEach((btn, i) => {
+        btn.addEventListener('click', () => selectTab(i));
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+            e.preventDefault();
+            selectTab((i + 1) % tabButtons.length, true);
+          } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            selectTab((i - 1 + tabButtons.length) % tabButtons.length, true);
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            selectTab(0, true);
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            selectTab(tabButtons.length - 1, true);
+          }
         });
       });
     }
 
-    document.addEventListener('DOMContentLoaded', setupWaysTabs);
-    document.addEventListener('astro:page-load', setupWaysTabs);
-    setupWaysTabs();
+    // Interactive JSON Output Player (Animasi per baris)
+    function setupJsonPlayer() {
+      const playBtn = document.getElementById('btn-play-json');
+      const lines = Array.from(document.querySelectorAll<HTMLElement>('.json-line'));
+      if (!lines.length) return;
+
+      let isPlaying = false;
+
+      const playAnimation = () => {
+        if (isPlaying) return;
+        isPlaying = true;
+
+        const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (isReduced) {
+          lines.forEach((l) => {
+            l.classList.remove('opacity-0');
+            l.classList.add('opacity-100');
+          });
+          isPlaying = false;
+          return;
+        }
+
+        // Reset all lines to invisible first
+        lines.forEach((l) => {
+          l.classList.remove('opacity-100');
+          l.classList.add('opacity-0');
+        });
+
+        // Reveal line-by-line
+        lines.forEach((l, idx) => {
+          setTimeout(() => {
+            l.classList.remove('opacity-0');
+            l.classList.add('opacity-100');
+            if (idx === lines.length - 1) {
+              isPlaying = false;
+            }
+          }, idx * 110);
+        });
+      };
+
+      if (playBtn) {
+        playBtn.addEventListener('click', playAnimation);
+      }
+
+      // Auto play once when entering viewport
+      const section = document.querySelector('.nanonets-section-output');
+      if (section && 'IntersectionObserver' in window) {
+        let hasPlayed = false;
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting && !hasPlayed) {
+              hasPlayed = true;
+              playAnimation();
+            }
+          },
+          { threshold: 0.2 }
+        );
+        observer.observe(section);
+      } else {
+        // Fallback: show immediately
+        lines.forEach((l) => {
+          l.classList.remove('opacity-0');
+          l.classList.add('opacity-100');
+        });
+      }
+    }
+
+    // Deployment Options Interactive Selection
+    function setupDeploymentOptions() {
+      const cards = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-deploy-btn]'));
+      const label = document.getElementById('deploy-selected-label');
+      if (!cards.length) return;
+
+      const setActive = (selectedCard: HTMLButtonElement) => {
+        cards.forEach((c) => {
+          const isActive = c === selectedCard;
+          c.setAttribute('aria-pressed', String(isActive));
+          const badge = c.querySelector('.deploy-active-badge');
+          if (isActive) {
+            c.classList.add('border-blue-600', 'ring-2', 'ring-blue-500/30', 'shadow-md', 'shadow-blue-500/10', 'is-active');
+            c.classList.remove('border-slate-200/90', 'shadow-2xs');
+            if (badge) {
+              badge.classList.remove('opacity-0');
+              badge.classList.add('opacity-100');
+            }
+          } else {
+            c.classList.remove('border-blue-600', 'ring-2', 'ring-blue-500/30', 'shadow-md', 'shadow-blue-500/10', 'is-active');
+            c.classList.add('border-slate-200/90', 'shadow-2xs');
+            if (badge) {
+              badge.classList.remove('opacity-100');
+              badge.classList.add('opacity-0');
+            }
+          }
+        });
+        const name = selectedCard.getAttribute('data-deploy-name') || selectedCard.querySelector('h3')?.textContent?.trim() || '';
+        if (label && name) {
+          label.textContent = name;
+        }
+      };
+
+      cards.forEach((card) => {
+        card.addEventListener('click', () => setActive(card));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setActive(card);
+          }
+        });
+      });
+    }
+
+    function initNanonetsPage() {
+      setupWaysTabs();
+      setupJsonPlayer();
+      setupDeploymentOptions();
+    }
+
+    document.addEventListener('DOMContentLoaded', initNanonetsPage);
+    document.addEventListener('astro:page-load', initNanonetsPage);
+    initNanonetsPage();
   </script>
 </PageLayout>

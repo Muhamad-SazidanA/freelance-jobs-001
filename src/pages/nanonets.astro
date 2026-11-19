@@ -1,0 +1,23 @@
+---
+// Halaman redirect otomatis dari /nanonets ke /products/nanonets
+return Astro.redirect('/products/nanonets', 301);
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/products/nanonets" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://solusiaplikasi.id/products/nanonets" />
+    <title>Redirecting to Nanonets...</title>
+  </head>
+  <body class="bg-slate-900 text-white flex items-center justify-center min-h-screen font-sans">
+    <div class="text-center p-6">
+      <h1 class="text-xl font-bold mb-2">Mengalihkan ke halaman Nanonets...</h1>
+      <p class="text-sm text-slate-400">
+        Jika tidak dialihkan secara otomatis, silakan klik
+        <a href="/products/nanonets" class="text-blue-400 underline font-semibold">di sini</a>.
+      </p>
+    </div>
+  </body>
+</html>
