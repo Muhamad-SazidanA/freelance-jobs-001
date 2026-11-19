@@ -250,7 +250,7 @@ const deploymentOptions = [
         </p>
 
         <!-- CTA Buttons: Jadwalkan Demo & Lihat cara Kerja (Sesuai Foto & Brief) -->
-        <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+        <div class="flex flex-wrap items-center justify-center gap-3.5 pt-4 sm:pt-6">
           <a href="#form-konsultasi" class="nanonets-btn-coba-gratis">
             <svg class="nanonets-btn-icon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" />
@@ -264,35 +264,39 @@ const deploymentOptions = [
         </div>
       </div>
     </section>
+  </div>
 
-    <!-- Comparison Section: KENAPA NANONETS BERBEDA (Sesuai Foto 1) -->
-    <section id="kenapa" class="nanonets-comparison-section px-4">
-      <div class="max-w-5xl mx-auto">
-        <div class="mb-10 text-left">
-          <span class="nanonets-tag-sky">
+  <!-- =========================================================================
+       BAGIAN 2: WHITE THEME SECTIONS (Komparasi, Cara Kerja, Teknologi, dst.)
+       ========================================================================= -->
+  <div class="bg-white text-slate-900">
+    <!-- Comparison Section: KENAPA NANONETS BERBEDA (White Theme, gaya seperti Satu platform, lima cara kerja) -->
+    <section id="kenapa" class="nanonets-section-comparison px-4 border-b border-slate-100 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-10 sm:mb-14 text-left">
+          <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-3">
             KENAPA NANONETS BERBEDA
           </span>
-          <h2 class="nanonets-comparison-title">
-            OCR biasa cuma baca teks. Nanonets<br class="hidden sm:inline" />
-            memahami struktur dokumen Anda.
+          <h2 class="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-4">
+            OCR biasa cuma baca teks. <span class="text-[#3b82f6]">Nanonets<br class="hidden sm:inline" /> memahami struktur dokumen Anda.</span>
           </h2>
-          <p class="nanonets-comparison-desc">
+          <p class="text-xs sm:text-sm text-slate-500 max-w-xl leading-relaxed">
             Engine rules pada OCR tradisional gampang jebol begitu format dokumen sedikit berubah.
           </p>
         </div>
 
-        <!-- 2 Comparison White Cards (Sesuai Foto 1) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <!-- 2 Comparison White Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
           <!-- Card 1: OCR Tradisional -->
-          <div class="nanonets-card-white">
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-7 sm:p-9 lg:p-10 shadow-xs hover:shadow-sm transition-all text-left flex flex-col justify-between">
             <div>
-              <span class="text-xs font-semibold text-slate-500 block mb-1">
+              <span class="text-xs font-semibold text-slate-500 block mb-1.5">
                 OCR Tradisional
               </span>
-              <h3 class="text-base sm:text-lg font-bold text-[#1e3a8a] tracking-tight mb-5">
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight mb-6">
                 Non-AI, Zoning &amp; Rules
               </h3>
-              <ul class="space-y-3.5 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+              <ul class="space-y-4 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                 <li class="flex items-start gap-2.5">
                   <span class="text-slate-400 font-bold">•</span>
                   <span>Output tidak terstruktur, perlu diolah manual lagi</span>
@@ -317,16 +321,17 @@ const deploymentOptions = [
             </div>
           </div>
 
-          <!-- Card 2: Nanonets AI -->
-          <div class="nanonets-card-white">
-            <div>
-              <span class="text-xs font-semibold text-blue-600 block mb-1">
+          <!-- Card 2: Nanonets AI (Elevated Card dengan aksen biru) -->
+          <div class="bg-white border-2 border-blue-200 hover:border-blue-300 rounded-2xl p-7 sm:p-9 lg:p-10 shadow-md shadow-blue-500/5 hover:shadow-lg transition-all text-left flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-blue-50/70 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="relative z-10">
+              <span class="text-xs font-semibold text-blue-600 block mb-1.5">
                 Nanonets AI
               </span>
-              <h3 class="text-base sm:text-lg font-bold text-[#1e3a8a] tracking-tight mb-5">
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight mb-6">
                 Structured Key-Value Output
               </h3>
-              <ul class="space-y-3.5 text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium">
+              <ul class="space-y-4 text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium">
                 <li class="flex items-start gap-2.5">
                   <span class="text-blue-600 font-bold">•</span>
                   <span>Output key-value pair yang sudah terstruktur &amp; siap pakai</span>
@@ -353,12 +358,7 @@ const deploymentOptions = [
         </div>
       </div>
     </section>
-  </div>
 
-  <!-- =========================================================================
-       BAGIAN 2 (FOTO 2 / IMAGES 3): WORKFLOW TAB + TEKNOLOGI DOKUMEN (WHITE THEME)
-       ========================================================================= -->
-  <div class="bg-white text-slate-900">
     <!-- Section: Satu platform, lima cara kerja (Sesuai Foto 2) -->
     <section id="cara" class="nanonets-section-platform px-4 border-b border-slate-100">
       <div class="max-w-6xl mx-auto">
@@ -780,22 +780,22 @@ const deploymentOptions = [
       position: relative !important;
       text-align: center !important;
       overflow: hidden !important;
-      padding-top: 76px !important;
-      padding-bottom: 68px !important;
+      padding-top: 84px !important;
+      padding-bottom: 96px !important;
       background: radial-gradient(ellipse 80% 60% at 50% -10%, #1e3a8a 0%, #060a12 70%) !important;
     }
 
     @media (min-width: 768px) {
       .nanonets-hero-section {
-        padding-top: 96px !important;
-        padding-bottom: 84px !important;
+        padding-top: 104px !important;
+        padding-bottom: 120px !important;
       }
     }
 
     @media (min-width: 1024px) {
       .nanonets-hero-section {
-        padding-top: clamp(110px, 15vh, 150px) !important;
-        padding-bottom: clamp(90px, 12vh, 120px) !important;
+        padding-top: clamp(120px, 15vh, 160px) !important;
+        padding-bottom: clamp(120px, 15vh, 160px) !important;
       }
     }
 
@@ -934,59 +934,39 @@ const deploymentOptions = [
       filter: drop-shadow(0 0 4px rgba(186, 230, 253, 0.8)) !important;
     }
 
-    /* Seksi Komparasi */
-    .nanonets-comparison-section {
-      padding: 48px 16px 60px;
-      border-top: 1px solid rgba(30, 41, 59, 0.8);
+    /* Seksi Komparasi (Sesuai Gaya Section Platform White Theme) */
+    .nanonets-section-comparison {
+      padding: 72px 16px 88px;
+      background-color: #ffffff;
     }
 
     @media (min-width: 768px) {
-      .nanonets-comparison-section {
-        padding: 56px 16px 68px;
+      .nanonets-section-comparison {
+        padding: 96px 16px 112px;
       }
     }
 
-    .nanonets-tag-sky {
-      color: #38bdf8;
-      font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 10px;
+    @media (min-width: 1024px) {
+      .nanonets-section-comparison {
+        padding: 112px 16px 128px;
+      }
     }
 
-    .nanonets-comparison-title {
-      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.25;
-      color: #ffffff;
-      margin-bottom: 12px;
-    }
-
-    .nanonets-comparison-desc {
-      color: #94a3b8;
-      font-size: clamp(0.875rem, 1.4vw, 1rem);
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    .nanonets-card-white {
-      background-color: #ffffff;
-      color: #0f172a;
-      border-radius: 16px;
-      padding: 24px 28px;
-      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.5);
-      border: 1px solid #e2e8f0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* Bagian 2 & 3 Spacing (Mengikuti ritme py-12 md:py-16 di Home) */
+    /* Bagian 2 & 3 Spacing (Mengikuti ritme py-16 md:py-24 di Home) */
     .nanonets-section-platform {
-      padding: 48px 16px 64px;
+      padding: 72px 16px 88px;
+    }
+
+    @media (min-width: 768px) {
+      .nanonets-section-platform {
+        padding: 96px 16px 112px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nanonets-section-platform {
+        padding: 112px 16px 128px;
+      }
     }
 
     .nanonets-platform-title {
@@ -995,26 +975,38 @@ const deploymentOptions = [
       letter-spacing: -0.025em;
       line-height: 1.22;
       color: #0f172a;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .nanonets-section-tech {
-      padding: 48px 16px 64px;
+      padding: 72px 16px 88px;
     }
 
     @media (min-width: 768px) {
       .nanonets-section-tech {
-        padding: 56px 16px 72px;
+        padding: 96px 16px 112px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nanonets-section-tech {
+        padding: 112px 16px 128px;
       }
     }
 
     .nanonets-section-accuracy {
-      padding: 48px 16px 64px;
+      padding: 72px 16px 88px;
     }
 
     @media (min-width: 768px) {
       .nanonets-section-accuracy {
-        padding: 56px 16px 72px;
+        padding: 96px 16px 112px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nanonets-section-accuracy {
+        padding: 112px 16px 128px;
       }
     }
 
@@ -1022,20 +1014,26 @@ const deploymentOptions = [
       background-color: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 14px;
-      padding: 18px 22px;
+      padding: 20px 24px;
       display: flex;
       align-items: flex-start;
-      gap: 14px;
+      gap: 16px;
     }
 
     .nanonets-section-output {
-      padding: 48px 16px 64px;
+      padding: 72px 16px 88px;
       background-color: #ffffff;
     }
 
     @media (min-width: 768px) {
       .nanonets-section-output {
-        padding: 56px 16px 72px;
+        padding: 96px 16px 112px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nanonets-section-output {
+        padding: 112px 16px 128px;
       }
     }
 
@@ -1052,13 +1050,19 @@ const deploymentOptions = [
     }
 
     .nanonets-section-infra {
-      padding: 48px 16px 64px;
+      padding: 72px 16px 88px;
       background-color: #ffffff;
     }
 
     @media (min-width: 768px) {
       .nanonets-section-infra {
-        padding: 56px 16px 72px;
+        padding: 96px 16px 112px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nanonets-section-infra {
+        padding: 112px 16px 128px;
       }
     }
   </style>
