@@ -229,7 +229,7 @@ const deploymentOptions = [
       <!-- Glow ambient light -->
       <div class="nanonets-glow-circle"></div>
 
-      <div class="max-w-4xl mx-auto relative z-10">
+      <div class="max-w-4xl mx-auto relative z-10 w-full">
         <!-- New Badge (Sesuai Foto 1) -->
         <div class="nanonets-badge">
           <span class="nanonets-badge-pill">New</span>
@@ -769,27 +769,31 @@ const deploymentOptions = [
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
 
-    /* 1. Hero Section Spacing (Compact & Proporsional) */
+    /* 1. Hero Section Spacing (Ukuran Selayar / Full Viewport seperti sebelumnya) */
     .nanonets-hero-section {
       position: relative !important;
       text-align: center !important;
       overflow: hidden !important;
-      padding-top: 48px !important;
-      padding-bottom: 56px !important;
+      padding-top: 84px !important;
+      padding-bottom: 96px !important;
+      min-height: calc(100vh - 65px) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
       background: radial-gradient(ellipse 80% 60% at 50% -10%, #1e3a8a 0%, #060a12 70%) !important;
     }
 
     @media (min-width: 768px) {
       .nanonets-hero-section {
-        padding-top: 64px !important;
-        padding-bottom: 72px !important;
+        padding-top: 104px !important;
+        padding-bottom: 120px !important;
       }
     }
 
     @media (min-width: 1024px) {
       .nanonets-hero-section {
-        padding-top: 76px !important;
-        padding-bottom: 80px !important;
+        padding-top: clamp(120px, 15vh, 160px) !important;
+        padding-bottom: clamp(120px, 15vh, 160px) !important;
       }
     }
 
