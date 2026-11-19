@@ -25,7 +25,7 @@ const schemas = [orgSchema, websiteSchema];
   <!-- =========================================================================
        1. HERO SECTION - FUTURISTIC AUTOMATION BANNER WITH 5 SOLUTIONS DOCK
        ========================================================================= -->
-  <section class="relative overflow-hidden bg-[#030712] text-white border-b border-slate-900">
+  <section class="relative overflow-hidden bg-[#030712] text-white">
     <!-- Background Image with Gradient Overlays -->
     <div class="absolute inset-0 z-0">
       <img
@@ -40,7 +40,7 @@ const schemas = [orgSchema, websiteSchema];
       <div class="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]/30"></div>
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-10 md:pt-24 md:pb-14 flex flex-col justify-between min-h-[580px] lg:min-h-[640px]">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-24 pb-0 flex flex-col justify-between min-h-[580px] lg:min-h-[640px]">
       {/* Top Text & CTA */}
       <div class="max-w-2xl mb-12 md:mb-16">
         <!-- Eyebrow Tag -->
@@ -77,9 +77,9 @@ const schemas = [orgSchema, websiteSchema];
         </div>
       </div>
 
-      {/* Bottom 5-Solutions Blue Dock */}
+      {/* Bottom 5-Solutions Blue Dock - Flush to Bottom Edge */}
       <div class="w-full">
-        <div class="bg-[#1877F2] rounded-2xl md:rounded-3xl shadow-xl shadow-blue-950/40 overflow-hidden">
+        <div class="bg-[#1877F2] rounded-t-2xl md:rounded-t-3xl shadow-2xl shadow-blue-950/50 overflow-hidden">
           <div class="flex overflow-x-auto lg:grid lg:grid-cols-5 divide-x divide-white/20 no-scrollbar">
             <!-- 1. Intelligent Document Processing -->
             <a
