@@ -210,21 +210,6 @@ const deploymentOptions = [
     image: '/images/product/nanonets/Pemrosesan_Dokumen_AI/On-Premise.webp',
   },
 ];
-
-const jsonOutputLines = [
-  '{',
-  '  "invoice_no": "INV-2026-0418",',
-  '  "vendor": "PT Contoh Sejahtera",',
-  '  "invoice_date": "2026-04-14",',
-  '  "currency": "IDR",',
-  '  "line_items": [',
-  '    { "item": "Lisensi software", "qty": 2, "amount": 480000 },',
-  '    { "item": "Instalasi & pelatihan", "qty": 1, "amount": 120000 }',
-  '  ],',
-  '  "total": 600000,',
-  '  "confidence": 0.98',
-  '}',
-];
 ---
 
 <PageLayout
@@ -377,9 +362,6 @@ const jsonOutputLines = [
     <!-- Section: Satu platform, lima cara kerja (Sesuai Foto 2) -->
     <section id="cara" class="nanonets-section-platform px-4 border-b border-slate-100">
       <div class="max-w-6xl mx-auto">
-        <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-2 text-left">
-          CARA KERJA
-        </span>
         <h2 class="nanonets-platform-title">
           <span class="text-[#3b82f6]">Satu platform,</span> lima cara kerja<br />
           yang bisa disesuaikan dengan kebutuhan tim Anda.
@@ -472,74 +454,52 @@ const jsonOutputLines = [
       </div>
     </section>
 
-    <!-- Section: Teknologi di balik setiap dokumen (Sesuai Foto 2) -->
+    <!-- Section: Teknologi di balik setiap dokumen (SOLUSI NANONETS) -->
     <section class="nanonets-section-tech px-4 border-b border-slate-100">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <!-- Col 1: Header + 3x3 Card Grid Container -->
-          <div class="lg:col-span-7">
-            <div class="mb-6 sm:mb-8 text-left">
-              <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-1">
-                SOLUSI NANONETS
-              </span>
-              <h2 class="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-3">
-                Teknologi di balik setiap dokumen yang diproses<br class="hidden sm:inline" />
-                Nanonets
-              </h2>
-              <div>
-                <span class="text-sm font-bold text-slate-800 block mb-0.5">Technology Outplay</span>
-                <p class="text-xs text-slate-500 max-w-xl">
-                  Kombinasi kemampuan AI yang membuat ekstraksi dokumen tetap akurat, walau formatnya bervariasi.
-                </p>
-              </div>
-            </div>
-
-            <!-- 3x3 Grid with 9 Feature Cards Container (Sesuai Foto 2) -->
-            <div class="bg-white rounded-3xl border border-slate-200/90 p-4 sm:p-6 shadow-sm">
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-                {
-                  technologyCards.map((card) => (
-                    <div class="p-3.5 sm:p-4 rounded-2xl border border-slate-100 hover:border-slate-200/90 bg-white transition-all text-left flex flex-col justify-between min-h-[175px] sm:min-h-[185px] shadow-2xs hover:shadow-xs group">
-                      <div>
-                        <h4 class="text-xs sm:text-[13px] font-bold text-slate-900 mb-1 leading-snug">
-                          {card.title}
-                        </h4>
-                        <p class="text-[11px] text-slate-500 leading-relaxed">
-                          {card.description}
-                        </p>
-                      </div>
-                      <div class="mt-3 flex items-center justify-center">
-                        <img
-                          src={card.image}
-                          alt={card.title}
-                          width="240"
-                          height="120"
-                          loading="eager"
-                          decoding="async"
-                          class="w-full h-14 sm:h-[68px] object-contain mx-auto"
-                        />
-                      </div>
-                    </div>
-                  ))
-                }
-              </div>
-            </div>
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-8 sm:mb-10 text-left">
+          <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-1">
+            SOLUSI NANONETS
+          </span>
+          <h2 class="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-3">
+            Teknologi di balik setiap dokumen yang diproses<br class="hidden sm:inline" />
+            Nanonets
+          </h2>
+          <div>
+            <span class="text-sm font-bold text-slate-800 block mb-0.5">Technology Outplay</span>
+            <p class="text-xs sm:text-sm text-slate-500 max-w-2xl leading-relaxed">
+              Kombinasi kemampuan AI dan LLM yang membuat ekstraksi dokumen tetap akurat, walau formatnya bervariasi, dengan pembelajaran berkelanjutan.
+            </p>
           </div>
+        </div>
 
-          <!-- Col 2: Isometric 4-Layer Stack Diagram (Sesuai Foto 2) -->
-          <div class="lg:col-span-5 flex justify-center items-center">
-            <div class="w-full max-w-lg lg:max-w-none px-2 sm:px-0">
-              <img
-                src="/images/product/nanonets/Technology_Outplay/Head_Technology_Outplay.webp"
-                alt="Teknologi Nanonets IDP Outplay Arsitektur"
-                width="700"
-                height="1000"
-                loading="eager"
-                decoding="async"
-                class="w-full h-auto object-contain mx-auto drop-shadow-xl"
-              />
-            </div>
-          </div>
+        <!-- 3x3 Grid with 9 Feature Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {
+            technologyCards.map((card) => (
+              <div class="p-5 sm:p-6 rounded-2xl border border-slate-200/90 hover:border-blue-300 bg-white transition-all text-left flex flex-col justify-between min-h-[190px] shadow-2xs hover:shadow-md group">
+                <div>
+                  <h4 class="text-sm sm:text-base font-bold text-slate-900 mb-1.5 leading-snug group-hover:text-blue-600 transition-colors">
+                    {card.title}
+                  </h4>
+                  <p class="text-xs text-slate-500 leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
+                <div class="mt-4 flex items-center justify-center">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    width="240"
+                    height="120"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-16 sm:h-[72px] object-contain mx-auto"
+                  />
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -553,7 +513,7 @@ const jsonOutputLines = [
     <section class="nanonets-section-accuracy px-4 border-b border-slate-100">
       <div class="max-w-6xl mx-auto">
         <div class="mb-8 text-left">
-          <span class="text-blue-600 text-[13px] font-semibold tracking-[0.08em] uppercase block mb-1">
+          <span class="text-blue-600 text-xs font-bold tracking-wider uppercase block mb-1">
             — KENAPA NANONETS
           </span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -641,10 +601,11 @@ const jsonOutputLines = [
         <!-- Header: Title on Left, Description on Right (Sesuai Foto 2) -->
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 sm:mb-10 text-left">
           <div>
-            <!-- Eyebrow: HASIL EKSTRAKSI -->
-            <span class="text-blue-600 text-xs font-bold tracking-widest uppercase block mb-2">
-              HASIL EKSTRAKSI
-            </span>
+            <!-- Pill Badge: Hasil ekstraksi -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-blue-600 text-xs font-semibold mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+              <span>Hasil ekstraksi</span>
+            </div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Data keluar dalam format yang<br class="hidden sm:inline" />
               siap dipakai sistem Anda
@@ -655,83 +616,18 @@ const jsonOutputLines = [
           </p>
         </div>
 
-        <!-- Flow Diagram 1 Baris (Sesuai Desain: Invoice Card -> Arrow ⚡ -> Terminal JSON) -->
-        <div class="my-8 sm:my-12 max-w-5xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1.15fr] gap-6 lg:gap-8 items-center">
-            <!-- Col 1: Dokumen Invoice Card -->
-            <div class="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow relative text-left">
-              <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                      <polyline points="14 2 14 8 20 8"></polyline>
-                    </svg>
-                  </div>
-                  <div>
-                    <strong class="text-sm sm:text-base font-bold text-slate-900 block leading-tight">Invoice</strong>
-                    <span class="text-[11px] text-slate-400 font-mono">No. INV-2026-0418</span>
-                  </div>
-                </div>
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-600 border border-blue-100">Contoh Dokumen</span>
-              </div>
-
-              <!-- Invoice Mini Table -->
-              <div class="space-y-2 text-xs sm:text-[13px]">
-                <div class="grid grid-cols-6 pb-2 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">
-                  <span class="col-span-3">Item</span>
-                  <span class="col-span-1 text-center">Qty</span>
-                  <span class="col-span-2 text-right">Harga</span>
-                </div>
-                <div class="grid grid-cols-6 py-1.5 text-slate-700 border-b border-slate-50">
-                  <span class="col-span-3 font-medium">Lisensi software</span>
-                  <span class="col-span-1 text-center text-slate-500">2</span>
-                  <span class="col-span-2 text-right font-mono text-slate-600">480.000</span>
-                </div>
-                <div class="grid grid-cols-6 py-1.5 text-slate-700 border-b border-slate-50">
-                  <span class="col-span-3 font-medium">Instalasi &amp; pelatihan</span>
-                  <span class="col-span-1 text-center text-slate-500">1</span>
-                  <span class="col-span-2 text-right font-mono text-slate-600">120.000</span>
-                </div>
-                <div class="flex justify-between items-center pt-3 text-slate-900 font-bold">
-                  <span class="text-xs">Total</span>
-                  <span class="text-sm sm:text-base font-mono text-blue-600">600.000</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Col 2: Arrow Connector ⚡ -->
-            <div class="flex lg:flex-col items-center justify-center gap-2 py-2" aria-hidden="true">
-              <span class="w-10 h-0.5 lg:w-0.5 lg:h-10 bg-blue-300 border-dashed"></span>
-              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/35 text-sm font-bold shrink-0 transition-transform duration-200 hover:scale-110" title="Ekstraksi Otomatis OCR & AI">
-                ⚡
-              </div>
-              <span class="w-10 h-0.5 lg:w-0.5 lg:h-10 bg-blue-300 border-dashed"></span>
-            </div>
-
-            <!-- Col 3: Terminal JSON Output (Animasi otomatis via IntersectionObserver) -->
-            <div class="bg-[#0b1020] text-slate-200 rounded-2xl overflow-hidden border border-slate-800 shadow-xl text-left" aria-label="Contoh output JSON">
-              <!-- Terminal Title Bar -->
-              <div class="flex items-center justify-between px-4 sm:px-6 py-3 bg-[#111a33] border-b border-slate-800/80">
-                <div class="flex items-center gap-2">
-                  <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
-                  <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-                  <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-                  <span class="ml-2 sm:ml-3 text-xs font-mono text-emerald-400 font-semibold flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    ● 200 OK
-                  </span>
-                  <span class="text-xs font-mono text-slate-400 ml-1.5 sm:ml-2">response.json</span>
-                </div>
-              </div>
-
-              <!-- Terminal Code Body -->
-              <pre class="p-4 sm:p-6 overflow-x-auto font-mono text-xs sm:text-[13px] leading-relaxed text-slate-300 selection:bg-blue-600 selection:text-white"><code>{
-                jsonOutputLines.map((line, idx) => (
-                  <span class="json-line block opacity-0 transition-opacity duration-200" data-line-index={idx}>{line}</span>
-                ))
-              }</code></pre>
-            </div>
+        <!-- Middle Visual: Hasil_Ekstraksi.webp (Sesuai Foto 2) -->
+        <div class="my-8 sm:my-12 flex justify-center">
+          <div class="w-full max-w-4xl">
+            <img
+              src="/images/product/nanonets/Hasil_Ekstraksi.webp"
+              alt="Hasil Ekstraksi Data Nanonets"
+              width="1120"
+              height="480"
+              loading="eager"
+              decoding="async"
+              class="w-full h-auto object-contain mx-auto drop-shadow-sm rounded-2xl"
+            />
           </div>
         </div>
 
@@ -810,7 +706,7 @@ const jsonOutputLines = [
           <!-- Col 1: Header / Intro Text (Sesuai Foto 2) -->
           <div class="lg:col-span-4 text-left">
             <!-- Pill: Pemrosesan Dokumen AI -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#3b82f6] text-white text-xs font-semibold mb-4 shadow-sm shadow-blue-500/25">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#3b82f6] text-white text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm shadow-blue-500/25">
               <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
               <span>Pemrosesan Dokumen AI</span>
             </div>
@@ -822,64 +718,39 @@ const jsonOutputLines = [
             <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-sm">
               Nanonets menggabungkan ekstraksi dokumen berbasis AI dengan opsi deployment fleksibel untuk memenuhi kebutuhan integrasi, infrastruktur, dan operasional bisnis Anda.
             </p>
-            <div class="mt-6 p-3 rounded-2xl bg-blue-50/80 border border-blue-200/70 inline-flex items-center gap-2.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
-              <p class="text-xs text-slate-700" aria-live="polite">
-                Dipilih: <strong id="deploy-selected-label" class="text-blue-700 font-bold">Cloud</strong>
-              </p>
-            </div>
           </div>
 
-          <!-- Col 2: 3 Deployment Cards (Sesuai Foto 2 & Brief) -->
+          <!-- Col 2: 3 Deployment Cards (Sesuai Foto 2) -->
           <div class="lg:col-span-8">
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
               {
-                deploymentOptions.map((item, index) => (
-                  <button
-                    type="button"
-                    role="button"
-                    tabindex="0"
-                    data-deploy-btn
-                    data-deploy-name={item.title}
-                    aria-pressed={index === 0 ? 'true' : 'false'}
-                    class={`deploy-option-card text-left bg-white rounded-3xl border transition-all duration-200 p-5 sm:p-6 flex flex-col justify-between cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 min-h-[340px] sm:min-h-[380px] ${
-                      index === 0
-                        ? 'border-blue-600 ring-2 ring-blue-500/30 shadow-md shadow-blue-500/10 is-active'
-                        : 'border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300/80'
-                    }`}
-                  >
-                    <div class="flex-1 flex flex-col">
-                      <div class="rounded-2xl overflow-hidden mb-5 relative bg-slate-50/50 p-2 border border-slate-100 flex items-center justify-center h-44 sm:h-52">
+                deploymentOptions.map((item) => (
+                  <div class="bg-white rounded-3xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300/80 transition-all duration-200 p-5 sm:p-6 flex flex-col justify-between text-left">
+                    <div>
+                      <div class="rounded-2xl overflow-hidden mb-4 bg-slate-50/60 p-2 border border-slate-100 flex items-center justify-center h-36 sm:h-44">
                         <img
                           src={item.image}
                           alt={`${item.title} Deployment`}
-                          width="360"
-                          height="240"
-                          loading="eager"
+                          width="320"
+                          height="200"
+                          loading="lazy"
                           decoding="async"
                           class="max-h-full max-w-full w-auto h-auto object-contain rounded-xl"
                         />
-                        <span class={`deploy-active-badge absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-xs transition-opacity duration-200 ${
-                          index === 0 ? 'opacity-100' : 'opacity-0'
-                        }`}>
-                          Aktif
-                        </span>
                       </div>
-                      <div class="flex-1 flex flex-col justify-between">
-                        <div>
-                          <span class={`text-[10px] sm:text-[11px] font-bold ${item.tagColor} uppercase tracking-wider block mb-1.5`}>
-                            {item.tag}
-                          </span>
-                          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
-                            {item.title}
-                          </h3>
-                        </div>
-                        <p class="text-xs text-slate-500 leading-relaxed mt-auto">
+                      <div>
+                        <span class={`text-[10px] sm:text-[11px] font-bold ${item.tagColor} uppercase tracking-wider block mb-1.5`}>
+                          {item.tag}
+                        </span>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
+                          {item.title}
+                        </h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
                     </div>
-                  </button>
+                  </div>
                 ))
               }
             </div>
@@ -1271,121 +1142,8 @@ const jsonOutputLines = [
       });
     }
 
-    // Interactive JSON Output Player (Animasi per baris)
-    function setupJsonPlayer() {
-      const playBtn = document.getElementById('btn-play-json');
-      const lines = Array.from(document.querySelectorAll<HTMLElement>('.json-line'));
-      if (!lines.length) return;
-
-      let isPlaying = false;
-
-      const playAnimation = () => {
-        if (isPlaying) return;
-        isPlaying = true;
-
-        const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (isReduced) {
-          lines.forEach((l) => {
-            l.classList.remove('opacity-0');
-            l.classList.add('opacity-100');
-          });
-          isPlaying = false;
-          return;
-        }
-
-        // Reset all lines to invisible first
-        lines.forEach((l) => {
-          l.classList.remove('opacity-100');
-          l.classList.add('opacity-0');
-        });
-
-        // Reveal line-by-line
-        lines.forEach((l, idx) => {
-          setTimeout(() => {
-            l.classList.remove('opacity-0');
-            l.classList.add('opacity-100');
-            if (idx === lines.length - 1) {
-              isPlaying = false;
-            }
-          }, idx * 110);
-        });
-      };
-
-      if (playBtn) {
-        playBtn.addEventListener('click', playAnimation);
-      }
-
-      // Auto play once when entering viewport
-      const section = document.querySelector('.nanonets-section-output');
-      if (section && 'IntersectionObserver' in window) {
-        let hasPlayed = false;
-        const observer = new IntersectionObserver(
-          (entries) => {
-            if (entries[0].isIntersecting && !hasPlayed) {
-              hasPlayed = true;
-              playAnimation();
-            }
-          },
-          { threshold: 0.2 }
-        );
-        observer.observe(section);
-      } else {
-        // Fallback: show immediately
-        lines.forEach((l) => {
-          l.classList.remove('opacity-0');
-          l.classList.add('opacity-100');
-        });
-      }
-    }
-
-    // Deployment Options Interactive Selection
-    function setupDeploymentOptions() {
-      const cards = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-deploy-btn]'));
-      const label = document.getElementById('deploy-selected-label');
-      if (!cards.length) return;
-
-      const setActive = (selectedCard: HTMLButtonElement) => {
-        cards.forEach((c) => {
-          const isActive = c === selectedCard;
-          c.setAttribute('aria-pressed', String(isActive));
-          const badge = c.querySelector('.deploy-active-badge');
-          if (isActive) {
-            c.classList.add('border-blue-600', 'ring-2', 'ring-blue-500/30', 'shadow-md', 'shadow-blue-500/10', 'is-active');
-            c.classList.remove('border-slate-200/90', 'shadow-2xs');
-            if (badge) {
-              badge.classList.remove('opacity-0');
-              badge.classList.add('opacity-100');
-            }
-          } else {
-            c.classList.remove('border-blue-600', 'ring-2', 'ring-blue-500/30', 'shadow-md', 'shadow-blue-500/10', 'is-active');
-            c.classList.add('border-slate-200/90', 'shadow-2xs');
-            if (badge) {
-              badge.classList.remove('opacity-100');
-              badge.classList.add('opacity-0');
-            }
-          }
-        });
-        const name = selectedCard.getAttribute('data-deploy-name') || selectedCard.querySelector('h3')?.textContent?.trim() || '';
-        if (label && name) {
-          label.textContent = name;
-        }
-      };
-
-      cards.forEach((card) => {
-        card.addEventListener('click', () => setActive(card));
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            setActive(card);
-          }
-        });
-      });
-    }
-
     function initNanonetsPage() {
       setupWaysTabs();
-      setupJsonPlayer();
-      setupDeploymentOptions();
     }
 
     document.addEventListener('DOMContentLoaded', initNanonetsPage);
