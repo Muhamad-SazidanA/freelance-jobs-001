@@ -1,0 +1,114 @@
+---
+const lines = [
+  '{',
+  '  "invoice_no": "INV-2026-0418",',
+  '  "vendor": "PT Contoh Sejahtera",',
+  '  "invoice_date": "2026-04-14",',
+  '  "currency": "IDR",',
+  '  "line_items": [',
+  '    { "item": "Lisensi software", "qty": 2, "amount": 480000 },',
+  '    { "item": "Instalasi & pelatihan", "qty": 1, "amount": 120000 }',
+  '  ],',
+  '  "total": 600000,',
+  '  "confidence": 0.98',
+  '}',
+];
+---
+<section class="output">
+  <div class="container">
+    <div class="head reveal">
+      <span class="pill">Hasil ekstraksi</span>
+      <h2>Output data yang siap diintegrasikan</h2>
+      <p>Data hasil ekstraksi langsung tersedia dalam format JSON. Tidak perlu pemrosesan tambahan sebelum masuk ke sistem Anda.</p>
+    </div>
+
+    <div class="flow">
+      <div class="doc reveal" aria-label="Contoh invoice">
+        <div class="doc-top"><strong>Invoice</strong><small>No. INV-2026-0418</small></div>
+        <div class="doc-row head-row"><span>Item</span><span>Qty</span><span>Harga</span></div>
+        <div class="doc-row"><span>Lisensi software</span><span>2</span><span>480.000</span></div>
+        <div class="doc-row"><span>Instalasi &amp; pelatihan</span><span>1</span><span>120.000</span></div>
+        <div class="doc-total"><span>Total</span><strong>600.000</strong></div>
+      </div>
+
+      <div class="arrow reveal" aria-hidden="true"><span></span><i>⚡</i><span></span></div>
+
+      <div class="code reveal" aria-label="Contoh output JSON">
+        <div class="bar"><span class="status">● 200 OK</span><span>response.json</span></div>
+        <pre><code>{lines.map((l) => <span class="json-line">{l + '\n'}</span>)}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .output { background: #fff; }
+  .pill {
+    display: inline-block; padding: 6px 14px; border-radius: 999px; background: #e3ebff;
+    color: #0a6cff; font-size: 13px; font-weight: 600;
+  }
+  .head { max-width: 640px; margin-bottom: 56px; }
+  h2 { font-size: clamp(28px, 3.6vw, 40px); font-weight: 700; margin: 16px 0 14px; }
+  .head p { color: #5b6578; font-size: 17px; }
+
+  .flow { display: grid; grid-template-columns: 1fr auto 1fr; gap: 28px; align-items: center; }
+
+  .doc {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 24px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); font-size: 14px;
+  }
+  .doc-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+  .doc-top small { color: #5b6578; }
+  .doc-row { display: grid; grid-template-columns: 2fr .6fr 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px solid #eef2f7; }
+  .doc-row.head-row { color: #5b6578; font-size: 12px; font-weight: 600; }
+  .doc-total { display: flex; justify-content: space-between; padding-top: 14px; }
+
+  .arrow { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .arrow span { width: 2px; height: 36px; background: repeating-linear-gradient(#60a5fa 0 4px, transparent 4px 8px); }
+  .arrow i {
+    width: 40px; height: 40px; border-radius: 50%; background: #0a6cff; color: #fff;
+    display: grid; place-items: center; font-style: normal; box-shadow: 0 10px 22px rgba(10, 108, 255, .35);
+  }
+
+  .code {
+    background: #0b1020; color: #cbd5e1; border-radius: 18px; overflow: hidden;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, .25);
+  }
+  .bar {
+    display: flex; justify-content: space-between; padding: 14px 18px; font-size: 13px;
+    background: #111a33; color: #94a3b8; border-bottom: 1px solid #1e293b;
+  }
+  .status { color: #4ade80; }
+  pre { padding: 22px; overflow-x: auto; font-size: 13px; line-height: 1.7; }
+  .json-line { display: inline; opacity: 0; transition: opacity .25s ease; }
+  .json-line.on { opacity: 1; }
+  .no-js .json-line { opacity: 1; }
+
+  @media (max-width: 900px) {
+    .flow { grid-template-columns: 1fr; }
+    .arrow span { height: 20px; }
+  }
+</style>
+
+<script>
+  // Baris JSON muncul berurutan saat blok kode terlihat di layar
+  const code = document.querySelector<HTMLElement>('.output .code');
+  const lines = Array.from(document.querySelectorAll<HTMLElement>('.output .json-line'));
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (code && lines.length) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        if (reduced) {
+          lines.forEach((l) => l.classList.add('on'));
+        } else {
+          lines.forEach((l, i) => setTimeout(() => l.classList.add('on'), i * 140));
+        }
+        obs.unobserve(en.target);
+      });
+    }, { threshold: 0.3 });
+
+    io.observe(code);
+  }
+</script>
