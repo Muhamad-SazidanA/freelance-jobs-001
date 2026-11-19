@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # archives
 *.zip
+
+# raw uncompressed image backups
+public/images/home/Client_raw/
