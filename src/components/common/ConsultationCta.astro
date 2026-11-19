@@ -1,221 +1,199 @@
 ---
 // src/components/common/ConsultationCta.astro
 // Reusable CTA Template Component — Pure Astro + Vanilla JS
-// Visual 100% Matching Reference Image: Enterprise Skyline Banner + Dual Action Form
+// Visual 100% Matching Reference Image: Split Royal Blue + Floating Discussion Card
 
 interface Props {
   id?: string;
   title?: string;
   subtitle?: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  badge?: string;
-  badgeSubtitle?: string;
+  cardTitle?: string;
   defaultProduct?: 'nanonets' | 'cyclone' | 'docuflo' | 'syclus' | 'spensify' | 'multi' | string;
-  primaryButtonText?: string;
-  whatsappButtonText?: string;
-  whatsappMessage?: string;
-  whatsappNumber?: string;
+  submitButtonText?: string;
   class?: string;
-  bgClass?: string;
 }
 
 const {
   id = "form-konsultasi",
-  title = "Jalankan Bisnis Anda dengan Performa Maksimal",
-  subtitle = "Tim konsultan kami siap menganalisis alur kerja perusahaan Anda dan mendemonstrasikan implementasi solusi terbaik secara langsung.",
-  imageSrc = "/images/home/home-city-banner.jpg",
-  imageAlt = "Jalankan Bisnis Anda dengan Performa Maksimal",
-  badge = "ENTERPRISE READY",
-  badgeSubtitle = "Solusi Teruji Skala Nasional",
+  title = "Optimalkan Bisnis Anda dengan Digital Automation",
+  subtitle = "Temukan solusi otomasi yang tepat untuk meningkatkan efisiensi operasional dan mendukung pertumbuhan bisnis Anda bersama SAI.",
+  cardTitle = "Diskusikan Kebutuhan anda",
   defaultProduct = "",
-  primaryButtonText = "Request Demo Gratis",
-  whatsappButtonText = "Dapatkan Konsultasi Gratis",
-  whatsappMessage = "Halo PT Solusi Aplikasi Integrasi (SAI), saya tertarik dengan solusi IT dan layanan Anda. Mohon info lebih lanjut.",
-  whatsappNumber = "6282110009519",
+  submitButtonText = "Kirim",
   class: className = "",
-  bgClass = "bg-white",
 } = Astro.props;
 
 // Unique identifier to avoid DOM collisions across multiple instances
 const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
 ---
 
-<section id={id} class={`py-14 md:py-20 ${bgClass} ${className}`}>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<section id={id} class={`relative w-full overflow-hidden ${className}`}>
+  <!-- Upper Spacer: White area where the top of the card floats into on desktop -->
+  <div class="bg-white h-8 sm:h-12 lg:h-28"></div>
 
-      <!-- Left Column: City Skyline Banner -->
-      <div class="lg:col-span-5 flex items-center justify-center">
-        <div class="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 bg-slate-900 aspect-square group">
-          <img
-            src={imageSrc}
-            alt={imageAlt}
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
-            loading="eager"
-            decoding="async"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
-            <div class="text-white">
-              <div class="text-[11px] font-bold uppercase tracking-wider text-sky-400 mb-0.5">{badge}</div>
-              <div class="text-sm sm:text-base font-bold leading-snug">{badgeSubtitle}</div>
-            </div>
+  <!-- Blue Body Section: Solid Royal Blue matching reference (#3a5ae8) -->
+  <div class="bg-[#3a5ae8] text-white pt-6 sm:pt-8 lg:pt-0 pb-14 sm:pb-20 lg:pb-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+        <!-- Left Column: Heading and Subtitle inside the Blue Area -->
+        <div class="lg:col-span-5 text-left pt-2 lg:pt-16 pb-2 lg:pb-16">
+          <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-bold text-white tracking-tight leading-[1.2] mb-4">
+            {title.includes("Digital Automation") ? (
+              <>
+                Optimalkan Bisnis Anda dengan<br class="hidden sm:inline" />
+                Digital Automation
+              </>
+            ) : (
+              title
+            )}
+          </h2>
+          <p class="text-xs sm:text-sm text-blue-100/90 leading-relaxed max-w-md">
+            {subtitle}
+          </p>
+        </div>
+
+        <!-- Right Column: Floating White Card overlapping the white/blue boundary -->
+        <div class="lg:col-span-7 -mt-6 sm:-mt-10 lg:-mt-24">
+          <div class="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100/80 p-6 sm:p-8 lg:p-9 text-slate-800">
+            <!-- Card Header -->
+            <h3 class="text-xl sm:text-2xl font-bold text-[#3a5ae8] mb-5 sm:mb-6 tracking-tight">
+              {cardTitle}
+            </h3>
+
+            <!-- Consultation Form -->
+            <form data-cta-form={instanceId} class="space-y-4">
+              <!-- Honeypot for Bot Protection -->
+              <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" />
+
+              <!-- Row 1: Nama & Email -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Nama
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Nama lengkap Anda"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-[#fbfcfd] focus:bg-white text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#3a5ae8] focus:ring-1 focus:ring-[#3a5ae8] transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Email <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="anda@perusahaan.com"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-[#fbfcfd] focus:bg-white text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#3a5ae8] focus:ring-1 focus:ring-[#3a5ae8] transition-all"
+                  />
+                </div>
+              </div>
+
+              <!-- Row 2: WhatsApp (+62 Flag) & Nama Perusahaan -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Nomor WhatsApp <span class="text-red-500">*</span>
+                  </label>
+                  <div class="flex items-center rounded-lg border border-slate-200 bg-[#fbfcfd] focus-within:bg-white focus-within:border-[#3a5ae8] focus-within:ring-1 focus-within:ring-[#3a5ae8] transition-all overflow-hidden">
+                    <div class="flex items-center gap-1.5 pl-3 pr-2.5 py-2.5 bg-slate-50 border-r border-slate-200 select-none shrink-0">
+                      <!-- Indonesia Flag Icon 🇮🇩 -->
+                      <svg class="w-4 h-3 rounded-xs border border-slate-300 shadow-2xs" viewBox="0 0 24 16" fill="none" aria-hidden="true">
+                        <rect width="24" height="8" fill="#e11d48"/>
+                        <rect y="8" width="24" height="8" fill="#ffffff"/>
+                      </svg>
+                      <span class="text-xs font-medium text-slate-700">+62</span>
+                      <svg class="w-2.5 h-2.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      placeholder="8123456789"
+                      class="w-full px-3 py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none bg-transparent"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Nama Perusahaan <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    required
+                    placeholder="Nama perusahaan Anda"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-[#fbfcfd] focus:bg-white text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#3a5ae8] focus:ring-1 focus:ring-[#3a5ae8] transition-all"
+                  />
+                </div>
+              </div>
+
+              <!-- Row 3: Solusi Dibutuhkan -->
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Solusi Dibutuhkan <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <select
+                    name="product"
+                    required
+                    class="w-full appearance-none px-3.5 py-2.5 pr-9 rounded-lg border border-slate-200 bg-[#fbfcfd] focus:bg-white text-xs sm:text-sm text-slate-700 focus:outline-none focus:border-[#3a5ae8] focus:ring-1 focus:ring-[#3a5ae8] transition-all cursor-pointer"
+                  >
+                    <option value="" disabled selected={!defaultProduct}>Pilih solusi yang dibutuhkan</option>
+                    <option value="nanonets" selected={defaultProduct === 'nanonets'}>Intelligent Document Processing (Nanonets)</option>
+                    <option value="cyclone" selected={defaultProduct === 'cyclone'}>Robotic Process Automation (Cyclone)</option>
+                    <option value="docuflo" selected={defaultProduct === 'docuflo'}>Document Management System (DocuFlo)</option>
+                    <option value="syclus" selected={defaultProduct === 'syclus'}>Account Payable Automation (Syclus)</option>
+                    <option value="spensify" selected={defaultProduct === 'spensify'}>Expense Management System (Spensify)</option>
+                    <option value="multi" selected={defaultProduct === 'multi'}>Konsultasi Solusi Multi-Platform</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Row 4: Kebutuhan Textarea -->
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Kebutuhan
+                </label>
+                <textarea
+                  name="message"
+                  rows="4"
+                  placeholder="Jelaskan kebutuhan Anda, tantangan yang dihadapi, dan gambaran operasional bisnis Anda."
+                  class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-[#fbfcfd] focus:bg-white text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#3a5ae8] focus:ring-1 focus:ring-[#3a5ae8] transition-all resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Status Alert Feedback -->
+              <div data-cta-status class="hidden p-3 rounded-lg text-xs leading-relaxed" role="alert"></div>
+
+              <!-- Submit Button -->
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  data-cta-submit
+                  class="w-full py-3.5 px-6 rounded-xl bg-[#3a5ae8] hover:bg-[#2e4ecf] active:bg-[#2541b3] text-white font-semibold text-sm sm:text-base shadow-lg shadow-blue-600/30 transition-all duration-200 cursor-pointer text-center"
+                >
+                  {submitButtonText}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
+
       </div>
-
-      <!-- Right Column: Consultation Form -->
-      <div class="lg:col-span-7">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          {title}
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 mt-2 mb-6 leading-relaxed">
-          {subtitle}
-        </p>
-
-        <form data-cta-form={instanceId} class="space-y-3">
-          <!-- Honeypot for Bot Protection -->
-          <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" />
-
-          <!-- Full Name -->
-          <div>
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Nama Lengkap Anda *"
-              class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all shadow-xs"
-            />
-          </div>
-
-          <!-- Phone & Email -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="flex rounded-lg border border-slate-200 overflow-hidden focus-within:border-sky-500 focus-within:ring-1 focus-within:ring-sky-500 bg-white shadow-xs">
-              <span class="px-3 py-2.5 bg-slate-50 text-slate-500 text-xs sm:text-sm border-r border-slate-200 flex items-center font-medium select-none shrink-0">
-                ID +62
-              </span>
-              <input
-                type="tel"
-                name="phone"
-                required
-                placeholder="812-3456-7890 *"
-                class="w-full px-3 py-2.5 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none bg-transparent"
-              />
-            </div>
-
-            <div>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Email Perusahaan Anda *"
-                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all shadow-xs"
-              />
-            </div>
-          </div>
-
-          <!-- Product & Industry Selects -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <select
-                name="product"
-                required
-                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm text-slate-700 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all shadow-xs"
-              >
-                <option value="" disabled selected={!defaultProduct}>Pilih Solusi Produk *</option>
-                <option value="nanonets" selected={defaultProduct === 'nanonets'}>Nanonets - AI OCR &amp; IDP</option>
-                <option value="cyclone" selected={defaultProduct === 'cyclone'}>Cyclone - Robotic Process Automation</option>
-                <option value="docuflo" selected={defaultProduct === 'docuflo'}>Docuflo - Document Management System</option>
-                <option value="syclus" selected={defaultProduct === 'syclus'}>Syclus - IT Service &amp; Asset Management</option>
-                <option value="spensify" selected={defaultProduct === 'spensify'}>Spensify - Corporate Expense Management</option>
-                <option value="multi" selected={defaultProduct === 'multi'}>Konsultasi Solusi Multi-Platform</option>
-              </select>
-            </div>
-
-            <div>
-              <select
-                name="industry"
-                required
-                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm text-slate-700 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all shadow-xs"
-              >
-                <option value="" disabled selected>Pilih Sektor Industri *</option>
-                <option value="banking">Perbankan &amp; Lembaga Keuangan</option>
-                <option value="insurance">Asuransi &amp; FinTech</option>
-                <option value="logistics">Logistik &amp; Supply Chain</option>
-                <option value="manufacturing">Manufaktur &amp; Distribusi</option>
-                <option value="healthcare">Kesehatan &amp; Farmasi</option>
-                <option value="retail">Ritel &amp; E-Commerce</option>
-                <option value="government">Pemerintahan &amp; BUMN</option>
-                <option value="other">Industri Lainnya</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Scale & Timeline Selects -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <select
-                name="scale"
-                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm text-slate-700 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all shadow-xs"
-              >
-                <option value="" disabled selected>Skala Perusahaan / Pengguna</option>
-                <option value="1-50">1 - 50 Karyawan</option>
-                <option value="51-250">51 - 250 Karyawan</option>
-                <option value="251-1000">251 - 1.000 Karyawan</option>
-                <option value="1000+">&gt; 1.000 Karyawan (Enterprise)</option>
-              </select>
-            </div>
-
-            <div>
-              <select
-                name="timeline"
-                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm text-slate-700 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all shadow-xs"
-              >
-                <option value="" disabled selected>Target Waktu Implementasi</option>
-                <option value="urgent">Segera (&lt; 1 Bulan)</option>
-                <option value="medium">1 - 3 Bulan</option>
-                <option value="long">3 - 6 Bulan</option>
-                <option value="explore">Riset / Eksplorasi Tahap Awal</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Needs / Message -->
-          <div>
-            <textarea
-              name="message"
-              rows="3"
-              placeholder="Ceritakan kebutuhan otomatisasi atau integrasi sistem yang ingin dicapai perusahaan Anda..."
-              class="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all shadow-xs resize-y"
-            ></textarea>
-          </div>
-
-          <!-- Submission Feedback Status -->
-          <div data-cta-status class="hidden p-3 rounded-lg text-xs leading-relaxed" role="alert"></div>
-
-          <!-- Dual Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
-            <button
-              type="submit"
-              data-cta-submit
-              class="w-full sm:flex-1 py-3 px-5 rounded-lg bg-[#0084d1] hover:bg-[#0074b8] active:bg-[#00639e] text-white font-bold text-xs sm:text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>{primaryButtonText}</span>
-            </button>
-
-            <button
-              type="button"
-              data-cta-wa
-              data-wa-number={whatsappNumber}
-              data-wa-default-msg={whatsappMessage}
-              class="w-full sm:flex-1 py-3 px-5 rounded-lg bg-[#f95700] hover:bg-[#e04f00] active:bg-[#c74600] text-white font-bold text-xs sm:text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer text-center"
-            >
-              <span>{whatsappButtonText}</span>
-            </button>
-          </div>
-        </form>
-      </div>
-
     </div>
   </div>
 </section>
@@ -231,46 +209,21 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
       forms.forEach(function (form) {
         const statusBox = form.querySelector('[data-cta-status]');
         const submitBtn = form.querySelector('[data-cta-submit]');
-        const waBtn = form.querySelector('[data-cta-wa]');
-
-        // Direct WhatsApp Click Handler
-        if (waBtn) {
-          waBtn.addEventListener('click', function () {
-            const nameInput = form.querySelector('input[name="name"]');
-            const productSelect = form.querySelector('select[name="product"]');
-            const messageText = form.querySelector('textarea[name="message"]');
-
-            const name = nameInput ? nameInput.value.trim() : '';
-            const product = productSelect && productSelect.value ? productSelect.options[productSelect.selectedIndex].text : '';
-            const msg = messageText ? messageText.value.trim() : '';
-
-            let waText = waBtn.getAttribute('data-wa-default-msg') || 'Halo PT Solusi Aplikasi Integrasi (SAI), saya tertarik dengan solusi IT dan layanan Anda. Mohon info lebih lanjut.';
-            if (name) waText += `\n\nNama: ${name}`;
-            if (product) waText += `\nProduk: ${product}`;
-            if (msg) waText += `\nKebutuhan: ${msg}`;
-
-            const phoneNum = waBtn.getAttribute('data-wa-number') || '6282110009519';
-            const waUrl = `https://wa.me/${phoneNum}?text=${encodeURIComponent(waText)}`;
-            window.open(waUrl, '_blank', 'noopener,noreferrer');
-          });
-        }
 
         // Form Submit Handler
         form.addEventListener('submit', async function (e) {
           e.preventDefault();
 
-          const name = form.querySelector('input[name="name"]')?.value.trim();
+          const name = form.querySelector('input[name="name"]')?.value.trim() || '';
           const phone = form.querySelector('input[name="phone"]')?.value.trim();
           const email = form.querySelector('input[name="email"]')?.value.trim();
+          const company = form.querySelector('input[name="company"]')?.value.trim();
           const productSelect = form.querySelector('select[name="product"]');
           const product = productSelect ? productSelect.value : '';
           const productLabel = productSelect && productSelect.selectedIndex >= 0 ? productSelect.options[productSelect.selectedIndex].text : '';
-          const industrySelect = form.querySelector('select[name="industry"]');
-          const industry = industrySelect ? industrySelect.value : '';
-          const industryLabel = industrySelect && industrySelect.selectedIndex >= 0 ? industrySelect.options[industrySelect.selectedIndex].text : '';
           const messageText = form.querySelector('textarea[name="message"]')?.value.trim() || '';
 
-          if (!name || !phone || !email || !product || !industry) {
+          if (!email || !phone || !company || !product) {
             if (statusBox) {
               statusBox.className = 'p-3 rounded-lg text-xs leading-relaxed bg-amber-50 border border-amber-200 text-amber-800 block';
               statusBox.textContent = 'Mohon lengkapi semua kolom yang bertanda bintang (*).';
@@ -285,7 +238,7 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              <span>Memproses Permintaan...</span>
+              <span>Mengirim Permintaan...</span>
             `;
           }
 
@@ -295,13 +248,13 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
             const leads = stored ? JSON.parse(stored) : [];
             leads.unshift({
               id: `lead-${Date.now()}`,
-              name: name,
+              name: name || email.split('@')[0],
               email: email,
-              phone: phone,
-              company: industryLabel || 'Enterprise',
+              phone: phone.startsWith('+') ? phone : `+62${phone.replace(/^0+/, '')}`,
+              company: company,
               position: 'Lead Web CTA',
-              requirements: `[Produk: ${productLabel}] ${messageText}`,
-              message: `[Industri: ${industryLabel}] [Produk: ${productLabel}] ${messageText}`,
+              requirements: `[Solusi: ${productLabel}] ${messageText}`,
+              message: `[Perusahaan: ${company}] [Solusi: ${productLabel}] ${messageText}`,
               sourceUrl: window.location.href,
               createdAt: new Date().toISOString(),
               status: 'Baru',
@@ -314,20 +267,19 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
           // Send Lead Notification to sales@solusiaplikasi.id
           try {
             const restEndpoint = 'https://solusiaplikasi.id/solution/wp-json/solusi/v1/lead';
-            const wpRes = await fetch(restEndpoint, {
+            await fetch(restEndpoint, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                name: name,
+                name: name || email,
                 email: email,
                 phone: phone,
-                company: industryLabel,
+                company: company,
                 position: 'Lead Web CTA',
-                requirements: `[Produk: ${productLabel}] ${messageText}`,
+                requirements: `[Solusi: ${productLabel}] ${messageText}`,
                 sourceUrl: window.location.href,
               }),
             });
-            if (!wpRes.ok) throw new Error('WP REST fallback');
           } catch {
             // Fallback delivery via FormSubmit to sales@solusiaplikasi.id
             try {
@@ -335,15 +287,15 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
-                  _subject: `[Lead CTA Baru] ${name} - ${productLabel}`,
+                  _subject: `[Lead Konsultasi Baru] ${name || email} - ${company}`,
                   _template: 'table',
                   _captcha: 'false',
-                  Nama: name,
+                  Nama: name || '-',
                   Email: email,
-                  'No. WhatsApp': phone,
-                  Produk: productLabel,
-                  Industri: industryLabel,
-                  Pesan: messageText || '-',
+                  'No. WhatsApp': `+62 ${phone}`,
+                  Perusahaan: company,
+                  'Solusi Dibutuhkan': productLabel,
+                  Kebutuhan: messageText || '-',
                   'Halaman Sumber': window.location.href,
                 }),
               });
@@ -355,7 +307,7 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
           if (statusBox) {
             statusBox.className = 'p-3.5 rounded-lg text-xs leading-relaxed bg-emerald-50 border border-emerald-200 text-emerald-800 block';
             statusBox.innerHTML = `
-              <strong>Terima kasih, ${name}!</strong> Terima kasih, tim konsultan kami akan menghubungi Anda 1x24 jam.
+              <strong>Terima kasih${name ? ', ' + name : ''}!</strong> Pesan Anda telah kami terima. Tim konsultan SAI akan segera menghubungi Anda.
             `;
           }
 
@@ -363,7 +315,7 @@ const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
 
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = `<span>Request Demo Gratis</span>`;
+            submitBtn.innerHTML = `<span>Kirim</span>`;
           }
         });
       });
