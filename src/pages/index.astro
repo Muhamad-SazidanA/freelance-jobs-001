@@ -807,8 +807,9 @@ const schemas = [orgSchema, websiteSchema];
       const animate = (el: HTMLElement) => {
         const target = Number(el.dataset.target || 0);
         const suffix = el.dataset.suffix || '';
-        const duration = 1200;
+        const duration = 2500;
         const start = performance.now();
+        el.textContent = '0' + suffix;
 
         const step = (now: number) => {
           const progress = Math.min((now - start) / duration, 1);
