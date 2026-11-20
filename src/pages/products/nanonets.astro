@@ -66,8 +66,8 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
 const waysOfWorking = [
   {
     id: 'ekstraksi',
-    label: 'Ekstraksi Teks & Field',
-    title: 'Ekstraksi Teks & Field Otomatis',
+    label: 'Ekstraksi Data',
+    title: 'Ekstraksi Data',
     description:
       'Setiap field dikembalikan dalam format key-value lengkap dengan koordinat posisi dan skor keyakinan — siap disambungkan langsung ke sistem Anda tanpa parsing tambahan.',
     bullets: [
@@ -76,7 +76,7 @@ const waysOfWorking = [
       'Format keluar JSON, siap dikonsumsi API atau RPA',
     ],
     image: '/images/product/nanonets/Five_Ways_Of_Working/Ekstraksi_Teks_&_Field.webp',
-    alt: 'Ekstraksi Teks & Field Otomatis',
+    alt: 'Ekstraksi Data',
   },
   {
     id: 'pemrosesan-invoice',
@@ -296,23 +296,23 @@ const deploymentOptions = [
               <ul class="space-y-4 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                 <li class="flex items-start gap-2.5">
                   <span class="text-slate-400 font-bold">•</span>
-                  <span>Output tidak terstruktur, perlu diolah manual lagi</span>
+                  <span>Output ekstraksi sering perlu diolah manual.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
                   <span class="text-slate-400 font-bold">•</span>
-                  <span>Bergantung pada rule engine yang rumit untuk tiap format</span>
+                  <span>Bergantung pada aturan zone area untuk setiap format dokumen.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
                   <span class="text-slate-400 font-bold">•</span>
-                  <span>Rule engine tidak scalable untuk dokumen semi-terstruktur</span>
+                  <span>Sulit menangani dokumen dengan format beragam.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
                   <span class="text-slate-400 font-bold">•</span>
-                  <span>Output tabel flat, tidak memahami hierarki baris-kolom</span>
+                  <span>Kurang optimal dalam membaca struktur tabel.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
                   <span class="text-slate-400 font-bold">•</span>
-                  <span>Mengandalkan metode zoning/area capturing yang kaku</span>
+                  <span>Mengandalkan area atau posisi teks yang tetap.</span>
                 </li>
               </ul>
             </div>
@@ -326,28 +326,24 @@ const deploymentOptions = [
                 Nanonets AI
               </span>
               <h3 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight mb-6">
-                Structured Key-Value Output
+                Generative AI &amp; Machine Learning
               </h3>
               <ul class="space-y-4 text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium">
                 <li class="flex items-start gap-2.5">
                   <span class="text-blue-600 font-bold">•</span>
-                  <span>Output key-value pair yang sudah terstruktur &amp; siap pakai</span>
+                  <span>Output key-value pair yang terstruktur dan siap digunakan.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
                   <span class="text-blue-600 font-bold">•</span>
-                  <span>Tidak perlu rules atau template post-processing</span>
+                  <span>Tidak bergantung pada rules atau template post-processing.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
                   <span class="text-blue-600 font-bold">•</span>
-                  <span>AI otomatis menemukan posisi data dari hasil training</span>
+                  <span>Mengekstrak tabel dengan struktur baris dan kolom.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
                   <span class="text-blue-600 font-bold">•</span>
-                  <span>Deteksi tabel dengan hierarki baris-kolom yang utuh</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="text-blue-600 font-bold">•</span>
-                  <span>Model terus belajar setiap kali memproses dokumen baru</span>
+                  <span>LLM eksklusif yang belajar dari waktu ke waktu.</span>
                 </li>
               </ul>
             </div>
