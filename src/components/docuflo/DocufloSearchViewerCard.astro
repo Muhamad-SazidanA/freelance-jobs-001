@@ -1,0 +1,406 @@
+---
+// Interactive Search & Universal Viewer Illustration Component for Docuflo
+---
+
+<div class="searchview-card bg-white rounded-2xl border border-slate-200/90 shadow-md p-3 sm:p-4.5 transition-all duration-300 hover:shadow-lg hover:border-rose-200">
+  <svg id="p3" viewBox="0 0 612 320" role="img" aria-label="Pencarian & Universal Viewer Docuflo" class="w-full h-auto block select-none rounded-lg overflow-hidden">
+    <defs>
+      <pattern id="p3-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+        <path d="M24 0H0V24" fill="none" stroke="#E7E7EA"/>
+      </pattern>
+    </defs>
+    <rect width="612" height="320" rx="10" fill="#F4F4F5"/>
+    <rect width="612" height="320" rx="10" fill="url(#p3-grid)"/>
+
+    <!-- Top Search Input Bar -->
+    <rect x="40" y="28" width="532" height="48" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <circle cx="64" cy="51" r="7" fill="none" stroke="#E4001B" stroke-width="2"/>
+    <path d="M69 56 L75 62" stroke="#E4001B" stroke-width="2"/>
+    <foreignObject x="86" y="38" width="386" height="28">
+      <input id="p3in" placeholder="Cari dokumen atau tanya AI, contoh: invoice" autocomplete="off"/>
+    </foreignObject>
+    <g id="p3searchbtn" class="hit" tabindex="0" role="button">
+      <rect x="484" y="38" width="78" height="28" rx="4" fill="#E4001B"/>
+      <text x="523" y="56" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">AI Search</text>
+    </g>
+
+    <!-- Document Items List (Left Side) -->
+    <!-- Item 0: PDF -->
+    <g class="r3 hit" data-i="0" tabindex="0" role="button">
+      <rect class="c" x="40" y="96" width="250" height="30" rx="4" fill="#fff" stroke="#DCDCE0"/>
+      <rect class="rb" x="40" y="96" width="3" height="30" fill="#E4001B"/>
+      <rect class="bg3" x="48" y="102" width="30" height="18" rx="3"/>
+      <text x="63" y="114.5" font-size="7.5" font-weight="800" fill="#fff" text-anchor="middle">PDF</text>
+      <text x="86" y="115" font-size="10" font-weight="600" fill="#17171C" text-anchor="start">Kontrak_VendorA.pdf</text>
+      <text x="282" y="115" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="end">hal. 4</text>
+    </g>
+
+    <!-- Item 1: DOC -->
+    <g class="r3 hit" data-i="1" tabindex="0" role="button">
+      <rect class="c" x="40" y="132" width="250" height="30" rx="4" fill="#fff" stroke="#DCDCE0"/>
+      <rect class="rb" x="40" y="132" width="3" height="30" fill="#E4001B"/>
+      <rect class="bg3" x="48" y="138" width="30" height="18" rx="3"/>
+      <text x="63" y="150.5" font-size="7.5" font-weight="800" fill="#fff" text-anchor="middle">DOC</text>
+      <text x="86" y="151" font-size="10" font-weight="600" fill="#17171C" text-anchor="start">Addendum_2024.docx</text>
+      <text x="282" y="151" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="end">v. 2</text>
+    </g>
+
+    <!-- Item 2: XLS -->
+    <g class="r3 hit" data-i="2" tabindex="0" role="button">
+      <rect class="c" x="40" y="168" width="250" height="30" rx="4" fill="#fff" stroke="#DCDCE0"/>
+      <rect class="rb" x="40" y="168" width="3" height="30" fill="#E4001B"/>
+      <rect class="bg3" x="48" y="174" width="30" height="18" rx="3"/>
+      <text x="63" y="186.5" font-size="7.5" font-weight="800" fill="#fff" text-anchor="middle">XLS</text>
+      <text x="86" y="187" font-size="10" font-weight="600" fill="#17171C" text-anchor="start">Rekap_Pembayaran.xlsx</text>
+      <text x="282" y="187" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="end">Sheet 3</text>
+    </g>
+
+    <!-- Item 3: MP4 -->
+    <g class="r3 hit" data-i="3" tabindex="0" role="button">
+      <rect class="c" x="40" y="204" width="250" height="30" rx="4" fill="#fff" stroke="#DCDCE0"/>
+      <rect class="rb" x="40" y="204" width="3" height="30" fill="#E4001B"/>
+      <rect class="bg3" x="48" y="210" width="30" height="18" rx="3"/>
+      <text x="63" y="222.5" font-size="7.5" font-weight="800" fill="#fff" text-anchor="middle">MP4</text>
+      <text x="86" y="223" font-size="10" font-weight="600" fill="#17171C" text-anchor="start">Rapat_Vendor.mp4</text>
+      <text x="282" y="223" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="end">04:12</text>
+    </g>
+
+    <!-- Item 4: IMG -->
+    <g class="r3 hit" data-i="4" tabindex="0" role="button">
+      <rect class="c" x="40" y="240" width="250" height="30" rx="4" fill="#fff" stroke="#DCDCE0"/>
+      <rect class="rb" x="40" y="240" width="3" height="30" fill="#E4001B"/>
+      <rect class="bg3" x="48" y="246" width="30" height="18" rx="3"/>
+      <text x="63" y="258.5" font-size="7.5" font-weight="800" fill="#fff" text-anchor="middle">IMG</text>
+      <text x="86" y="259" font-size="10" font-weight="600" fill="#17171C" text-anchor="start">Scan_Invoice.jpg</text>
+      <text x="282" y="259" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="end">Scan</text>
+    </g>
+
+    <!-- Bottom Counter Indicator -->
+    <text x="40" y="290" font-size="9" font-weight="600" fill="#6B6B76" text-anchor="start">300+ tipe dokumen dalam satu viewer</text>
+
+    <!-- Right Side: AI Copilot Box -->
+    <rect x="310" y="96" width="262" height="196" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <line x1="310" y1="126" x2="572" y2="126" stroke="#DCDCE0"/>
+    <rect x="326" y="109" width="6" height="6" fill="#E4001B"/>
+    <text x="338" y="115" font-size="10.5" font-weight="700" fill="#17171C" text-anchor="start">AI Copilot</text>
+    <rect x="548" y="108" width="6" height="6" fill="#12875A"/>
+
+    <!-- User Question Bubble -->
+    <g id="p3u" class="fd">
+      <rect x="372" y="136" width="184" height="26" rx="4" fill="#17171C"/>
+      <text x="384" y="153" font-size="9.5" font-weight="600" fill="#fff" text-anchor="start" id="p3ut"></text>
+    </g>
+
+    <!-- AI Response Bubble -->
+    <rect x="322" y="170" width="234" height="66" rx="4" fill="#F4F4F5"/>
+    <rect x="322" y="170" width="3" height="66" fill="#E4001B"/>
+
+    <!-- Thinking Dots -->
+    <g id="p3d" class="fd">
+      <circle cx="340" cy="203" r="3" fill="#9A9AA5"/>
+      <circle cx="352" cy="203" r="3" fill="#9A9AA5"/>
+      <circle cx="364" cy="203" r="3" fill="#9A9AA5"/>
+    </g>
+
+    <!-- AI Answer Content -->
+    <g id="p3a" class="fd">
+      <text x="336" y="188" font-size="9.5" font-weight="500" fill="#17171C" text-anchor="start" id="p3a1"></text>
+      <text x="336" y="201" font-size="9.5" font-weight="700" fill="#17171C" text-anchor="start" id="p3a2"></text>
+      <rect x="336" y="211" width="170" height="17" rx="2" fill="#fff" stroke="#DCDCE0"/>
+      <rect x="342" y="214" width="8" height="11" fill="#E4001B"/>
+      <text x="356" y="223" font-size="7.5" font-weight="600" fill="#6B6B76" text-anchor="start" id="p3s"></text>
+    </g>
+
+    <!-- Copilot Input Box -->
+    <rect x="322" y="250" width="234" height="28" rx="4" fill="#fff" stroke="#DCDCE0"/>
+    <foreignObject x="330" y="253" width="192" height="22">
+      <input id="p3ci" placeholder="Tanyakan apa saja tentang isi dokumen" autocomplete="off" style="font-size:9px"/>
+    </foreignObject>
+    <g id="p3sd" class="hit" tabindex="0" role="button">
+      <rect x="530" y="254" width="20" height="20" rx="3" fill="#E4001B"/>
+      <path d="M535 264 H545 M541 260 L545 264 L541 268" fill="none" stroke="#fff" stroke-width="1.5"/>
+    </g>
+  </svg>
+
+  <p class="text-[11px] text-slate-500 mt-2.5 text-center leading-relaxed">
+    <span class="font-semibold text-[#E4001B]">Interaktif:</span> Ketik di kolom pencarian atau klik file di daftar untuk melihat respons AI Copilot secara instan.
+  </p>
+</div>
+
+<style>
+  .searchview-card .hit {
+    cursor: pointer;
+    outline: none;
+  }
+  .searchview-card .hit:focus-visible {
+    outline: 2px solid #E4001B;
+    outline-offset: 2px;
+  }
+  .searchview-card .r3 .c {
+    transition: stroke 0.15s ease;
+  }
+  .searchview-card .r3:hover .c,
+  .searchview-card .r3:focus-visible .c {
+    stroke: #E4001B;
+  }
+  .searchview-card .r3 .rb {
+    opacity: 0;
+  }
+  .searchview-card .r3 .bg3 {
+    fill: #17171C;
+  }
+  .searchview-card .r3.on .rb {
+    opacity: 1;
+  }
+  .searchview-card .r3.on .bg3 {
+    fill: #E4001B;
+  }
+  .searchview-card .r3.on .c {
+    stroke: #E4001B;
+  }
+  .searchview-card .r3.dim {
+    opacity: 0.45;
+  }
+  .searchview-card .r3 {
+    transition: opacity 0.2s ease;
+  }
+  .searchview-card .fd {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .searchview-card .fd.on {
+    opacity: 1;
+  }
+  .searchview-card #p3d circle {
+    animation: dt 1s infinite;
+  }
+  .searchview-card #p3d circle:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .searchview-card #p3d circle:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  @keyframes dt {
+    50% {
+      opacity: 0.25;
+    }
+  }
+  .searchview-card foreignObject input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #17171C;
+    padding: 0;
+  }
+  .searchview-card foreignObject input::placeholder {
+    color: #9A9AA5;
+  }
+  .searchview-card #p3ci {
+    font-size: 9px !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .searchview-card * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script is:inline>
+  function initDocufloSearchViewer() {
+    const root = document.querySelector('.searchview-card');
+    if (!root) return;
+
+    if (root._cleanup) {
+      root._cleanup();
+    }
+
+    const $ = (s) => root.querySelector(s);
+    const $$ = (s) => [...root.querySelectorAll(s)];
+    const sl = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    const bind = (el, fn) => {
+      if (!el) return;
+      el.addEventListener('click', fn);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fn();
+        }
+      });
+    };
+
+    const Q = [
+      ['kontrak vendor A tahun 2024', 'Berapa nilai kontrak vendor A?', 'Nilainya Rp 480 juta, berlaku sampai', '31 Des 2026.', 'Kontrak_VendorA.pdf · hal. 4'],
+      ['addendum kontrak 2024', 'Apa perubahan di addendum?', 'Masa kontrak diperpanjang 6 bulan,', 'tarif layanan tetap.', 'Addendum_2024.docx · v. 2'],
+      ['rekap pembayaran vendor', 'Berapa total pembayaran Q3?', 'Total Rp 126 juta, dibayar dalam', '3 termin.', 'Rekap_Pembayaran.xlsx · Sheet 3'],
+      ['rapat vendor', 'Apa keputusan rapat vendor?', 'Kontrak dilanjutkan, review SLA', 'dijadwalkan bulan depan.', 'Rapat_Vendor.mp4 · 04:12'],
+      ['scan invoice', 'Berapa nominal invoice ini?', 'Rp 42,5 juta, jatuh tempo', '15 Agustus 2024.', 'Scan_Invoice.jpg · Scan']
+    ];
+
+    const K = [
+      ['kontrak', 'vendor a', 'nilai', 'vendor'],
+      ['addendum', 'adendum', 'perubahan'],
+      ['rekap', 'pembayaran', 'total', 'q3', 'bayar'],
+      ['rapat', 'keputusan', 'video', 'meeting'],
+      ['invoice', 'scan', 'nominal', 'faktur', 'tagihan']
+    ];
+
+    const rows = $$('#p3 .r3');
+    const inp = $('#p3in');
+    const ci = $('#p3ci');
+    const u = $('#p3u');
+    const d = $('#p3d');
+    const a = $('#p3a');
+    const ut = $('#p3ut');
+    const a1 = $('#p3a1');
+    const a2 = $('#p3a2');
+    const s = $('#p3s');
+    const sd = $('#p3sd');
+    const searchBtn = $('#p3searchbtn');
+
+    if (!inp || !ci || !u || !d || !a || !rows.length) return;
+
+    let tok = 0;
+    let nx = null;
+    let manual = false;
+
+    const best = (t) => {
+      t = t.toLowerCase();
+      let b = -1;
+      let m = 0;
+      K.forEach((ks, i) => {
+        const n = ks.filter((x) => t.includes(x)).length;
+        if (n > m) {
+          m = n;
+          b = i;
+        }
+      });
+      return b;
+    };
+
+    const hl = (i) => {
+      rows.forEach((r, j) => {
+        r.classList.toggle('on', j === i);
+        r.classList.toggle('dim', i >= 0 && j !== i);
+      });
+    };
+
+    const tr = (str) => (str.length > 30 ? str.slice(0, 29) + '…' : str);
+
+    async function go(i, o) {
+      const my = ++tok;
+      clearTimeout(nx);
+      hl(i);
+      [u, d, a].forEach((el) => el && el.classList.remove('on'));
+
+      if (o && o.type) {
+        inp.value = '';
+        const targetText = Q[i][0];
+        for (const ch of targetText) {
+          if (my !== tok) return;
+          inp.value += ch;
+          await sl(38);
+        }
+        await sl(250);
+      }
+
+      if (my !== tok) return;
+      if (ut && o && o.user) ut.textContent = tr(o.user);
+      if (u) u.classList.add('on');
+      await sl(500);
+
+      if (my !== tok) return;
+      if (d) d.classList.add('on');
+      await sl(900);
+
+      if (my !== tok) return;
+      if (d) d.classList.remove('on');
+
+      const z = i >= 0 ? Q[i] : ['', '', 'Belum menemukan jawaban di dokumen.', 'Coba kata kunci lain.', 'Tidak ada sumber yang cocok'];
+      if (a1) a1.textContent = z[2];
+      if (a2) a2.textContent = z[3];
+      if (s) s.textContent = z[4];
+      if (a) a.classList.add('on');
+
+      if (!manual) {
+        const n = (i + 1) % 5;
+        nx = setTimeout(() => go(n, { type: 1, user: Q[n][1] }), 4200);
+      }
+    }
+
+    const stop = () => {
+      manual = true;
+      clearTimeout(nx);
+    };
+
+    rows.forEach((r, i) =>
+      bind(r, () => {
+        stop();
+        inp.value = Q[i][0];
+        go(i, { user: Q[i][1] });
+      })
+    );
+
+    inp.addEventListener('input', () => {
+      stop();
+      tok++;
+      hl(best(inp.value));
+    });
+
+    inp.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && inp.value.trim()) {
+        stop();
+        const v = inp.value.trim();
+        const i = best(v);
+        go(i, { user: v });
+      }
+    });
+
+    if (searchBtn) {
+      bind(searchBtn, () => {
+        if (inp.value.trim()) {
+          stop();
+          const v = inp.value.trim();
+          const i = best(v);
+          go(i, { user: v });
+        }
+      });
+    }
+
+    const ask = () => {
+      const v = ci.value.trim();
+      if (!v) return;
+      stop();
+      const i = best(v);
+      ci.value = '';
+      go(i, { user: v });
+    };
+
+    ci.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') ask();
+    });
+
+    if (sd) bind(sd, ask);
+
+    // Initial run
+    go(0, { type: 1, user: Q[0][1] });
+
+    root._cleanup = () => {
+      tok++;
+      clearTimeout(nx);
+    };
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDocufloSearchViewer);
+  } else {
+    initDocufloSearchViewer();
+  }
+  document.addEventListener('astro:page-load', initDocufloSearchViewer);
+</script>

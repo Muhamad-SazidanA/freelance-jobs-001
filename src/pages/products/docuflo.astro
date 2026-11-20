@@ -3,6 +3,7 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import ConsultationCta from '@/components/common/ConsultationCta.astro';
 import DocufloCapturingCard from '@/components/docuflo/DocufloCapturingCard.astro';
 import DocufloWebAdminCard from '@/components/docuflo/DocufloWebAdminCard.astro';
+import DocufloSearchViewerCard from '@/components/docuflo/DocufloSearchViewerCard.astro';
 import { generateBreadcrumbSchema, generateProductSchema, generateFaqSchema } from '@/lib/schema-ld';
 import type { Product } from '@/types/content';
 
@@ -396,29 +397,7 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
             </ul>
           </div>
           <div class="lg:col-span-6">
-            <div class="docuflo-mockup-box">
-              <div class="docuflo-mockup-row">
-                <span class="docuflo-row-label">Invoice PT Cahaya Baru</span>
-                <div class="docuflo-row-right">
-                  <span class="docuflo-row-value">Metadata terisi otomatis</span>
-                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                </div>
-              </div>
-              <div class="docuflo-mockup-row">
-                <span class="docuflo-row-label">Formulir Tulisan Tangan</span>
-                <div class="docuflo-row-right">
-                  <span class="docuflo-row-value">Dikenali OCR AI</span>
-                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                </div>
-              </div>
-              <div class="docuflo-mockup-row">
-                <span class="docuflo-row-label">Kontrak Sewa 12 hlm</span>
-                <div class="docuflo-row-right">
-                  <span class="docuflo-row-value">Terindeks dalam 3 detik</span>
-                  <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                </div>
-              </div>
-            </div>
+            <DocufloSearchViewerCard />
           </div>
         </div>
 
