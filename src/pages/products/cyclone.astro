@@ -457,7 +457,11 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
             <div class="big">110.000+</div>
             <h4>Jam kerja dihemat</h4>
             <p>Penghematan per bulan dalam implementasi Telkomsel</p>
-            <div class="bl" id="d1"></div>
+            <div class="bl" id="d1">
+              {Array.from({ length: 72 }).map((_, i) => (
+                <i class={i >= 64 ? 'p' : (i % 7 === 3 ? 'q2' : '')}></i>
+              ))}
+            </div>
             <span class="chip">DELOITTE · 2021</span>
           </div>
 
@@ -469,7 +473,11 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
             <div class="big">22<small>bulan</small></div>
             <h4>Periode payback</h4>
             <p>Rata-rata pada organisasi yang masih dalam tahap pilot</p>
-            <div class="seg" id="d3"></div>
+            <div class="seg" id="d3">
+              {Array.from({ length: 24 }).map((_, i) => (
+                <i class={i >= 22 ? 'e' : ''}></i>
+              ))}
+            </div>
             <div class="ax"><span>0</span><span>12</span><span>24 bln</span></div>
             <span class="chip">DELOITTE · 2022</span>
           </div>
@@ -488,7 +496,11 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
           </div>
 
           <div class="bc cr">
-            <div class="sq" id="d2"></div>
+            <div class="sq" id="d2">
+              {Array.from({ length: 25 }).map(() => (
+                <i></i>
+              ))}
+            </div>
             <div>
               <div class="big">≈ 25</div>
               <h4>hari kerja</h4>
@@ -511,86 +523,89 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
         <h2>Dari email masuk sampai Sales Order jadi, tanpa disentuh tangan</h2>
         <p class="sub">Cyclone dipadukan AI OCR menjalankan seluruh alur, dari dokumen masuk sampai Sales Order terbit di SAP.</p>
 
-        <div class="stage">
-          <svg class="rb" viewBox="0 0 700 590" aria-hidden="true">
-            <defs>
-              <linearGradient id="rg" x1="0" x2="1">
-                <stop offset="0" stop-color="#ff9a3c"/>
-                <stop offset="1" stop-color="#ff7a1a"/>
-              </linearGradient>
-            </defs>
-            <path id="rp" d="M67,92 L237,182 L397,92 L557,178 C760,200 740,350 562,368 L397,458 L237,368 L67,458" fill="none" stroke="#e8650f" stroke-width="40" stroke-linejoin="round" transform="translate(0,7)" opacity=".85"/>
-            <path d="M67,92 L237,182 L397,92 L557,178 C760,200 740,350 562,368 L397,458 L237,368 L67,458" fill="none" stroke="url(#rg)" stroke-width="36" stroke-linejoin="round"/>
-            <g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
-              <path d="M148,128l8,5-8,5"/>
-              <path d="M308,132l-8,5 8,5" transform="translate(16,-8) scale(1)"/>
-              <path d="M470,128l8,5-8,5"/>
-              <path d="M696,262l5,8 5-8" transform="translate(-6,0)"/>
-              <path d="M478,412l-8,5 8,5"/>
-              <path d="M318,412l-8,5 8,5"/>
-              <path d="M158,412l-8,5 8,5"/>
-            </g>
-          </svg>
+        <!-- Desktop & Tablet: Pristine flow illustration (100% matches reference, no overlaps, no cut-offs) -->
+        <div class="flow-stage-desktop hidden sm:block my-8">
+          <img
+            src="/images/product/cyclone/cyclone-po-flow.webp"
+            srcset="/images/product/cyclone/cyclone-po-flow.webp 1x, /images/product/cyclone/cyclone-po-flow@2x.webp 2x"
+            alt="Alur Otomasi Purchase Order Cyclone RPA: 8 langkah dari input email hingga Sales Order jadi di SAP"
+            width="738"
+            height="600"
+            class="w-full max-w-[760px] mx-auto h-auto block select-none"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
 
-          <div class="fs">
-            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i1"/></svg>
-            <small>01 · INPUT</small>
-            <em>EMAIL / PORTAL</em>
-            <h3>PO masuk lewat email atau portal pelanggan</h3>
+        <!-- Mobile: Clean 8-step cards layout that is 100% readable without cut-offs -->
+        <div class="flow-mobile-steps sm:hidden space-y-3.5 my-6">
+          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
+            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">01</span>
+            <div>
+              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">01 · INPUT · EMAIL / PORTAL</span>
+              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">PO masuk lewat email atau portal pelanggan</h4>
+            </div>
           </div>
 
-          <div class="fs">
-            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i2"/></svg>
-            <small>02 · INPUT</small>
-            <em>INBOX</em>
-            <h3>Bot mengambil dokumen otomatis dari inbox</h3>
+          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
+            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">02</span>
+            <div>
+              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">02 · INPUT · INBOX</span>
+              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Bot mengambil dokumen otomatis dari inbox</h4>
+            </div>
           </div>
 
-          <div class="fs">
-            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i3"/></svg>
-            <small>03 · PROSES</small>
-            <em>AI OCR</em>
-            <h3>AI OCR membaca dan mengekstrak isi PO</h3>
+          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
+            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">03</span>
+            <div>
+              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">03 · PROSES · AI OCR</span>
+              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">AI OCR membaca dan mengekstrak isi PO</h4>
+            </div>
           </div>
 
-          <div class="fs">
-            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i4"/></svg>
-            <small>04 · PROSES</small>
-            <em>DATABASE MASTER</em>
-            <h3>Item dicocokkan ke database master</h3>
+          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
+            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">04</span>
+            <div>
+              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">04 · PROSES · DATABASE MASTER</span>
+              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Item dicocokkan ke database master</h4>
+            </div>
           </div>
 
-          <div class="fs">
-            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i5"/></svg>
-            <small>05 · PROSES</small>
-            <em>ATURAN VALIDASI</em>
-            <h3>Data order divalidasi secara otomatis</h3>
+          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
+            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">05</span>
+            <div>
+              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">05 · PROSES · ATURAN VALIDASI</span>
+              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Data order divalidasi secara otomatis</h4>
+            </div>
           </div>
 
-          <div class="fs">
-            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i6"/></svg>
-            <small>06 · OUTPUT</small>
-            <em>SAP</em>
-            <h3>Sales Order dibuat langsung di ERP</h3>
+          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
+            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">06</span>
+            <div>
+              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">06 · OUTPUT · SAP</span>
+              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Sales Order dibuat langsung di ERP</h4>
+            </div>
           </div>
 
-          <div class="fs">
-            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i7"/></svg>
-            <small>07 · OUTPUT</small>
-            <em>TIM TERKAIT</em>
-            <h3>Notifikasi selesai dikirim ke tim terkait</h3>
+          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
+            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">07</span>
+            <div>
+              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">07 · OUTPUT · TIM TERKAIT</span>
+              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Notifikasi selesai dikirim ke tim terkait</h4>
+            </div>
           </div>
 
-          <div class="fs">
-            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i8"/></svg>
-            <small>08 · HASIL</small>
-            <em>SELESAI</em>
-            <h3>Sales Order terbit di ERP, di proses ke tahap selanjutnya</h3>
-            <p>Tim cukup meninjau hasil akhirnya.</p>
+          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
+            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">08</span>
+            <div>
+              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">08 · HASIL · SELESAI</span>
+              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Sales Order terbit di ERP, diproses ke tahap selanjutnya</h4>
+              <p class="text-[11px] text-slate-500 mt-1">Tim cukup meninjau hasil akhirnya.</p>
+            </div>
           </div>
         </div>
 
-        <p class="rf" style="font-family:Poppins,sans-serif">
+        <p class="rf sm:hidden" style="font-family:Poppins,sans-serif">
           Ilustrasi antarmuka bersifat contoh dan disederhanakan. Alur mengikuti studi kasus Cyclone RPA dengan AI OCR.
         </p>
       </div>
@@ -733,19 +748,21 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
     color: #fff;
     position: relative;
     overflow: hidden;
-    background:
-      radial-gradient(18% 28% at 60% 38%, rgba(150,98,76,.75), transparent 70%),
-      radial-gradient(16% 26% at 78% 14%, rgba(190,120,92,.7), transparent 70%),
-      radial-gradient(22% 30% at 92% 42%, rgba(60,90,140,.55), transparent 70%),
-      radial-gradient(25% 30% at 70% 80%, rgba(120,70,50,.6), transparent 70%),
-      #0d0e13;
+    background-color: #0d0e13;
+    background-image:
+      linear-gradient(90deg, rgba(8,8,12,0.92) 0%, rgba(8,8,12,0.78) 45%, rgba(8,8,12,0.55) 100%),
+      url('/images/home/Product/Article/Cyclone/Cyclone-BG.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .cyclone-page .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(8,8,12,.85) 0, rgba(8,8,12,.55) 50%, rgba(8,8,12,.3) 100%);
+    background: radial-gradient(circle at 75% 30%, rgba(244,81,30,0.18), transparent 60%);
+    pointer-events: none;
   }
 
   .cyclone-page .hero > .w,
@@ -1702,71 +1719,9 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
     font-size: 12px;
   }
 
-  .cyclone-page .stage {
-    position: relative;
-    max-width: 700px;
-    aspect-ratio: 700/590;
-    margin: 34px auto 0;
-    font-family: "Poppins", sans-serif;
+  .cyclone-page .flow-stage-desktop img {
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.04));
   }
-
-  .cyclone-page .stage > svg.rb {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .cyclone-page .fs {
-    position: absolute;
-    width: 27%;
-  }
-
-  .cyclone-page .fs svg.pl {
-    width: calc(120/210*100%);
-    display: block;
-    overflow: visible;
-    margin-left: 0;
-  }
-
-  .cyclone-page .fs small {
-    display: block;
-    font: 8.5px "Space Mono", monospace;
-    color: var(--or);
-    letter-spacing: .04em;
-    margin-top: 2px;
-  }
-
-  .cyclone-page .fs em {
-    display: block;
-    font: normal 8px "Space Mono", monospace;
-    color: var(--mut);
-    letter-spacing: .04em;
-  }
-
-  .cyclone-page .fs h3 {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.35;
-    margin-top: 6px;
-    max-width: 11em;
-  }
-
-  .cyclone-page .fs p {
-    font-size: 10px;
-    color: var(--mut);
-    margin-top: 6px;
-    max-width: 12em;
-  }
-
-  .cyclone-page .fs:nth-of-type(1) { left: 1%; top: .8%; }
-  .cyclone-page .fs:nth-of-type(2) { left: 25.3%; top: 17%; }
-  .cyclone-page .fs:nth-of-type(3) { left: 48.1%; top: .8%; }
-  .cyclone-page .fs:nth-of-type(4) { left: 71%; top: 16.1%; }
-  .cyclone-page .fs:nth-of-type(5) { left: 71.7%; top: 47.5%; }
-  .cyclone-page .fs:nth-of-type(6) { left: 48.1%; top: 62.7%; }
-  .cyclone-page .fs:nth-of-type(7) { left: 25.3%; top: 47.5%; }
-  .cyclone-page .fs:nth-of-type(8) { left: 1%; top: 62.7%; }
 
   /* RESPONSIVE: TABLET */
   @media (max-width: 980px) {
@@ -1812,26 +1767,6 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
     }
   }
 
-  @media (max-width: 780px) {
-    .cyclone-page .stage {
-      aspect-ratio: auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px 18px;
-      max-width: none;
-    }
-    .cyclone-page .stage > svg.rb {
-      display: none;
-    }
-    .cyclone-page .fs {
-      position: static !important;
-      width: auto !important;
-    }
-    .cyclone-page .fs svg.pl {
-      width: 130px;
-    }
-  }
-
   /* RESPONSIVE: HP / MOBILE */
   @media (max-width: 600px) {
     .cyclone-page .w {
@@ -1867,21 +1802,11 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
     }
     .cyclone-page .g3,
     .cyclone-page .ind,
-    .cyclone-page .modes,
-    .cyclone-page .stage {
+    .cyclone-page .modes {
       grid-template-columns: 1fr;
     }
     .cyclone-page .k4 {
       grid-template-columns: repeat(2, 1fr);
-    }
-    .cyclone-page .fs {
-      display: flex !important;
-      gap: 14px;
-      align-items: center;
-    }
-    .cyclone-page .fs svg.pl {
-      flex: none;
-      width: 96px;
     }
     .cyclone-page .ban {
       padding: 24px 20px;
@@ -1905,31 +1830,3 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
     }
   }
 </style>
-
-<script is:inline>
-  function initCycloneCharts() {
-    function g(id, n, fn) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      let h = '';
-      for (let i = 0; i < n; i++) h += '<i' + fn(i) + '></i>';
-      el.innerHTML = h;
-    }
-    g('d1', 72, function (i) {
-      return i >= 64 ? ' class="p"' : (i % 7 === 3 ? ' class="q2"' : '');
-    });
-    g('d3', 24, function (i) {
-      return i >= 22 ? ' class="e"' : '';
-    });
-    g('d2', 25, function () {
-      return '';
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCycloneCharts);
-  } else {
-    initCycloneCharts();
-  }
-  document.addEventListener('astro:page-load', initCycloneCharts);
-</script>
