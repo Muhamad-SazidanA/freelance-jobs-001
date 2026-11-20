@@ -688,8 +688,8 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
     overflow: hidden;
     background-color: #0d0e13;
     background-image:
-      linear-gradient(90deg, rgba(8,8,12,0.92) 0%, rgba(8,8,12,0.78) 45%, rgba(8,8,12,0.55) 100%),
-      url('/images/home/Product/Article/Cyclone/Cyclone-BG.webp');
+      linear-gradient(90deg, rgba(8,8,12,0.90) 0%, rgba(8,8,12,0.76) 45%, rgba(8,8,12,0.48) 100%),
+      url('/images/product/cyclone/Bg-Cyclone.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1705,6 +1705,12 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
 
   /* RESPONSIVE: HP / MOBILE */
   @media (max-width: 600px) {
+    .cyclone-page .hero {
+      background-image:
+        linear-gradient(180deg, rgba(8,8,12,0.94) 0%, rgba(8,8,12,0.85) 55%, rgba(8,8,12,0.92) 100%),
+        url('/images/product/cyclone/Bg-Cyclone.webp');
+      background-position: center top;
+    }
     .cyclone-page .w {
       width: calc(100% - 32px);
     }
