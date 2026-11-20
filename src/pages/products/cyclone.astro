@@ -534,10 +534,10 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
         </p>
       </div>
     </section>
-
-    <!-- SECTION 8: CONSULTATION CTA -->
-    <ConsultationCta defaultProduct="cyclone" theme="cyclone" />
   </div>
+
+  <!-- SECTION 8: CONSULTATION CTA (Global Pre-Footer CTA) -->
+  <ConsultationCta defaultProduct="cyclone" />
 </PageLayout>
 
 <style is:global>
@@ -596,8 +596,22 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
   }
 
   .cyclone-page .w {
-    width: min(1120px, 100% - 48px);
+    max-width: 72rem;
+    width: 100%;
     margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .cyclone-page .w {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .cyclone-page .w {
+      padding-inline: 2rem;
+    }
   }
 
   .cyclone-page section {
@@ -1710,9 +1724,6 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
         linear-gradient(180deg, rgba(8,8,12,0.94) 0%, rgba(8,8,12,0.85) 55%, rgba(8,8,12,0.92) 100%),
         url('/images/product/cyclone/Bg-Cyclone.webp');
       background-position: center top;
-    }
-    .cyclone-page .w {
-      width: calc(100% - 32px);
     }
     .cyclone-page section {
       padding: 44px 0;
