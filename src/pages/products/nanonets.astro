@@ -183,26 +183,23 @@ const technologyCards = [
 const deploymentOptions = [
   {
     id: 'cloud',
-    tag: 'DEPLOYMENT CEPAT',
     tagColor: 'text-blue-600',
     title: 'Cloud',
-    description: 'Akses model AI yang di-host melalui API untuk pemrosesan dokumen yang skalabel.',
+    description: 'Pemrosesan dokumen berbasis AI melalui cloud, tanpa perlu mengelola infrastruktur model sendiri.',
     image: '/images/product/nanonets/Pemrosesan_Dokumen_AI/Cloud.webp',
   },
   {
     id: 'hybrid',
-    tag: 'INTEGRASI FLEKSIBEL',
     tagColor: 'text-indigo-600',
     title: 'Hybrid',
-    description: 'Jalankan ekstraksi AI di cloud, sementara data diproses di lingkungan server Anda.',
+    description: 'Pemrosesan AI di cloud, sementara data ekstaksi diproses di lingkungan server Anda.',
     image: '/images/product/nanonets/Pemrosesan_Dokumen_AI/Hybrid.webp',
   },
   {
     id: 'onprem',
-    tag: 'KONTROL INFRASTRUKTUR',
     tagColor: 'text-purple-600',
     title: 'On-Premise',
-    description: 'Host model AI yang kompatibel di server Anda sendiri untuk kontrol infrastruktur lebih besar.',
+    description: 'Pemrosesan AI, ekstraksi data, dan penyimpanan dokumen berjalan di server Anda.',
     image: '/images/product/nanonets/Pemrosesan_Dokumen_AI/On-Premise.webp',
   },
 ];
@@ -682,12 +679,10 @@ const deploymentOptions = [
               <span>Pemrosesan Dokumen AI</span>
             </div>
             <h2 class="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-              Pilihan deployment AI<br />
-              untuk pemrosesan<br />
-              dokumen cerdas
+              Pilihan deployment  
             </h2>
             <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-sm">
-              Nanonets menggabungkan ekstraksi dokumen berbasis AI dengan opsi deployment fleksibel untuk memenuhi kebutuhan integrasi, infrastruktur, dan operasional bisnis Anda.
+              Nanonets menggabungkan ekstraksi dokumen berbasis AI dengan opsi deployment fleksibel untuk memenuhi kebutuhan integrasi, infrastruktur,dan operasional bisnis Anda.
             </p>
           </div>
 
@@ -710,9 +705,6 @@ const deploymentOptions = [
                         />
                       </div>
                       <div>
-                        <span class={`text-[10px] sm:text-[11px] font-bold ${item.tagColor} uppercase tracking-wider block mb-1.5`}>
-                          {item.tag}
-                        </span>
                         <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">
                           {item.title}
                         </h3>
