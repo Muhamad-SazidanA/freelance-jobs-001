@@ -78,1246 +78,1858 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
   breadcrumbs={[]}
   schema={schema}
 >
-  <div class="home-content-zoom w-full">
-  <!-- =========================================================================
-       BAGIAN 1 (FOTO 1): HERO SECTION (DARK THEME + DASHBOARD MOCKUP FLOATING)
-       ========================================================================= -->
-  <div class="cyclone-dark-hero text-white">
-    <section class="cyclone-hero-section px-4">
-      <!-- Glow ambient light melingkar -->
-      <div class="cyclone-hero-glow"></div>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&family=Poppins:wght@500;600&display=swap" />
 
-      <div class="max-w-5xl mx-auto relative z-10 text-center">
-        <!-- Badge Atas Sesuai Foto 1 -->
-        <div class="cyclone-badge">
-          <span class="cyclone-badge-dot">&bull;</span>
-          <span class="cyclone-badge-text"
-            >DIPERCAYA OLEH 320+ PERUSAHAAN DI INDONESIA</span
-          >
+  <!-- SVG Global Symbol & Pattern Definitions -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="warn" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+      <symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2M16 3.1a4 4 0 0 1 0 7.8M22 21v-2a4 4 0 0 0-3-3.9"/></symbol>
+      <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></symbol>
+      <symbol id="bank" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M9 21V10M15 21V10M19 21V10M2 10l10-7 10 7z"/></symbol>
+      <symbol id="fact" viewBox="0 0 24 24"><path d="M2 21V9l6 4V9l6 4V4h4v17zM6 17h.01M10 17h.01M14 17h.01"/></symbol>
+      <symbol id="cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2 3h3l3 12h11l2-8H6"/></symbol>
+      <symbol id="truck" viewBox="0 0 24 24"><path d="M1 4h13v12H1zM14 8h4l4 4v4h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+      <symbol id="heart" viewBox="0 0 24 24"><path d="M20.8 5.6a5.5 5.5 0 0 0-8.8-1.5 5.5 5.5 0 0 0-8.8 7L12 21l8.8-9.9a5.5 5.5 0 0 0 0-5.5z"/><path d="M3 12h5l2-3 3 6 2-3h6"/></symbol>
+      <symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+      <symbol id="ne" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="ck" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+      <symbol id="box" viewBox="0 0 24 24"><rect x="3" y="11" width="8" height="8" rx="1"/><circle cx="17" cy="15" r="4"/><path d="M7 11V7h4M17 3v4"/></symbol>
+      <g id="pf"><ellipse cx="0" cy="30" rx="58" ry="15" fill="#ff8a3d" opacity=".4"/><path d="M-50,10 L0,-16 L50,10 L0,36z" fill="#111" stroke="#111" stroke-width="12" stroke-linejoin="round"/><path d="M-50,2 L0,-24 L50,2 L0,28z" fill="#fff5ec" stroke="#fff5ec" stroke-width="12" stroke-linejoin="round"/><ellipse cx="0" cy="2" rx="20" ry="8" fill="#ffe3cf"/></g>
+      <g id="i1"><rect x="-14" y="-62" width="40" height="26" rx="4" fill="#ffd2b0"/><circle cx="10" cy="-55" r="2" fill="#f4511e"/><rect x="-34" y="-50" width="42" height="30" rx="4" fill="#f4511e"/><path d="m-33,-47 21,15 21,-15" stroke="#fff" stroke-width="3" fill="none"/><circle cx="22" cy="-46" r="5" fill="#111"/></g>
+      <g id="i2"><rect x="-22" y="-70" width="36" height="46" rx="3" fill="#ff9a4a"/><path d="M-14,-58h20M-14,-50h20M-14,-42h12" stroke="#fff" stroke-width="3"/><circle cx="18" cy="-24" r="9" fill="#111"/><circle cx="18" cy="-24" r="3.5" fill="#ffd0aa"/></g>
+      <g id="i3"><path d="M-30,-68v-10h10M30,-68v-10h-10M-30,-26v10h10M30,-26v10h-10" stroke="#111" stroke-width="3" fill="none"/><rect x="-18" y="-64" width="36" height="42" rx="3" fill="#f4511e"/><text x="0" y="-38" text-anchor="middle" font-size="15" font-weight="700" fill="#fff" font-family="Poppins,sans-serif">AI</text><path d="M-26,-42h52" stroke="#111" stroke-width="2"/></g>
+      <g id="i4"><ellipse cx="0" cy="-30" rx="24" ry="8" fill="#ff9a4a"/><path d="M-24,-30v-12a24 8 0 0 1 48 0v12a24 8 0 0 1-48 0z" fill="#f4511e"/><ellipse cx="0" cy="-42" rx="24" ry="8" fill="#ffb27a"/><ellipse cx="0" cy="-54" rx="24" ry="8" fill="#ffb27a"/><path d="M-24,-54v12M24,-54v12" stroke="#f4511e" stroke-width="2"/><circle cx="26" cy="-26" r="9" fill="#ffb347"/><path d="m22,-26 3,3 5,-6" stroke="#fff" stroke-width="2.5" fill="none"/></g>
+      <g id="i5"><rect x="-26" y="-70" width="44" height="52" rx="3" fill="#ffe2cf"/><path d="M-18,-58h26M-18,-48h26M-18,-38h26M-18,-28h18" stroke="#f4511e" stroke-width="3"/><circle cx="20" cy="-26" r="11" fill="#ff9d2e"/><path d="m14,-26 4,4 7,-8" stroke="#fff" stroke-width="3" fill="none"/></g>
+      <g id="i6"><rect x="-24" y="-68" width="46" height="50" rx="3" fill="#fff" stroke="#f4a070" stroke-width="2"/><rect x="-24" y="-68" width="46" height="9" fill="#ff9a4a"/><path d="M-16,-50h30M-16,-42h30M-16,-34h30M-16,-26h20" stroke="#9db4d6" stroke-width="3"/></g>
+      <g id="i7"><path d="M-22,-24c0-8 4-14 4-24a18 18 0 0 1 36 0c0 10 4 16 4 24z" fill="#f4511e"/><circle cx="0" cy="-66" r="4" fill="#f4511e"/><rect x="-26" y="-24" width="52" height="5" rx="2" fill="#f4511e"/><circle cx="0" cy="-17" r="5" fill="#111"/><circle cx="-24" cy="-8" r="7" fill="#fff" stroke="#ff9a4a" stroke-width="2"/><circle cx="24" cy="-8" r="7" fill="#fff" stroke="#ff9a4a" stroke-width="2"/></g>
+      <g id="i8"><rect x="-26" y="-72" width="46" height="54" rx="3" fill="#ffc9a3"/><path d="M-18,-60h24M-18,-52h24M-18,-44h14" stroke="#fff" stroke-width="3"/><circle cx="22" cy="-26" r="13" fill="#ff9d2e"/><path d="m15,-26 5,5 8,-10" stroke="#fff" stroke-width="3.5" fill="none"/></g>
+    </defs>
+  </svg>
+
+  <div class="cyclone-page w-full">
+    <!-- SECTION 1: HERO -->
+    <div class="hero">
+      <div class="w">
+        <div class="hg">
+          <div>
+            <h1>Robot yang bekerja tanpa henti, tepat seperti yang Anda minta.</h1>
+            <p class="l">
+              Cyclone mengotomasi pekerjaan digital yang berulang, dari membuka aplikasi hingga mengirim laporan, langsung di atas sistem yang sudah Anda pakai.
+            </p>
+            <div class="stats">
+              <div>
+                <svg class="i"><use href="#clock"/></svg>
+                <span><b>24 jam</b>Bekerja nonstop</span>
+              </div>
+              <div>
+                <svg class="i"><use href="#link"/></svg>
+                <span><b>Terhubung</b>Ke sistem Anda</span>
+              </div>
+              <div>
+                <svg class="i"><use href="#shield"/></svg>
+                <span><b>Tanpa ubah</b>Sistem yang ada</span>
+              </div>
+            </div>
+            <div class="cta">
+              <a class="btn w1" href="#form-konsultasi">Jadwalkan Demo <i>&rarr;</i></a>
+              <a class="btn gh" href="#alur">Lihat Cara Kerja</a>
+            </div>
+          </div>
+
+          <div class="dwrap">
+            <div class="dash" role="img" aria-label="Contoh tampilan dashboard Cyclone Controller">
+              <div class="dt">
+                <span class="dots">
+                  <i style="background:#ff5f57"></i>
+                  <i style="background:#febc2e"></i>
+                  <i style="background:#28c840"></i>
+                </span>
+                <b>CYCLONE .</b>
+                <span class="tab">Controller</span>
+                <span>System Settings</span>
+                <span class="r">
+                  <span style="color:#28c840">●</span>2026-11-11 14:47:47<span class="av">ad</span>
+                </span>
+              </div>
+              <div class="sd">
+                <span class="on">Dashboard</span>
+                <span>Task ⌄</span>
+                <span>Process ⌄</span>
+                <span>Client ⌄</span>
+                <span>Data ⌄</span>
+                <span>Business log</span>
+                <span>Operations ⌄</span>
+                <span>Other Settings ⌄</span>
+              </div>
+              <div class="mn">
+                <div class="k4">
+                  <div class="kc">
+                    <h5>Historical Tasks<u>Today ⌄</u></h5>
+                    <div class="n">1,248</div>
+                    <small>Number of tasks executed successfully</small>
+                    <div class="row">
+                      <i class="ring" style="--p:70%;--a:#2b5de0;--b:#d6dbe6"></i>
+                      <span class="lg"><i>Succeeded</i><i>Cancel manually</i><i>Exception</i></span>
+                    </div>
+                  </div>
+                  <div class="kc">
+                    <h5>Task Schedule<u>Today ⌄</u></h5>
+                    <div class="n">12</div>
+                    <small>Total number of schedules</small>
+                    <div class="row">
+                      <i class="ring" style="--p:60%;--a:#f0a43a;--b:#2b5de0"></i>
+                      <span class="lg"><i>Disable</i><i>Start</i><i>End</i></span>
+                    </div>
+                  </div>
+                  <div class="kc">
+                    <h5>Task Queue<u>All Robots ⌄</u></h5>
+                    <div class="n">3</div>
+                    <small>Tasks in progress</small>
+                    <div class="row">
+                      <i class="ring" style="--p:66%;--a:#f0a43a;--b:#2fb872"></i>
+                      <span class="lg"><i>Running</i><i>To run</i></span>
+                    </div>
+                  </div>
+                  <div class="kc">
+                    <h5>Robot Status<u>All Robots ⌄</u></h5>
+                    <div class="n">5</div>
+                    <small>Total number of online robots</small>
+                    <div class="row">
+                      <i class="ring" style="--p:40%;--a:#2fb872;--b:#d6dbe6"></i>
+                      <span class="lg"><i>Idle</i><i>Busy</i><i>Unavailable</i><i>Offline</i></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="op">
+                  <b>Task Operating Situation</b>
+                  <div class="f">
+                    <span>All Robots</span>
+                    <span>Select</span>
+                    <span>Select</span>
+                    <span class="b">Search</span>
+                  </div>
+                  <svg viewBox="0 0 400 90" preserveAspectRatio="none">
+                    <g stroke="#eee">
+                      <path d="M0 10h400M0 35h400M0 60h400M0 85h400"/>
+                    </g>
+                    <polyline fill="none" stroke="#2b5de0" stroke-width="2" points="0,80 50,70 100,66 150,46 200,52 250,32 300,40 350,28 400,34"/>
+                    <polyline fill="none" stroke="#2fb872" stroke-width="2" points="0,82 50,75 100,72 150,56 200,58 250,42 300,48 350,38 400,42"/>
+                    <polyline fill="none" stroke="#e5484d" stroke-width="2" points="0,84 100,82 200,80 300,81 400,79"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <p class="cap">Contoh tampilan Cyclone dengan data ilustrasi.</p>
+            <div class="badge">
+              <i>✓</i>
+              <div>
+                Sales Order dibuat di SAP
+                <span>PO-2026-1184 selesai dalam 42 dtk</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="strip">
+        Berjalan di atas sistem yang sudah Anda pakai, tanpa mengubah atau mengganggunya.
+        <div class="chips">
+          <span>Email</span>
+          <span>Portal pelanggan</span>
+          <span>Database master</span>
+          <span>SAP</span>
+          <span>Aplikasi desktop dan web</span>
+        </div>
+      </div>
+    </div>
 
-        <!-- Headline Sesuai Foto 1: 3 baris rapi dengan "tanpa henti" dalam 1 baris yang sama -->
-        <h1 class="cyclone-hero-title">
-          <span class="cyclone-title-line"
-            >Robot yang bekerja <span
-              class="cyclone-text-orange whitespace-nowrap">tanpa henti</span
-            >,</span
-          >
-          <span class="cyclone-title-line">tepat seperti yang</span>
-          <span class="cyclone-title-line">Anda minta.</span>
-        </h1>
-
-        <!-- Subtitle Sesuai Foto 1: 3 baris presisi -->
-        <p class="cyclone-hero-subtitle">
-          Cyclone mengotomasi pekerjaan digital yang berulang dari membuka<br
-            class="hidden sm:inline"
-          />
-          aplikasi hingga mengirim laporan langsung di atas sistem yang sudah Anda<br
-            class="hidden sm:inline"
-          />
-          pakai, tanpa perlu mengganggunya.
-        </p>
-
-        <!-- CTA Buttons Sesuai Foto 1 -->
-        <div class="cyclone-btn-group">
-          <a href="#form-konsultasi" class="cyclone-btn-primary">
-            Jadwalkan Demo
-          </a>
-          <a href="#masalah-utama" class="cyclone-btn-secondary">
-            <span>Lihat Cara Kerja</span>
-            <span class="text-sm font-bold">&rarr;</span>
-          </a>
+    <!-- SECTION 2: SEBELUM CYCLONE -->
+    <section>
+      <div class="w">
+        <div class="eb">Sebelum Cyclone</div>
+        <h2>Mengapa harus menghabiskan waktu untuk pekerjaan rutin jika semuanya bisa diotomatisasi?</h2>
+        <div class="g3">
+          <div class="card">
+            <span class="n">01</span>
+            <div class="ic"><svg class="i"><use href="#clock"/></svg></div>
+            <h3>Waktu habis untuk input data</h3>
+            <p>Staf memindahkan data yang sama dari satu sistem ke sistem lain, berulang setiap hari — waktu yang seharusnya bisa dipakai untuk pekerjaan yang lebih bernilai.</p>
+          </div>
+          <div class="card">
+            <span class="n">02</span>
+            <div class="ic"><svg class="i"><use href="#warn"/></svg></div>
+            <h3>Human error yang terus berulang</h3>
+            <p>Semakin banyak dan semakin cepat pekerjaan manual dikerjakan, semakin besar peluang salah ketik, salah baca, atau data yang terlewat.</p>
+          </div>
+          <div class="card">
+            <span class="n">03</span>
+            <div class="ic"><svg class="i"><use href="#users"/></svg></div>
+            <h3>Sulit menambah kapasitas</h3>
+            <p>Saat volume transaksi naik, satu-satunya jalan yang terpikir adalah menambah orang — biaya rekrutmen, training, dan waktu terus bertambah.</p>
+          </div>
         </div>
       </div>
     </section>
-  </div>
 
-  <!-- =========================================================================
-       DASHBOARD MOCKUP FLOATING: 20% DILATARI HITAM, 80% DILATARI PUTIH SESUAI REFERENSI
-       ========================================================================= -->
-  <div class="cyclone-mockup-section relative bg-white pb-14 sm:pb-20">
-    <!-- Strip background hitam: tepat 20% di bagian atas kartu gambar -->
-    <div class="cyclone-mockup-bg-black absolute inset-x-0 top-0 pointer-events-none"></div>
-
-    <div class="max-w-5xl mx-auto px-4 relative z-10">
-      <div class="cyclone-dashboard-card">
-        <img
-          src="/images/product/cyclone/cyclone-dashboard-real.webp"
-          alt="Cyclone RPA Dashboard Interface"
-          class="w-full h-auto rounded-xl shadow-2xl block"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       BAGIAN 2 (FOTO 2): SEBELUM CYCLONE (WHITE THEME)
-       ========================================================================= -->
-  <section
-    id="masalah-utama"
-    class="cyclone-section-problems bg-white text-slate-900 border-b border-slate-100"
-  >
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="mb-12">
-        <span class="cyclone-tag-orange">&mdash; SEBELUM CYCLONE</span>
-        <h2 class="cyclone-section-title">
-          Tim Anda menghabiskan waktu untuk<br />
-          pekerjaan yang seharusnya tidak<br />
-          butuh manusia
-        </h2>
-      </div>
-
-      <!-- 3 Cards Grid Sesuai Foto 2 -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Card 01 -->
-        <div class="cyclone-problem-card">
-          <div class="flex items-center justify-between mb-5">
-            <div class="cyclone-problem-icon-wrapper">
-              <!-- Clock Icon -->
-              <svg
-                class="w-5 h-5 text-orange-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
+    <!-- SECTION 3: ARSITEKTUR PRODUK -->
+    <section style="padding-top:20px">
+      <div class="w">
+        <div class="eb">Arsitektur Produk</div>
+        <h2>Komponen Utama Robotic Process Automation</h2>
+        <p class="sub">Cyclone terdiri dari beberapa komponen utama untuk mendukung proses otomasi, mulai dari perancangan flow, Executor, hingga pemantauan dan pengelolaan aktivitas robot.</p>
+        <div class="rows">
+          <div class="row">
+            <small>01</small>
+            <div>
+              <h3>Cyclone Robot</h3>
+              <span>Executor</span>
             </div>
-            <span class="cyclone-number-badge">01</span>
+            <p>Robot perangkat lunak yang menjalankan proses pekerjaan secara otomatis, dengan dua pilihan attended maupun unattended, yang dapat berjalan 24 jam sehari tanpa penurunan performa.</p>
           </div>
-          <h3 class="cyclone-card-title">Waktu habis untuk input data</h3>
-          <p class="cyclone-card-desc">
-            Staf memindahkan data yang sama dari satu sistem ke sistem lain,
-            berulang setiap hari &mdash; waktu yang seharusnya bisa dipakai
-            untuk pekerjaan yang lebih bernilai.
-          </p>
-        </div>
-
-        <!-- Card 02 -->
-        <div class="cyclone-problem-card">
-          <div class="flex items-center justify-between mb-5">
-            <div class="cyclone-problem-icon-wrapper">
-              <!-- Warning Triangle Icon -->
-              <svg
-                class="w-5 h-5 text-orange-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                ></path>
-              </svg>
+          <div class="row">
+            <small>02</small>
+            <div>
+              <h3>Cyclone Designer</h3>
+              <span>Builder</span>
             </div>
-            <span class="cyclone-number-badge">02</span>
+            <p>Alat untuk merancang alur kerja (flow) secara visual menggunakan metode drag and drop. Tim operasional dapat menyusun proses otomasi secara mandiri tanpa harus menulis coding yang rumit.</p>
           </div>
-          <h3 class="cyclone-card-title">Human error yang terus berulang</h3>
-          <p class="cyclone-card-desc">
-            Semakin banyak dan semakin cepat pekerjaan manual dikerjakan,
-            semakin besar peluang salah ketik, salah baca, atau data yang
-            terlewat.
-          </p>
-        </div>
-
-        <!-- Card 03 -->
-        <div class="cyclone-problem-card">
-          <div class="flex items-center justify-between mb-5">
-            <div class="cyclone-problem-icon-wrapper">
-              <!-- People Icon -->
-              <svg
-                class="w-5 h-5 text-orange-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                ></path>
-              </svg>
+          <div class="row">
+            <small>03</small>
+            <div>
+              <h3>Cyclone Controller</h3>
+              <span>Manager</span>
             </div>
-            <span class="cyclone-number-badge">03</span>
+            <p>Pusat kendali seluruh robot — menjadwalkan tugas, memantau status tiap bot secara real-time, dan menyimpan log audit dari satu dashboard.</p>
           </div>
-          <h3 class="cyclone-card-title">Sulit menambah kapasitas</h3>
-          <p class="cyclone-card-desc">
-            Saat volume transaksi naik, satu-satunya jalan yang terpikir adalah
-            menambah orang &mdash; biaya rekrutmen, training, dan waktu terus
-            bertambah.
-          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================================
-       BAGIAN 2 LANJUTAN (FOTO 2): ARSITEKTUR PRODUK (3 MODUL)
-       ========================================================================= -->
-  <section
-    class="cyclone-section-modules bg-white text-slate-900 border-b border-slate-100"
-  >
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="mb-12">
-        <span class="cyclone-tag-orange">&mdash; ARSITEKTUR PRODUK</span>
-        <h2 class="cyclone-section-title">
-          Tiga modul, satu sistem otomasi yang<br />
-          terkendali
-        </h2>
-        <p class="cyclone-section-subtitle">
-          Cyclone dibangun dari tiga bagian yang saling terhubung &mdash;
-          masing-masing menangani perannya sendiri, dari merancang alur kerja
-          sampai menjalankan dan mengawasinya.
+    <!-- SECTION 4: MODE OPERASI -->
+    <section style="padding-top:20px">
+      <div class="w">
+        <div class="eb">Mode Operasi</div>
+        <h2>Otomasi yang menyesuaikan cara tim Anda bekerja</h2>
+        <div class="modes">
+          <div class="mode a">
+            <div class="t">
+              <h3>Attended</h3>
+              <i><svg class="i"><use href="#users"/></svg></i>
+            </div>
+            <b>Robot bekerja bersama tim Anda</b>
+            <p>Diaktifkan oleh staf saat dibutuhkan, membantu di tengah proses yang masih memerlukan keputusan manusia pada titik-titik tertentu.</p>
+          </div>
+          <div class="mode u">
+            <div class="t">
+              <h3>Unattended</h3>
+              <i><svg class="i"><use href="#box"/></svg></i>
+            </div>
+            <b>Robot bekerja secara mandiri</b>
+            <p>Jadwalkan robot untuk menjalankan rangkaian pekerjaan. Proses dapat berjalan tanpa harus menunggu staf mengoperasikan setiap langkahnya.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SIAPA YANG MEMAKAI -->
+    <section style="padding-top:40px">
+      <div class="w">
+        <div class="eb">Siapa yang memakai</div>
+        <h2>Dipakai lintas industri, di proses yang volumenya tinggi dan berulang</h2>
+        <p class="sub">Cyclone mengotomatiskan pekerjaan manual yang repetitif, dari input data sampai rekonsiliasi, tanpa mengubah sistem yang sudah Anda pakai.</p>
+        <div class="ind">
+          <div class="card">
+            <div class="ic"><svg class="i"><use href="#bank"/></svg></div>
+            <span class="ar"><svg class="i"><use href="#ne"/></svg></span>
+            <h3>Keuangan &amp; Perbankan</h3>
+            <p>Kurangi input manual di tim finance.</p>
+            <ul>
+              <li><svg class="i"><use href="#ck"/></svg>Pemrosesan faktur &amp; hutang vendor</li>
+              <li><svg class="i"><use href="#ck"/></svg>Rekonsiliasi akun antar sistem</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="ic"><svg class="i"><use href="#fact"/></svg></div>
+            <span class="ar"><svg class="i"><use href="#ne"/></svg></span>
+            <h3>Manufaktur</h3>
+            <p>Data pabrik selalu rapi dan terbarui.</p>
+            <ul>
+              <li><svg class="i"><use href="#ck"/></svg>Pembaruan stok &amp; laporan gudang</li>
+              <li><svg class="i"><use href="#ck"/></svg>Kompilasi data kontrol kualitas</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="ic"><svg class="i"><use href="#cart"/></svg></div>
+            <span class="ar"><svg class="i"><use href="#ne"/></svg></span>
+            <h3>Retail &amp; Distribusi</h3>
+            <p>Dari pesanan masuk sampai ke ERP.</p>
+            <ul>
+              <li><svg class="i"><use href="#ck"/></svg>Input pesanan dari email/portal</li>
+              <li><svg class="i"><use href="#ck"/></svg>Pembuatan Sales Order ke ERP</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="ic"><svg class="i"><use href="#truck"/></svg></div>
+            <span class="ar"><svg class="i"><use href="#ne"/></svg></span>
+            <h3>Logistik</h3>
+            <p>Status &amp; dokumen tanpa ketik ulang.</p>
+            <ul>
+              <li><svg class="i"><use href="#ck"/></svg>Pembaruan status pengiriman</li>
+              <li><svg class="i"><use href="#ck"/></svg>Proses retur barang &amp; dokumen</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="ic"><svg class="i"><use href="#heart"/></svg></div>
+            <span class="ar"><svg class="i"><use href="#ne"/></svg></span>
+            <h3>Kesehatan</h3>
+            <p>Administrasi pasien lebih cepat &amp; akurat.</p>
+            <ul>
+              <li><svg class="i"><use href="#ck"/></svg>Input data rekam medis pasien</li>
+              <li><svg class="i"><use href="#ck"/></svg>Verifikasi klaim asuransi</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="ic"><svg class="i"><use href="#phone"/></svg></div>
+            <span class="ar"><svg class="i"><use href="#ne"/></svg></span>
+            <h3>Telekomunikasi</h3>
+            <p>Onboarding &amp; penagihan skala besar.</p>
+            <ul>
+              <li><svg class="i"><use href="#ck"/></svg>Aktivasi &amp; verifikasi pelanggan baru</li>
+              <li><svg class="i"><use href="#ck"/></svg>Distribusi tagihan bulanan</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ban">
+          <div>
+            <small>Industri Anda belum ada?</small>
+            <h3>Punya proses bisnis yang berbeda?</h3>
+            <p>Cyclone dapat dievaluasi untuk berbagai alur kerja selama prosesnya memiliki langkah yang jelas, berulang, dan dapat didefinisikan.</p>
+            <a class="btn" href="#form-konsultasi">Diskusikan Kebutuhan Anda &rarr;</a>
+          </div>
+          <div class="chk">
+            <small>COCOK JIKA PROSESNYA</small>
+            <div><i>✓</i>Langkahnya jelas</div>
+            <div><i>✓</i>Dikerjakan berulang</div>
+            <div><i>✓</i>Bisa didefinisikan</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: DAMPAK YANG BISA DIUKUR -->
+    <section style="padding-top:20px">
+      <div class="w">
+        <div class="eb">Dampak yang bisa diukur</div>
+        <h2>Otomasi bukan sekadar menghemat waktu. <em>Ini tentang hasil bisnis yang nyata.</em></h2>
+        <p class="q">Berbagai penelitian dan implementasi intelligent automation<br>menunjukkan potensi efisiensi operasional yang dapat diukur.</p>
+        <div class="bento">
+          <div class="bc or">
+            <div class="m">
+              <span>01 / BIAYA</span>
+              <span>TAHAP PILOT</span>
+            </div>
+            <div class="big">32%</div>
+            <h4 style="margin-top:26px">Pengurangan biaya</h4>
+            <p>Rata-rata organisasi yang telah melewati tahap pilot</p>
+            <div class="cmp">
+              <div>
+                <span>SEBELUM</span>
+                <span class="tr"><i>100</i></span>
+              </div>
+              <div>
+                <span>SESUDAH PILOT</span>
+                <span class="tr s"><u>68</u><i>−32%</i></span>
+              </div>
+              <span class="note">Ilustrasi indeks biaya operasional (sebelum = 100), bukan data absolut.</span>
+            </div>
+            <span class="chip">DELOITTE · 2021</span>
+          </div>
+
+          <div class="bc">
+            <div class="m">
+              <span>02 / WAKTU</span>
+              <span>TELKOMSEL</span>
+            </div>
+            <div class="big">110.000+</div>
+            <h4>Jam kerja dihemat</h4>
+            <p>Penghematan per bulan dalam implementasi Telkomsel</p>
+            <div class="bl" id="d1"></div>
+            <span class="chip">DELOITTE · 2021</span>
+          </div>
+
+          <div class="bc">
+            <div class="m">
+              <span>03 / PAYBACK</span>
+              <span>TAHAP PILOT</span>
+            </div>
+            <div class="big">22<small>bulan</small></div>
+            <h4>Periode payback</h4>
+            <p>Rata-rata pada organisasi yang masih dalam tahap pilot</p>
+            <div class="seg" id="d3"></div>
+            <div class="ax"><span>0</span><span>12</span><span>24 bln</span></div>
+            <span class="chip">DELOITTE · 2022</span>
+          </div>
+        </div>
+
+        <div class="b2">
+          <div class="bc">
+            <div class="m">
+              <span>04 / PRODUKTIVITAS</span>
+              <span>PER KARYAWAN / TAHUN</span>
+            </div>
+            <div class="big">200<small>jam</small></div>
+            <h4>Potensi waktu dihemat</h4>
+            <p>Per karyawan per tahun pada use case berdampak tinggi</p>
+            <span class="chip">FORRESTER · MICROSOFT POWER AUTOMATE</span>
+          </div>
+
+          <div class="bc cr">
+            <div class="sq" id="d2"></div>
+            <div>
+              <div class="big">≈ 25</div>
+              <h4>hari kerja</h4>
+              <p>1 kotak = 1 hari kerja (8 jam)<br>1 baris = 1 minggu kerja</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="rf">
+          Referensi: Deloitte Global Intelligent Automation Survey 2022 dan Forrester Total Economic Impact of Microsoft Power Automate.<br>
+          Angka merupakan hasil penelitian eksternal, bukan jaminan hasil implementasi Cyclone.
         </p>
       </div>
+    </section>
 
-      <!-- 3 Module Stacked Rows Sesuai Foto 2 -->
-      <div class="cyclone-modules-stack">
-        <!-- Row 01 -->
-        <div class="cyclone-module-row">
-          <div class="cyclone-module-col-num">01</div>
-          <div class="cyclone-module-col-title">
-            <h3 class="cyclone-module-name">Cyclone Robot</h3>
-            <span class="cyclone-module-role">Executor</span>
+    <!-- SECTION 7: ALUR OTOMASI PURCHASE ORDER -->
+    <section class="flow" id="alur" style="padding-top:20px">
+      <div class="w">
+        <div class="eb">Studi kasus / Alur otomasi Purchase Order</div>
+        <h2>Dari email masuk sampai Sales Order jadi, tanpa disentuh tangan</h2>
+        <p class="sub">Cyclone dipadukan AI OCR menjalankan seluruh alur, dari dokumen masuk sampai Sales Order terbit di SAP.</p>
+
+        <div class="stage">
+          <svg class="rb" viewBox="0 0 700 590" aria-hidden="true">
+            <defs>
+              <linearGradient id="rg" x1="0" x2="1">
+                <stop offset="0" stop-color="#ff9a3c"/>
+                <stop offset="1" stop-color="#ff7a1a"/>
+              </linearGradient>
+            </defs>
+            <path id="rp" d="M67,92 L237,182 L397,92 L557,178 C760,200 740,350 562,368 L397,458 L237,368 L67,458" fill="none" stroke="#e8650f" stroke-width="40" stroke-linejoin="round" transform="translate(0,7)" opacity=".85"/>
+            <path d="M67,92 L237,182 L397,92 L557,178 C760,200 740,350 562,368 L397,458 L237,368 L67,458" fill="none" stroke="url(#rg)" stroke-width="36" stroke-linejoin="round"/>
+            <g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+              <path d="M148,128l8,5-8,5"/>
+              <path d="M308,132l-8,5 8,5" transform="translate(16,-8) scale(1)"/>
+              <path d="M470,128l8,5-8,5"/>
+              <path d="M696,262l5,8 5-8" transform="translate(-6,0)"/>
+              <path d="M478,412l-8,5 8,5"/>
+              <path d="M318,412l-8,5 8,5"/>
+              <path d="M158,412l-8,5 8,5"/>
+            </g>
+          </svg>
+
+          <div class="fs">
+            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i1"/></svg>
+            <small>01 · INPUT</small>
+            <em>EMAIL / PORTAL</em>
+            <h3>PO masuk lewat email atau portal pelanggan</h3>
           </div>
-          <div class="cyclone-module-col-desc">
-            <p class="cyclone-module-desc">
-              Robot perangkat lunak yang benar-benar menjalankan pekerjaan
-              &mdash; dalam mode ditemani (attended) maupun berjalan sendiri
-              (unattended), 24 jam sehari tanpa penurunan performa.
-            </p>
+
+          <div class="fs">
+            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i2"/></svg>
+            <small>02 · INPUT</small>
+            <em>INBOX</em>
+            <h3>Bot mengambil dokumen otomatis dari inbox</h3>
+          </div>
+
+          <div class="fs">
+            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i3"/></svg>
+            <small>03 · PROSES</small>
+            <em>AI OCR</em>
+            <h3>AI OCR membaca dan mengekstrak isi PO</h3>
+          </div>
+
+          <div class="fs">
+            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i4"/></svg>
+            <small>04 · PROSES</small>
+            <em>DATABASE MASTER</em>
+            <h3>Item dicocokkan ke database master</h3>
+          </div>
+
+          <div class="fs">
+            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i5"/></svg>
+            <small>05 · PROSES</small>
+            <em>ATURAN VALIDASI</em>
+            <h3>Data order divalidasi secara otomatis</h3>
+          </div>
+
+          <div class="fs">
+            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i6"/></svg>
+            <small>06 · OUTPUT</small>
+            <em>SAP</em>
+            <h3>Sales Order dibuat langsung di ERP</h3>
+          </div>
+
+          <div class="fs">
+            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i7"/></svg>
+            <small>07 · OUTPUT</small>
+            <em>TIM TERKAIT</em>
+            <h3>Notifikasi selesai dikirim ke tim terkait</h3>
+          </div>
+
+          <div class="fs">
+            <svg class="pl" viewBox="-60 -80 120 120"><use href="#pf"/><use href="#i8"/></svg>
+            <small>08 · HASIL</small>
+            <em>SELESAI</em>
+            <h3>Sales Order terbit di ERP, di proses ke tahap selanjutnya</h3>
+            <p>Tim cukup meninjau hasil akhirnya.</p>
           </div>
         </div>
 
-        <!-- Row 02 -->
-        <div class="cyclone-module-row">
-          <div class="cyclone-module-col-num">02</div>
-          <div class="cyclone-module-col-title">
-            <h3 class="cyclone-module-name">Cyclone Designer</h3>
-            <span class="cyclone-module-role">Builder</span>
-          </div>
-          <div class="cyclone-module-col-desc">
-            <p class="cyclone-module-desc">
-              Alat rancang alur kerja dengan cara tarik-dan-taruh secara visual.
-              Tim operasional bisa menyusun sendiri proses otomasi tanpa harus
-              menulis kode.
-            </p>
-          </div>
-        </div>
-
-        <!-- Row 03 -->
-        <div class="cyclone-module-row">
-          <div class="cyclone-module-col-num">03</div>
-          <div class="cyclone-module-col-title">
-            <h3 class="cyclone-module-name">Cyclone Controller</h3>
-            <span class="cyclone-module-role">Manager</span>
-          </div>
-          <div class="cyclone-module-col-desc">
-            <p class="cyclone-module-desc">
-              Pusat kendali seluruh robot &mdash; menjadwalkan tugas, memantau
-              status tiap bot secara real-time, dan menyimpan log audit dari
-              satu dashboard.
-            </p>
-          </div>
-        </div>
+        <p class="rf" style="font-family:Poppins,sans-serif">
+          Ilustrasi antarmuka bersifat contoh dan disederhanakan. Alur mengikuti studi kasus Cyclone RPA dengan AI OCR.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================================
-       BAGIAN 3 (FOTO 3): MODE OPERASI (ATTENDED VS UNATTENDED)
-       ========================================================================= -->
-  <section
-    class="cyclone-section-types bg-white text-slate-900 border-b border-slate-100"
-  >
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="mb-10">
-        <span class="cyclone-tag-orange">&mdash; MODE OPERASI</span>
-        <h2 class="cyclone-section-title">
-          Bot yang membantu, atau bot yang<br />
-          bekerja sendiri
-        </h2>
-      </div>
-
-      <!-- 2 Cards Grid Sesuai Foto 3 -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Card 1: Attended -->
-        <div class="cyclone-type-card">
-          <div class="mb-4">
-            <span class="cyclone-pill-tag">Attended</span>
-          </div>
-          <h3 class="cyclone-type-title">Asisten di samping tim</h3>
-          <p class="cyclone-type-desc">
-            Diaktifkan oleh staf saat dibutuhkan, membantu di tengah proses yang
-            masih memerlukan keputusan manusia pada titik-titik tertentu.
-          </p>
-          <div class="cyclone-chips-container">
-            <span class="cyclone-chip">Layanan pelanggan</span>
-            <span class="cyclone-chip">Entri data terpandu</span>
-            <span class="cyclone-chip">Pengisian formulir</span>
-          </div>
-        </div>
-
-        <!-- Card 2: Unattended -->
-        <div class="cyclone-type-card cyclone-type-card-orange">
-          <div class="mb-4">
-            <span class="cyclone-pill-tag cyclone-pill-tag-orange"
-              >Unattended</span
-            >
-          </div>
-          <h3 class="cyclone-type-title">Berjalan sepenuhnya mandiri</h3>
-          <p class="cyclone-type-desc">
-            Terjadwal atau terpicu oleh kejadian tertentu, tanpa perlu ditunggu
-            &mdash; cocok untuk volume tinggi dan proses yang menghubungkan
-            banyak sistem sekaligus.
-          </p>
-          <div class="cyclone-chips-container">
-            <span class="cyclone-chip">Pemrosesan faktur</span>
-            <span class="cyclone-chip">Konsolidasi data</span>
-            <span class="cyclone-chip">Integrasi antar sistem</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       BAGIAN 3 LANJUTAN (FOTO 3): SIAPA YANG MEMAKAI (6 KOTAK INDUSTRI)
-       ========================================================================= -->
-  <section class="cyclone-section-industries bg-white text-slate-900">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="mb-12">
-        <span class="cyclone-tag-orange">&mdash; SIAPA YANG MEMAKAI</span>
-        <h2 class="cyclone-section-title">
-          Dipakai lintas industri, di proses yang<br />
-          volumenya tinggi dan berulang
-        </h2>
-      </div>
-
-      <!-- 6 Industry Cards Grid Sesuai Foto 3 -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Industry 1: Keuangan & Perbankan -->
-        <div class="cyclone-industry-card">
-          <div class="cyclone-industry-icon">
-            <svg
-              class="w-5 h-5 text-orange-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-              ></path>
-            </svg>
-          </div>
-          <h3 class="cyclone-industry-name">Keuangan &amp; Perbankan</h3>
-          <ul class="cyclone-industry-list">
-            <li>&mdash;Pemrosesan faktur &amp; hutang vendor</li>
-            <li>&mdash;Rekonsiliasi akun antar sistem</li>
-          </ul>
-        </div>
-
-        <!-- Industry 2: Manufaktur -->
-        <div class="cyclone-industry-card">
-          <div class="cyclone-industry-icon">
-            <svg
-              class="w-5 h-5 text-orange-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-          </div>
-          <h3 class="cyclone-industry-name">Manufaktur</h3>
-          <ul class="cyclone-industry-list">
-            <li>&mdash;Pembaruan stok &amp; laporan gudang</li>
-            <li>&mdash;Kompilasi data kontrol kualitas</li>
-          </ul>
-        </div>
-
-        <!-- Industry 3: Retail & Distribusi -->
-        <div class="cyclone-industry-card">
-          <div class="cyclone-industry-icon">
-            <svg
-              class="w-5 h-5 text-orange-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-            </svg>
-          </div>
-          <h3 class="cyclone-industry-name">Retail &amp; Distribusi</h3>
-          <ul class="cyclone-industry-list">
-            <li>&mdash;Input pesanan dari email/portal</li>
-            <li>&mdash;Pembuatan Sales Order ke ERP</li>
-          </ul>
-        </div>
-
-        <!-- Industry 4: Logistik -->
-        <div class="cyclone-industry-card">
-          <div class="cyclone-industry-icon">
-            <svg
-              class="w-5 h-5 text-orange-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-            </svg>
-          </div>
-          <h3 class="cyclone-industry-name">Logistik</h3>
-          <ul class="cyclone-industry-list">
-            <li>&mdash;Pembaruan status pengiriman</li>
-            <li>&mdash;Proses retur barang &amp; dokumen</li>
-          </ul>
-        </div>
-
-        <!-- Industry 5: Kesehatan -->
-        <div class="cyclone-industry-card">
-          <div class="cyclone-industry-icon">
-            <svg
-              class="w-5 h-5 text-orange-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              ></path>
-            </svg>
-          </div>
-          <h3 class="cyclone-industry-name">Kesehatan</h3>
-          <ul class="cyclone-industry-list">
-            <li>&mdash;Input data rekam medis pasien</li>
-            <li>&mdash;Verifikasi klaim asuransi</li>
-          </ul>
-        </div>
-
-        <!-- Industry 6: Telekomunikasi -->
-        <div class="cyclone-industry-card">
-          <div class="cyclone-industry-icon">
-            <svg
-              class="w-5 h-5 text-orange-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a11.042 11.042 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
-          </div>
-          <h3 class="cyclone-industry-name">Telekomunikasi</h3>
-          <ul class="cyclone-industry-list">
-            <li>&mdash;Aktivasi &amp; verifikasi pelanggan baru</li>
-            <li>&mdash;Distribusi tagihan bulanan</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       BAGIAN 4 (FOTO 4): DAMPAK YANG BISA DIUKUR (DARK THEME)
-       ========================================================================= -->
-  <section class="cyclone-section-stats text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="mb-12">
-        <span class="cyclone-tag-orange-dark"
-          >&mdash; DAMPAK YANG BISA DIUKUR</span
-        >
-        <h2 class="cyclone-stats-title">
-          Yang berubah setelah proses berulang<br />
-          dipegang robot
-        </h2>
-      </div>
-
-      <!-- Single Dark Rounded Box Container dengan 4 Kolom Sesuai Foto 4 -->
-      <div class="cyclone-stats-box">
-        <!-- Col 1 -->
-        <div class="cyclone-stat-column">
-          <span class="cyclone-stat-num">&plusmn;60%</span>
-          <p class="cyclone-stat-label">
-            penghematan biaya operasional pada proses yang diotomasi
-          </p>
-        </div>
-
-        <!-- Col 2 -->
-        <div class="cyclone-stat-column">
-          <span class="cyclone-stat-num">&plusmn;80%</span>
-          <p class="cyclone-stat-label">
-            peningkatan produktivitas pada pekerjaan berulang
-          </p>
-        </div>
-
-        <!-- Col 3 -->
-        <div class="cyclone-stat-column">
-          <span class="cyclone-stat-num">~0</span>
-          <p class="cyclone-stat-label">
-            human error pada proses yang sudah terdefinisi dengan baik
-          </p>
-        </div>
-
-        <!-- Col 4 -->
-        <div class="cyclone-stat-column">
-          <span class="cyclone-stat-num">7&times;24</span>
-          <p class="cyclone-stat-label">
-            jam operasional tanpa tambahan headcount
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       BAGIAN 4 LANJUTAN (FOTO 4): STUDI KASUS (DARI EMAIL MASUK SAMPAI SO JADI)
-       ========================================================================= -->
-  <section
-    id="alur-kerja"
-    class="cyclone-section-casestudy bg-white text-slate-900 border-b border-slate-100"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
-        <!-- Col Left: Story narrative Sesuai Foto 2 (7 Kolom) -->
-        <div class="lg:col-span-7">
-          <span class="cyclone-tag-orange">STUDI KASUS</span>
-          <h2
-            class="text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-5"
-          >
-            Dari email masuk sampai Sales<br class="hidden sm:inline" />
-            Order jadi, tanpa disentuh<br class="hidden sm:inline" />
-            tangan
-          </h2>
-          <div
-            class="space-y-4 text-sm sm:text-[14px] text-slate-600 leading-relaxed max-w-2xl"
-          >
-            <p>
-              Sebuah perusahaan distribusi menerima Purchase Order dari puluhan
-              pelanggan setiap hari, lewat email dan portal, dengan format yang
-              berbeda-beda. Tim harus membaca satu per satu, mencocokkan item ke
-              database, lalu memasukkannya manual ke SAP &mdash; pekerjaan yang
-              menyita jam kerja dan rawan salah input.
-            </p>
-            <p>
-              Dengan Cyclone dipadukan AI OCR, seluruh alur ini berjalan
-              otomatis dari dokumen masuk sampai Sales Order terbit di SAP
-              &mdash; tim cukup meninjau hasil akhirnya.
-            </p>
-          </div>
-        </div>
-
-        <!-- Col Right: 7 List Items dengan Lingkaran Orange & Angka 01-07 Sesuai Foto 2 (5 Kolom) -->
-        <div class="lg:col-span-5 pt-2 lg:pt-6">
-          <ul class="cyclone-case-steps">
-            <!-- Step 1 -->
-            <li class="cyclone-case-item">
-              <span class="cyclone-case-circle"></span>
-              <span class="cyclone-case-num">01</span>
-              <span class="cyclone-case-text"
-                >PO masuk lewat email atau portal pelanggan</span
-              >
-            </li>
-
-            <!-- Step 2 -->
-            <li class="cyclone-case-item">
-              <span class="cyclone-case-circle"></span>
-              <span class="cyclone-case-num">02</span>
-              <span class="cyclone-case-text"
-                >Bot mengambil dokumen secara otomatis dari inbox</span
-              >
-            </li>
-
-            <!-- Step 3 -->
-            <li class="cyclone-case-item">
-              <span class="cyclone-case-circle"></span>
-              <span class="cyclone-case-num">03</span>
-              <span class="cyclone-case-text"
-                >AI OCR membaca dan mengekstrak isi PO</span
-              >
-            </li>
-
-            <!-- Step 4 -->
-            <li class="cyclone-case-item">
-              <span class="cyclone-case-circle"></span>
-              <span class="cyclone-case-num">04</span>
-              <span class="cyclone-case-text"
-                >Item dicocokkan ke database master</span
-              >
-            </li>
-
-            <!-- Step 5 -->
-            <li class="cyclone-case-item">
-              <span class="cyclone-case-circle"></span>
-              <span class="cyclone-case-num">05</span>
-              <span class="cyclone-case-text"
-                >Data order divalidasi secara otomatis</span
-              >
-            </li>
-
-            <!-- Step 6 -->
-            <li class="cyclone-case-item">
-              <span class="cyclone-case-circle"></span>
-              <span class="cyclone-case-num">06</span>
-              <span class="cyclone-case-text"
-                >Sales Order dibuat langsung di SAP</span
-              >
-            </li>
-
-            <!-- Step 7 -->
-            <li class="cyclone-case-item">
-              <span class="cyclone-case-circle"></span>
-              <span class="cyclone-case-num">07</span>
-              <span class="cyclone-case-text"
-                >Notifikasi selesai dikirim ke tim terkait</span
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       BAGIAN 5: DI IKUTI CTA FORM (UNIFIED CONSULTATION CTA TEMPLATE)
-       ========================================================================= -->
-  <ConsultationCta defaultProduct="cyclone" />
+    <!-- SECTION 8: CONSULTATION CTA -->
+    <ConsultationCta defaultProduct="cyclone" theme="cyclone" />
   </div>
-
-  <!-- =========================================================================
-       SCOPED CSS RULES: 100% KONSISTEN DENGAN 4 FOTO REFERENSI
-       ========================================================================= -->
-  <style>
-    /* Global Cyclone Base */
-    .cyclone-dark-hero {
-      background-color: #0c1017;
-      font-family:
-        "Plus Jakarta Sans",
-        system-ui,
-        -apple-system,
-        sans-serif;
-    }
-
-    /* 1. Hero Section Spacing Sesuai Foto 1 */
-    .cyclone-hero-section {
-      position: relative !important;
-      text-align: center !important;
-      padding-top: 130px !important;
-      padding-bottom: 48px !important;
-      background: radial-gradient(
-        ellipse 80% 55% at 50% -10%,
-        #431407 0%,
-        #0c1017 70%
-      ) !important;
-    }
-
-    @media (max-width: 768px) {
-      .cyclone-hero-section {
-        padding-top: 85px !important;
-        padding-bottom: 32px !important;
-      }
-    }
-
-    .cyclone-hero-glow {
-      position: absolute;
-      top: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 420px;
-      background: rgba(234, 88, 12, 0.18);
-      filter: blur(140px);
-      border-radius: 9999px;
-      pointer-events: none;
-    }
-
-    /* Badge Hero Sesuai Foto 1 */
-    .cyclone-badge {
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 8px !important;
-      padding: 6px 18px !important;
-      border-radius: 9999px !important;
-      background-color: rgba(67, 20, 7, 0.4) !important;
-      border: 1px solid rgba(234, 88, 12, 0.45) !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-      margin-bottom: 28px !important;
-      backdrop-filter: blur(8px) !important;
-    }
-
-    .cyclone-badge-dot {
-      color: #ea580c;
-      font-size: 14px;
-      line-height: 1;
-    }
-
-    .cyclone-badge-text {
-      color: #ea580c;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    /* Typography Hero (Mengikuti Skala Home 3xl–5xl) */
-    .cyclone-hero-title {
-      font-size: clamp(1.875rem, 4vw, 3rem) !important;
-      font-weight: 900 !important;
-      line-height: 1.15 !important;
-      letter-spacing: -0.03em !important;
-      color: #ffffff !important;
-      margin-bottom: 22px !important;
-    }
-
-    .cyclone-title-line {
-      display: block !important;
-    }
-
-    .cyclone-text-orange {
-      color: #ea580c !important;
-      white-space: nowrap !important;
-    }
-
-    .cyclone-hero-subtitle {
-      font-size: clamp(0.875rem, 1.5vw, 1rem) !important;
-      color: #94a3b8 !important;
-      max-width: 660px !important;
-      margin: 0 auto 30px auto !important;
-      line-height: 1.65 !important;
-    }
-
-    /* CTA Buttons Sesuai Foto 1 */
-    .cyclone-btn-group {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 14px !important;
-      flex-wrap: wrap !important;
-    }
-
-    .cyclone-btn-primary {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 13px 32px !important;
-      border-radius: 8px !important;
-      background: #ea580c !important;
-      color: #ffffff !important;
-      font-size: 14px !important;
-      font-weight: 700 !important;
-      text-decoration: none !important;
-      box-shadow: 0 4px 20px rgba(234, 88, 12, 0.45) !important;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    }
-
-    .cyclone-btn-primary:hover {
-      background: #c2410c !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 25px rgba(234, 88, 12, 0.6) !important;
-    }
-
-    .cyclone-btn-secondary {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 8px !important;
-      padding: 13px 26px !important;
-      border-radius: 8px !important;
-      background: #1e293b !important;
-      border: 1px solid #334155 !important;
-      color: #e2e8f0 !important;
-      font-size: 14px !important;
-      font-weight: 600 !important;
-      text-decoration: none !important;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    }
-
-    .cyclone-btn-secondary:hover {
-      background: #334155 !important;
-      color: #ffffff !important;
-    }
-
-    /* Floating Dashboard Card: Strip Hitam 20% di atas gambar, 80% putih */
-    .cyclone-mockup-section {
-      background-color: #ffffff;
-    }
-
-    .cyclone-mockup-bg-black {
-      height: 135px;
-      background-color: #0c1017;
-    }
-
-    @media (max-width: 1023px) {
-      .cyclone-mockup-bg-black {
-        height: calc((100vw - 32px) * 0.116);
-      }
-    }
-
-    .cyclone-dashboard-card {
-      background-color: #0b1120;
-      border-radius: 18px;
-      padding: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75);
-    }
-
-    /* General Tags & Titles (Mengikuti Skala Home 2xl–3xl) */
-    .cyclone-tag-orange {
-      color: #ea580c;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .cyclone-tag-orange-dark {
-      color: #ea580c;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 14px;
-    }
-
-    .cyclone-section-title {
-      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.25;
-      color: #0f172a;
-    }
-
-    .cyclone-section-subtitle {
-      color: #64748b;
-      font-size: clamp(0.875rem, 1.4vw, 1rem);
-      max-width: 620px;
-      line-height: 1.6;
-      margin-top: 10px;
-    }
-
-    /* 2. Problems Section Sesuai Foto 2 */
-    .cyclone-section-problems {
-      padding-top: 50px;
-      padding-bottom: 90px;
-    }
-
-    @media (max-width: 768px) {
-      .cyclone-section-problems {
-        padding-top: 36px;
-        padding-bottom: 60px;
-      }
-    }
-
-    .cyclone-problem-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.03);
-      transition: all 0.2s ease;
-    }
-
-    .cyclone-problem-card:hover {
-      border-color: #cbd5e1;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
-      transform: translateY(-2px);
-    }
-
-    .cyclone-problem-icon-wrapper {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background-color: #ffedd5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .cyclone-number-badge {
-      font-size: 15px;
-      font-weight: 700;
-      color: #cbd5e1;
-      font-family:
-        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    }
-
-    .cyclone-card-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 8px;
-      line-height: 1.35;
-    }
-
-    .cyclone-card-desc {
-      font-size: 13.5px;
-      color: #64748b;
-      line-height: 1.6;
-    }
-
-    /* 3. Modules Section Sesuai Foto 2 */
-    .cyclone-section-modules {
-      padding: 56px 16px 72px;
-    }
-
-    .cyclone-modules-stack {
-      border-top: 1px solid #e2e8f0;
-    }
-
-    .cyclone-module-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 30px 0;
-      border-bottom: 1px solid #e2e8f0;
-      align-items: baseline;
-    }
-
-    @media (min-width: 768px) {
-      .cyclone-module-row {
-        grid-template-columns: 60px 240px 1fr;
-        gap: 24px;
-      }
-    }
-
-    .cyclone-module-col-num {
-      font-size: 12px;
-      font-weight: 700;
-      color: #ea580c;
-      font-family: ui-monospace, monospace;
-    }
-
-    .cyclone-module-col-title {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .cyclone-module-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: #0f172a;
-      line-height: 1.2;
-    }
-
-    .cyclone-module-role {
-      font-size: 11px;
-      color: #94a3b8;
-      font-weight: 500;
-      text-transform: capitalize;
-    }
-
-    .cyclone-module-desc {
-      font-size: 13.5px;
-      color: #475569;
-      line-height: 1.65;
-    }
-
-    /* 4. Types Section Sesuai Foto 3 */
-    .cyclone-section-types {
-      padding: 56px 16px 72px;
-    }
-
-    .cyclone-type-card {
-      background-color: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 18px;
-      padding: 34px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 250px;
-    }
-
-    .cyclone-type-card-orange {
-      background-color: #fffaf5;
-      border-color: #fed7aa;
-    }
-
-    .cyclone-pill-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 9999px;
-      background-color: #f1f5f9;
-      color: #64748b;
-    }
-
-    .cyclone-pill-tag-orange {
-      background-color: #ffedd5;
-      color: #c2410c;
-    }
-
-    .cyclone-type-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 10px;
-    }
-
-    .cyclone-type-desc {
-      font-size: 13.5px;
-      color: #64748b;
-      line-height: 1.65;
-      margin-bottom: 22px;
-    }
-
-    .cyclone-chips-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .cyclone-chip {
-      font-size: 11px;
-      color: #475569;
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      padding: 4px 12px;
-      border-radius: 9999px;
-      font-weight: 500;
-    }
-
-    /* 5. Industries Section Sesuai Foto 3 */
-    .cyclone-section-industries {
-      padding: 56px 16px 72px;
-    }
-
-    .cyclone-industry-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 26px;
-      transition: all 0.2s ease;
-    }
-
-    .cyclone-industry-card:hover {
-      border-color: #cbd5e1;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    .cyclone-industry-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background-color: #ffedd5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    .cyclone-industry-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 10px;
-    }
-
-    .cyclone-industry-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .cyclone-industry-list li {
-      font-size: 13px;
-      color: #64748b;
-      line-height: 1.55;
-    }
-
-    /* 6. Stats Section Sesuai Foto 4 */
-    .cyclone-section-stats {
-      background-color: #0c1017;
-      padding: 60px 16px 72px;
-      border-top: 1px solid #1e293b;
-      border-bottom: 1px solid #1e293b;
-    }
-
-    .cyclone-stats-title {
-      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.25;
-      color: #ffffff;
-    }
-
-    .cyclone-stats-box {
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background-color: rgba(255, 255, 255, 0.02);
-      border-radius: 16px;
-      display: grid;
-      grid-template-columns: 1fr;
-      overflow: hidden;
-    }
-
-    @media (min-width: 640px) {
-      .cyclone-stats-box {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .cyclone-stats-box {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .cyclone-stat-column {
-      padding: 32px 24px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    @media (min-width: 640px) {
-      .cyclone-stat-column:nth-child(odd) {
-        border-right: 1px solid rgba(255, 255, 255, 0.08);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .cyclone-stat-column {
-        border-bottom: none;
-        border-right: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      .cyclone-stat-column:last-child {
-        border-right: none;
-      }
-    }
-
-    .cyclone-stat-num {
-      font-size: clamp(2.25rem, 4.5vw, 3rem);
-      font-weight: 900;
-      color: #ea580c;
-      line-height: 1.1;
-      margin-bottom: 10px;
-      font-family:
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        sans-serif;
-    }
-
-    .cyclone-stat-label {
-      font-size: 13px;
-      color: #94a3b8;
-      line-height: 1.55;
-    }
-
-    /* 7. Case Study Section Sesuai Foto 2 */
-    .cyclone-section-casestudy {
-      padding: 64px 16px 80px;
-    }
-
-    @media (min-width: 768px) {
-      .cyclone-section-casestudy {
-        padding: 72px 16px 96px;
-      }
-    }
-
-    .cyclone-case-steps {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    @media (min-width: 640px) {
-      .cyclone-case-steps {
-        gap: 22px;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .cyclone-case-steps {
-        gap: 24px;
-      }
-    }
-
-    .cyclone-case-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .cyclone-case-circle {
-      width: 11px;
-      height: 11px;
-      border-radius: 9999px;
-      border: 2px solid #ea580c;
-      background-color: transparent;
-      flex-shrink: 0;
-    }
-
-    .cyclone-case-num {
-      font-size: 12px;
-      color: #94a3b8;
-      font-family: ui-monospace, monospace;
-      font-weight: 600;
-      flex-shrink: 0;
-      width: 22px;
-    }
-
-    .cyclone-case-text {
-      font-size: 13.5px;
-      font-weight: 500;
-      color: #334155;
-      line-height: 1.45;
-    }
-
-    @media (min-width: 640px) {
-      .cyclone-case-text {
-        font-size: 14px;
-      }
-    }
-  </style>
-
 </PageLayout>
+
+<style>
+  .cyclone-page {
+    --or: #f4511e;
+    --or2: #d93f0d;
+    --bg: #ffffff;
+    --bg2: #fff0e8;
+    --ink: #111111;
+    --mut: #6f6f6f;
+    --line: #ececec;
+    --card: #ffffff;
+    --ic: #fff0e8;
+    box-sizing: border-box;
+    font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 14px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .cyclone-page *,
+  .cyclone-page *::before,
+  .cyclone-page *::after {
+    box-sizing: inherit;
+  }
+
+  .cyclone-page h1,
+  .cyclone-page h2,
+  .cyclone-page h3,
+  .cyclone-page h4,
+  .cyclone-page p {
+    margin: 0;
+  }
+
+  .cyclone-page a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .cyclone-page svg.i {
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: none;
+  }
+
+  .cyclone-page .w {
+    width: min(1120px, 100% - 48px);
+    margin-inline: auto;
+  }
+
+  .cyclone-page section {
+    padding: 72px 0;
+  }
+
+  .cyclone-page .mono,
+  .cyclone-page .eb {
+    font-family: "Space Mono", ui-monospace, monospace;
+  }
+
+  .cyclone-page .eb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: .08em;
+    color: var(--or);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .cyclone-page .eb::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--or);
+  }
+
+  .cyclone-page h2 {
+    font-size: clamp(26px, 3.4vw, 36px);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    max-width: 24em;
+  }
+
+  .cyclone-page h2 em {
+    font-style: normal;
+    color: var(--or);
+    display: block;
+  }
+
+  .cyclone-page .sub {
+    color: var(--mut);
+    max-width: 62ch;
+    margin-top: 14px;
+    font-size: 13.5px;
+  }
+
+  .cyclone-page .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 24px;
+    border-radius: 99px;
+    font: 600 14px "Space Grotesk", sans-serif;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .cyclone-page .btn.o {
+    background: var(--or);
+    color: #fff;
+  }
+
+  .cyclone-page .btn.o:hover {
+    background: var(--or2);
+  }
+
+  /* HERO */
+  .cyclone-page .hero {
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(18% 28% at 60% 38%, rgba(150,98,76,.75), transparent 70%),
+      radial-gradient(16% 26% at 78% 14%, rgba(190,120,92,.7), transparent 70%),
+      radial-gradient(22% 30% at 92% 42%, rgba(60,90,140,.55), transparent 70%),
+      radial-gradient(25% 30% at 70% 80%, rgba(120,70,50,.6), transparent 70%),
+      #0d0e13;
+  }
+
+  .cyclone-page .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(8,8,12,.85) 0, rgba(8,8,12,.55) 50%, rgba(8,8,12,.3) 100%);
+  }
+
+  .cyclone-page .hero > .w,
+  .cyclone-page .hero > .strip {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cyclone-page .hg {
+    display: grid;
+    grid-template-columns: 1fr 1.02fr;
+    gap: 36px;
+    align-items: start;
+    padding: 120px 0 70px;
+  }
+
+  .cyclone-page .hero h1 {
+    font-size: clamp(32px, 4.9vw, 46px);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -.015em;
+  }
+
+  .cyclone-page .hero .l {
+    margin-top: 20px;
+    color: #e2e2e6;
+    max-width: 30ch;
+    font-size: 14.5px;
+  }
+
+  .cyclone-page .stats {
+    display: inline-flex;
+    margin-top: 34px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 14px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(8px);
+    padding: 14px 6px;
+    flex-wrap: wrap;
+  }
+
+  .cyclone-page .stats div {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    padding: 0 16px;
+    font-size: 11px;
+    color: #c9c9cf;
+    border-right: 1px solid rgba(255,255,255,.18);
+  }
+
+  .cyclone-page .stats div:last-child {
+    border: 0;
+  }
+
+  .cyclone-page .stats svg {
+    font-size: 17px;
+    color: var(--or);
+  }
+
+  .cyclone-page .stats b {
+    display: block;
+    color: #fff;
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  .cyclone-page .cta {
+    display: flex;
+    gap: 12px;
+    margin-top: 62px;
+    flex-wrap: wrap;
+  }
+
+  .cyclone-page .cta .w1 {
+    background: #fff;
+    color: var(--or);
+    padding: 0 6px 0 22px;
+    font-weight: 600;
+  }
+
+  .cyclone-page .cta .w1 i {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--or);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-style: normal;
+  }
+
+  .cyclone-page .cta .gh {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.22);
+    color: #fff;
+  }
+
+  .cyclone-page .dwrap {
+    position: relative;
+    padding-top: 14px;
+  }
+
+  .cyclone-page .dash {
+    font-size: clamp(5px, .88vw, 8.4px);
+    line-height: 1.35;
+    background: #fff;
+    color: #222;
+    border-radius: .9em;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0,0,0,.5);
+    display: grid;
+    grid-template-columns: 12em 1fr;
+    font-family: "Inter", "Space Grotesk", sans-serif;
+  }
+
+  .cyclone-page .dt {
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    gap: 1.4em;
+    padding: .9em 1.2em;
+    border-bottom: 1px solid #eee;
+  }
+
+  .cyclone-page .dt .dots i {
+    display: inline-block;
+    width: .8em;
+    height: .8em;
+    border-radius: 50%;
+    margin-right: .45em;
+  }
+
+  .cyclone-page .dt b {
+    letter-spacing: .04em;
+  }
+
+  .cyclone-page .dt .tab {
+    padding-bottom: .5em;
+    border-bottom: 2px solid #2b5de0;
+    margin-bottom: -.9em;
+    color: #2b5de0;
+  }
+
+  .cyclone-page .dt .r {
+    margin-left: auto;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .cyclone-page .dt .av {
+    background: #2b5de0;
+    color: #fff;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: grid;
+    place-items: center;
+    font-size: .8em;
+  }
+
+  .cyclone-page .sd {
+    padding: .9em;
+    display: grid;
+    gap: .4em;
+    align-content: start;
+    min-height: 25em;
+    border-right: 1px solid #f0f0f0;
+  }
+
+  .cyclone-page .sd span {
+    padding: .8em 1em;
+    border-radius: .5em;
+  }
+
+  .cyclone-page .sd .on {
+    background: #2b5de0;
+    color: #fff;
+  }
+
+  .cyclone-page .mn {
+    padding: 1em;
+    background: #f6f7f9;
+  }
+
+  .cyclone-page .k4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .8em;
+  }
+
+  .cyclone-page .kc {
+    background: #fff;
+    border-radius: .7em;
+    padding: .9em;
+    border: 1px solid #eee;
+  }
+
+  .cyclone-page .kc h5 {
+    margin: 0;
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cyclone-page .kc h5 u {
+    text-decoration: none;
+    color: #2b5de0;
+    font-weight: 400;
+  }
+
+  .cyclone-page .kc .n {
+    font-size: 3.2em;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-top: .3em;
+  }
+
+  .cyclone-page .kc small {
+    display: block;
+    color: #888;
+    font-size: .85em;
+  }
+
+  .cyclone-page .kc .row {
+    display: flex;
+    gap: .6em;
+    align-items: center;
+    margin-top: .7em;
+  }
+
+  .cyclone-page .ring {
+    width: 4.6em;
+    height: 4.6em;
+    border-radius: 50%;
+    flex: none;
+    background: conic-gradient(var(--a) 0 var(--p), var(--b) var(--p) 100%);
+    -webkit-mask: radial-gradient(circle, transparent 55%, #000 56%);
+    mask: radial-gradient(circle, transparent 55%, #000 56%);
+  }
+
+  .cyclone-page .lg {
+    display: grid;
+    gap: .3em;
+    font-size: .85em;
+  }
+
+  .cyclone-page .lg i {
+    border: 1px solid #ccc;
+    border-radius: 2em;
+    padding: 0 .8em;
+    font-style: normal;
+  }
+
+  .cyclone-page .op {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: .7em;
+    margin-top: .8em;
+    padding: .9em;
+  }
+
+  .cyclone-page .op .f {
+    display: flex;
+    gap: .8em;
+    margin: .7em 0;
+    color: #777;
+  }
+
+  .cyclone-page .op .f span {
+    border: 1px solid #ddd;
+    border-radius: .4em;
+    padding: .4em 1em;
+    flex: 1;
+  }
+
+  .cyclone-page .op .f .b {
+    background: #2b5de0;
+    color: #fff;
+    flex: none;
+  }
+
+  .cyclone-page .op svg {
+    width: 100%;
+    height: 9em;
+    display: block;
+  }
+
+  .cyclone-page .cap {
+    font-size: 10.5px;
+    color: #cfcfd5;
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  .cyclone-page .badge {
+    position: absolute;
+    left: -14%;
+    top: calc(100% - 4px);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 20px 10px 12px;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .cyclone-page .badge i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #2fb872;
+    display: grid;
+    place-items: center;
+    font-style: normal;
+    font-size: 16px;
+  }
+
+  .cyclone-page .badge span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: #d6d6dc;
+  }
+
+  .cyclone-page .strip {
+    border-top: 1px solid rgba(255,255,255,.14);
+    background: rgba(10,10,14,.45);
+    padding: 20px 0 24px;
+    text-align: center;
+    font-size: 12.5px;
+    color: #d9d9de;
+  }
+
+  .cyclone-page .chips {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .cyclone-page .chips span {
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.06);
+    border-radius: 99px;
+    padding: 3px 14px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cyclone-page .chips span::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--or);
+  }
+
+  /* CARDS */
+  .cyclone-page .g3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 32px;
+  }
+
+  .cyclone-page .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: all 0.2s ease;
+  }
+
+  .cyclone-page .card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    border-color: #ffd9c7;
+  }
+
+  .cyclone-page .card .n {
+    position: absolute;
+    right: 20px;
+    top: 14px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--line);
+  }
+
+  .cyclone-page .ic {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--ic);
+    color: var(--or);
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  .cyclone-page .card h3 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .cyclone-page .card p {
+    font-size: 12px;
+    color: var(--mut);
+    line-height: 1.7;
+  }
+
+  .cyclone-page .rows {
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+  }
+
+  .cyclone-page .row {
+    display: grid;
+    grid-template-columns: 72px 276px 1fr;
+    gap: 0;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+
+  .cyclone-page .row small {
+    color: var(--or);
+    font: 11px "Space Mono", monospace;
+  }
+
+  .cyclone-page .row h3 {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .cyclone-page .row h3 + span {
+    font: 10px "Space Mono", monospace;
+    color: var(--mut);
+    display: block;
+    margin-top: 8px;
+  }
+
+  .cyclone-page .row p {
+    color: var(--mut);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  /* MODES */
+  .cyclone-page .modes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .cyclone-page .mode {
+    border-radius: 8px;
+    padding: 14px 16px 18px;
+    min-height: 125px;
+    color: #fff;
+  }
+
+  .cyclone-page .mode.a {
+    background: #000;
+  }
+
+  .cyclone-page .mode.u {
+    background: var(--or);
+  }
+
+  .cyclone-page .mode .t {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+  }
+
+  .cyclone-page .mode h3 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 500;
+    letter-spacing: -.01em;
+  }
+
+  .cyclone-page .mode .t i {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.14);
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+  }
+
+  .cyclone-page .mode b {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    margin-top: 16px;
+    opacity: .85;
+  }
+
+  .cyclone-page .mode p {
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  /* INDUSTRI */
+  .cyclone-page .ind {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .cyclone-page .ind .card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .cyclone-page .ind .ic {
+    background: none;
+    width: auto;
+    height: auto;
+    justify-content: start;
+    margin-bottom: 18px;
+    font-size: 16px;
+  }
+
+  .cyclone-page .ar {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    display: grid;
+    place-items: center;
+    color: var(--ink);
+    font-size: 14px;
+  }
+
+  .cyclone-page .ind ul {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 14px 0 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 7px;
+    font-size: 11px;
+  }
+
+  .cyclone-page .ind li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .cyclone-page .ind li svg {
+    color: var(--or);
+    font-size: 10px;
+    stroke-width: 3;
+  }
+
+  .cyclone-page .ban {
+    margin-top: 90px;
+    border-radius: 16px;
+    background: radial-gradient(60% 100% at 30% 0, #5c2412 0, transparent 70%), linear-gradient(120deg, #120d0b, #0d0a09);
+    color: #fff;
+    padding: 34px 24px 34px 34px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    align-items: center;
+    border: 1px solid #2a1e18;
+  }
+
+  .cyclone-page .ban small {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.06);
+    border-radius: 99px;
+    padding: 3px 14px;
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+
+  .cyclone-page .ban small::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--or);
+  }
+
+  .cyclone-page .ban h3 {
+    font-size: clamp(24px, 3vw, 28px);
+    font-weight: 600;
+  }
+
+  .cyclone-page .ban p {
+    font-size: 12.5px;
+    color: #cbbcb4;
+    margin: 10px 0 22px;
+    max-width: 46ch;
+  }
+
+  .cyclone-page .ban .btn {
+    background: linear-gradient(180deg, #f4642e, #e8431a);
+    color: #fff;
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .cyclone-page .chk {
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 12px;
+    padding: 18px 22px;
+    background: rgba(255,255,255,.06);
+    font-size: 13px;
+    font-weight: 500;
+    display: grid;
+    gap: 14px;
+  }
+
+  .cyclone-page .chk > small {
+    font: 9px "Space Mono", monospace;
+    letter-spacing: .1em;
+    color: #caa;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
+    display: block;
+  }
+
+  .cyclone-page .chk > small::before {
+    content: none;
+  }
+
+  .cyclone-page .chk div {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .cyclone-page .chk div i {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e8431a;
+    display: grid;
+    place-items: center;
+    font-size: 10px;
+    font-style: normal;
+  }
+
+  /* DAMPAK */
+  .cyclone-page .q {
+    border-left: 1px solid var(--line);
+    padding-left: 12px;
+    margin-top: 16px;
+    max-width: none;
+    font-size: 11px;
+    color: var(--mut);
+  }
+
+  .cyclone-page .bento {
+    display: grid;
+    grid-template-columns: 1.12fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .cyclone-page .bc {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    background: var(--card);
+    position: relative;
+  }
+
+  .cyclone-page .bc .m {
+    display: flex;
+    justify-content: space-between;
+    font: 9px "Space Mono", monospace;
+    letter-spacing: .06em;
+    color: var(--mut);
+    margin-bottom: 10px;
+  }
+
+  .cyclone-page .bc .big {
+    font-size: clamp(46px, 6.2vw, 64px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+  }
+
+  .cyclone-page .bc .big small {
+    font-size: .32em;
+    font-weight: 500;
+    margin-left: .6em;
+    letter-spacing: 0;
+  }
+
+  .cyclone-page .bc h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 6px 0 2px;
+  }
+
+  .cyclone-page .bc p {
+    font-size: 11px;
+    color: var(--mut);
+  }
+
+  .cyclone-page .bc.or {
+    background: var(--or);
+    color: #fff;
+    border: 0;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    min-height: 440px;
+  }
+
+  .cyclone-page .bc.or .m,
+  .cyclone-page .bc.or p {
+    color: rgba(255,255,255,.8);
+  }
+
+  .cyclone-page .bc.or .big {
+    font-size: clamp(70px, 10vw, 96px);
+    margin-top: 14px;
+  }
+
+  .cyclone-page .cmp {
+    margin-top: auto;
+    display: grid;
+    gap: 10px;
+    font: 8px "Space Mono", monospace;
+  }
+
+  .cyclone-page .cmp div {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .cyclone-page .cmp .tr {
+    height: 14px;
+    background: rgba(255,255,255,.35);
+    border-radius: 3px;
+    position: relative;
+    display: block;
+  }
+
+  .cyclone-page .cmp .tr i {
+    position: absolute;
+    right: 6px;
+    top: 2px;
+    font-style: normal;
+  }
+
+  .cyclone-page .cmp .tr.s {
+    background: rgba(255,255,255,.35);
+  }
+
+  .cyclone-page .cmp .tr.s u {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 68%;
+    background: #fff;
+    border-radius: 3px;
+    color: var(--or);
+    text-decoration: none;
+    text-align: right;
+    padding-right: 6px;
+    line-height: 14px;
+  }
+
+  .cyclone-page .cmp .tr.s i {
+    right: 6px;
+  }
+
+  .cyclone-page .cmp .note {
+    display: block;
+    color: rgba(255,255,255,.85);
+    margin-top: 2px;
+  }
+
+  .cyclone-page .chip {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    font: 8px "Space Mono", monospace;
+    letter-spacing: .06em;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin-top: 12px;
+    color: var(--mut);
+  }
+
+  .cyclone-page .chip::before {
+    content: "";
+    width: 6px;
+    height: 4px;
+    background: var(--or);
+    border-radius: 1px;
+  }
+
+  .cyclone-page .or .chip {
+    border-color: rgba(255,255,255,.3);
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    margin-top: 18px;
+    align-self: flex-start;
+  }
+
+  .cyclone-page .or .chip::before {
+    background: #fff;
+  }
+
+  .cyclone-page .bl {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    gap: 3px;
+    margin-top: 12px;
+  }
+
+  .cyclone-page .bl i {
+    height: 7px;
+    border-radius: 2px;
+    background: var(--or);
+  }
+
+  .cyclone-page .bl i.p {
+    opacity: .3;
+  }
+
+  .cyclone-page .bl i.q2 {
+    opacity: .55;
+  }
+
+  .cyclone-page .seg {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    gap: 2px;
+    margin-top: 14px;
+  }
+
+  .cyclone-page .seg i {
+    height: 14px;
+    border-radius: 2px;
+    background: var(--or);
+  }
+
+  .cyclone-page .seg i.e {
+    background: var(--line);
+  }
+
+  .cyclone-page .ax {
+    display: flex;
+    justify-content: space-between;
+    font: 8px "Space Mono", monospace;
+    color: var(--mut);
+    margin-top: 4px;
+  }
+
+  .cyclone-page .b2 {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .cyclone-page .bc.cr {
+    background: var(--bg2);
+    border: 1px solid #ffd9c7;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .cyclone-page .sq {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    width: 130px;
+  }
+
+  .cyclone-page .sq i {
+    height: 16px;
+    border-radius: 3px;
+    background: var(--or);
+  }
+
+  .cyclone-page .cr .big {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .cyclone-page .cr p {
+    font-size: 9px;
+    font-family: "Space Mono", monospace;
+  }
+
+  .cyclone-page .rf {
+    font-size: 9.5px;
+    color: var(--mut);
+    margin-top: 26px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    line-height: 1.6;
+  }
+
+  /* FLOW */
+  .cyclone-page .flow h2 {
+    font-family: "Poppins", "Space Grotesk", sans-serif;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .cyclone-page .flow .eb::before {
+    height: 2px;
+  }
+
+  .cyclone-page .flow .sub {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+  }
+
+  .cyclone-page .stage {
+    position: relative;
+    max-width: 700px;
+    aspect-ratio: 700/590;
+    margin: 34px auto 0;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .cyclone-page .stage > svg.rb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cyclone-page .fs {
+    position: absolute;
+    width: 27%;
+  }
+
+  .cyclone-page .fs svg.pl {
+    width: calc(120/210*100%);
+    display: block;
+    overflow: visible;
+    margin-left: 0;
+  }
+
+  .cyclone-page .fs small {
+    display: block;
+    font: 8.5px "Space Mono", monospace;
+    color: var(--or);
+    letter-spacing: .04em;
+    margin-top: 2px;
+  }
+
+  .cyclone-page .fs em {
+    display: block;
+    font: normal 8px "Space Mono", monospace;
+    color: var(--mut);
+    letter-spacing: .04em;
+  }
+
+  .cyclone-page .fs h3 {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-top: 6px;
+    max-width: 11em;
+  }
+
+  .cyclone-page .fs p {
+    font-size: 10px;
+    color: var(--mut);
+    margin-top: 6px;
+    max-width: 12em;
+  }
+
+  .cyclone-page .fs:nth-of-type(1) { left: 1%; top: .8%; }
+  .cyclone-page .fs:nth-of-type(2) { left: 25.3%; top: 17%; }
+  .cyclone-page .fs:nth-of-type(3) { left: 48.1%; top: .8%; }
+  .cyclone-page .fs:nth-of-type(4) { left: 71%; top: 16.1%; }
+  .cyclone-page .fs:nth-of-type(5) { left: 71.7%; top: 47.5%; }
+  .cyclone-page .fs:nth-of-type(6) { left: 48.1%; top: 62.7%; }
+  .cyclone-page .fs:nth-of-type(7) { left: 25.3%; top: 47.5%; }
+  .cyclone-page .fs:nth-of-type(8) { left: 1%; top: 62.7%; }
+
+  /* RESPONSIVE: TABLET */
+  @media (max-width: 980px) {
+    .cyclone-page section {
+      padding: 56px 0;
+    }
+    .cyclone-page .hg {
+      grid-template-columns: 1fr;
+      padding: 80px 0 80px;
+      gap: 44px;
+    }
+    .cyclone-page .dash {
+      font-size: clamp(6px, 1.35vw, 9px);
+    }
+    .cyclone-page .badge {
+      left: 12px;
+    }
+    .cyclone-page .cta {
+      margin-top: 36px;
+    }
+    .cyclone-page .g3,
+    .cyclone-page .ind {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cyclone-page .bento,
+    .cyclone-page .b2,
+    .cyclone-page .ban {
+      grid-template-columns: 1fr;
+    }
+    .cyclone-page .bc.or {
+      grid-row: auto;
+      min-height: 360px;
+    }
+    .cyclone-page .row {
+      grid-template-columns: 44px 1fr;
+      row-gap: 8px;
+    }
+    .cyclone-page .row p {
+      grid-column: 2;
+    }
+    .cyclone-page .ban {
+      margin-top: 50px;
+    }
+  }
+
+  @media (max-width: 780px) {
+    .cyclone-page .stage {
+      aspect-ratio: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 18px;
+      max-width: none;
+    }
+    .cyclone-page .stage > svg.rb {
+      display: none;
+    }
+    .cyclone-page .fs {
+      position: static !important;
+      width: auto !important;
+    }
+    .cyclone-page .fs svg.pl {
+      width: 130px;
+    }
+  }
+
+  /* RESPONSIVE: HP / MOBILE */
+  @media (max-width: 600px) {
+    .cyclone-page .w {
+      width: calc(100% - 32px);
+    }
+    .cyclone-page section {
+      padding: 44px 0;
+    }
+    .cyclone-page .hg {
+      padding: 56px 0 76px;
+    }
+    .cyclone-page .dash {
+      font-size: 1.9vw;
+      grid-template-columns: 8em 1fr;
+    }
+    .cyclone-page .stats {
+      display: grid;
+      width: 100%;
+      gap: 12px;
+      padding: 14px;
+    }
+    .cyclone-page .stats div {
+      border: 0;
+      padding: 0;
+    }
+    .cyclone-page .cta .btn {
+      flex: 1 1 100%;
+    }
+    .cyclone-page .badge {
+      left: 0;
+      right: 0;
+      font-size: 12px;
+    }
+    .cyclone-page .g3,
+    .cyclone-page .ind,
+    .cyclone-page .modes,
+    .cyclone-page .stage {
+      grid-template-columns: 1fr;
+    }
+    .cyclone-page .k4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cyclone-page .fs {
+      display: flex !important;
+      gap: 14px;
+      align-items: center;
+    }
+    .cyclone-page .fs svg.pl {
+      flex: none;
+      width: 96px;
+    }
+    .cyclone-page .ban {
+      padding: 24px 20px;
+    }
+    .cyclone-page .ban .btn {
+      width: 100%;
+    }
+    .cyclone-page .bl,
+    .cyclone-page .seg {
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .cyclone-page .bc.cr {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cyclone-page * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script is:inline>
+  function initCycloneCharts() {
+    function g(id, n, fn) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      let h = '';
+      for (let i = 0; i < n; i++) h += '<i' + fn(i) + '></i>';
+      el.innerHTML = h;
+    }
+    g('d1', 72, function (i) {
+      return i >= 64 ? ' class="p"' : (i % 7 === 3 ? ' class="q2"' : '');
+    });
+    g('d3', 24, function (i) {
+      return i >= 22 ? ' class="e"' : '';
+    });
+    g('d2', 25, function () {
+      return '';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCycloneCharts);
+  } else {
+    initCycloneCharts();
+  }
+  document.addEventListener('astro:page-load', initCycloneCharts);
+</script>

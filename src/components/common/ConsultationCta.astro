@@ -11,7 +11,7 @@ interface Props {
   defaultProduct?: 'nanonets' | 'cyclone' | 'docuflo' | 'syclus' | 'spensify' | 'multi' | string;
   submitButtonText?: string;
   class?: string;
-  theme?: 'blue' | 'red' | 'docuflo' | string;
+  theme?: 'blue' | 'red' | 'docuflo' | 'orange' | 'cyclone' | string;
 }
 
 const {
@@ -29,18 +29,42 @@ const {
 const instanceId = `cta-${Math.random().toString(36).substring(2, 8)}`;
 
 const isRedTheme = theme === 'red' || theme === 'docuflo' || defaultProduct === 'docuflo';
+const isOrangeTheme = theme === 'orange' || theme === 'cyclone' || defaultProduct === 'cyclone';
 
-const bgClass = isRedTheme ? 'bg-[#E4001B]' : 'bg-[#3a5ae8]';
-const subtitleClass = isRedTheme ? 'text-red-100/95' : 'text-blue-100/95';
-const cardTitleClass = isRedTheme ? 'text-[#E4001B]' : 'text-[#3a5ae8]';
+const bgClass = isRedTheme
+  ? 'bg-[#E4001B]'
+  : isOrangeTheme
+  ? 'bg-[#f4511e]'
+  : 'bg-[#3a5ae8]';
+
+const subtitleClass = isRedTheme
+  ? 'text-red-100/95'
+  : isOrangeTheme
+  ? 'text-orange-100/95'
+  : 'text-blue-100/95';
+
+const cardTitleClass = isRedTheme
+  ? 'text-[#E4001B]'
+  : isOrangeTheme
+  ? 'text-[#f4511e]'
+  : 'text-[#3a5ae8]';
+
 const inputFocusClass = isRedTheme
   ? 'focus:border-[#E4001B] focus:ring-1 focus:ring-[#E4001B]'
+  : isOrangeTheme
+  ? 'focus:border-[#f4511e] focus:ring-1 focus:ring-[#f4511e]'
   : 'focus:border-[#3a5ae8] focus:ring-1 focus:ring-[#3a5ae8]';
+
 const focusWithinClass = isRedTheme
   ? 'focus-within:border-[#E4001B] focus-within:ring-1 focus-within:ring-[#E4001B]'
+  : isOrangeTheme
+  ? 'focus-within:border-[#f4511e] focus-within:ring-1 focus-within:ring-[#f4511e]'
   : 'focus-within:border-[#3a5ae8] focus-within:ring-1 focus-within:ring-[#3a5ae8]';
+
 const submitBtnClass = isRedTheme
   ? 'bg-[#E4001B] hover:bg-[#cc0018] active:bg-[#b30015] shadow-red-600/25'
+  : isOrangeTheme
+  ? 'bg-[#f4511e] hover:bg-[#d93f0d] active:bg-[#b83307] shadow-orange-600/25'
   : 'bg-[#3a5ae8] hover:bg-[#2e4ecf] active:bg-[#2541b3] shadow-blue-600/25';
 ---
 
