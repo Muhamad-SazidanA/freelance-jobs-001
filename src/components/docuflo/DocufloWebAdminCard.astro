@@ -1,0 +1,393 @@
+---
+// Interactive Web Admin Illustration Component for Docuflo
+---
+
+<div class="webadmin-card bg-white rounded-2xl border border-slate-200/90 shadow-md p-3 sm:p-4.5 transition-all duration-300 hover:shadow-lg hover:border-rose-200">
+  <svg id="p2" viewBox="0 0 612 320" role="img" aria-label="Web Admin Docuflo" class="w-full h-auto block select-none rounded-lg overflow-hidden">
+    <defs>
+      <pattern id="p2-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+        <path d="M24 0H0V24" fill="none" stroke="#E7E7EA"/>
+      </pattern>
+    </defs>
+    <rect width="612" height="320" rx="10" fill="#F4F4F5"/>
+    <rect width="612" height="320" rx="10" fill="url(#p2-grid)"/>
+
+    <!-- Connecting Lines to Center Hub -->
+    <path d="M198 107 H230 V134 H260 M414 107 H382 V134 H352 M306 196 V226" fill="none" stroke="#17171C" stroke-width="1.5"/>
+    <rect x="195" y="104" width="6" height="6" fill="#17171C"/>
+    <rect x="411" y="104" width="6" height="6" fill="#17171C"/>
+
+    <!-- Center Security Shield (Lock/Unlock) -->
+    <g id="p2sh" class="hit" tabindex="0" role="button" transform="translate(306,134)">
+      <path class="pulse" d="M0 -60 L46 -44 V8 L0 62 L-46 8 V-44 Z"/>
+      <path id="p2shf" d="M0 -60 L46 -44 V8 L0 62 L-46 8 V-44 Z" fill="#E4001B"/>
+      <path d="M0 -50 L38 -37 V6 L0 51 L-38 6 V-37 Z" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="1.2"/>
+      <rect x="-13" y="-6" width="26" height="21" rx="3" fill="#fff"/>
+      <path id="p2shk" d="M-7 -6 V-13 a7 7 0 0 1 14 0 V-6" fill="none" stroke="#fff" stroke-width="3"/>
+      <rect x="-2" y="2" width="4" height="7" fill="#E4001B"/>
+    </g>
+
+    <!-- Card 1: Audit Log (Left) -->
+    <rect x="28" y="36" width="170" height="142" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <rect x="44" y="51" width="6" height="6" fill="#E4001B"/>
+    <text x="56" y="57" font-size="10.5" font-weight="700" fill="#17171C" text-anchor="start">Audit Log</text>
+    <line x1="28" y1="68" x2="198" y2="68" stroke="#DCDCE0"/>
+    <line x1="28" y1="104" x2="198" y2="104" stroke="#E6E6EA"/>
+    <line x1="28" y1="138" x2="198" y2="138" stroke="#E6E6EA"/>
+    <rect x="28" y="70" width="3" height="34" fill="#E4001B"/>
+
+    <g id="p2r0">
+      <text x="44" y="90" font-size="8.5" font-weight="700" fill="#E4001B" text-anchor="start" id="p2t0"></text>
+      <text x="84" y="85" font-size="9.5" font-weight="700" fill="#17171C" text-anchor="start" id="p2a0"></text>
+      <text x="84" y="97" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start" id="p2u0"></text>
+    </g>
+    <g id="p2r1">
+      <text x="44" y="124" font-size="8.5" font-weight="700" fill="#6B6B76" text-anchor="start" id="p2t1"></text>
+      <text x="84" y="119" font-size="9.5" font-weight="700" fill="#17171C" text-anchor="start" id="p2a1"></text>
+      <text x="84" y="131" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start" id="p2u1"></text>
+    </g>
+    <g id="p2r2">
+      <text x="44" y="158" font-size="8.5" font-weight="700" fill="#6B6B76" text-anchor="start" id="p2t2"></text>
+      <text x="84" y="153" font-size="9.5" font-weight="700" fill="#17171C" text-anchor="start" id="p2a2"></text>
+      <text x="84" y="165" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start" id="p2u2"></text>
+    </g>
+
+    <!-- Card 2: Workflow Report (Right) -->
+    <rect x="414" y="36" width="170" height="142" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <rect x="430" y="51" width="6" height="6" fill="#E4001B"/>
+    <text x="442" y="57" font-size="10.5" font-weight="700" fill="#17171C" text-anchor="start">Workflow Report</text>
+    <line x1="414" y1="68" x2="584" y2="68" stroke="#DCDCE0"/>
+    <text x="430" y="104" font-size="26" font-weight="800" fill="#17171C" text-anchor="start" id="p2pct">92%</text>
+    <text x="430" y="118" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="start" id="p2sub">workflow selesai</text>
+    <path d="M430 140 l4 -6 l4 6 Z" fill="#12875A"/>
+    <text x="443" y="140" font-size="8.5" font-weight="700" fill="#12875A" text-anchor="start">+12%</text>
+
+    <!-- Bar Chart (Monday to Friday) -->
+    <rect class="bar" id="p2b0" x="494" y="104" width="10" height="56" fill="#D5D5DB"/>
+    <text x="499" y="171" font-size="6.5" font-weight="600" fill="#6B6B76" text-anchor="middle">S</text>
+    <rect class="bh" data-i="0" x="490" y="100" width="18" height="76"/>
+
+    <rect class="bar" id="p2b1" x="510" y="104" width="10" height="56" fill="#D5D5DB"/>
+    <text x="515" y="171" font-size="6.5" font-weight="600" fill="#6B6B76" text-anchor="middle">S</text>
+    <rect class="bh" data-i="1" x="506" y="100" width="18" height="76"/>
+
+    <rect class="bar" id="p2b2" x="526" y="104" width="10" height="56" fill="#D5D5DB"/>
+    <text x="531" y="171" font-size="6.5" font-weight="600" fill="#6B6B76" text-anchor="middle">R</text>
+    <rect class="bh" data-i="2" x="522" y="100" width="18" height="76"/>
+
+    <rect class="bar" id="p2b3" x="542" y="104" width="10" height="56" fill="#D5D5DB"/>
+    <text x="547" y="171" font-size="6.5" font-weight="600" fill="#6B6B76" text-anchor="middle">K</text>
+    <rect class="bh" data-i="3" x="538" y="100" width="18" height="76"/>
+
+    <rect class="bar" id="p2b4" x="558" y="104" width="10" height="56" fill="#E4001B"/>
+    <text x="563" y="171" font-size="6.5" font-weight="600" fill="#6B6B76" text-anchor="middle">J</text>
+    <rect class="bh" data-i="4" x="554" y="100" width="18" height="76"/>
+    <line x1="430" y1="160" x2="568" y2="160" stroke="#DCDCE0"/>
+
+    <!-- Bottom Role Matrix (Admin, Editor, Viewer) -->
+    <rect x="70" y="226" width="472" height="66" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <line x1="227" y1="240" x2="227" y2="278" stroke="#E6E6EA"/>
+    <line x1="384" y1="240" x2="384" y2="278" stroke="#E6E6EA"/>
+
+    <!-- Role: Admin -->
+    <g class="role hit" data-r="0" data-n="Admin" tabindex="0" role="button">
+      <rect x="70" y="226" width="157" height="66" fill="#fff" fill-opacity="0"/>
+      <rect class="ro" x="74" y="230" width="149" height="58" rx="4"/>
+      <rect x="84" y="245" width="28" height="28" rx="4" fill="#E4001B"/>
+      <text x="98" y="264" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">A</text>
+      <text x="122" y="256" font-size="10" font-weight="700" fill="#17171C" text-anchor="start">Admin</text>
+      <text x="122" y="268" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="start">Akses penuh</text>
+      <rect id="p2m00" x="176" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="0" data-k="0" x="175" y="250" width="12" height="18"/>
+      <rect id="p2m01" x="188" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="0" data-k="1" x="187" y="250" width="12" height="18"/>
+      <rect id="p2m02" x="200" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="0" data-k="2" x="199" y="250" width="12" height="18"/>
+    </g>
+
+    <!-- Role: Editor -->
+    <g class="role hit" data-r="1" data-n="Editor" tabindex="0" role="button">
+      <rect x="227" y="226" width="157" height="66" fill="#fff" fill-opacity="0"/>
+      <rect class="ro" x="231" y="230" width="149" height="58" rx="4"/>
+      <rect x="241" y="245" width="28" height="28" rx="4" fill="#17171C"/>
+      <text x="255" y="264" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">E</text>
+      <text x="279" y="256" font-size="10" font-weight="700" fill="#17171C" text-anchor="start">Editor</text>
+      <text x="279" y="268" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="start">Edit &amp; upload</text>
+      <rect id="p2m10" x="333" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="1" data-k="0" x="332" y="250" width="12" height="18"/>
+      <rect id="p2m11" x="345" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="1" data-k="1" x="344" y="250" width="12" height="18"/>
+      <rect id="p2m12" x="357" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="1" data-k="2" x="356" y="250" width="12" height="18"/>
+    </g>
+
+    <!-- Role: Viewer -->
+    <g class="role hit" data-r="2" data-n="Viewer" tabindex="0" role="button">
+      <rect x="384" y="226" width="157" height="66" fill="#fff" fill-opacity="0"/>
+      <rect class="ro" x="388" y="230" width="149" height="58" rx="4"/>
+      <rect x="398" y="245" width="28" height="28" rx="4" fill="#8A8A94"/>
+      <text x="412" y="264" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">V</text>
+      <text x="436" y="256" font-size="10" font-weight="700" fill="#17171C" text-anchor="start">Viewer</text>
+      <text x="436" y="268" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="start">Hanya lihat</text>
+      <rect id="p2m20" x="490" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="2" data-k="0" x="489" y="250" width="12" height="18"/>
+      <rect id="p2m21" x="502" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="2" data-k="1" x="501" y="250" width="12" height="18"/>
+      <rect id="p2m22" x="514" y="257" width="10" height="4"/>
+      <rect class="mh" data-r="2" data-k="2" x="513" y="250" width="12" height="18"/>
+    </g>
+  </svg>
+
+  <p class="text-[11px] text-slate-500 mt-2.5 text-center leading-relaxed">
+    <span class="font-semibold text-[#E4001B]">Interaktif:</span> Klik perisai tengah untuk mengunci/membuka akses. Klik role atau bar level untuk mengatur hak akses. Arahkan kursor ke grafik untuk data harian.
+  </p>
+</div>
+
+<style>
+  .webadmin-card .hit {
+    cursor: pointer;
+    outline: none;
+  }
+  .webadmin-card .hit:focus-visible {
+    outline: 2px solid #E4001B;
+    outline-offset: 2px;
+  }
+  .webadmin-card .pulse {
+    fill: none;
+    stroke: #E4001B;
+    stroke-width: 1.5;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: p2pu 2.6s ease-out infinite;
+  }
+  @keyframes p2pu {
+    0% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.4);
+    }
+  }
+  .webadmin-card .bar {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    transition: transform 0.8s cubic-bezier(0.3, 0.8, 0.3, 1);
+  }
+  .webadmin-card .bar.hv {
+    fill: #E4001B !important;
+  }
+  .webadmin-card .bh,
+  .webadmin-card .mh {
+    fill: transparent;
+    cursor: pointer;
+  }
+  .webadmin-card .fresh {
+    animation: p2fr 0.5s;
+  }
+  @keyframes p2fr {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+  .webadmin-card .ro {
+    fill: none;
+    stroke: #E4001B;
+    stroke-width: 1.5;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .webadmin-card .role.sel .ro {
+    opacity: 1;
+  }
+  .webadmin-card .role:hover .ro {
+    opacity: 0.4;
+  }
+  .webadmin-card .role.sel:hover .ro {
+    opacity: 1;
+  }
+  .webadmin-card .unl #p2shf {
+    fill: #8A8A94;
+  }
+  .webadmin-card .unl .pulse {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .webadmin-card * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  function initDocufloWebAdmin() {
+    const svg = document.getElementById('p2');
+    if (!svg) return;
+
+    const ev = [
+      ['Upload SOP v2', 'Budi'],
+      ['Ubah hak akses', 'Sari'],
+      ['Export laporan', 'Admin'],
+      ['Hapus draft lama', 'Rina'],
+      ['Approve PO #4521', 'Dewi'],
+      ['Login perangkat baru', 'Andi'],
+      ['Tambah pengguna', 'Admin']
+    ];
+    let clock = 605;
+    let rows = [
+      ['10:05', 'Export laporan', 'Admin'],
+      ['09:40', 'Ubah hak akses', 'Sari'],
+      ['09:12', 'Upload SOP v2', 'Budi']
+    ];
+    let k = 0, hov = false, locked = true, pct = 92;
+
+    const fmt = (m) => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+
+    const draw = () => {
+      rows.forEach((r, i) => {
+        const t = document.getElementById('p2t' + i);
+        const a = document.getElementById('p2a' + i);
+        const u = document.getElementById('p2u' + i);
+        if (t) t.textContent = r[0];
+        if (a) a.textContent = r[1];
+        if (u) u.textContent = r[2];
+      });
+    };
+
+    const add = (a, u) => {
+      clock += 1 + Math.floor(Math.random() * 6);
+      rows.unshift([fmt(clock), a, u]);
+      rows.pop();
+      draw();
+      const g = document.getElementById('p2r0');
+      if (g) {
+        g.classList.remove('fresh');
+        void g.getBBox();
+        g.classList.add('fresh');
+      }
+    };
+    draw();
+
+    const B = [0.3, 0.5, 0.4, 0.7, 1];
+    const DAY = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'];
+    const val = (i) => Math.round(55 + B[i] * 43);
+
+    const bars = () => {
+      B.forEach((v, i) => {
+        const b = document.getElementById('p2b' + i);
+        if (b) b.style.transform = 'scaleY(' + v + ')';
+      });
+    };
+    bars();
+
+    const upd = () => {
+      if (hov) return;
+      pct = 86 + Math.floor(Math.random() * 12);
+      for (let i = 0; i < 4; i++) B[i] = 0.25 + Math.random() * 0.5;
+      B[4] = 0.7 + (pct - 80) / 17 * 0.3;
+      bars();
+      const pctEl = document.getElementById('p2pct');
+      if (pctEl) pctEl.textContent = pct + '%';
+    };
+    setInterval(upd, 2600);
+
+    setInterval(() => {
+      const e = ev[k++ % ev.length];
+      add(e[0], e[1]);
+    }, 3600);
+
+    svg.querySelectorAll('.bh').forEach((h) => {
+      const idx = +(h.getAttribute('data-i') || 0);
+      const b = document.getElementById('p2b' + idx);
+      const on = () => {
+        hov = true;
+        svg.querySelectorAll('.bar').forEach((x) => x.classList.remove('hv'));
+        if (b) b.classList.add('hv');
+        const pctEl = document.getElementById('p2pct');
+        const subEl = document.getElementById('p2sub');
+        if (pctEl) pctEl.textContent = val(idx) + '%';
+        if (subEl) subEl.textContent = 'workflow selesai · ' + DAY[idx];
+      };
+      const off = () => {
+        hov = false;
+        if (b) b.classList.remove('hv');
+        const pctEl = document.getElementById('p2pct');
+        const subEl = document.getElementById('p2sub');
+        if (pctEl) pctEl.textContent = pct + '%';
+        if (subEl) subEl.textContent = 'workflow selesai';
+      };
+      h.addEventListener('mouseenter', on);
+      h.addEventListener('mouseleave', off);
+      h.addEventListener('click', on);
+    });
+
+    const LV = [3, 2, 1];
+    const N = ['Admin', 'Editor', 'Viewer'];
+    const mt = () => {
+      LV.forEach((l, r) => {
+        [0, 1, 2].forEach((q) => {
+          const el = document.getElementById('p2m' + r + q);
+          if (el) el.setAttribute('fill', q < l ? '#E4001B' : '#DCDCE0');
+        });
+      });
+    };
+    mt();
+
+    const R = [...svg.querySelectorAll('.role')];
+    if (R[0]) R[0].classList.add('sel');
+
+    const bind = (el, fn) => {
+      el.addEventListener('click', fn);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fn();
+        }
+      });
+    };
+
+    R.forEach((r) => {
+      bind(r, () => {
+        R.forEach((x) => x.classList.remove('sel'));
+        r.classList.add('sel');
+        add('Pilih role: ' + r.getAttribute('data-n'), 'Admin');
+      });
+    });
+
+    svg.querySelectorAll('.mh').forEach((h) => {
+      h.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const r = +(h.getAttribute('data-r') || 0);
+        const q = +(h.getAttribute('data-k') || 0);
+        LV[r] = LV[r] === q + 1 ? q : q + 1;
+        mt();
+        R.forEach((x) => x.classList.remove('sel'));
+        if (R[r]) R[r].classList.add('sel');
+        add('Akses ' + N[r] + ': level ' + LV[r], 'Admin');
+      });
+    });
+
+    const sh = document.getElementById('p2sh');
+    if (sh) {
+      bind(sh, () => {
+        locked = !locked;
+        svg.classList.toggle('unl', !locked);
+        const shk = document.getElementById('p2shk');
+        if (shk) {
+          shk.setAttribute('d', locked ? 'M-7 -6 V-13 a7 7 0 0 1 14 0 V-6' : 'M-7 -6 V-13 a7 7 0 0 1 14 0 V-10');
+        }
+        add(locked ? 'Akses sistem dikunci' : 'Akses sistem dibuka', 'Admin');
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDocufloWebAdmin);
+  } else {
+    initDocufloWebAdmin();
+  }
+  document.addEventListener('astro:page-load', initDocufloWebAdmin);
+</script>
