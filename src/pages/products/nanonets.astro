@@ -28,7 +28,7 @@ const productData: Product = {
     },
     {
       title: 'JSON API siap pakai',
-      description: 'Mendukung kustomisasi dan langsung bisa dipakai untuk model & tipe dokumen baru.',
+      description: 'Format JSON yang siap digunakan untuk menghubungkan ke berbagai sistem.',
     },
   ],
   benefits: [
@@ -69,28 +69,27 @@ const waysOfWorking = [
     label: 'Ekstraksi Data',
     title: 'Ekstraksi Data',
     description:
-      'Setiap field dikembalikan dalam format key-value lengkap dengan koordinat posisi dan skor keyakinan — siap disambungkan langsung ke sistem Anda tanpa parsing tambahan.',
+      'Setiap field data diekstrak sesuai kebutuhan dari setiap dokumen.',
     bullets: [
-      'Bounding box (xmin, xmax, ymin, ymax) untuk tiap field',
-      'Confidence score per field untuk validasi otomatis',
-      'Format keluar JSON, siap dikonsumsi API atau RPA',
+      'Siap diintegrasikan langsung ke sistem Anda tanpa memerlukan parsing tambahan.',
+      'Confidence score per field untuk mendukung validasi otomatis dan mengukur tingkat akurasi.',
+      'Output dalam format JSON, siap diintegrasikan melalui API.',
     ],
     image: '/images/product/nanonets/Five_Ways_Of_Working/Ekstraksi_Teks_&_Field.webp',
     alt: 'Ekstraksi Data',
   },
   {
     id: 'pemrosesan-invoice',
-    label: 'Pemrosesan Invoice',
-    title: 'Pemrosesan Invoice Otomatis',
+    label: 'Pemrosesan Otomatis',
+    title: 'Pemrosesan Otomatis',
     description:
-      'Otomatisasi pemrosesan invoice mulai dari ekstraksi informasi, verifikasi data, hingga pencatatan transaksi. Kurangi pekerjaan manual dan percepat proses administrasi keuangan perusahaan.',
+      'Otomatisasi pemrosesan dokumen mulai dari ekstraksi informasi, verifikasi data, hingga pencatatan. Mengurangi pekerjaan input manual dan mempercepat proses operasional perusahaan.',
     bullets: [
-      'Ekstraksi data invoice dan detail pembayaran',
-      'Validasi informasi dan deteksi invoice duplikat',
-      'Data terstruktur untuk proses pembayaran dan pencatatan',
+      'Ekstraksi data dari dokumen tidak terstruktur (Invoice, PO, Receipt, dll.).',
+      'Validasi informasi dan deteksi duplikasi.',
     ],
     image: '/images/product/nanonets/Five_Ways_Of_Working/Pemrosesan_Invoice.webp',
-    alt: 'Pemrosesan Invoice Otomatis',
+    alt: 'Pemrosoice Otomatis',
   },
   {
     id: 'klasifikasi-dokumen',
@@ -99,22 +98,20 @@ const waysOfWorking = [
     description:
       'Identifikasi dan kelompokkan dokumen secara otomatis berdasarkan jenis dan kontennya. Permudah pengelolaan dokumen dalam jumlah besar tanpa perlu memilah file satu per satu.',
     bullets: [
-      'Identifikasi jenis dokumen otomatis',
-      'Pengelompokan dokumen berdasarkan kategori',
-      'Pengarahan dokumen ke proses yang sesuai',
+      'Identifikasi jenis dokumen otomatis.',
+      'Distribusi dokumen ke alur pemrosesan yang sesuai.',
     ],
     image: '/images/product/nanonets/Five_Ways_Of_Working/Klasifikasi_Dokumen.webp',
-    alt: 'Klasifikasi Dokumen Otomatis',
+    alt: 'Klasifikasi Dokumen Berbasis AI',
   },
   {
     id: 'otomatisasi-workflow',
-    label: 'Otomatisasi Workflow',
-    title: 'Otomatisasi Workflow Bisnis',
+    label: 'Workflow & Data Formatting',
+    title: 'Workflow & Data Formatting',
     description:
-      'Hubungkan pemrosesan dokumen dengan proses bisnis perusahaan melalui workflow otomatis. Sederhanakan proses persetujuan, kurangi tugas berulang, dan tingkatkan efisiensi operasional.',
+      'Menghubungkan hasil pemrosesan data dengan alur kerja otomatis untuk menghasilkan output sesuai format yang dibutuhkan serta meningkatkan efisiensi proses validasi.',
     bullets: [
-      'Otomatisasi tugas administratif berulang',
-      'Workflow validasi dan persetujuan',
+      'Formatting data sesuai format output yang dibutuhkan.',
       'Integrasi dengan sistem bisnis lainnya',
     ],
     image: '/images/product/nanonets/Five_Ways_Of_Working/Otomatisasi_Workflow.webp',
@@ -125,11 +122,10 @@ const waysOfWorking = [
     label: 'Validasi data',
     title: 'Validasi Data yang Lebih Akurat',
     description:
-      'Pastikan informasi yang diekstrak dari dokumen tetap konsisten dan akurat melalui proses validasi otomatis. Bantu tim mengidentifikasi kesalahan sebelum data diteruskan ke sistem berikutnya.',
+      'Memastikan informasi yang diekstrak dari dokumen tetap konsisten dan akurat melalui proses validasi, serta membantu tim mengidentifikasi kesalahan sebelum data diteruskan ke sistem berikutnya.',
     bullets: [
-      'Pemeriksaan kelengkapan data',
-      'Validasi berdasarkan aturan bisnis',
-      'Identifikasi data yang memerlukan peninjauan',
+      'Pemberian flag pada data yang tidak sesuai dengan aturan validasi (rules).',
+      'Validasi ber- Identifikasi data yang memerlukan peninjauan lebih lanjut.dasarkan aturan bisnis.',
     ],
     image: '/images/product/nanonets/Five_Ways_Of_Working/Validasi_Data.webp',
     alt: 'Validasi Data & Verifikasi Dokumen',
@@ -139,37 +135,37 @@ const waysOfWorking = [
 const technologyCards = [
   {
     title: 'Manual Review',
-    description: 'Verifikasi hasil ekstraksi sebelum masuk sistem',
+    description: 'Verifikasi hasil ekstraksi sebelum masuk sistem.',
     image: '/images/product/nanonets/Technology_Outplay/Manual_Review.webp',
   },
   {
     title: 'Improve Model',
-    description: 'Belajar dari setiap koreksi yang dilakukan',
+    description: 'Belajar dari setiap koreksi yang dilakukan.',
     image: '/images/product/nanonets/Technology_Outplay/Improve_Model.webp',
   },
   {
     title: 'Handwriting',
-    description: 'Membaca teks tulisan tangan pada dokumen',
+    description: 'Membaca teks tulisan tangan pada dokumen.',
     image: '/images/product/nanonets/Technology_Outplay/Handwriting.webp',
   },
   {
     title: 'Formatting',
-    description: 'Menyesuaikan format output sesuai kebutuhan',
+    description: 'Menyesuaikan format output sesuai kebutuhan.',
     image: '/images/product/nanonets/Technology_Outplay/Formatting.webp',
   },
   {
     title: 'Predefined',
-    description: 'Field siap pakai untuk dokumen umum',
+    description: 'Memprediksi data berdasarkan field dan konteks.',
     image: '/images/product/nanonets/Technology_Outplay/Predefined.webp',
   },
   {
     title: 'Page Section',
-    description: 'Mendeteksi bagian-bagian pada tiap halaman',
+    description: 'Memisahkan bagian-bagian halaman pada dokumen.',
     image: '/images/product/nanonets/Technology_Outplay/Page_Section.webp',
   },
   {
     title: 'Classification',
-    description: 'Mengenali jenis dokumen secara otomatis',
+    description: 'Mengenali jenis dokumen secara otomatis.',
     image: '/images/product/nanonets/Technology_Outplay/Classification.webp',
   },
   {
@@ -179,7 +175,7 @@ const technologyCards = [
   },
   {
     title: 'QR Code',
-    description: 'Membaca dan mengekstrak data dari QR Code',
+    description: 'Membaca dan mengekstrak data dari QR dan barcode.',
     image: '/images/product/nanonets/Technology_Outplay/QR_Code.webp',
   },
 ];
@@ -455,13 +451,11 @@ const deploymentOptions = [
             SOLUSI NANONETS
           </span>
           <h2 class="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-3">
-            Teknologi di balik setiap dokumen yang diproses<br class="hidden sm:inline" />
-            Nanonets
+            Teknologi di balik setiap dokumen yang diproses Nanonets
           </h2>
           <div>
-            <span class="text-sm font-bold text-slate-800 block mb-0.5">Technology Outplay</span>
             <p class="text-xs sm:text-sm text-slate-500 max-w-2xl leading-relaxed">
-              Kombinasi AI dan LLM untuk ekstraksi dokumen yang akurat pada berbagai format, dengan kemampuan pembelajaran berkelanjutan seiring meningkatnya volume pemrosesan
+              Kombinasi AI dan LLM untuk ekstraksi dokumen yang akurat pada berbagai format, dengan kemampuan pembelajaran berkelanjutan seiring meningkatnya volume pemrosesan.
             </p>
           </div>
         </div>
@@ -510,8 +504,8 @@ const deploymentOptions = [
             — KENAPA NANONETS
           </span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Dibangun untuk akurasi, bukan sekadar<br class="hidden sm:inline" />
-            pembacaan teks
+            Akurasi Ekstraksi untuk Berbagai Jenis<br class="hidden sm:inline" />
+            Dokumen
           </h2>
         </div>
 
@@ -621,12 +615,12 @@ const deploymentOptions = [
           </div>
         </div>
 
-        <!-- Workflow Pipeline 5 Nodes with Connecting Line (Sesuai Foto 2) -->
-        <div class="relative pt-6 sm:pt-10 max-w-5xl mx-auto">
+        <!-- Workflow Pipeline 4 Nodes with Connecting Line -->
+        <div class="relative pt-6 sm:pt-10 max-w-4xl mx-auto">
           <!-- Connecting Dotted/Dashed Line -->
-          <div class="hidden md:block absolute top-[52px] sm:top-[68px] left-[10%] right-[10%] h-0.5 border-t-2 border-dashed border-blue-200/90 z-0"></div>
+          <div class="hidden md:block absolute top-[48px] sm:top-[64px] left-[12.5%] right-[12.5%] h-0.5 border-t-2 border-dashed border-blue-200/90 z-0"></div>
 
-          <div class="grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-4 relative z-10 text-center">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-4 relative z-10 text-center">
             <!-- Node 1: Dokumen fisik -->
             <div class="flex flex-col items-center">
               <div class="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 text-blue-600 flex items-center justify-center shadow-2xs relative z-10 transition-transform duration-200 hover:scale-105">
@@ -636,7 +630,7 @@ const deploymentOptions = [
                 </svg>
               </div>
               <h4 class="text-xs sm:text-sm font-bold text-slate-900 mt-3 mb-1">Dokumen fisik</h4>
-              <p class="text-[11px] text-slate-500 leading-snug">Faktur, PO, KTP, kontrak</p>
+              <p class="text-[11px] text-slate-500 leading-snug">Invoice, PO, Faktur, etc</p>
             </div>
 
             <!-- Node 2: Scan atau upload -->
@@ -649,11 +643,11 @@ const deploymentOptions = [
                 </svg>
               </div>
               <h4 class="text-xs sm:text-sm font-bold text-slate-900 mt-3 mb-1">Scan atau upload</h4>
-              <p class="text-[11px] text-slate-500 leading-snug">Foto, PDF, atau email masuk</p>
+              <p class="text-[11px] text-slate-500 leading-snug">Dokumen, PDF, JPEG, etc</p>
             </div>
 
             <!-- Node 3: Ekstraksi IDP (Center Hero) -->
-            <div class="flex flex-col items-center col-span-2 md:col-span-1">
+            <div class="flex flex-col items-center">
               <div class="w-12 h-12 rounded-2xl bg-[#3b82f6] text-white flex items-center justify-center shadow-lg shadow-blue-500/35 relative z-10 transition-transform duration-200 hover:scale-105">
                 <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -669,20 +663,7 @@ const deploymentOptions = [
                 <span class="text-base font-semibold text-blue-600 font-mono tracking-wider">&#123;&nbsp;&#125;</span>
               </div>
               <h4 class="text-xs sm:text-sm font-bold text-slate-900 mt-3 mb-1">Data terstruktur</h4>
-              <p class="text-[11px] text-slate-500 leading-snug">JSON lewat API atau webhook</p>
-            </div>
-
-            <!-- Node 5: Dashboard dan analisis -->
-            <div class="flex flex-col items-center">
-              <div class="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 text-blue-600 flex items-center justify-center shadow-2xs relative z-10 transition-transform duration-200 hover:scale-105">
-                <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                  <line x1="12" y1="20" x2="12" y2="10"></line>
-                  <line x1="18" y1="20" x2="18" y2="6"></line>
-                </svg>
-              </div>
-              <h4 class="text-xs sm:text-sm font-bold text-slate-900 mt-3 mb-1">Dashboard dan analisis</h4>
-              <p class="text-[11px] text-slate-500 leading-snug">ERP, akuntansi, atau BI Anda</p>
+              <p class="text-[11px] text-slate-500 leading-snug">JSON via API</p>
             </div>
           </div>
         </div>
