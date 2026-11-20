@@ -1,0 +1,506 @@
+---
+// Interactive Workflow & E-Signature Illustration Component for Docuflo
+---
+
+<div class="workflow-card bg-white rounded-2xl border border-slate-200/90 shadow-md p-3 sm:p-4.5 transition-all duration-300 hover:shadow-lg hover:border-rose-200">
+  <svg id="p4" viewBox="0 0 612 320" role="img" aria-label="Workflow & E-Signature Docuflo" class="w-full h-auto block select-none rounded-lg overflow-hidden">
+    <defs>
+      <pattern id="p4-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+        <path d="M24 0H0V24" fill="none" stroke="#E7E7EA"/>
+      </pattern>
+    </defs>
+    <rect width="612" height="320" rx="10" fill="#F4F4F5"/>
+    <rect width="612" height="320" rx="10" fill="url(#p4-grid)"/>
+
+    <!-- Top Workflow Node Container -->
+    <rect x="28" y="12" width="556" height="124" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <text x="44" y="33" font-size="8.5" font-weight="600" fill="#6B6B76" text-anchor="start" id="p4h"></text>
+
+    <!-- Header Action Buttons -->
+    <g id="p4bs" class="btn bs hit" tabindex="0" role="button">
+      <rect x="456" y="21" width="50" height="18" rx="4"/>
+      <text x="481" y="33" font-size="8.5" font-weight="700" fill="#17171C" text-anchor="middle">Tolak</text>
+    </g>
+    <g id="p4bp" class="btn bp hit" tabindex="0" role="button">
+      <rect x="512" y="21" width="56" height="18" rx="4"/>
+      <text x="540" y="33" font-size="8.5" font-weight="700" fill="#fff" text-anchor="middle">Setujui</text>
+    </g>
+    <text x="568" y="33" font-size="8.5" font-weight="700" fill="#E4001B" text-anchor="end" id="p4re" class="btn hit" style="display:none" tabindex="0" role="button">Ulangi</text>
+
+    <!-- Connecting Lines -->
+    <path d="M110 64 H210" stroke="#C9C9CF" stroke-width="2" stroke-dasharray="4 4"/>
+    <path class="cn" id="p4c0" d="M110 64 H210"/>
+
+    <path d="M250 64 H350" stroke="#C9C9CF" stroke-width="2" stroke-dasharray="4 4"/>
+    <path class="cn" id="p4c1" d="M250 64 H350"/>
+
+    <path d="M390 64 H490" stroke="#C9C9CF" stroke-width="2" stroke-dasharray="4 4"/>
+    <path class="cn" id="p4c2" d="M390 64 H490"/>
+
+    <!-- Node 0: Pengaju -->
+    <g class="nd" id="p4n0" tabindex="0" role="button">
+      <rect class="box" x="70" y="44" width="40" height="40" rx="6"/>
+      <text x="90" y="70" font-size="15" font-weight="800" fill="#B4B4BD" text-anchor="middle" class="lt">M</text>
+      <g class="bgd">
+        <rect x="100" y="74" width="14" height="14" rx="2" fill="#12875A" stroke="#fff" stroke-width="2"/>
+        <path d="M103 81.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+      </g>
+      <g class="bgc">
+        <rect x="100" y="74" width="14" height="14" rx="2" fill="#B26A00" stroke="#fff" stroke-width="2"/>
+        <path d="M107 77.5 V81.5 L109.5 83" fill="none" stroke="#fff" stroke-width="1.2"/>
+      </g>
+      <g class="bgr">
+        <rect x="100" y="74" width="14" height="14" rx="2" fill="#E4001B" stroke="#fff" stroke-width="2"/>
+        <path d="M104 78 L110 84 M110 78 L104 84" stroke="#fff" stroke-width="1.4"/>
+      </g>
+      <text x="90" y="108" font-size="10" font-weight="700" fill="#17171C" text-anchor="middle">Pengaju</text>
+      <text x="90" y="123" font-size="8.5" font-weight="700" fill="#6B6B76" text-anchor="middle" class="stt"></text>
+    </g>
+
+    <!-- Node 1: Manager -->
+    <g class="nd" id="p4n1" tabindex="0" role="button">
+      <rect class="box" x="210" y="44" width="40" height="40" rx="6"/>
+      <text x="230" y="70" font-size="15" font-weight="800" fill="#B4B4BD" text-anchor="middle" class="lt">R</text>
+      <g class="bgd">
+        <rect x="240" y="74" width="14" height="14" rx="2" fill="#12875A" stroke="#fff" stroke-width="2"/>
+        <path d="M243 81.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+      </g>
+      <g class="bgc">
+        <rect x="240" y="74" width="14" height="14" rx="2" fill="#B26A00" stroke="#fff" stroke-width="2"/>
+        <path d="M247 77.5 V81.5 L249.5 83" fill="none" stroke="#fff" stroke-width="1.2"/>
+      </g>
+      <g class="bgr">
+        <rect x="240" y="74" width="14" height="14" rx="2" fill="#E4001B" stroke="#fff" stroke-width="2"/>
+        <path d="M244 78 L250 84 M250 78 L244 84" stroke="#fff" stroke-width="1.4"/>
+      </g>
+      <text x="230" y="108" font-size="10" font-weight="700" fill="#17171C" text-anchor="middle">Manager</text>
+      <text x="230" y="123" font-size="8.5" font-weight="700" fill="#6B6B76" text-anchor="middle" class="stt"></text>
+    </g>
+
+    <!-- Node 2: Finance -->
+    <g class="nd" id="p4n2" tabindex="0" role="button">
+      <rect class="box" x="350" y="44" width="40" height="40" rx="6"/>
+      <text x="370" y="70" font-size="15" font-weight="800" fill="#B4B4BD" text-anchor="middle" class="lt">F</text>
+      <g class="bgd">
+        <rect x="380" y="74" width="14" height="14" rx="2" fill="#12875A" stroke="#fff" stroke-width="2"/>
+        <path d="M383 81.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+      </g>
+      <g class="bgc">
+        <rect x="380" y="74" width="14" height="14" rx="2" fill="#B26A00" stroke="#fff" stroke-width="2"/>
+        <path d="M387 77.5 V81.5 L389.5 83" fill="none" stroke="#fff" stroke-width="1.2"/>
+      </g>
+      <g class="bgr">
+        <rect x="380" y="74" width="14" height="14" rx="2" fill="#E4001B" stroke="#fff" stroke-width="2"/>
+        <path d="M384 78 L390 84 M390 78 L384 84" stroke="#fff" stroke-width="1.4"/>
+      </g>
+      <text x="370" y="108" font-size="10" font-weight="700" fill="#17171C" text-anchor="middle">Finance</text>
+      <text x="370" y="123" font-size="8.5" font-weight="700" fill="#6B6B76" text-anchor="middle" class="stt"></text>
+    </g>
+
+    <!-- Node 3: Direktur -->
+    <g class="nd" id="p4n3" tabindex="0" role="button">
+      <rect class="box" x="490" y="44" width="40" height="40" rx="6"/>
+      <text x="510" y="70" font-size="15" font-weight="800" fill="#B4B4BD" text-anchor="middle" class="lt">D</text>
+      <g class="bgd">
+        <rect x="520" y="74" width="14" height="14" rx="2" fill="#12875A" stroke="#fff" stroke-width="2"/>
+        <path d="M523 81.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+      </g>
+      <g class="bgc">
+        <rect x="520" y="74" width="14" height="14" rx="2" fill="#B26A00" stroke="#fff" stroke-width="2"/>
+        <path d="M527 77.5 V81.5 L529.5 83" fill="none" stroke="#fff" stroke-width="1.2"/>
+      </g>
+      <g class="bgr">
+        <rect x="520" y="74" width="14" height="14" rx="2" fill="#E4001B" stroke="#fff" stroke-width="2"/>
+        <path d="M524 78 L530 84 M530 78 L524 84" stroke="#fff" stroke-width="1.4"/>
+      </g>
+      <text x="510" y="108" font-size="10" font-weight="700" fill="#17171C" text-anchor="middle">Direktur</text>
+      <text x="510" y="123" font-size="8.5" font-weight="700" fill="#6B6B76" text-anchor="middle" class="stt"></text>
+    </g>
+
+    <!-- Bottom Left: Approval PO & Interactive E-Signature Box -->
+    <rect x="28" y="150" width="270" height="142" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <text x="46" y="174" font-size="11" font-weight="700" fill="#17171C" text-anchor="start">Approval PO #4521</text>
+    <text x="46" y="187" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start">Pengadaan Server · Rp 120 jt</text>
+    <rect x="46" y="196" width="234" height="3" fill="#E6E6EA"/>
+    <rect x="46" y="204" width="170" height="3" fill="#E6E6EA"/>
+
+    <!-- Signature drawing box -->
+    <rect x="46" y="218" width="234" height="58" rx="4" fill="#fff" stroke="#C9C9CF" stroke-dasharray="4 3"/>
+    <path id="p4sig" d="M60 254 C 68 228, 78 228, 80 248 S 92 262, 100 242 S 116 232, 122 250 S 138 258, 152 238" fill="none" stroke="#E4001B" stroke-width="2.2" stroke-linecap="round"/>
+    <path id="p4usr" d="" fill="none" stroke="#E4001B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="163" y="251" font-size="8" font-weight="500" fill="#9A9AA5" text-anchor="middle" id="p4w"></text>
+    <g id="p4st" class="stamp">
+      <rect x="212" y="234" width="56" height="24" rx="3" fill="none" stroke="#12875A" stroke-width="1.8"/>
+      <text x="240" y="250" font-size="9" font-weight="800" fill="#12875A" text-anchor="middle">Selesai</text>
+    </g>
+    <rect id="p4pad" x="46" y="218" width="234" height="58"/>
+
+    <!-- Bottom Right Top: WhatsApp Notification Card -->
+    <rect x="318" y="150" width="266" height="66" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <rect x="330" y="167" width="32" height="32" rx="6" fill="#25D366"/>
+    <path d="M339 177 H353 V187 H347 L343 191 V187 H339 Z" fill="#fff"/>
+    <rect x="354" y="163" width="10" height="10" rx="2" fill="#E4001B" stroke="#fff" stroke-width="2"/>
+    <text x="374" y="178" font-size="10" font-weight="700" fill="#17171C" text-anchor="start">Notifikasi via WhatsApp</text>
+    <text x="374" y="192" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start" id="p4m"></text>
+
+    <!-- Bottom Right Bottom: NDA Digital Signature Card -->
+    <rect x="318" y="228" width="266" height="64" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <rect x="330" y="244" width="32" height="32" rx="6" fill="#FCE3E6"/>
+    <g transform="translate(346,260)">
+      <path d="M-5 3 V-1 a5 5 0 0 1 10 0 V3 L7 5 H-7 Z M-2 7.5 a2 2 0 0 0 4 0" fill="none" stroke="#E4001B" stroke-width="1.6" stroke-linejoin="round"/>
+    </g>
+    <text x="374" y="256" font-size="10" font-weight="700" fill="#17171C" text-anchor="start">NDA Klien Baru</text>
+    <text x="374" y="270" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start">Ditandatangani secara digital</text>
+    <rect x="522" y="251" width="5" height="5" fill="#12875A"/>
+    <text x="531" y="256" font-size="8.5" font-weight="700" fill="#12875A" text-anchor="start">Selesai</text>
+  </svg>
+
+  <p class="text-[11px] text-slate-500 mt-2.5 text-center leading-relaxed">
+    <span class="font-semibold text-[#E4001B]">Interaktif:</span> Klik Setujui atau Tolak untuk menjalankan alur persetujuan. Anda juga dapat menggambar tanda tangan langsung di kotak dokumen dengan mouse atau jari.
+  </p>
+</div>
+
+<style>
+  .workflow-card .hit {
+    cursor: pointer;
+    outline: none;
+  }
+  .workflow-card .hit:focus-visible {
+    outline: 2px solid #E4001B;
+    outline-offset: 2px;
+  }
+  .workflow-card .btn {
+    cursor: pointer;
+    outline: none;
+  }
+  .workflow-card .bp rect {
+    fill: #E4001B;
+    transition: fill 0.15s ease;
+  }
+  .workflow-card .bp:hover rect {
+    fill: #B80016;
+  }
+  .workflow-card .bs rect {
+    fill: #fff;
+    stroke: #DCDCE0;
+    transition: stroke 0.15s ease;
+  }
+  .workflow-card .bs:hover rect {
+    stroke: #E4001B;
+  }
+  .workflow-card .nd .box {
+    fill: #fff;
+    stroke: #C9C9CF;
+    stroke-width: 2;
+    transition: all 0.3s ease;
+  }
+  .workflow-card .nd .bgd,
+  .workflow-card .nd .bgc,
+  .workflow-card .nd .bgr {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .workflow-card .nd.done .box {
+    fill: #E4001B;
+    stroke: #E4001B;
+  }
+  .workflow-card .nd.done .lt {
+    fill: #fff;
+  }
+  .workflow-card .nd.done .bgd {
+    opacity: 1;
+  }
+  .workflow-card .nd.cur .box {
+    stroke: #E4001B;
+    stroke-width: 2.5;
+    animation: cb 1.6s ease-in-out infinite;
+  }
+  @keyframes cb {
+    50% {
+      stroke-opacity: 0.35;
+    }
+  }
+  .workflow-card .nd.cur .lt {
+    fill: #E4001B;
+  }
+  .workflow-card .nd.cur .bgc {
+    opacity: 1;
+  }
+  .workflow-card .nd.cur {
+    cursor: pointer;
+  }
+  .workflow-card .nd.rej .box {
+    fill: #FCE3E6;
+    stroke: #E4001B;
+  }
+  .workflow-card .nd.rej .lt {
+    fill: #E4001B;
+  }
+  .workflow-card .nd .bgr {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .workflow-card .nd.rej .bgr {
+    opacity: 1;
+  }
+  .workflow-card .nd.rej .stt {
+    fill: #E4001B;
+  }
+  .workflow-card .nd .stt {
+    fill: #8A8A94;
+  }
+  .workflow-card .nd.done .stt {
+    fill: #12875A;
+  }
+  .workflow-card .nd.cur .stt {
+    fill: #B26A00;
+  }
+  .workflow-card .cn {
+    fill: none;
+    stroke: #E4001B;
+    stroke-width: 2;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 0.6s ease;
+  }
+  .workflow-card .cn.on {
+    stroke-dashoffset: 0;
+  }
+  .workflow-card .stamp {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(-6deg) scale(1.7);
+    transition: all 0.35s cubic-bezier(0.3, 1.4, 0.5, 1);
+    pointer-events: none;
+  }
+  .workflow-card .stamp.on {
+    opacity: 1;
+    transform: rotate(-6deg) scale(1);
+  }
+  .workflow-card #p4pad {
+    fill: transparent;
+    cursor: crosshair;
+    touch-action: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .workflow-card * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script is:inline>
+  function initDocufloWorkflowSignature() {
+    const root = document.querySelector('.workflow-card');
+    if (!root) return;
+
+    if (root._cleanup) {
+      root._cleanup();
+    }
+
+    const $ = (s) => root.querySelector(s);
+    const $$ = (s) => [...root.querySelectorAll(s)];
+
+    const bind = (el, fn) => {
+      if (!el) return;
+      el.addEventListener('click', fn);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fn();
+        }
+      });
+    };
+
+    const N = ['Pengaju', 'Manager', 'Finance', 'Direktur'];
+    const svg = $('#p4');
+    const ns = $$('#p4 .nd');
+    const cn = $$('#p4 .cn');
+    const sig = $('#p4sig');
+    const usr = $('#p4usr');
+    const pad = $('#p4pad');
+    const w = $('#p4w');
+    const st = $('#p4st');
+    const bp = $('#p4bp');
+    const bs = $('#p4bs');
+    const re = $('#p4re');
+    const h = $('#p4h');
+    const m = $('#p4m');
+
+    if (!svg || !sig || !pad || !ns.length) return;
+
+    const L = sig.getTotalLength ? sig.getTotalLength() : 180;
+    sig.style.strokeDasharray = L;
+
+    let s = 2;
+    let rej = false;
+    let tm = null;
+    let auto = true;
+    let drawn = false;
+    let dd = '';
+    let on = false;
+
+    const draw = () => {
+      const fin = s >= 4;
+      const end = fin || rej;
+
+      ns.forEach((n, i) => {
+        n.classList.toggle('done', i < s);
+        n.classList.toggle('cur', i === s && !rej);
+        n.classList.toggle('rej', i === s && rej);
+        n.classList.toggle('hit', i === s && !rej);
+        const sttEl = n.querySelector('.stt');
+        if (sttEl) {
+          sttEl.textContent = i < s ? 'Selesai' : i === s ? (rej ? 'Ditolak' : 'Pending') : 'Menunggu';
+        }
+      });
+
+      cn.forEach((c, i) => c.classList.toggle('on', i < s));
+
+      const sh = fin && !drawn;
+      sig.style.transition = sh ? 'stroke-dashoffset 1.2s ease-out' : 'none';
+      sig.style.strokeDashoffset = sh ? '0' : L.toString();
+
+      if (w) {
+        w.style.opacity = (fin || drawn) ? '0' : '1';
+        w.textContent = rej ? 'Dokumen dikembalikan ke Pengaju' : 'Gambar tanda tangan Anda di sini';
+      }
+
+      if (st) st.classList.toggle('on', fin);
+      if (bp) bp.style.display = end ? 'none' : '';
+      if (bs) bs.style.display = end ? 'none' : '';
+      if (re) re.style.display = end ? '' : 'none';
+
+      if (h) {
+        h.textContent = fin
+          ? 'Semua approver telah menyetujui'
+          : rej
+          ? 'Ditolak oleh ' + N[s]
+          : 'Menunggu persetujuan ' + N[s];
+      }
+
+      if (m) {
+        m.textContent = fin
+          ? 'PO #4521 disetujui semua pihak'
+          : rej
+          ? 'PO #4521 ditolak ' + N[s] + ', kembali ke Pengaju'
+          : 'PO #4521 menunggu persetujuan ' + N[s];
+      }
+    };
+
+    const stop = () => {
+      auto = false;
+      clearTimeout(tm);
+    };
+
+    const ok = () => {
+      if (s < 4 && !rej) {
+        s++;
+        draw();
+      }
+    };
+
+    const no = () => {
+      if (s < 4 && !rej) {
+        rej = true;
+        draw();
+      }
+    };
+
+    const reset = () => {
+      s = 2;
+      rej = false;
+      drawn = false;
+      dd = '';
+      if (usr) usr.setAttribute('d', '');
+      draw();
+    };
+
+    const sched = () => {
+      if (!auto) return;
+      tm = setTimeout(() => {
+        if (!auto) return;
+        if (s < 4) ok();
+        else reset();
+        sched();
+      }, s < 4 ? 3000 : 4500);
+    };
+
+    if (bp) bind(bp, () => { stop(); ok(); });
+    if (bs) bind(bs, () => { stop(); no(); });
+    if (re) bind(re, () => { stop(); reset(); });
+
+    ns.forEach((n, i) =>
+      bind(n, () => {
+        if (i === s && !rej) {
+          stop();
+          ok();
+        }
+      })
+    );
+
+    const pt = (e) => {
+      const p = svg.createSVGPoint();
+      p.x = e.clientX;
+      p.y = e.clientY;
+      const ctm = svg.getScreenCTM();
+      if (!ctm) return [e.clientX, e.clientY];
+      const q = p.matrixTransform(ctm.inverse());
+      return [
+        Math.min(276, Math.max(50, q.x)),
+        Math.min(272, Math.max(222, q.y))
+      ];
+    };
+
+    const onPointerDown = (e) => {
+      stop();
+      on = true;
+      if (pad.setPointerCapture) {
+        try {
+          pad.setPointerCapture(e.pointerId);
+        } catch (_) {}
+      }
+      const [x, y] = pt(e);
+      dd += (drawn ? ' ' : '') + 'M' + x.toFixed(1) + ' ' + y.toFixed(1);
+      drawn = true;
+      if (usr) usr.setAttribute('d', dd);
+      draw();
+    };
+
+    const onPointerMove = (e) => {
+      if (!on) return;
+      const [x, y] = pt(e);
+      dd += ' L' + x.toFixed(1) + ' ' + y.toFixed(1);
+      if (usr) usr.setAttribute('d', dd);
+    };
+
+    const onPointerEnd = () => {
+      on = false;
+    };
+
+    pad.addEventListener('pointerdown', onPointerDown);
+    pad.addEventListener('pointermove', onPointerMove);
+    pad.addEventListener('pointerup', onPointerEnd);
+    pad.addEventListener('pointercancel', onPointerEnd);
+
+    draw();
+    sched();
+
+    root._cleanup = () => {
+      clearTimeout(tm);
+      pad.removeEventListener('pointerdown', onPointerDown);
+      pad.removeEventListener('pointermove', onPointerMove);
+      pad.removeEventListener('pointerup', onPointerEnd);
+      pad.removeEventListener('pointercancel', onPointerEnd);
+    };
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDocufloWorkflowSignature);
+  } else {
+    initDocufloWorkflowSignature();
+  }
+  document.addEventListener('astro:page-load', initDocufloWorkflowSignature);
+</script>
