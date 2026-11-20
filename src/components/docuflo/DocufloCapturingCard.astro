@@ -1,0 +1,408 @@
+---
+// Interactive Capturing Illustration Component for Docuflo
+---
+
+<div class="capturing-card bg-white rounded-2xl border border-slate-200/90 shadow-md p-3 sm:p-4.5 transition-all duration-300 hover:shadow-lg hover:border-rose-200">
+  <svg id="p1" viewBox="0 0 612 320" role="img" aria-label="Capturing Docuflo" class="w-full h-auto block select-none rounded-lg overflow-hidden">
+    <defs>
+      <pattern id="p1-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+        <path d="M24 0H0V24" fill="none" stroke="#E7E7EA"/>
+      </pattern>
+    </defs>
+    <rect width="612" height="320" rx="10" fill="#F4F4F5"/>
+    <rect width="612" height="320" rx="10" fill="url(#p1-grid)"/>
+
+    <!-- Connecting Flow Lines -->
+    <path d="M192 66 H232 V160 H272" fill="none" stroke="#17171C" stroke-width="1.5"/>
+    <path class="flow" id="p1f0" d="M192 66 H232 V160 H272"/>
+    <path d="M192 160 H232 V160 H272" fill="none" stroke="#17171C" stroke-width="1.5"/>
+    <path class="flow" id="p1f1" d="M192 160 H232 V160 H272"/>
+    <path d="M192 254 H232 V160 H272" fill="none" stroke="#17171C" stroke-width="1.5"/>
+    <path class="flow" id="p1f2" d="M192 254 H232 V160 H272"/>
+    <rect x="229" y="157" width="6" height="6" fill="#17171C"/>
+
+    <!-- Source Buttons (Left) -->
+    <g class="src hit" data-i="0" tabindex="0" role="button">
+      <rect class="c" x="28" y="38" width="164" height="56" rx="6" fill="#fff" stroke="#DCDCE0"/>
+      <rect x="40" y="52" width="28" height="28" rx="4" fill="#E4001B"/>
+      <g transform="translate(54,66)"><path d="M-8 -5 H-2 L0 -3 H8 V6 H-8 Z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="miter"/></g>
+      <text x="78" y="65" font-size="10.5" font-weight="700" fill="#17171C" text-anchor="start">Batch Import</text>
+      <text x="78" y="79" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start">Unggah massal</text>
+    </g>
+
+    <g class="src hit" data-i="1" tabindex="0" role="button">
+      <rect class="c" x="28" y="132" width="164" height="56" rx="6" fill="#fff" stroke="#DCDCE0"/>
+      <rect x="40" y="146" width="28" height="28" rx="4" fill="#E4001B"/>
+      <g transform="translate(54,160)"><path d="M-8 2 H8 V7 H-8 Z M-6 2 V-6 H6 V2 M-3 -2 H3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="miter"/></g>
+      <text x="78" y="159" font-size="10.5" font-weight="700" fill="#17171C" text-anchor="start">Hardcopy Scanning</text>
+      <text x="78" y="173" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start">Pindai dokumen fisik</text>
+    </g>
+
+    <g class="src hit" data-i="2" tabindex="0" role="button">
+      <rect class="c" x="28" y="226" width="164" height="56" rx="6" fill="#fff" stroke="#DCDCE0"/>
+      <rect x="40" y="240" width="28" height="28" rx="4" fill="#E4001B"/>
+      <g transform="translate(54,254)"><path d="M0 6 V-6 M-5 -1 L0 -6 L5 -1 M-8 8 H8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="miter"/></g>
+      <text x="78" y="253" font-size="10.5" font-weight="700" fill="#17171C" text-anchor="start">Web Upload</text>
+      <text x="78" y="267" font-size="8.5" font-weight="500" fill="#6B6B76" text-anchor="start">Dari browser</text>
+    </g>
+
+    <!-- Center Processing Hub -->
+    <g class="hub" id="p1hub">
+      <rect x="272" y="132" width="56" height="56" rx="6" fill="#E4001B"/>
+      <g transform="translate(300,160)">
+        <rect x="-10" y="-13" width="20" height="26" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
+        <path d="M-5 -5H5M-5 0H5M-5 5H1" stroke="#fff" stroke-width="2"/>
+      </g>
+    </g>
+
+    <path d="M328 160 H358 M351 154 L358 160 L351 166" fill="none" stroke="#17171C" stroke-width="1.5"/>
+
+    <!-- Portal Destination Window (Right) -->
+    <rect x="364" y="46" width="220" height="226" rx="6" fill="#fff" stroke="#DCDCE0"/>
+    <path d="M364 74 V52 a6 6 0 0 1 6 -6 H578 a6 6 0 0 1 6 6 V74 Z" fill="#F4F4F5" stroke="#DCDCE0"/>
+    <circle cx="378" cy="60" r="3" fill="#C9C9CF"/>
+    <circle cx="388" cy="60" r="3" fill="#C9C9CF"/>
+    <circle cx="398" cy="60" r="3" fill="#C9C9CF"/>
+    <rect x="410" y="53" width="160" height="14" rx="3" fill="#fff" stroke="#DCDCE0"/>
+    <text x="418" y="63" font-size="8" font-weight="500" fill="#6B6B76" text-anchor="start">portal.docuflo.id</text>
+
+    <!-- Document Thumbnail Slots (0-5) -->
+    <g class="th" data-n="0">
+      <rect class="bd" x="378" y="86" width="56" height="70" rx="4"/>
+      <g class="ct">
+        <rect class="b1" x="386" y="96" width="26" height="4"/>
+        <rect x="386" y="106" width="40" height="3" fill="#E6E6EA"/>
+        <rect x="386" y="113" width="34" height="3" fill="#E6E6EA"/>
+        <rect x="386" y="120" width="38" height="3" fill="#E6E6EA"/>
+        <rect class="tg" x="386" y="138" width="40" height="10" rx="2"/>
+        <text x="390" y="145.5" font-size="6.5" font-weight="700" fill="#E4001B" text-anchor="start" class="tgt"></text>
+        <g class="ck">
+          <rect x="418" y="92" width="10" height="10" rx="2" fill="#12875A"/>
+          <path d="M420 97.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+        </g>
+      </g>
+    </g>
+
+    <g class="th" data-n="1">
+      <rect class="bd" x="444" y="86" width="56" height="70" rx="4"/>
+      <g class="ct">
+        <rect class="b1" x="452" y="96" width="26" height="4"/>
+        <rect x="452" y="106" width="40" height="3" fill="#E6E6EA"/>
+        <rect x="452" y="113" width="34" height="3" fill="#E6E6EA"/>
+        <rect x="452" y="120" width="38" height="3" fill="#E6E6EA"/>
+        <rect class="tg" x="452" y="138" width="40" height="10" rx="2"/>
+        <text x="456" y="145.5" font-size="6.5" font-weight="700" fill="#E4001B" text-anchor="start" class="tgt"></text>
+        <g class="ck">
+          <rect x="484" y="92" width="10" height="10" rx="2" fill="#12875A"/>
+          <path d="M486 97.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+        </g>
+      </g>
+    </g>
+
+    <g class="th" data-n="2">
+      <rect class="bd" x="510" y="86" width="56" height="70" rx="4"/>
+      <g class="ct">
+        <rect class="b1" x="518" y="96" width="26" height="4"/>
+        <rect x="518" y="106" width="40" height="3" fill="#E6E6EA"/>
+        <rect x="518" y="113" width="34" height="3" fill="#E6E6EA"/>
+        <rect x="518" y="120" width="38" height="3" fill="#E6E6EA"/>
+        <rect class="tg" x="518" y="138" width="40" height="10" rx="2"/>
+        <text x="522" y="145.5" font-size="6.5" font-weight="700" fill="#E4001B" text-anchor="start" class="tgt"></text>
+        <g class="ck">
+          <rect x="550" y="92" width="10" height="10" rx="2" fill="#12875A"/>
+          <path d="M552 97.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+        </g>
+      </g>
+    </g>
+
+    <g class="th" data-n="3">
+      <rect class="bd" x="378" y="164" width="56" height="70" rx="4"/>
+      <g class="ct">
+        <rect class="b1" x="386" y="174" width="26" height="4"/>
+        <rect x="386" y="184" width="40" height="3" fill="#E6E6EA"/>
+        <rect x="386" y="191" width="34" height="3" fill="#E6E6EA"/>
+        <rect x="386" y="198" width="38" height="3" fill="#E6E6EA"/>
+        <rect class="tg" x="386" y="216" width="40" height="10" rx="2"/>
+        <text x="390" y="223.5" font-size="6.5" font-weight="700" fill="#E4001B" text-anchor="start" class="tgt"></text>
+        <g class="ck">
+          <rect x="418" y="170" width="10" height="10" rx="2" fill="#12875A"/>
+          <path d="M420 175.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+        </g>
+      </g>
+    </g>
+
+    <g class="th" data-n="4">
+      <rect class="bd" x="444" y="164" width="56" height="70" rx="4"/>
+      <g class="ct">
+        <rect class="b1" x="452" y="174" width="26" height="4"/>
+        <rect x="452" y="184" width="40" height="3" fill="#E6E6EA"/>
+        <rect x="452" y="191" width="34" height="3" fill="#E6E6EA"/>
+        <rect x="452" y="198" width="38" height="3" fill="#E6E6EA"/>
+        <rect class="tg" x="452" y="216" width="40" height="10" rx="2"/>
+        <text x="456" y="223.5" font-size="6.5" font-weight="700" fill="#E4001B" text-anchor="start" class="tgt"></text>
+        <g class="ck">
+          <rect x="484" y="170" width="10" height="10" rx="2" fill="#12875A"/>
+          <path d="M486 175.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+        </g>
+      </g>
+    </g>
+
+    <g class="th" data-n="5">
+      <rect class="bd" x="510" y="164" width="56" height="70" rx="4"/>
+      <g class="ct">
+        <rect class="b1" x="518" y="174" width="26" height="4"/>
+        <rect x="518" y="184" width="40" height="3" fill="#E6E6EA"/>
+        <rect x="518" y="191" width="34" height="3" fill="#E6E6EA"/>
+        <rect x="518" y="198" width="38" height="3" fill="#E6E6EA"/>
+        <rect class="tg" x="518" y="216" width="40" height="10" rx="2"/>
+        <text x="522" y="223.5" font-size="6.5" font-weight="700" fill="#E4001B" text-anchor="start" class="tgt"></text>
+        <g class="ck">
+          <rect x="550" y="170" width="10" height="10" rx="2" fill="#12875A"/>
+          <path d="M552 175.5 l2.5 2.5 l4.5 -5.5" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="square"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Bottom Portal Bar -->
+    <path d="M364 246 H584 V266 a6 6 0 0 1 -6 6 H370 a6 6 0 0 1 -6 -6 Z" fill="#E4001B"/>
+    <text x="378" y="263" font-size="10" font-weight="700" fill="#fff" text-anchor="start">Docuflo Web Portal</text>
+    <text x="570" y="263" font-size="8" font-weight="500" fill="#fff" text-anchor="end" id="p1msg">2 dokumen terindeks</text>
+  </svg>
+
+  <p class="text-[11px] text-slate-500 mt-2.5 text-center leading-relaxed">
+    <span class="font-semibold text-[#E4001B]">Interaktif:</span> Klik <em>Batch Import</em>, <em>Hardcopy Scanning</em>, atau <em>Web Upload</em> untuk simulasi pengiriman dokumen ke portal.
+  </p>
+</div>
+
+<style>
+  .capturing-card .hit {
+    cursor: pointer;
+    outline: none;
+  }
+  .capturing-card .hit:focus-visible {
+    outline: 2px solid #E4001B;
+    outline-offset: 2px;
+  }
+  .capturing-card .flow {
+    fill: none;
+    stroke: #E4001B;
+    stroke-width: 3;
+    stroke-dasharray: 3 13;
+    opacity: 0.6;
+    animation: p1fl 0.9s linear infinite;
+    transition: stroke-width 0.2s, opacity 0.2s;
+  }
+  .capturing-card .flow.act {
+    stroke-width: 5;
+    opacity: 1;
+  }
+  @keyframes p1fl {
+    to {
+      stroke-dashoffset: -16;
+    }
+  }
+  .capturing-card .src .c {
+    transition: stroke 0.15s;
+  }
+  .capturing-card .src:hover .c,
+  .capturing-card .src:focus-visible .c {
+    stroke: #E4001B;
+  }
+  .capturing-card .hub {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .capturing-card .hub.pulse {
+    animation: p1pl 0.5s;
+  }
+  @keyframes p1pl {
+    50% {
+      transform: scale(1.14);
+    }
+  }
+  .capturing-card .th {
+    cursor: pointer;
+  }
+  .capturing-card .th .bd {
+    stroke: #DCDCE0;
+    stroke-width: 1;
+    fill: #fff;
+    stroke-dasharray: 3 3;
+    transition: stroke 0.3s;
+  }
+  .capturing-card .th.full .bd {
+    stroke-dasharray: none;
+  }
+  .capturing-card .th .b1 {
+    fill: #B9B9C2;
+  }
+  .capturing-card .th .tg {
+    fill: #FCE3E6;
+  }
+  .capturing-card .th .ck {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .capturing-card .th.on .bd {
+    stroke: #E4001B;
+    stroke-width: 1.6;
+  }
+  .capturing-card .th.on .b1 {
+    fill: #E4001B;
+  }
+  .capturing-card .th.on .tg {
+    fill: #FCE3E6;
+  }
+  .capturing-card .th.on .ck {
+    opacity: 1;
+  }
+  .capturing-card .th .ct {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .capturing-card .th.full .ct {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .capturing-card * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  function initDocufloCapturing() {
+    const svg = document.getElementById('p1');
+    if (!svg) return;
+    const T = [...svg.querySelectorAll('.th')];
+    const msg = document.getElementById('p1msg');
+    const hub = document.getElementById('p1hub');
+    const D = [
+      ['Invoice', 'Invoice_0231.pdf'],
+      ['Kontrak', 'Kontrak_VendorA.pdf'],
+      ['Laporan', 'Laporan_Q3.xlsx'],
+      ['SOP', 'SOP_Gudang_v2.docx'],
+      ['Faktur', 'Faktur_Pajak_88.pdf'],
+      ['Surat', 'Surat_Jalan_104.pdf']
+    ];
+    const nm = [];
+    let cnt = 0, idle = 0, busy = false;
+
+    const base = () => {
+      if (msg) msg.textContent = T.filter(t => t.classList.contains('full')).length + ' dokumen terindeks';
+    };
+
+    const fill = (s, d) => {
+      T.forEach(t => t.classList.remove('on'));
+      const t = T[s];
+      if (!t) return;
+      t.classList.add('full', 'on');
+      const tgt = t.querySelector('.tgt');
+      if (tgt) tgt.textContent = d[0];
+      nm[s] = d[1];
+    };
+
+    fill(0, D[0]);
+    fill(1, D[1]);
+    cnt = 2;
+    base();
+
+    function send(i) {
+      if (busy) return;
+      busy = true;
+      idle = 0;
+      const f = document.getElementById('p1f' + i);
+      if (!f) return;
+      const L = f.getTotalLength();
+      const slot = cnt % 6;
+      const d = D[cnt % 6];
+      const tx = 378 + (slot % 3) * 66 + 28;
+      const ty = 86 + Math.floor(slot / 3) * 78 + 35;
+      f.classList.add('act');
+      const p = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      p.setAttribute('width', '9');
+      p.setAttribute('height', '9');
+      p.setAttribute('fill', '#E4001B');
+      p.setAttribute('stroke', '#fff');
+      svg.appendChild(p);
+
+      const t0 = performance.now(), A = 550, B = 450;
+      (function st(now) {
+        const e = now - t0;
+        let x, y;
+        if (e < A) {
+          const q = f.getPointAtLength(L * e / A);
+          x = q.x;
+          y = q.y;
+        } else if (e < A + B) {
+          const k = (e - A) / B;
+          x = 300 + (tx - 300) * k;
+          y = 160 + (ty - 160) * k;
+          if (hub) hub.classList.add('pulse');
+        } else {
+          p.remove();
+          f.classList.remove('act');
+          if (hub) hub.classList.remove('pulse');
+          fill(slot, d);
+          cnt++;
+          if (msg) msg.textContent = d[1];
+          setTimeout(() => {
+            busy = false;
+            base();
+          }, 1600);
+          return;
+        }
+        p.setAttribute('x', String(x - 4.5));
+        p.setAttribute('y', String(y - 4.5));
+        requestAnimationFrame(st);
+      })(t0);
+    }
+
+    const bind = (el, fn) => {
+      el.addEventListener('click', fn);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fn();
+        }
+      });
+    };
+
+    svg.querySelectorAll('.src').forEach(s => {
+      const idx = s.getAttribute('data-i');
+      if (idx !== null) bind(s, () => send(+idx));
+    });
+
+    T.forEach((t, i) => {
+      t.addEventListener('mouseenter', () => {
+        if (!busy && t.classList.contains('full') && msg) msg.textContent = nm[i];
+      });
+      t.addEventListener('mouseleave', () => {
+        if (!busy) base();
+      });
+      t.addEventListener('click', () => {
+        if (t.classList.contains('full')) {
+          T.forEach(x => x.classList.remove('on'));
+          t.classList.add('on');
+        }
+      });
+    });
+
+    const interval = setInterval(() => {
+      idle++;
+      if (idle >= 4 && !busy) send(cnt % 3);
+    }, 1000);
+
+    const resetIdle = () => { idle = -3; };
+    ['pointerdown', 'keydown'].forEach(e => document.addEventListener(e, resetIdle));
+  }
+
+  // Initialize on load and on Astro transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDocufloCapturing);
+  } else {
+    initDocufloCapturing();
+  }
+  document.addEventListener('astro:page-load', initDocufloCapturing);
+</script>
