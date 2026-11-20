@@ -1,0 +1,366 @@
+---
+// src/components/cyclone/CycloneFlowDiagram.astro
+// Pure Vector SVG + CSS Interactive Code (No raster images)
+// 100% Matches Reference Design with Plus Jakarta Sans & Space Mono
+---
+
+<div class="cyclone-flow-diagram w-full max-w-[960px] mx-auto relative select-none">
+  <!-- =========================================================================
+       DESKTOP & TABLET VIEW (>= 640px): 100% PURE VECTOR SVG DIAGRAM
+       ========================================================================= -->
+  <div class="hidden sm:block w-full">
+    <svg
+      viewBox="0 0 960 680"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-auto overflow-visible block"
+      role="img"
+      aria-label="Diagram Alur Otomasi Purchase Order Cyclone RPA: 8 langkah dari dokumen masuk hingga Sales Order terbit di SAP"
+    >
+      <defs>
+        <!-- Gradients -->
+        <linearGradient id="cf-ribbon-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff9a3c"/>
+          <stop offset="50%" stop-color="#f4511e"/>
+          <stop offset="100%" stop-color="#e64a19"/>
+        </linearGradient>
+
+        <!-- 3D Isometric Platform Symbol -->
+        <g id="cf-platform">
+          <!-- Ambient Ground Glow -->
+          <ellipse cx="0" cy="32" rx="54" ry="16" fill="#f4511e" opacity="0.22" class="cf-glow"/>
+          <!-- 3D Base Thickness Rim (Black/Dark Zinc) -->
+          <path d="M-50,8 L0,-18 L50,8 L0,34 Z" fill="#18181b" stroke="#18181b" stroke-width="10" stroke-linejoin="round"/>
+          <!-- Top Face (Ivory/Warm White) -->
+          <path d="M-50,0 L0,-26 L50,0 L0,26 Z" fill="#fffaf5" stroke="#fffaf5" stroke-width="10" stroke-linejoin="round"/>
+          <!-- Inner Peach Glow Oval -->
+          <ellipse cx="0" cy="0" rx="22" ry="9" fill="#ffe6d5"/>
+        </g>
+
+        <!-- ICON 1: Email + Browser -->
+        <g id="cf-icon-1">
+          <rect x="-8" y="-60" width="42" height="28" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="1"/>
+          <circle cx="0" cy="-53" r="2" fill="#ea580c"/>
+          <circle cx="6" cy="-53" r="2" fill="#ea580c"/>
+          <circle cx="12" cy="-53" r="2" fill="#ea580c"/>
+          <!-- Mail Envelope Front -->
+          <rect x="-30" y="-48" width="44" height="30" rx="4" fill="#f4511e"/>
+          <path d="M-29,-45 L-8,-29 L13,-45" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="24" cy="-42" r="4" fill="#18181b"/>
+        </g>
+
+        <!-- ICON 2: Document + Gear -->
+        <g id="cf-icon-2">
+          <rect x="-24" y="-66" width="38" height="46" rx="4" fill="#ff8a3d"/>
+          <path d="M-16,-54 H6 M-16,-46 H6 M-16,-38 H-2" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <!-- Cog / Gear -->
+          <circle cx="18" cy="-22" r="10" fill="#18181b"/>
+          <circle cx="18" cy="-22" r="4" fill="#fed7aa"/>
+          <path d="M18,-34 V-10 M6,-22 H30 M9,-31 L27,-13 M9,-13 L27,-31" stroke="#18181b" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <!-- ICON 3: AI OCR Scanner -->
+        <g id="cf-icon-3">
+          <path d="M-32,-66 V-74 H-22 M22,-74 H32 V-66 M-32,-22 V-14 H-22 M22,-14 H32 V-22" stroke="#18181b" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="-19" y="-64" width="38" height="44" rx="4" fill="#f4511e"/>
+          <text x="0" y="-36" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="800" fill="#fff">AI</text>
+          <path d="M-28,-42 H28" stroke="#18181b" stroke-width="2.5"/>
+        </g>
+
+        <!-- ICON 4: Database Master -->
+        <g id="cf-icon-4">
+          <ellipse cx="0" cy="-28" rx="24" ry="8" fill="#ff9a4a"/>
+          <path d="M-24,-28 V-16 C-24,-11.6 -13.3,-8 0,-8 C13.3,-8 24,-11.6 24,-16 V-28 Z" fill="#ea580c"/>
+          <ellipse cx="0" cy="-40" rx="24" ry="8" fill="#ffb27a"/>
+          <ellipse cx="0" cy="-52" rx="24" ry="8" fill="#ffd1b0"/>
+          <path d="M-24,-52 V-16 M24,-52 V-16" stroke="#ea580c" stroke-width="2"/>
+          <!-- Verified Check Badge -->
+          <circle cx="24" cy="-22" r="9" fill="#ffb347"/>
+          <path d="M20,-22 L23,-19 L28,-25" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+
+        <!-- ICON 5: Order Validation Checklist -->
+        <g id="cf-icon-5">
+          <rect x="-24" y="-66" width="42" height="50" rx="4" fill="#fff1e7" stroke="#f97316" stroke-width="1.5"/>
+          <path d="M-16,-54 H10 M-16,-44 H10 M-16,-34 H10 M-16,-24 H2" stroke="#f4511e" stroke-width="3" stroke-linecap="round"/>
+          <!-- Golden Seal Badge -->
+          <circle cx="20" cy="-22" r="11" fill="#f59e0b"/>
+          <path d="M16,-22 L19,-19 L25,-26" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+
+        <!-- ICON 6: ERP Document -->
+        <g id="cf-icon-6">
+          <rect x="-24" y="-64" width="44" height="48" rx="4" fill="#fff" stroke="#fed7aa" stroke-width="2"/>
+          <rect x="-24" y="-64" width="44" height="10" rx="2" fill="#ff9a4a"/>
+          <text x="0" y="-57" text-anchor="middle" font-family="'Space Mono', monospace" font-size="7" font-weight="700" fill="#fff">SAP</text>
+          <path d="M-16,-46 H12 M-16,-38 H12 M-16,-30 H12 M-16,-22 H4" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+
+        <!-- ICON 7: Notification Bell + Avatars -->
+        <g id="cf-icon-7">
+          <path d="M-20,-22 C-20,-30 -16,-36 -16,-44 A16,16 0 0,1 16,-44 C16,-36 20,-30 20,-22 Z" fill="#f4511e"/>
+          <circle cx="0" cy="-60" r="4" fill="#f4511e"/>
+          <rect x="-24" y="-22" width="48" height="5" rx="2" fill="#ea580c"/>
+          <circle cx="0" cy="-15" r="4.5" fill="#18181b"/>
+          <!-- Left & Right Avatars -->
+          <circle cx="-24" cy="-8" r="7" fill="#fff" stroke="#f97316" stroke-width="2"/>
+          <circle cx="-24" cy="-10" r="2.5" fill="#f97316"/>
+          <path d="M-28,-4 A4,4 0 0,1 -20,-4" stroke="#f97316" stroke-width="1.5" fill="none"/>
+          <circle cx="24" cy="-8" r="7" fill="#fff" stroke="#f97316" stroke-width="2"/>
+          <circle cx="24" cy="-10" r="2.5" fill="#f97316"/>
+          <path d="M20,-4 A4,4 0 0,1 28,-4" stroke="#f97316" stroke-width="1.5" fill="none"/>
+        </g>
+
+        <!-- ICON 8: Completed Document with Ribbon -->
+        <g id="cf-icon-8">
+          <rect x="-24" y="-68" width="44" height="52" rx="4" fill="#ffcba4"/>
+          <path d="M-16,-56 H10 M-16,-48 H10 M-16,-40 H2" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <!-- Verified Golden Seal -->
+          <circle cx="20" cy="-22" r="13" fill="#f59e0b"/>
+          <path d="M14,-22 L18,-18 L26,-26" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </defs>
+
+      <!-- 1. The Orange 3D Snake Ribbon Path -->
+      <!-- Under Shadow Layer -->
+      <path
+        d="M 120 120 L 360 210 L 600 120 L 800 200 C 970 230, 970 420, 810 440 L 600 520 L 360 440 L 140 520"
+        fill="none"
+        stroke="#c83808"
+        stroke-width="42"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        opacity="0.35"
+        transform="translate(0, 10)"
+      />
+
+      <!-- Main Gradient Ribbon -->
+      <path
+        d="M 120 120 L 360 210 L 600 120 L 800 200 C 970 230, 970 420, 810 440 L 600 520 L 360 440 L 140 520"
+        fill="none"
+        stroke="url(#cf-ribbon-grad)"
+        stroke-width="38"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      />
+
+      <!-- Directional Chevrons on Ribbon -->
+      <g fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+        <!-- 1 -> 2 -->
+        <path d="M 230 158 L 240 165 L 230 172"/>
+        <!-- 2 -> 3 -->
+        <path d="M 470 172 L 480 165 L 470 158"/>
+        <!-- 3 -> 4 -->
+        <path d="M 690 154 L 700 160 L 690 166"/>
+        <!-- Right loop curve -->
+        <path d="M 922 315 L 916 327 L 910 315"/>
+        <!-- 5 -> 6 -->
+        <path d="M 710 472 L 700 480 L 710 488"/>
+        <!-- 6 -> 7 -->
+        <path d="M 490 488 L 480 480 L 490 472"/>
+        <!-- 7 -> 8 -->
+        <path d="M 260 472 L 250 480 L 260 488"/>
+      </g>
+
+      <!-- 2. The 8 Nodes (Platform + Illustrated Icon + Typography) -->
+
+      <!-- NODE 1 (Top Left) -->
+      <g class="cf-node" transform="translate(120, 120)">
+        <use href="#cf-platform"/>
+        <use href="#cf-icon-1"/>
+        <text x="0" y="54" text-anchor="middle" class="cf-mono" fill="#f4511e">01 · INPUT</text>
+        <text x="0" y="68" text-anchor="middle" class="cf-sub">EMAIL / PORTAL</text>
+        <text x="0" y="88" text-anchor="middle" class="cf-bold">PO masuk lewat</text>
+        <text x="0" y="105" text-anchor="middle" class="cf-bold">email atau portal</text>
+        <text x="0" y="122" text-anchor="middle" class="cf-bold">pelanggan</text>
+      </g>
+
+      <!-- NODE 2 (Mid-Left Drop) -->
+      <g class="cf-node" transform="translate(360, 210)">
+        <use href="#cf-platform"/>
+        <use href="#cf-icon-2"/>
+        <text x="0" y="54" text-anchor="middle" class="cf-mono" fill="#f4511e">02 · INPUT</text>
+        <text x="0" y="68" text-anchor="middle" class="cf-sub">INBOX</text>
+        <text x="0" y="88" text-anchor="middle" class="cf-bold">Bot mengambil</text>
+        <text x="0" y="105" text-anchor="middle" class="cf-bold">dokumen otomatis</text>
+        <text x="0" y="122" text-anchor="middle" class="cf-bold">dari inbox</text>
+      </g>
+
+      <!-- NODE 3 (Mid-Right Peak) -->
+      <g class="cf-node" transform="translate(600, 120)">
+        <use href="#cf-platform"/>
+        <use href="#cf-icon-3"/>
+        <text x="0" y="54" text-anchor="middle" class="cf-mono" fill="#f4511e">03 · PROSES</text>
+        <text x="0" y="68" text-anchor="middle" class="cf-sub">AI OCR</text>
+        <text x="0" y="88" text-anchor="middle" class="cf-bold">AI OCR membaca</text>
+        <text x="0" y="105" text-anchor="middle" class="cf-bold">dan mengekstrak</text>
+        <text x="0" y="122" text-anchor="middle" class="cf-bold">isi PO</text>
+      </g>
+
+      <!-- NODE 4 (Top Right) -->
+      <g class="cf-node" transform="translate(800, 200)">
+        <use href="#cf-platform"/>
+        <use href="#cf-icon-4"/>
+        <text x="0" y="54" text-anchor="middle" class="cf-mono" fill="#f4511e">04 · PROSES</text>
+        <text x="0" y="68" text-anchor="middle" class="cf-sub">DATABASE MASTER</text>
+        <text x="0" y="88" text-anchor="middle" class="cf-bold">Item dicocokkan</text>
+        <text x="0" y="105" text-anchor="middle" class="cf-bold">ke database</text>
+        <text x="0" y="122" text-anchor="middle" class="cf-bold">master</text>
+      </g>
+
+      <!-- NODE 5 (Bottom Right) -->
+      <g class="cf-node" transform="translate(810, 440)">
+        <use href="#cf-platform"/>
+        <use href="#cf-icon-5"/>
+        <text x="0" y="54" text-anchor="middle" class="cf-mono" fill="#f4511e">05 · PROSES</text>
+        <text x="0" y="68" text-anchor="middle" class="cf-sub">ATURAN VALIDASI</text>
+        <text x="0" y="88" text-anchor="middle" class="cf-bold">Data order</text>
+        <text x="0" y="105" text-anchor="middle" class="cf-bold">divalidasi secara</text>
+        <text x="0" y="122" text-anchor="middle" class="cf-bold">otomatis</text>
+      </g>
+
+      <!-- NODE 6 (Bottom Mid-Right) -->
+      <g class="cf-node" transform="translate(600, 520)">
+        <use href="#cf-platform"/>
+        <use href="#cf-icon-6"/>
+        <text x="0" y="54" text-anchor="middle" class="cf-mono" fill="#f4511e">06 · OUTPUT</text>
+        <text x="0" y="68" text-anchor="middle" class="cf-sub">SAP</text>
+        <text x="0" y="88" text-anchor="middle" class="cf-bold">Sales Order</text>
+        <text x="0" y="105" text-anchor="middle" class="cf-bold">dibuat langsung</text>
+        <text x="0" y="122" text-anchor="middle" class="cf-bold">di ERP</text>
+      </g>
+
+      <!-- NODE 7 (Bottom Mid-Left) -->
+      <g class="cf-node" transform="translate(360, 440)">
+        <use href="#cf-platform"/>
+        <use href="#cf-icon-7"/>
+        <text x="0" y="54" text-anchor="middle" class="cf-mono" fill="#f4511e">07 · OUTPUT</text>
+        <text x="0" y="68" text-anchor="middle" class="cf-sub">TIM TERKAIT</text>
+        <text x="0" y="88" text-anchor="middle" class="cf-bold">Notifikasi selesai</text>
+        <text x="0" y="105" text-anchor="middle" class="cf-bold">dikirim ke tim</text>
+        <text x="0" y="122" text-anchor="middle" class="cf-bold">terkait</text>
+      </g>
+
+      <!-- NODE 8 (Bottom Left) -->
+      <g class="cf-node" transform="translate(140, 520)">
+        <use href="#cf-platform"/>
+        <use href="#cf-icon-8"/>
+        <text x="0" y="54" text-anchor="middle" class="cf-mono" fill="#f4511e">08 · HASIL</text>
+        <text x="0" y="68" text-anchor="middle" class="cf-sub">SELESAI</text>
+        <text x="0" y="88" text-anchor="middle" class="cf-bold">Sales Order terbit</text>
+        <text x="0" y="105" text-anchor="middle" class="cf-bold">di ERP, di proses ke</text>
+        <text x="0" y="122" text-anchor="middle" class="cf-bold">tahap selanjutnya</text>
+        <text x="0" y="142" text-anchor="middle" class="cf-muted">Tim cukup meninjau</text>
+        <text x="0" y="156" text-anchor="middle" class="cf-muted">hasil akhirnya.</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- =========================================================================
+       MOBILE VIEW (< 640px): 8 CLEAN VERTICAL INTERACTIVE STEP CARDS
+       ========================================================================= -->
+  <div class="sm:hidden space-y-3 my-4">
+    <div class="flex items-start gap-3.5 p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs transition-all hover:border-[#f4511e]/40">
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-sm shadow-xs">01</span>
+      <div>
+        <span class="block text-[10px] font-mono text-[#f4511e] font-bold tracking-wider uppercase">01 · INPUT · EMAIL / PORTAL</span>
+        <h4 class="text-sm font-bold text-slate-800 mt-1 leading-snug">PO masuk lewat email atau portal pelanggan</h4>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3.5 p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs transition-all hover:border-[#f4511e]/40">
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-sm shadow-xs">02</span>
+      <div>
+        <span class="block text-[10px] font-mono text-[#f4511e] font-bold tracking-wider uppercase">02 · INPUT · INBOX</span>
+        <h4 class="text-sm font-bold text-slate-800 mt-1 leading-snug">Bot mengambil dokumen otomatis dari inbox</h4>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3.5 p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs transition-all hover:border-[#f4511e]/40">
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-sm shadow-xs">03</span>
+      <div>
+        <span class="block text-[10px] font-mono text-[#f4511e] font-bold tracking-wider uppercase">03 · PROSES · AI OCR</span>
+        <h4 class="text-sm font-bold text-slate-800 mt-1 leading-snug">AI OCR membaca dan mengekstrak isi PO</h4>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3.5 p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs transition-all hover:border-[#f4511e]/40">
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-sm shadow-xs">04</span>
+      <div>
+        <span class="block text-[10px] font-mono text-[#f4511e] font-bold tracking-wider uppercase">04 · PROSES · DATABASE MASTER</span>
+        <h4 class="text-sm font-bold text-slate-800 mt-1 leading-snug">Item dicocokkan ke database master</h4>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3.5 p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs transition-all hover:border-[#f4511e]/40">
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-sm shadow-xs">05</span>
+      <div>
+        <span class="block text-[10px] font-mono text-[#f4511e] font-bold tracking-wider uppercase">05 · PROSES · ATURAN VALIDASI</span>
+        <h4 class="text-sm font-bold text-slate-800 mt-1 leading-snug">Data order divalidasi secara otomatis</h4>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3.5 p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs transition-all hover:border-[#f4511e]/40">
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-sm shadow-xs">06</span>
+      <div>
+        <span class="block text-[10px] font-mono text-[#f4511e] font-bold tracking-wider uppercase">06 · OUTPUT · SAP</span>
+        <h4 class="text-sm font-bold text-slate-800 mt-1 leading-snug">Sales Order dibuat langsung di ERP</h4>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3.5 p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs transition-all hover:border-[#f4511e]/40">
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-sm shadow-xs">07</span>
+      <div>
+        <span class="block text-[10px] font-mono text-[#f4511e] font-bold tracking-wider uppercase">07 · OUTPUT · TIM TERKAIT</span>
+        <h4 class="text-sm font-bold text-slate-800 mt-1 leading-snug">Notifikasi selesai dikirim ke tim terkait</h4>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3.5 p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs transition-all hover:border-[#f4511e]/40">
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-sm shadow-xs">08</span>
+      <div>
+        <span class="block text-[10px] font-mono text-[#f4511e] font-bold tracking-wider uppercase">08 · HASIL · SELESAI</span>
+        <h4 class="text-sm font-bold text-slate-800 mt-1 leading-snug">Sales Order terbit di ERP, di proses ke tahap selanjutnya</h4>
+        <p class="text-xs text-slate-500 mt-1">Tim cukup meninjau hasil akhirnya.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cf-mono {
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .cf-sub {
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 8.5px;
+    font-weight: 700;
+    fill: #64748b;
+    letter-spacing: 0.05em;
+  }
+  .cf-bold {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    fill: #0f172a;
+    letter-spacing: -0.015em;
+  }
+  .cf-muted {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    fill: #64748b;
+  }
+  .cf-node {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+  .cf-node:hover {
+    transform: translateY(-6px);
+  }
+  .cf-node:hover .cf-glow {
+    opacity: 0.55;
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
 import ConsultationCta from "@/components/common/ConsultationCta.astro";
+import CycloneFlowDiagram from "@/components/cyclone/CycloneFlowDiagram.astro";
 import {
   generateBreadcrumbSchema,
   generateProductSchema,
@@ -523,89 +524,12 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
         <h2>Dari email masuk sampai Sales Order jadi, tanpa disentuh tangan</h2>
         <p class="sub">Cyclone dipadukan AI OCR menjalankan seluruh alur, dari dokumen masuk sampai Sales Order terbit di SAP.</p>
 
-        <!-- Desktop & Tablet: Pristine flow illustration (100% matches reference, no overlaps, no cut-offs) -->
-        <div class="flow-stage-desktop hidden sm:block my-8">
-          <img
-            src="/images/product/cyclone/cyclone-po-flow.webp"
-            srcset="/images/product/cyclone/cyclone-po-flow.webp 1x, /images/product/cyclone/cyclone-po-flow@2x.webp 2x"
-            alt="Alur Otomasi Purchase Order Cyclone RPA: 8 langkah dari input email hingga Sales Order jadi di SAP"
-            width="738"
-            height="600"
-            class="w-full max-w-[760px] mx-auto h-auto block select-none"
-            loading="lazy"
-            decoding="async"
-          />
+        <!-- 100% Pure Code Vector SVG Flow Diagram (Interactive, Zero Collisions, Zero Images) -->
+        <div class="my-8">
+          <CycloneFlowDiagram />
         </div>
 
-        <!-- Mobile: Clean 8-step cards layout that is 100% readable without cut-offs -->
-        <div class="flow-mobile-steps sm:hidden space-y-3.5 my-6">
-          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
-            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">01</span>
-            <div>
-              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">01 · INPUT · EMAIL / PORTAL</span>
-              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">PO masuk lewat email atau portal pelanggan</h4>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
-            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">02</span>
-            <div>
-              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">02 · INPUT · INBOX</span>
-              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Bot mengambil dokumen otomatis dari inbox</h4>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
-            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">03</span>
-            <div>
-              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">03 · PROSES · AI OCR</span>
-              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">AI OCR membaca dan mengekstrak isi PO</h4>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
-            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">04</span>
-            <div>
-              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">04 · PROSES · DATABASE MASTER</span>
-              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Item dicocokkan ke database master</h4>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
-            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">05</span>
-            <div>
-              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">05 · PROSES · ATURAN VALIDASI</span>
-              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Data order divalidasi secara otomatis</h4>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
-            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">06</span>
-            <div>
-              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">06 · OUTPUT · SAP</span>
-              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Sales Order dibuat langsung di ERP</h4>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
-            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">07</span>
-            <div>
-              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">07 · OUTPUT · TIM TERKAIT</span>
-              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Notifikasi selesai dikirim ke tim terkait</h4>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3.5 p-3.5 bg-white border border-slate-200/80 rounded-xl shadow-xs">
-            <span class="w-9 h-9 shrink-0 rounded-lg bg-[#fff0e8] text-[#f4511e] flex items-center justify-center font-bold text-xs">08</span>
-            <div>
-              <span class="block text-[10px] font-mono text-[#f4511e] tracking-wider uppercase">08 · HASIL · SELESAI</span>
-              <h4 class="text-xs font-semibold text-slate-800 mt-0.5">Sales Order terbit di ERP, diproses ke tahap selanjutnya</h4>
-              <p class="text-[11px] text-slate-500 mt-1">Tim cukup meninjau hasil akhirnya.</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="rf sm:hidden">
+        <p class="rf">
           Ilustrasi antarmuka bersifat contoh dan disederhanakan. Alur mengikuti studi kasus Cyclone RPA dengan AI OCR.
         </p>
       </div>
@@ -1734,9 +1658,6 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
     line-height: 1.65;
   }
 
-  .cyclone-page .flow-stage-desktop img {
-    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.04));
-  }
 
   /* RESPONSIVE: TABLET */
   @media (max-width: 980px) {
