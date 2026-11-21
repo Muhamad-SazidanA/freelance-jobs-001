@@ -12,6 +12,7 @@ interface Props {
   submitButtonText?: string;
   class?: string;
   theme?: 'blue' | 'red' | 'docuflo' | 'orange' | 'cyclone' | string;
+  spacerBg?: string;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   submitButtonText = "Kirim",
   class: className = "",
   theme,
+  spacerBg = "bg-white",
 } = Astro.props;
 
 // Unique identifier to avoid DOM collisions across multiple instances
@@ -69,8 +71,8 @@ const submitBtnClass = isRedTheme
 ---
 
 <section id={id} class={`relative w-full overflow-hidden ${className}`}>
-  <!-- Upper Spacer: White area where the top half of the card floats into on desktop only -->
-  <div class="hidden md:block bg-white md:h-24 lg:h-28"></div>
+  <!-- Upper Spacer: Area where the top half of the card floats into on desktop only -->
+  <div class={`hidden md:block ${spacerBg} md:h-24 lg:h-28`}></div>
 
   <!-- Body Section: Solid Royal Blue or Docuflo Red -->
   <div class={`${bgClass} text-white pt-10 sm:pt-12 md:pt-0 pb-12 sm:pb-16 lg:pb-20`}>
