@@ -58,11 +58,9 @@ html {
   background: transparent;
 }
 
-/* Desktop 90% Zoom Scale for Home Page Content Only (Header & Footer remain 100% normal) */
-@media (min-width: 1024px) {
-  .home-content-zoom {
-    zoom: 0.9;
-  }
+/* Full scale standard across all pages, aligning with Header & Footer */
+.home-content-zoom {
+  width: 100%;
 }
 
 body {
