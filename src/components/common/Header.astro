@@ -10,11 +10,11 @@ const navItems = [
   {
     label: 'Produk',
     children: [
-      { label: 'Nanonets', href: '/products/nanonets', dotColor: 'bg-blue-500' },
-      { label: 'Cyclone', href: '/products/cyclone', dotColor: 'bg-orange-500' },
-      { label: 'Docuflo', href: '/products/docuflo', dotColor: 'bg-red-500' },
-      { label: 'Syclus', href: '/products/syclus', dotColor: 'bg-cyan-500' },
-      { label: 'Spensify', href: '/products/spensify', dotColor: 'bg-emerald-500' },
+      { label: 'Nanonets', href: '/products/nanonets' },
+      { label: 'Cyclone', href: '/products/cyclone' },
+      { label: 'Docuflo', href: '/products/docuflo' },
+      { label: 'Syclus', href: '/products/syclus' },
+      { label: 'Spensify', href: '/products/spensify' },
     ],
   },
   { label: 'Articles', href: '/articles' },
@@ -62,7 +62,7 @@ const navItems = [
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block group-focus-within:block w-44 z-50">
+              <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block group-focus-within:block w-40 z-50">
                 <div class="p-1.5 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl shadow-xl shadow-slate-900/10 ring-1 ring-slate-900/5 space-y-0.5">
                   {item.children.map((child) => (
                     <a
@@ -73,10 +73,7 @@ const navItems = [
                           : 'text-slate-700 hover:text-sky-600 hover:bg-slate-50'
                       }`}
                     >
-                      <span class="flex items-center gap-2.5">
-                        <span class={`w-2 h-2 rounded-full ${child.dotColor} transition-transform duration-150 group-hover/item:scale-125`}></span>
-                        <span>{child.label}</span>
-                      </span>
+                      <span>{child.label}</span>
                       <svg
                         class="w-3.5 h-3.5 text-slate-400 group-hover/item:text-sky-600 group-hover/item:translate-x-0.5 transition-all duration-150 opacity-0 group-hover/item:opacity-100"
                         fill="none"
@@ -156,48 +153,43 @@ const navItems = [
         <div class="pl-2 space-y-1">
           <a
             href="/products/nanonets"
-            class={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium ${
+            class={`block px-3 py-2 rounded-lg text-xs font-medium ${
               currentPath === '/products/nanonets' ? 'bg-sky-50 text-sky-600 font-semibold' : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-            <span>Nanonets</span>
+            Nanonets
           </a>
           <a
             href="/products/cyclone"
-            class={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium ${
+            class={`block px-3 py-2 rounded-lg text-xs font-medium ${
               currentPath === '/products/cyclone' ? 'bg-sky-50 text-sky-600 font-semibold' : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-            <span>Cyclone</span>
+            Cyclone
           </a>
           <a
             href="/products/docuflo"
-            class={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium ${
+            class={`block px-3 py-2 rounded-lg text-xs font-medium ${
               currentPath === '/products/docuflo' ? 'bg-sky-50 text-sky-600 font-semibold' : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-            <span>Docuflo</span>
+            Docuflo
           </a>
           <a
             href="/products/syclus"
-            class={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium ${
+            class={`block px-3 py-2 rounded-lg text-xs font-medium ${
               currentPath === '/products/syclus' ? 'bg-sky-50 text-sky-600 font-semibold' : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
-            <span>Syclus</span>
+            Syclus
           </a>
           <a
             href="/products/spensify"
-            class={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium ${
+            class={`block px-3 py-2 rounded-lg text-xs font-medium ${
               currentPath === '/products/spensify' ? 'bg-sky-50 text-sky-600 font-semibold' : 'text-slate-600 hover:bg-slate-50'
             }`}
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            <span>Spensify</span>
+            Spensify
           </a>
         </div>
       </div>
