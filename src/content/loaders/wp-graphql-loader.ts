@@ -139,11 +139,9 @@ export async function getAllPosts(): Promise<Post[]> {
         },
         readingTimeMinutes: Math.max(1, Math.round((node.content || '').split(/\s+/).length / 200)),
         seo: {
-          metaTitle: node.title,
-          metaDescription: node.excerpt ? node.excerpt.replace(/<[^>]+>/g, '').trim() : '',
-          canonicalUrl: `https://solusiaplikasi.id/articles/${node.slug}`,
-          ogTitle: node.title,
-          ogDescription: node.excerpt ? node.excerpt.replace(/<[^>]+>/g, '').trim() : '',
+          title: node.title,
+          description: node.excerpt ? node.excerpt.replace(/<[^>]+>/g, '').trim() : '',
+          canonical: `https://solusiaplikasi.id/articles/${node.slug}`,
           ogImage: node.featuredImage?.node?.sourceUrl || '/images/articles/article-thumb-1.jpg',
         },
       }));

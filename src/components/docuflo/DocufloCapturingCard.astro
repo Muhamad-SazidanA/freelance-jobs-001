@@ -282,14 +282,14 @@
       ['Faktur', 'Faktur_Pajak_88.pdf'],
       ['Surat', 'Surat_Jalan_104.pdf']
     ];
-    const nm = [];
+    const nm: string[] = [];
     let cnt = 0, idle = 0, busy = false;
 
     const base = () => {
       if (msg) msg.textContent = T.filter(t => t.classList.contains('full')).length + ' dokumen terindeks';
     };
 
-    const fill = (s, d) => {
+    const fill = (s: number, d: string[]) => {
       T.forEach(t => t.classList.remove('on'));
       const t = T[s];
       if (!t) return;
@@ -304,13 +304,13 @@
     cnt = 2;
     base();
 
-    function send(i) {
+    function send(i: number) {
       if (busy) return;
       busy = true;
       idle = 0;
-      const f = document.getElementById('p1f' + i);
+      const f = document.getElementById('p1f' + i) as SVGPathElement | null;
       if (!f) return;
-      const L = f.getTotalLength();
+      const L = f.getTotalLength?.() ?? 0;
       const slot = cnt % 6;
       const d = D[cnt % 6];
       const tx = 378 + (slot % 3) * 66 + 28;
@@ -321,14 +321,14 @@
       p.setAttribute('height', '9');
       p.setAttribute('fill', '#E4001B');
       p.setAttribute('stroke', '#fff');
-      svg.appendChild(p);
+      if (svg) svg.appendChild(p);
 
       const t0 = performance.now(), A = 550, B = 450;
       (function st(now) {
         const e = now - t0;
         let x, y;
         if (e < A) {
-          const q = f.getPointAtLength(L * e / A);
+          const q = f.getPointAtLength?.(L * e / A) || { x: 0, y: 0 };
           x = q.x;
           y = q.y;
         } else if (e < A + B) {
@@ -355,11 +355,12 @@
       })(t0);
     }
 
-    const bind = (el, fn) => {
+    const bind = (el: Element, fn: () => void) => {
       el.addEventListener('click', fn);
-      el.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
+      el.addEventListener('keydown', (e: Event) => {
+        const ke = e as KeyboardEvent;
+        if (ke.key === 'Enter' || ke.key === ' ') {
+          ke.preventDefault();
           fn();
         }
       });
@@ -372,7 +373,7 @@
 
     T.forEach((t, i) => {
       t.addEventListener('mouseenter', () => {
-        if (!busy && t.classList.contains('full') && msg) msg.textContent = nm[i];
+        if (!busy && t.classList.contains('full') && msg) msg.textContent = nm[i] ?? '';
       });
       t.addEventListener('mouseleave', () => {
         if (!busy) base();
@@ -385,7 +386,7 @@
       });
     });
 
-    const interval = setInterval(() => {
+    setInterval(() => {
       idle++;
       if (idle >= 4 && !busy) send(cnt % 3);
     }, 1000);

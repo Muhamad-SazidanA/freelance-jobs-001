@@ -240,7 +240,7 @@
     ];
     let k = 0, hov = false, locked = true, pct = 92;
 
-    const fmt = (m) => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+    const fmt = (m: number) => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
 
     const draw = () => {
       rows.forEach((r, i) => {
@@ -253,15 +253,15 @@
       });
     };
 
-    const add = (a, u) => {
+    const add = (a: string, u: string) => {
       clock += 1 + Math.floor(Math.random() * 6);
       rows.unshift([fmt(clock), a, u]);
       rows.pop();
       draw();
-      const g = document.getElementById('p2r0');
+      const g = document.getElementById('p2r0') as unknown as SVGGraphicsElement | null;
       if (g) {
         g.classList.remove('fresh');
-        void g.getBBox();
+        void g.getBBox?.();
         g.classList.add('fresh');
       }
     };
@@ -269,7 +269,7 @@
 
     const B = [0.3, 0.5, 0.4, 0.7, 1];
     const DAY = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'];
-    const val = (i) => Math.round(55 + B[i] * 43);
+    const val = (i: number) => Math.round(55 + (B[i] ?? 0) * 43);
 
     const bars = () => {
       B.forEach((v, i) => {
@@ -335,11 +335,12 @@
     const R = [...svg.querySelectorAll('.role')];
     if (R[0]) R[0].classList.add('sel');
 
-    const bind = (el, fn) => {
+    const bind = (el: Element, fn: () => void) => {
       el.addEventListener('click', fn);
-      el.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
+      el.addEventListener('keydown', (e: Event) => {
+        const ke = e as KeyboardEvent;
+        if (ke.key === 'Enter' || ke.key === ' ') {
+          ke.preventDefault();
           fn();
         }
       });

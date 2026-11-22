@@ -77,7 +77,7 @@ export default function ArticleForm({ initialData, onSave, onCancel }: ArticleFo
     initialData?.author?.avatarUrl || null
   );
   // @ts-expect-error optional extended property
-  const [authorBadge, setAuthorBadge] = useState(initialData?.authorBadge || 'Penulis');
+  const [authorBadge] = useState(initialData?.authorBadge || 'Penulis');
   const [authorBio, setAuthorBio] = useState(
     initialData?.author?.bio || 'Tim editorial & konsultan teknologi enterprise SolusiAplikasi.id.'
   );
@@ -89,7 +89,7 @@ export default function ArticleForm({ initialData, onSave, onCancel }: ArticleFo
   // @ts-expect-error optional extended property
   const [reviewerImage, setReviewerImage] = useState<string | null>(initialData?.reviewerImage || null);
   // @ts-expect-error optional extended property
-  const [reviewerBadge, setReviewerBadge] = useState(initialData?.reviewerBadge || 'Expert Reviewer');
+  const [reviewerBadge] = useState(initialData?.reviewerBadge || 'Expert Reviewer');
   // @ts-expect-error optional extended property
   const [reviewerBio, setReviewerBio] = useState(initialData?.reviewerBio || '');
   // @ts-expect-error optional extended property

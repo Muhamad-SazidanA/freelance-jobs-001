@@ -318,7 +318,7 @@ export default function AdminDashboard() {
 
         <div className="flex items-center gap-3 sm:gap-4">
           <a
-            href="https://solusiaplikasi.id/solution/wp-login.php?access=solusi_admin_secure_access_2026"
+            href="https://solusiaplikasi.id/solution/wp-login.php"
             target="_blank"
             rel="noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border border-indigo-800/60 rounded-md text-xs font-medium transition-colors"
@@ -408,7 +408,7 @@ export default function AdminDashboard() {
                 Landing page standalone di <code>/solution/[slug]</code> dikelola via WordPress.
               </p>
               <a
-                href="https://solusiaplikasi.id/solution/wp-login.php?access=solusi_admin_secure_access_2026"
+                href="https://solusiaplikasi.id/solution/wp-login.php"
                 target="_blank"
                 rel="noreferrer"
                 className="block text-center py-2 px-3 bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs font-medium rounded-lg transition-colors border border-slate-700/60"
@@ -753,10 +753,10 @@ export default function AdminDashboard() {
                     WordPress diinstal di folder <code>public_html/solution/</code> untuk merender landing page kampanye mandiri.
                   </p>
                   <div className="p-3 bg-slate-950 border border-slate-800 rounded font-mono text-[11px] text-slate-300 break-all">
-                    https://solusiaplikasi.id/solution/wp-login.php?access=solusi_admin_secure_access_2026
+                    https://solusiaplikasi.id/solution/wp-login.php
                   </div>
                   <a
-                    href="https://solusiaplikasi.id/solution/wp-login.php?access=solusi_admin_secure_access_2026"
+                    href="https://solusiaplikasi.id/solution/wp-login.php"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold"

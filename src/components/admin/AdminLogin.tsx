@@ -1,15 +1,10 @@
 import { useState, useEffect, type SyntheticEvent } from 'react';
 
-// Cryptographic hashes & valid tokens
-const ACCESS_TOKEN = 'solusi_admin_secure_access_2026';
-const ACCESS_HASH = '7bb45d2ee439c5895c08364a83248ed5fe9b3bd0c1dd9348524da1ff0f358cc9';
-
+// Cryptographic hashes for authorized credentials
 const VALID_USERNAMES = ['admin', 'admin@solusiaplikasi.id'];
-const VALID_PASSWORDS = ['admin', 'admin2026', 'admin@solusiaplikasi.id', 'solusi2026'];
 const VALID_PASSWORD_HASHES = [
-  '6051fc84a7a0d74c225fb18a496b09952da5642e60723ecae543298edd7d82d6', // admin2026
-  '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', // admin
-  '202636a09463519f377a6f48ceb4f993ce188edd0c7cf85e162d208ad2951544', // legacy fallback
+  '6051fc84a7a0d74c225fb18a496b09952da5642e60723ecae543298edd7d82d6', // SHA-256 hash
+  '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', // SHA-256 hash
 ];
 
 async function computeSha256(input: string): Promise<string> {
@@ -74,9 +69,7 @@ export default function AdminLogin() {
 
     const inputHash = await computeSha256(cleanPass);
     const isUserValid = VALID_USERNAMES.includes(cleanUser);
-    const isPassValid =
-      VALID_PASSWORDS.includes(cleanPass) ||
-      (inputHash && VALID_PASSWORD_HASHES.includes(inputHash));
+    const isPassValid = Boolean(inputHash && VALID_PASSWORD_HASHES.includes(inputHash));
 
     if (isUserValid && isPassValid) {
       setFailedAttempts(0);
@@ -100,9 +93,7 @@ export default function AdminLogin() {
         setLockedUntil(now + lockDurationMs);
         setError('Terlalu banyak percobaan gagal. Akun dikunci sementara selama 20 detik.');
       } else {
-        setError(
-          `Username atau kata sandi tidak cocok. Gunakan Username: admin | Password: admin atau admin2026`
-        );
+        setError('Username atau kata sandi tidak cocok. Silakan coba lagi.');
       }
     }
   };
@@ -156,15 +147,6 @@ export default function AdminLogin() {
           </div>
         )}
 
-        {/* Info Box Default Credentials */}
-        <div className="mb-5 p-3 bg-sky-950/60 border border-sky-800/60 rounded-xl text-[11px] text-sky-300 flex items-start gap-2.5">
-          <span className="text-sky-400 font-bold shrink-0">💡 Kredensial:</span>
-          <div>
-            <div>Username: <strong className="text-white font-mono">admin</strong></div>
-            <div>Password: <strong className="text-white font-mono">admin2026</strong> <span className="text-slate-400">(atau <strong className="text-white font-mono">admin</strong>)</span></div>
-          </div>
-        </div>
-
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
@@ -175,7 +157,7 @@ export default function AdminLogin() {
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="admin"
+              placeholder="Username atau Email"
               className="w-full px-3.5 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all"
             />
           </div>
@@ -189,7 +171,7 @@ export default function AdminLogin() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="admin2026"
+              placeholder="••••••••"
               className="w-full px-3.5 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all"
             />
           </div>
@@ -207,7 +189,7 @@ export default function AdminLogin() {
           <p className="text-[11px] text-slate-500">
             Akses Admin WordPress (/solution) terpisah:&nbsp;
             <a
-              href="/solution/wp-login.php?access=solusi_admin_secure_access_2026"
+              href="/solution/wp-login.php"
               target="_blank"
               rel="noreferrer"
               className="text-sky-400 hover:underline"

@@ -1,4 +1,3 @@
-import React from 'react';
 import { AlertCircle, CheckCircle2, Info, AlertTriangle, X } from 'lucide-react';
 
 interface CustomModalProps {
