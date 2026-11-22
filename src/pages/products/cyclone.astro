@@ -223,7 +223,6 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
                 </div>
               </div>
             </div>
-            <p class="cap">Contoh tampilan Cyclone dengan data ilustrasi.</p>
             <div class="badge">
               <i>✓</i>
               <div>
@@ -231,6 +230,7 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
                 <span>PO-2026-1184 selesai dalam 42 dtk</span>
               </div>
             </div>
+            <p class="cap">Contoh tampilan Cyclone dengan data ilustrasi.</p>
           </div>
         </div>
       </div>
@@ -1014,7 +1014,7 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
   .cyclone-page .badge {
     position: absolute;
     left: -14%;
-    top: calc(100% - 4px);
+    bottom: 4px;
     display: flex;
     gap: 12px;
     align-items: center;
@@ -1687,7 +1687,21 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
       font-size: clamp(6px, 1.35vw, 9px);
     }
     .cyclone-page .badge {
-      left: 12px;
+      position: relative;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+      margin: 16px auto 0;
+      width: 100%;
+      max-width: 440px;
+      justify-content: flex-start;
+      font-size: 12px;
+    }
+    .cyclone-page .cap {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 11px;
     }
     .cyclone-page .cta {
       margin-top: 36px;
@@ -1749,9 +1763,22 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
       flex: 1 1 100%;
     }
     .cyclone-page .badge {
-      left: 0;
-      right: 0;
+      position: relative;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+      margin: 14px 0 0;
+      width: 100%;
+      max-width: 100%;
+      padding: 10px 14px;
       font-size: 12px;
+      border-radius: 12px;
+    }
+    .cyclone-page .cap {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 11px;
     }
     .cyclone-page .g3,
     .cyclone-page .ind,
