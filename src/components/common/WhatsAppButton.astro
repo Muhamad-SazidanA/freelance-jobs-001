@@ -19,15 +19,15 @@ const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
   href={waUrl}
   target="_blank"
   rel="noopener noreferrer"
-  class="fixed bottom-6 right-6 z-40 bg-[#00a884] hover:bg-[#008f6f] text-white px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 text-sm font-semibold transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+  class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white w-12 h-12 sm:w-auto p-0 sm:px-4 sm:py-2.5 rounded-full shadow-lg shadow-emerald-950/20 flex items-center justify-center sm:gap-2 text-sm font-semibold transition-all hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
   aria-label="Konsultasi via WhatsApp"
   data-placement={placement}
   id="whatsapp-direct-btn"
 >
-  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.072-.472-1.616-.64-2.671-2.28-2.753-2.389-.081-.11-.649-.864-.649-1.645 0-.78.406-1.164.55-1.32.144-.155.312-.193.416-.193.104 0 .208.001.298.006.096.005.225-.036.352.269.13.312.443 1.077.482 1.156.04.078.066.169.013.273-.052.104-.078.169-.156.26-.078.091-.163.204-.234.273-.078.078-.16.163-.069.319.091.156.403.666.866 1.078.596.53 1.099.694 1.255.772.156.078.247.065.338-.039.091-.104.39-.455.494-.611.104-.156.208-.13.351-.078.143.052.909.429 1.065.507.156.078.26.117.299.182.039.065.039.377-.105.782z"/>
+  <svg class="w-6 h-6 sm:w-5 sm:h-5 fill-white shrink-0" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12.01 2.003C6.488 2.003 2.008 6.483 2.008 12.005c0 1.905.534 3.688 1.458 5.215L2 22l4.929-1.428a9.96 9.96 0 0 0 5.081 1.433h.005c5.52 0 10-4.48 10-10.002 0-5.522-4.48-10.002-10.005-10.002zm5.836 14.198c-.244.688-1.417 1.315-1.954 1.399-.519.08-1.157.115-3.454-.837-2.693-1.116-4.453-3.8-4.59-3.98-.133-.183-1.082-1.44-1.082-2.744 0-1.302.68-1.942.92-2.203.243-.26.531-.325.707-.325.176 0 .353.002.508.01.164.008.384-.062.6.458.225.541.768 1.874.836 2.012.068.138.113.298.022.479-.09.18-.135.293-.267.452-.132.16-.279.356-.399.478-.133.134-.272.28-.117.546.155.267.688 1.135 1.474 1.837 1.012.902 1.866 1.181 2.132 1.314.267.133.422.112.578-.067.155-.18.665-.776.842-1.043.177-.267.354-.222.598-.133.244.09 1.55.731 1.816.864.266.134.443.2.51.311.066.112.066.643-.178 1.33z"/>
   </svg>
-  <span>WhatsApp</span>
+  <span class="hidden sm:inline">WhatsApp</span>
 </a>
 
 <script>
