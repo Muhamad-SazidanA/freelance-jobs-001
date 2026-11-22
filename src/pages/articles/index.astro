@@ -360,9 +360,10 @@ function formatDate(dateStr: string) {
        ========================================================================= -->
   <script is:inline>
     // Featured Carousel Slider Logic
-    (function () {
+    function initFeaturedCarousel() {
       const carousel = document.getElementById('featured-carousel');
-      if (!carousel) return;
+      if (!carousel || carousel.__carouselInitialized) return;
+      carousel.__carouselInitialized = true;
 
       const slides = carousel.querySelectorAll('[data-carousel-slide]');
       const totalSlides = slides.length;
@@ -400,6 +401,10 @@ function formatDate(dateStr: string) {
           showSlide(currentIndex);
         }
       });
-    })();
+    }
+
+    document.addEventListener('DOMContentLoaded', initFeaturedCarousel);
+    document.addEventListener('astro:page-load', initFeaturedCarousel);
+    initFeaturedCarousel();
   </script>
 </PageLayout>

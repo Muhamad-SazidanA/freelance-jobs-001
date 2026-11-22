@@ -7,6 +7,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://solusiaplikasi.id',
   output: 'static',
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover',
+  },
   integrations: [
     react(),
     sitemap({

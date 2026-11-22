@@ -1,6 +1,7 @@
 ---
 import SeoHead from '@/components/seo/SeoHead.astro';
 import CookieConsent from '@/components/common/CookieConsent';
+import { ClientRouter } from 'astro:transitions';
 import '@/styles/global.css';
 
 interface Props {
@@ -43,6 +44,48 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Cloudflare Turnstile explicit script -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Astro ClientRouter for Instant Zero-Reload Transitions -->
+    <ClientRouter />
+    <!-- Background Image Preloader for Instant Page Switching -->
+    <script is:inline>
+      (function() {
+        const criticalImages = [
+          '/images/LogoHeader.png',
+          '/images/home/Banner_Home.webp',
+          '/images/product/nanonets/Hasil_Ekstraksi.webp',
+          '/images/product/cyclone/cyclone-dashboard-real.webp',
+          '/images/product/cyclone/Bg-Cyclone.webp',
+          '/images/product/docuflo/docuflo-dashboard.webp',
+          '/images/product/syclus/Syclus-Dashboard.webp',
+          '/images/product/syclus/syclus-hero-stat.webp',
+          '/images/product/spensify/spensify-dashboard.webp',
+          '/images/product/spensify/feature-shot.webp',
+          '/images/product/spensify/cegar-overstanding.webp',
+          '/images/product/spensify/deteksi-struck-duplikat.webp',
+          '/images/product/spensify/showcase-media-klaim-terpusat.webp',
+          '/images/about-us/Solution-About.webp',
+          '/images/articles/sai-insights-hero.jpg'
+        ];
+
+        function preloadKeyImages() {
+          if (window.__keyImagesPreloaded) return;
+          window.__keyImagesPreloaded = true;
+          criticalImages.forEach(function(src) {
+            const img = new Image();
+            img.decoding = 'async';
+            img.src = src;
+          });
+        }
+
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(preloadKeyImages, { timeout: 1500 });
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(preloadKeyImages, 400);
+          });
+        }
+      })();
+    </script>
   </head>
   <body class={`bg-white text-slate-900 min-h-screen flex flex-col font-sans ${bodyClass}`.trim()}>
     <slot />

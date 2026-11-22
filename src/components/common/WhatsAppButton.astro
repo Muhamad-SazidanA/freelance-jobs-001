@@ -33,11 +33,18 @@ const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 <script>
   import { trackWhatsAppClick } from '@/lib/analytics';
 
-  const waBtn = document.getElementById('whatsapp-direct-btn');
-  if (waBtn) {
+  function initWhatsAppTrack() {
+    const waBtn = document.getElementById('whatsapp-direct-btn');
+    if (!waBtn || (waBtn as any).__waInitialized) return;
+    (waBtn as any).__waInitialized = true;
+
     waBtn.addEventListener('click', () => {
       const placement = waBtn.getAttribute('data-placement') || 'floating';
       trackWhatsAppClick(window.location.href, placement);
     });
   }
+
+  document.addEventListener('DOMContentLoaded', initWhatsAppTrack);
+  document.addEventListener('astro:page-load', initWhatsAppTrack);
+  initWhatsAppTrack();
 </script>

@@ -666,24 +666,33 @@ const products = [
 </style>
 
 <script>
-  // Vanilla JS tab switching — runs once DOM is ready, no hydration needed
-  const tabs = document.querySelectorAll<HTMLButtonElement>('#iss-tabs .iss-tab');
-  const panels = document.querySelectorAll<HTMLElement>('.iss-panel');
+  function initIssTabs() {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('#iss-tabs .iss-tab');
+    const panels = document.querySelectorAll<HTMLElement>('.iss-panel');
+    if (!tabs.length || !panels.length) return;
 
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      // Update tab styles
-      tabs.forEach((t) => {
-        const isActive = t === tab;
-        t.classList.toggle('active', isActive);
-        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      });
+    tabs.forEach((tab) => {
+      if ((tab as any).__issInitialized) return;
+      (tab as any).__issInitialized = true;
 
-      // Show/hide panels
-      panels.forEach((panel) => {
-        const show = panel.id === `panel-${tab.dataset.tab}`;
-        panel.classList.toggle('hidden', !show);
+      tab.addEventListener('click', () => {
+        // Update tab styles
+        tabs.forEach((t) => {
+          const isActive = t === tab;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        // Show/hide panels
+        panels.forEach((panel) => {
+          const show = panel.id === `panel-${tab.dataset.tab}`;
+          panel.classList.toggle('hidden', !show);
+        });
       });
     });
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', initIssTabs);
+  document.addEventListener('astro:page-load', initIssTabs);
+  initIssTabs();
 </script>

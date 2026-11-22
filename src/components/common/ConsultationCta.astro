@@ -256,14 +256,14 @@ const submitBtnClass = isRedTheme
 
 <!-- Reusable Client Script for Consultation CTA Instances -->
 <script is:inline>
-  if (!window.__consultationCtaInitialized) {
-    window.__consultationCtaInitialized = true;
+  function initConsultationCtaForms() {
+    const forms = document.querySelectorAll('form[data-cta-form]');
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const forms = document.querySelectorAll('form[data-cta-form]');
+    forms.forEach(function (form) {
+      if (form.__ctaInitialized) return;
+      form.__ctaInitialized = true;
 
-      forms.forEach(function (form) {
-        const statusBox = form.querySelector('[data-cta-status]');
+      const statusBox = form.querySelector('[data-cta-status]');
         const submitBtn = form.querySelector('[data-cta-submit]');
 
         // Form Submit Handler
@@ -375,6 +375,9 @@ const submitBtnClass = isRedTheme
           }
         });
       });
-    });
   }
+
+  document.addEventListener('DOMContentLoaded', initConsultationCtaForms);
+  document.addEventListener('astro:page-load', initConsultationCtaForms);
+  initConsultationCtaForms();
 </script>

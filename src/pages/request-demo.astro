@@ -218,9 +218,10 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
 
 <!-- Client Script for Form Submission Handling -->
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function () {
+  function initRequestDemoForm() {
     const form = document.getElementById('request-demo-page-form');
-    if (!form) return;
+    if (!form || form.__rdInitialized) return;
+    form.__rdInitialized = true;
 
     const statusBox = document.getElementById('rd-status-box');
     const submitBtn = document.getElementById('rd-submit-btn');
@@ -332,5 +333,9 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
         submitBtn.innerHTML = `<span>Kirim</span>`;
       }
     });
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', initRequestDemoForm);
+  document.addEventListener('astro:page-load', initRequestDemoForm);
+  initRequestDemoForm();
 </script>

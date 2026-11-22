@@ -206,12 +206,16 @@ const navItems = [
 </header>
 
 <script>
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const hamburgerIcon = document.getElementById('hamburger-icon');
-  const closeIcon = document.getElementById('close-icon');
+  function initMobileMenu() {
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
 
-  if (toggleBtn && mobileMenu && hamburgerIcon && closeIcon) {
+    if (!toggleBtn || !mobileMenu || !hamburgerIcon || !closeIcon) return;
+    if ((toggleBtn as any).__initialized) return;
+    (toggleBtn as any).__initialized = true;
+
     toggleBtn.addEventListener('click', () => {
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
       toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
@@ -231,4 +235,8 @@ const navItems = [
       }
     });
   }
+
+  document.addEventListener('DOMContentLoaded', initMobileMenu);
+  document.addEventListener('astro:page-load', initMobileMenu);
+  initMobileMenu();
 </script>
