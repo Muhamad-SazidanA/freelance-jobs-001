@@ -1,10 +1,8 @@
 ---
-import PageLayout from '@/layouts/PageLayout.astro';
-import { generateBreadcrumbSchema } from '@/lib/schema-ld';
+import PageLayout from "@/layouts/PageLayout.astro";
+import { generateBreadcrumbSchema } from "@/lib/schema-ld";
 
-const breadcrumbs = [
-  { name: 'Request Demo', url: '/request-demo' },
-];
+const breadcrumbs = [{ name: "Request Demo", url: "/request-demo" }];
 
 const schema = [generateBreadcrumbSchema(breadcrumbs)];
 ---
@@ -26,12 +24,10 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        
         <!-- =====================================================================
              LEFT COLUMN: Kata-kata (Heading, Subtitle) & Bawahnya Maps
              ===================================================================== -->
         <div class="lg:col-span-6 flex flex-col space-y-6 sm:space-y-7">
-          
           <!-- Kata-kata / Copywriting -->
           <div>
             <!-- Main Heading -->
@@ -42,7 +38,9 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
 
             <!-- Subtitle -->
             <p class="text-xs sm:text-sm lg:text-[15px] text-slate-600 leading-relaxed font-normal">
-              Kami menghadirkan solusi Hyperautomation, AI/ML, dan Data Transformation terbaik dari mitra teknologi global, untuk membantu bisnis Anda tumbuh lebih cepat dan efisien.
+              Kami menghadirkan solusi Hyperautomation, AI/ML, dan Data
+              Transformation terbaik dari mitra teknologi global, untuk membantu
+              bisnis Anda tumbuh lebih cepat dan efisien.
             </p>
           </div>
 
@@ -50,14 +48,13 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
           <div class="w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-100 relative aspect-[16/10] min-h-[300px] sm:min-h-[320px]">
             <!-- Fast Lazy-Loaded Embed Iframe -->
             <iframe
-              src="https://maps.google.com/maps?q=United+Teknologi+Integrasi+PT,+Jl.+Siantar+No.18,+Cideng,+Gambir,+Jakarta+Pusat&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Block+21,+Jl.+Siantar+No.18,+Cideng,+Kecamatan+Gambir,+Kota+Jakarta+Pusat,+DKI+Jakarta+10150&t=&z=16&ie=UTF8&iwloc=&output=embed"
               class="w-full h-full border-0 absolute inset-0"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="Peta Lokasi Kantor PT Solusi Aplikasi Integrasi / UTI"
+              title="Peta Lokasi Kantor PT. Solusi Aplikasi Integrasi (SAI)"
             ></iframe>
           </div>
-
         </div>
 
         <!-- =====================================================================
@@ -70,18 +67,28 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
               Diskusikan Kebutuhan anda
             </h2>
             <p class="text-[11px] text-slate-500 mb-4 leading-relaxed">
-              Isi formulir di bawah ini untuk menjadwalkan sesi demo gratis bersama konsultan SAI.
+              Isi formulir di bawah ini untuk menjadwalkan sesi demo gratis
+              bersama konsultan SAI.
             </p>
 
             <!-- Form Body (Matching ConsultationCta.astro) -->
             <form id="request-demo-page-form" class="space-y-3">
               <!-- Honeypot for Bot Protection -->
-              <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" />
+              <input
+                type="text"
+                name="website"
+                class="hidden"
+                tabindex="-1"
+                autocomplete="off"
+              />
 
               <!-- Row 1: Nama & Email -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label for="rd-name" class="block text-[11px] font-semibold text-slate-700 mb-1">
+                  <label
+                    for="rd-name"
+                    class="block text-[11px] font-semibold text-slate-700 mb-1"
+                  >
                     Nama
                   </label>
                   <input
@@ -94,7 +101,10 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
                 </div>
 
                 <div>
-                  <label for="rd-email" class="block text-[11px] font-semibold text-slate-700 mb-1">
+                  <label
+                    for="rd-email"
+                    class="block text-[11px] font-semibold text-slate-700 mb-1"
+                  >
                     Email <span class="text-red-500">*</span>
                   </label>
                   <input
@@ -111,19 +121,38 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
               <!-- Row 2: WhatsApp (+62 Flag) & Nama Perusahaan -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label for="rd-phone" class="block text-[11px] font-semibold text-slate-700 mb-1">
+                  <label
+                    for="rd-phone"
+                    class="block text-[11px] font-semibold text-slate-700 mb-1"
+                  >
                     Nomor WhatsApp <span class="text-red-500">*</span>
                   </label>
                   <div class="flex items-center rounded-lg border border-slate-200 bg-[#fbfcfd] focus-within:bg-white focus-within:border-[#3a5ae8] focus-within:ring-1 focus-within:ring-[#3a5ae8] transition-all overflow-hidden">
                     <div class="flex items-center gap-1.5 pl-2.5 pr-2 py-2 bg-slate-50 border-r border-slate-200 select-none shrink-0">
                       <!-- Indonesia Flag Icon 🇮🇩 -->
-                      <svg class="w-3.5 h-2.5 rounded-2xs border border-slate-300 shadow-2xs" viewBox="0 0 24 16" fill="none" aria-hidden="true">
-                        <rect width="24" height="8" fill="#e11d48"/>
-                        <rect y="8" width="24" height="8" fill="#ffffff"/>
+                      <svg
+                        class="w-3.5 h-2.5 rounded-2xs border border-slate-300 shadow-2xs"
+                        viewBox="0 0 24 16"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <rect width="24" height="8" fill="#e11d48" />
+                        <rect y="8" width="24" height="8" fill="#ffffff" />
                       </svg>
-                      <span class="text-[11px] font-medium text-slate-700">+62</span>
-                      <svg class="w-2 h-2 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      <span class="text-[11px] font-medium text-slate-700">
+                        +62
+                      </span>
+                      <svg
+                        class="w-2 h-2 text-slate-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
                       </svg>
                     </div>
                     <input
@@ -138,7 +167,10 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
                 </div>
 
                 <div>
-                  <label for="rd-company" class="block text-[11px] font-semibold text-slate-700 mb-1">
+                  <label
+                    for="rd-company"
+                    class="block text-[11px] font-semibold text-slate-700 mb-1"
+                  >
                     Nama Perusahaan <span class="text-red-500">*</span>
                   </label>
                   <input
@@ -154,7 +186,10 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
 
               <!-- Row 3: Solusi Dibutuhkan -->
               <div>
-                <label for="rd-product" class="block text-[11px] font-semibold text-slate-700 mb-1">
+                <label
+                  for="rd-product"
+                  class="block text-[11px] font-semibold text-slate-700 mb-1"
+                >
                   Solusi Dibutuhkan <span class="text-red-500">*</span>
                 </label>
                 <div class="relative">
@@ -164,17 +199,39 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
                     required
                     class="w-full appearance-none px-3 py-2 pr-8 rounded-lg border border-slate-200 bg-[#fbfcfd] focus:bg-white text-xs sm:text-[13px] text-slate-700 focus:outline-none focus:border-[#3a5ae8] focus:ring-1 focus:ring-[#3a5ae8] transition-all cursor-pointer"
                   >
-                    <option value="" disabled selected>Pilih solusi yang dibutuhkan</option>
-                    <option value="nanonets">Intelligent Document Processing (Nanonets)</option>
-                    <option value="cyclone">Robotic Process Automation (Cyclone)</option>
-                    <option value="docuflo">Document Management System (DocuFlo)</option>
-                    <option value="syclus">Account Payable Automation (Syclus)</option>
-                    <option value="spensify">Expense Management System (Spensify)</option>
-                    <option value="multi">Konsultasi Solusi Multi-Platform</option>
+                    <option value="" disabled selected>
+                      Pilih solusi yang dibutuhkan
+                    </option>
+                    <option value="nanonets">
+                      Intelligent Document Processing (Nanonets)
+                    </option>
+                    <option value="cyclone">
+                      Robotic Process Automation (Cyclone)
+                    </option>
+                    <option value="docuflo">
+                      Document Management System (DocuFlo)
+                    </option>
+                    <option value="syclus">
+                      Account Payable Automation (Syclus)
+                    </option>
+                    <option value="spensify">
+                      Expense Management System (Spensify)
+                    </option>
+                    <option value="multi">
+                      Konsultasi Solusi Multi-Platform
+                    </option>
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-400">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    <svg
+                      class="w-3.5 h-3.5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -182,7 +239,10 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
 
               <!-- Row 4: Kebutuhan Textarea -->
               <div>
-                <label for="rd-message" class="block text-[11px] font-semibold text-slate-700 mb-1">
+                <label
+                  for="rd-message"
+                  class="block text-[11px] font-semibold text-slate-700 mb-1"
+                >
                   Kebutuhan
                 </label>
                 <textarea
@@ -195,7 +255,11 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
               </div>
 
               <!-- Status Alert Feedback -->
-              <div id="rd-status-box" class="hidden p-2.5 rounded-lg text-xs leading-relaxed" role="alert"></div>
+              <div
+                id="rd-status-box"
+                class="hidden p-2.5 rounded-lg text-xs leading-relaxed"
+                role="alert"
+              ></div>
 
               <!-- Submit Button -->
               <div class="pt-1">
@@ -210,7 +274,6 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
             </form>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -219,29 +282,35 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
 <!-- Client Script for Form Submission Handling -->
 <script is:inline>
   function initRequestDemoForm() {
-    const form = document.getElementById('request-demo-page-form');
+    const form = document.getElementById("request-demo-page-form");
     if (!form || form.__rdInitialized) return;
     form.__rdInitialized = true;
 
-    const statusBox = document.getElementById('rd-status-box');
-    const submitBtn = document.getElementById('rd-submit-btn');
+    const statusBox = document.getElementById("rd-status-box");
+    const submitBtn = document.getElementById("rd-submit-btn");
 
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      const name = form.querySelector('input[name="name"]')?.value.trim() || '';
+      const name = form.querySelector('input[name="name"]')?.value.trim() || "";
       const email = form.querySelector('input[name="email"]')?.value.trim();
       const phone = form.querySelector('input[name="phone"]')?.value.trim();
       const company = form.querySelector('input[name="company"]')?.value.trim();
       const productSelect = form.querySelector('select[name="product"]');
-      const product = productSelect ? productSelect.value : '';
-      const productLabel = productSelect && productSelect.selectedIndex >= 0 ? productSelect.options[productSelect.selectedIndex].text : '';
-      const messageText = form.querySelector('textarea[name="message"]')?.value.trim() || '';
+      const product = productSelect ? productSelect.value : "";
+      const productLabel =
+        productSelect && productSelect.selectedIndex >= 0
+          ? productSelect.options[productSelect.selectedIndex].text
+          : "";
+      const messageText =
+        form.querySelector('textarea[name="message"]')?.value.trim() || "";
 
       if (!email || !phone || !company || !product) {
         if (statusBox) {
-          statusBox.className = 'p-2.5 rounded-lg text-xs leading-relaxed bg-amber-50 border border-amber-200 text-amber-800 block';
-          statusBox.textContent = 'Mohon lengkapi semua kolom yang bertanda bintang (*).';
+          statusBox.className =
+            "p-2.5 rounded-lg text-xs leading-relaxed bg-amber-50 border border-amber-200 text-amber-800 block";
+          statusBox.textContent =
+            "Mohon lengkapi semua kolom yang bertanda bintang (*).";
         }
         return;
       }
@@ -259,38 +328,41 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
 
       // Save to localStorage for Admin Dashboard
       try {
-        const stored = localStorage.getItem('solusi_leads_data');
+        const stored = localStorage.getItem("solusi_leads_data");
         const leads = stored ? JSON.parse(stored) : [];
         leads.unshift({
           id: `lead-${Date.now()}`,
-          name: name || email.split('@')[0],
+          name: name || email.split("@")[0],
           email: email,
-          phone: phone.startsWith('+') ? phone : `+62${phone.replace(/^0+/, '')}`,
+          phone: phone.startsWith("+")
+            ? phone
+            : `+62${phone.replace(/^0+/, "")}`,
           company: company,
-          position: 'Lead Request Demo Page',
+          position: "Lead Request Demo Page",
           requirements: `[Solusi: ${productLabel}] ${messageText}`,
           message: `[Perusahaan: ${company}] [Solusi: ${productLabel}] ${messageText}`,
           sourceUrl: window.location.href,
           createdAt: new Date().toISOString(),
-          status: 'Baru',
+          status: "Baru",
         });
-        localStorage.setItem('solusi_leads_data', JSON.stringify(leads));
+        localStorage.setItem("solusi_leads_data", JSON.stringify(leads));
       } catch (err) {
-        console.warn('Failed to store lead in localStorage:', err);
+        console.warn("Failed to store lead in localStorage:", err);
       }
 
       // Send Lead Notification to sales@solusiaplikasi.id via WP REST API
       try {
-        const restEndpoint = 'https://solusiaplikasi.id/solution/wp-json/solusi/v1/lead';
+        const restEndpoint =
+          "https://solusiaplikasi.id/solution/wp-json/solusi/v1/lead";
         await fetch(restEndpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: name || email,
             email: email,
             phone: phone,
             company: company,
-            position: 'Lead Request Demo Page',
+            position: "Lead Request Demo Page",
             requirements: `[Solusi: ${productLabel}] ${messageText}`,
             sourceUrl: window.location.href,
           }),
@@ -298,31 +370,35 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
       } catch {
         // Fallback delivery via FormSubmit
         try {
-          await fetch('https://formsubmit.co/ajax/sales@solusiaplikasi.id', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          await fetch("https://formsubmit.co/ajax/sales@solusiaplikasi.id", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
             body: JSON.stringify({
               _subject: `[Lead Request Demo Baru] ${name || email} - ${company}`,
-              _template: 'table',
-              _captcha: 'false',
-              Nama: name || '-',
+              _template: "table",
+              _captcha: "false",
+              Nama: name || "-",
               Email: email,
-              'No. WhatsApp': `+62 ${phone}`,
+              "No. WhatsApp": `+62 ${phone}`,
               Perusahaan: company,
-              'Solusi Dibutuhkan': productLabel,
-              Kebutuhan: messageText || '-',
-              'Halaman Sumber': window.location.href,
+              "Solusi Dibutuhkan": productLabel,
+              Kebutuhan: messageText || "-",
+              "Halaman Sumber": window.location.href,
             }),
           });
         } catch (fallbackErr) {
-          console.warn('Fallback error:', fallbackErr);
+          console.warn("Fallback error:", fallbackErr);
         }
       }
 
       if (statusBox) {
-        statusBox.className = 'p-3 rounded-lg text-xs leading-relaxed bg-emerald-50 border border-emerald-200 text-emerald-800 block';
+        statusBox.className =
+          "p-3 rounded-lg text-xs leading-relaxed bg-emerald-50 border border-emerald-200 text-emerald-800 block";
         statusBox.innerHTML = `
-          <strong>Terima kasih${name ? ', ' + name : ''}!</strong> Permintaan demo Anda telah berhasil terkirim. Tim konsultan SAI akan segera menghubungi Anda 1x24 jam.
+          <strong>Terima kasih${name ? ", " + name : ""}!</strong> Permintaan demo Anda telah berhasil terkirim. Tim konsultan SAI akan segera menghubungi Anda 1x24 jam.
         `;
       }
 
@@ -335,7 +411,7 @@ const schema = [generateBreadcrumbSchema(breadcrumbs)];
     });
   }
 
-  document.addEventListener('DOMContentLoaded', initRequestDemoForm);
-  document.addEventListener('astro:page-load', initRequestDemoForm);
+  document.addEventListener("DOMContentLoaded", initRequestDemoForm);
+  document.addEventListener("astro:page-load", initRequestDemoForm);
   initRequestDemoForm();
 </script>

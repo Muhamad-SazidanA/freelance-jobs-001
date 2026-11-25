@@ -235,7 +235,11 @@ const products = [
           <img
             src={product.logo}
             alt={product.name}
-            class="iss-tab-img h-6 sm:h-7 md:h-7.5 w-auto max-w-[90px] sm:max-w-[110px] md:max-w-[125px] object-contain transition-all duration-200 pointer-events-none select-none"
+            class={`iss-tab-img w-auto max-w-[90px] sm:max-w-[110px] md:max-w-[125px] object-contain transition-all duration-200 pointer-events-none select-none ${
+              product.id === 'syclus'
+                ? 'h-8 sm:h-9 md:h-10 -my-1 md:-my-[5px]'
+                : 'h-6 sm:h-7 md:h-7.5'
+            }`}
             loading="eager" decoding="async"
           />
         </button>

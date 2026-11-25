@@ -22,819 +22,916 @@ const schemas = [orgSchema, websiteSchema];
   schema={schemas}
 >
   <div class="home-content-zoom w-full">
-  <!-- =========================================================================
+    <!-- =========================================================================
        1. HERO SECTION - FUTURISTIC AUTOMATION BANNER WITH 5 SOLUTIONS DOCK
        ========================================================================= -->
-  <section class="relative overflow-hidden bg-[#030712] text-white">
-    <!-- Background Image with Gradient Overlays -->
-    <div class="absolute inset-0 z-0">
-      <img
-        src="/images/home/Banner_Home.webp"
-        alt="Solusi Digital Automation untuk Bisnis"
-        class="w-full h-full object-cover object-right md:object-center"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <!-- Gradient overlay: Deep dark on left for text readability, blending into the banner on right -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/85 md:via-[#030712]/70 to-transparent"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]/30"></div>
-    </div>
-
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-0 flex flex-col justify-between min-h-[580px] lg:min-h-[640px]">
-      {/* Top Text & CTA */}
-      <div class="max-w-2xl mb-12 md:mb-16">
-        <!-- Eyebrow Tag -->
-        <p class="text-xs sm:text-[13px] font-semibold text-slate-300 tracking-wider uppercase mb-3 sm:mb-4">
-          SOLUSI DIGITAL AUTOMATION UNTUK BISNIS
-        </p>
-
-        <!-- Main Title -->
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white tracking-tight leading-[1.12] mb-4 sm:mb-5">
-          Empowering business<br />
-          with digital intelligent<br />
-          automation.
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl mb-7 sm:mb-8 font-normal">
-          Distributor dan penyedia solusi Hyperautomation, AI-driven Intelligent Document Processing, dan Robotic Process Automation terkemuka di Indonesia membuat kerja tim Anda lebih cepat, akurat, dan sederhana.
-        </p>
-
-        <!-- CTA Action Buttons -->
-        <div class="flex flex-wrap items-center gap-3.5">
-          <a
-            href="/request-demo"
-            class="inline-flex items-center justify-center px-7 py-3 bg-white hover:bg-slate-100 text-[#0f172a] text-xs sm:text-sm font-bold rounded-full shadow-lg shadow-white/10 hover:shadow-white/20 transition-all duration-200"
-          >
-            Kontak Kami
-          </a>
-          <a
-            href="#form-konsultasi"
-            class="inline-flex items-center justify-center px-7 py-3 bg-white/5 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold rounded-full border border-white/35 hover:border-white/60 backdrop-blur-xs transition-all duration-200"
-          >
-            Mulai Konsultasi
-          </a>
-        </div>
+    <section class="relative overflow-hidden bg-[#030712] text-white">
+      <!-- Background Image with Gradient Overlays -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/home/Banner_Home.webp"
+          alt="Solusi Digital Automation untuk Bisnis"
+          class="w-full h-full object-cover object-right md:object-center"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <!-- Gradient overlay: Deep dark on left for text readability, blending into the banner on right -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/85 md:via-[#030712]/70 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]/30"></div>
       </div>
 
-      {/* Bottom 5-Solutions Blue Dock - Flush to Bottom Edge */}
-      <div class="w-full">
-        <div class="bg-[#1877F2] rounded-t-2xl md:rounded-t-3xl shadow-2xl shadow-blue-950/50 overflow-hidden">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/20">
-            <!-- 1. Intelligent Document Processing -->
-            <a
-              href="/products/nanonets"
-              class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
-            >
-              <div class="flex items-center gap-3 min-w-0">
-                <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
-                  <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <polyline points="9 12 11 14 15 10"/>
-                  </svg>
-                </div>
-                <div class="min-w-0">
-                  <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
-                    Intelligent Document<br class="hidden xl:inline" /> Processing
-                  </h4>
-                  <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
-                    Ekstraksi Data Otomatis
-                  </p>
-                </div>
-              </div>
-              <svg class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-0 flex flex-col justify-between min-h-[580px] lg:min-h-[640px]">
+        {/* Top Text & CTA */}
+        <div class="max-w-2xl mb-12 md:mb-16">
+          <!-- Eyebrow Tag -->
+          <p class="text-xs sm:text-[13px] font-semibold text-slate-300 tracking-wider uppercase mb-3 sm:mb-4">
+            SOLUSI DIGITAL AUTOMATION UNTUK BISNIS
+          </p>
 
-            <!-- 2. Robotic Process Automation -->
-            <a
-              href="/products/cyclone"
-              class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
-            >
-              <div class="flex items-center gap-3 min-w-0">
-                <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
-                  <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22v-5"/>
-                    <path d="M9 8V2"/>
-                    <path d="M15 8V2"/>
-                    <path d="M18 8v5a6 6 0 0 1-12 0V8z"/>
-                  </svg>
-                </div>
-                <div class="min-w-0">
-                  <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
-                    Robotic Process<br class="hidden xl:inline" /> Automation
-                  </h4>
-                  <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
-                    Otomasi Tugas Berulang
-                  </p>
-                </div>
-              </div>
-              <svg class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+          <!-- Main Title -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white tracking-tight leading-[1.12] mb-4 sm:mb-5">
+            Empowering business
+            <br />
+            with digital intelligent
+            <br />
+            automation.
+          </h1>
 
-            <!-- 3. Document Management System -->
-            <a
-              href="/products/docuflo"
-              class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
-            >
-              <div class="flex items-center gap-3 min-w-0">
-                <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
-                  <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                    <circle cx="12" cy="12" r="3"/>
-                  </svg>
-                </div>
-                <div class="min-w-0">
-                  <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
-                    Document<br class="hidden xl:inline" /> Management System
-                  </h4>
-                  <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
-                    Pengelolaan Dokumen Digital
-                  </p>
-                </div>
-              </div>
-              <svg class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+          <!-- Subtitle -->
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl mb-7 sm:mb-8 font-normal">
+            Distributor dan penyedia solusi Hyperautomation, AI-driven
+            Intelligent Document Processing, dan Robotic Process Automation
+            terkemuka di Indonesia membuat kerja tim Anda lebih cepat, akurat,
+            dan efisien.
+          </p>
 
-            <!-- 4. Account Payable Automation -->
+          <!-- CTA Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3.5">
             <a
-              href="/products/syclus"
-              class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
+              href="/request-demo"
+              class="inline-flex items-center justify-center px-7 py-3 bg-white hover:bg-slate-100 text-[#0f172a] text-xs sm:text-sm font-bold rounded-full shadow-lg shadow-white/10 hover:shadow-white/20 transition-all duration-200"
             >
-              <div class="flex items-center gap-3 min-w-0">
-                <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
-                  <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="5" width="20" height="14" rx="2"/>
-                    <line x1="2" y1="10" x2="22" y2="10"/>
-                    <line x1="6" y1="15" x2="6.01" y2="15"/>
-                    <line x1="10" y1="15" x2="14" y2="15"/>
-                  </svg>
-                </div>
-                <div class="min-w-0">
-                  <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
-                    Account Payable<br class="hidden xl:inline" /> Automation
-                  </h4>
-                  <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
-                    Otomasi Utang Usaha
-                  </p>
-                </div>
-              </div>
-              <svg class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
+              Kontak Kami
             </a>
-
-            <!-- 5. Expense Management System -->
             <a
-              href="/products/spensify"
-              class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between sm:col-span-2 lg:col-span-1 group"
+              href="#form-konsultasi"
+              class="inline-flex items-center justify-center px-7 py-3 bg-white/5 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold rounded-full border border-white/35 hover:border-white/60 backdrop-blur-xs transition-all duration-200"
             >
-              <div class="flex items-center gap-3 min-w-0">
-                <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
-                  <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z"/>
-                    <line x1="8" y1="7" x2="16" y2="7"/>
-                    <line x1="8" y1="11" x2="16" y2="11"/>
-                    <line x1="8" y1="15" x2="12" y2="15"/>
-                  </svg>
-                </div>
-                <div class="min-w-0">
-                  <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
-                    Expense Management<br class="hidden xl:inline" /> System
-                  </h4>
-                  <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
-                    Pengelolaan Pengeluaran
-                  </p>
-                </div>
-              </div>
-              <svg class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
+              Mulai Konsultasi
             </a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- =========================================================================
+        {/* Bottom 5-Solutions Blue Dock - Flush to Bottom Edge */}
+        <div class="w-full">
+          <div class="bg-[#1877F2] rounded-t-2xl md:rounded-t-3xl shadow-2xl shadow-blue-950/50 overflow-hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/20">
+              <!-- 1. Intelligent Document Processing -->
+              <a
+                href="/products/nanonets"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
+              >
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                    <svg
+                      class="w-5 h-5 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <polyline points="9 12 11 14 15 10" />
+                    </svg>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                      Intelligent Document
+                      <br class="hidden xl:inline" /> Processing
+                    </h4>
+                    <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                      Ekstraksi Data Otomatis
+                    </p>
+                  </div>
+                </div>
+                <svg
+                  class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+
+              <!-- 2. Robotic Process Automation -->
+              <a
+                href="/products/cyclone"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
+              >
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                    <svg
+                      class="w-5 h-5 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 22v-5" />
+                      <path d="M9 8V2" />
+                      <path d="M15 8V2" />
+                      <path d="M18 8v5a6 6 0 0 1-12 0V8z" />
+                    </svg>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                      Robotic Process
+                      <br class="hidden xl:inline" /> Automation
+                    </h4>
+                    <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                      Otomasi Tugas Berulang
+                    </p>
+                  </div>
+                </div>
+                <svg
+                  class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+
+              <!-- 3. Document Management System -->
+              <a
+                href="/products/docuflo"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-3 xl:px-3.5 flex items-center justify-between group"
+              >
+                <div class="flex items-center gap-3 lg:gap-2.5 min-w-0">
+                  <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                    <svg
+                      class="w-5 h-5 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight tracking-tight">
+                      Document
+                      <br class="hidden xl:inline" /> Management System
+                    </h4>
+                    <p class="text-[10px] sm:text-[10.5px] text-blue-100 mt-0.5 leading-tight tracking-[-0.015em] xl:whitespace-nowrap">
+                      Pengelolaan Dokumen Digital
+                    </p>
+                  </div>
+                </div>
+                <svg
+                  class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+
+              <!-- 4. Account Payable Automation -->
+              <a
+                href="/products/syclus"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
+              >
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                    <svg
+                      class="w-5 h-5 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="2" y="5" width="20" height="14" rx="2" />
+                      <line x1="2" y1="10" x2="22" y2="10" />
+                      <line x1="6" y1="15" x2="6.01" y2="15" />
+                      <line x1="10" y1="15" x2="14" y2="15" />
+                    </svg>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                      Account Payable
+                      <br class="hidden xl:inline" /> Automation
+                    </h4>
+                    <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                      Otomasi Utang Usaha
+                    </p>
+                  </div>
+                </div>
+                <svg
+                  class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+
+              <!-- 5. Expense Management System -->
+              <a
+                href="/products/spensify"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-3 xl:px-3.5 flex items-center justify-between sm:col-span-2 lg:col-span-1 group"
+              >
+                <div class="flex items-center gap-3 lg:gap-2.5 min-w-0">
+                  <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
+                    <svg
+                      class="w-5 h-5 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z" />
+                      <line x1="8" y1="7" x2="16" y2="7" />
+                      <line x1="8" y1="11" x2="16" y2="11" />
+                      <line x1="8" y1="15" x2="12" y2="15" />
+                    </svg>
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight tracking-tight">
+                      Expense
+                      <br class="hidden xl:inline" /> Management System
+                    </h4>
+                    <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                      Platform Pengelolaan Pengeluaran
+                    </p>
+                  </div>
+                </div>
+                <svg
+                  class="w-4 h-4 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 lg:hidden"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
        CLIENT / PARTNER MARQUEE
        ========================================================================= -->
-  <ClientsMarquee />
+    <ClientsMarquee />
 
-  <!-- =========================================================================
+    <!-- =========================================================================
        2. NARRATIVE VALUE STATEMENT + 3 QUICK STATS - SLIM & REFINED
        ========================================================================= -->
-  <section class="py-10 md:py-12 bg-slate-50/50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
-        {/* Left: Paragraph narrative */}
-        <div class="lg:col-span-7">
-          <p
-            class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal"
-          >
-            <strong class="font-bold text-slate-900"
-              >Solusi Otomatisasi kami</strong
-            > dirancang dan berfungsi sebagai landasan untuk perkembangan transformasi digital dalam bisnis Anda. Kami memberikan layanan yang berkualitas dan terukur dalam menerapkan Otomatisasi Bisnis dan Proses Otomatisasi Robotik dengan teknologi AI dan ML (Machine Learning) yang menyeimbangkan kebutuhan bisnis Anda dengan teknologi inovasi.
-          </p>
-        </div>
+    <section class="py-10 md:py-12 bg-slate-50/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
+          {/* Left: Paragraph narrative */}
+          <div class="lg:col-span-7">
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+              <strong class="font-bold text-slate-900">
+                Solusi Otomatisasi kami
+              </strong>{" "}
+              dirancang dan berfungsi sebagai landasan untuk perkembangan
+              transformasi digital dalam bisnis Anda. Kami memberikan layanan
+              yang berkualitas dan terukur dalam menerapkan Otomatisasi Bisnis
+              dan Proses Otomatisasi Robotik dengan teknologi AI dan ML (Machine
+              Learning) yang menyeimbangkan kebutuhan bisnis Anda dengan
+              teknologi inovasi.
+            </p>
+          </div>
 
-        {/* Right: 3 Key Metrics with Smooth Counter Animation */}
-        <div
-          class="lg:col-span-5 grid grid-cols-3 gap-2.5 border-t lg:border-t-0 lg:border-l border-slate-200/80 pt-4 lg:pt-0 lg:pl-6 text-center"
-        >
-          <div>
-            <div
-              class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
-              data-target="80"
-              data-suffix="%"
-            >
-              80%
+          {/* Right: 3 Key Metrics with Smooth Counter Animation */}
+          <div class="lg:col-span-5 grid grid-cols-3 gap-2.5 border-t lg:border-t-0 lg:border-l border-slate-200/80 pt-4 lg:pt-0 lg:pl-6 text-center">
+            <div>
+              <div
+                class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
+                data-target="80"
+                data-suffix="%"
+              >
+                80%
+              </div>
+              <div class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug">
+                Percepatan waktu
+                <br />
+                approval dokumen
+              </div>
             </div>
-            <div
-              class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug"
-            >
-              Percepatan waktu<br />approval dokumen
+            <div>
+              <div
+                class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
+                data-target="100"
+                data-suffix="%"
+              >
+                100%
+              </div>
+              <div class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug">
+                Pengurangan risiko
+                <br />
+                fraud dokumen
+              </div>
             </div>
-          </div>
-          <div>
-            <div
-              class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
-              data-target="100"
-              data-suffix="%"
-            >
-              100%
-            </div>
-            <div
-              class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug"
-            >
-              Pengurangan risiko<br />fraud dokumen
-            </div>
-          </div>
-          <div>
-            <div
-              class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
-              data-target="95"
-              data-suffix="%"
-            >
-              95%
-            </div>
-            <div
-              class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug"
-            >
-              Pengurangan<br />entry data manual
+            <div>
+              <div
+                class="stat-count text-2xl sm:text-3xl lg:text-4xl font-black text-[#0866D3] tracking-tight tabular-nums"
+                data-target="95"
+                data-suffix="%"
+              >
+                95%
+              </div>
+              <div class="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-snug">
+                Pengurangan
+                <br />
+                entry data manual
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================================
+    <!-- =========================================================================
        3. TANTANGAN OPERASIONAL: SLIM, CLEAN & FOCUSED
        ========================================================================= -->
-  <section class="py-12 md:py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div
-        class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6"
-      >
-        <div class="shrink-0">
-          <p
-            class="text-xs font-semibold tracking-wider uppercase text-[#0866D3] mb-1.5"
-          >
-            Masalah Enterprise
+    <section class="py-12 md:py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6">
+          <div class="shrink-0">
+            <p class="text-xs font-semibold tracking-wider uppercase text-[#0866D3] mb-1.5">
+              Masalah Enterprise
+            </p>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+              Proses Manual yang Bikin Bisnis
+              <br class="hidden sm:inline" />
+              Anda Lambat
+            </h2>
+          </div>
+          <p class="text-sm sm:text-base text-slate-600 max-w-lg leading-relaxed md:ml-auto">
+            Seiring pertumbuhan bisnis, proses operasional menjadi semakin
+            kompleks. Ketergantungan pada pekerjaan manual, pengelolaan dokumen
+            yang tersebar, dan alur persetujuan yang panjang dapat membatasi
+            efisiensi serta produktivitas perusahaan.
           </p>
-          <h2
-            class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug"
-          >
-            Proses Manual yang Bikin Bisnis<br class="hidden sm:inline" />
-            Anda Lambat
-          </h2>
         </div>
-        <p
-          class="text-sm sm:text-base text-slate-600 max-w-lg leading-relaxed md:ml-auto"
-        >
-          Seiring pertumbuhan bisnis, proses operasional menjadi semakin kompleks. Ketergantungan pada pekerjaan manual, pengelolaan dokumen yang tersebar, dan alur persetujuan yang panjang dapat membatasi efisiensi serta produktivitas perusahaan.
-        </p>
-      </div>
 
-      {/* 5 Operational Challenges - Minimalist Clean Layout */}
-      <div class="bg-white rounded-2xl md:rounded-3xl border border-slate-200/60 p-6 md:p-8 shadow-2xs">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 items-start">
-          {/* Item 1 */}
-          <div>
-            <div class="mb-3.5">
-              <svg class="w-6 h-6 text-[#0866D3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="7" height="7" rx="2"></rect>
-                <rect x="14" y="3" width="7" height="7" rx="2"></rect>
-                <rect x="14" y="14" width="7" height="7" rx="2"></rect>
-                <rect x="3" y="14" width="7" height="7" rx="2"></rect>
-              </svg>
+        {/* 5 Operational Challenges - Minimalist Clean Layout */}
+        <div class="bg-white rounded-2xl md:rounded-3xl border border-slate-200/60 p-6 md:p-8 shadow-2xs">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 items-start">
+            {/* Item 1 */}
+            <div>
+              <div class="mb-3.5">
+                <svg
+                  class="w-6 h-6 text-[#0866D3]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+                  <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+                  <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+                  <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+                </svg>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                Data tersebar di banyak sistem.
+              </p>
             </div>
-            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-              Data tersebar di banyak sistem.
-            </p>
-          </div>
 
-          {/* Item 2 */}
-          <div>
-            <div class="mb-3.5">
-              <svg class="w-6 h-6 text-[#0866D3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-                <line x1="9" y1="13" x2="15" y2="13"></line>
-              </svg>
+            {/* Item 2 */}
+            <div>
+              <div class="mb-3.5">
+                <svg
+                  class="w-6 h-6 text-[#0866D3]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                  <line x1="9" y1="13" x2="15" y2="13"></line>
+                </svg>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                Dokumen tidak terpusat di satu tempat.
+              </p>
             </div>
-            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-              Dokumen tidak terpusat di satu tempat.
-            </p>
-          </div>
 
-          {/* Item 3 */}
-          <div>
-            <div class="mb-3.5">
-              <svg class="w-6 h-6 text-[#0866D3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 3h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
-                <path d="M4 7v12a2 2 0 002 2h12"></path>
-              </svg>
+            {/* Item 3 */}
+            <div>
+              <div class="mb-3.5">
+                <svg
+                  class="w-6 h-6 text-[#0866D3]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 3h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
+                  <path d="M4 7v12a2 2 0 002 2h12"></path>
+                </svg>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                Human error meningkat seiring volume pekerjaan.
+              </p>
             </div>
-            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-              Human error meningkat seiring volume pekerjaan.
-            </p>
-          </div>
 
-          {/* Item 4 */}
-          <div>
-            <div class="mb-3.5">
-              <svg class="w-6 h-6 text-[#0866D3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="4"></rect>
-                <path d="M7 10l3 4 3-3 4 4"></path>
-              </svg>
+            {/* Item 4 */}
+            <div>
+              <div class="mb-3.5">
+                <svg
+                  class="w-6 h-6 text-[#0866D3]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                  <path d="M7 10l3 4 3-3 4 4"></path>
+                </svg>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                Proses berulang menyita waktu produktif tim.
+              </p>
             </div>
-            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-              Proses berulang menyita waktu produktif tim.
-            </p>
-          </div>
 
-          {/* Item 5 */}
-          <div>
-            <div class="mb-3.5">
-              <svg class="w-6 h-6 text-[#0866D3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
-              </svg>
+            {/* Item 5 */}
+            <div>
+              <div class="mb-3.5">
+                <svg
+                  class="w-6 h-6 text-[#0866D3]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
+                </svg>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                Biaya operasional terus naik seiring beban kerja.
+              </p>
             </div>
-            <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
-              Biaya operasional terus naik seiring beban kerja.
-            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================================
+    <!-- =========================================================================
        4. 5 SOLUSI TERINTEGRASI (SLIM INTERACTIVE TABS & PRODUCT PREVIEW)
        ========================================================================= -->
-  <IntegratedSolutionsSection />
+    <IntegratedSolutionsSection />
 
-  <!-- =========================================================================
+    <!-- =========================================================================
        5. KAMI MERANCANG SOLUSI, BUKAN HANYA SEKEDAR MENJUAL LISENSI
        ========================================================================= -->
-  <section class="py-12 md:py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 items-stretch">
-        {/* Cell 1: Heading Block */}
-        <div class="space-y-2.5 p-1 flex flex-col justify-start">
-          <p
-            class="text-xs font-semibold tracking-wider uppercase text-[#0866D3] mb-1.5"
-          >
-            Kenapa SAI?
-          </p>
-          <h2
-            class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight"
-          >
-            Mendukung dan Menghadirkan Solusi Digital Automation.
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            SAI mendukung pertumbuhan bisnis melalui solusi teknologi dan kolaborasi untuk memenuhi kebutuhan pelanggan.
-          </p>
-        </div>
-
-        {/* Cell 2: Card 1 - End-to-End Implementation */}
-        <div
-          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
-          >
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+    <section class="py-12 md:py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 items-stretch">
+          {/* Cell 1: Heading Block */}
+          <div class="space-y-2.5 p-1 flex flex-col justify-start">
+            <p class="text-xs font-semibold tracking-wider uppercase text-[#0866D3] mb-1.5">
+              Kenapa SAI?
+            </p>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              Mendukung dan Menghadirkan Solusi Digital Automation.
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              SAI mendukung pertumbuhan bisnis melalui solusi teknologi dan
+              kolaborasi untuk memenuhi kebutuhan pelanggan.
+            </p>
           </div>
-          <h3 class="text-sm sm:text-base font-bold text-slate-900">
-            End-to-End Provider
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-           Dari konsultasi, desain, implementasi hingga dukungan teknis dan mendampingi dalam setiap project.
-          </p>
-        </div>
 
-        {/* Cell 3: Card 2 - Konektor Native Terintegrasi */}
-        <div
-          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
-          >
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-              ></path>
-            </svg>
+          {/* Cell 2: Card 1 - End-to-End Implementation */}
+          <div class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors">
+            <div class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs">
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+              End-to-End Provider
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Dari konsultasi, desain, implementasi hingga dukungan teknis dan
+              mendampingi dalam setiap project.
+            </p>
           </div>
-          <h3 class="text-sm sm:text-base font-bold text-slate-900">
-            Peluang Bisnis yang Lebih Luas
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Memperluas peluang melalui beragam solusi otomasi dokumen, proses bisnis, dan pengelolaan operasional.
-          </p>
-        </div>
 
-        {/* Cell 4: Card 3 - Keamanan Skala Enterprise */}
-        <div
-          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
-          >
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-              ></path>
-            </svg>
+          {/* Cell 3: Card 2 - Konektor Native Terintegrasi */}
+          <div class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors">
+            <div class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs">
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+              Peluang Bisnis yang Lebih Luas
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Memperluas peluang melalui beragam solusi otomasi dokumen, proses
+              bisnis, dan pengelolaan operasional.
+            </p>
           </div>
-          <h3 class="text-sm sm:text-base font-bold text-slate-900">
-            Keamanan Kelas Enterprise
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Solusi teknologi dengan sertifikat keamanan dan perlindungan data sesuai kapabilitas masing-masing produk.
-          </p>
-        </div>
 
-        {/* Cell 5: Card 4 - Arsitektur Fleksibel & On-Premise */}
-        <div
-          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
-          >
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-              ></path>
-            </svg>
+          {/* Cell 4: Card 3 - Keamanan Skala Enterprise */}
+          <div class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors">
+            <div class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs">
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+              Keamanan Kelas Enterprise
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Solusi teknologi dengan sertifikat keamanan dan perlindungan data
+              sesuai kapabilitas masing-masing produk.
+            </p>
           </div>
-          <h3 class="text-sm sm:text-base font-bold text-slate-900">
-            Fleksibel & Skalabel
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Deployment Cloud, Hybrid, atau On-Premise, menyesuaikan kebutuhan infrastruktur Anda.
-          </p>
-        </div>
 
-        {/* Cell 6: Card 5 - Dukungan Teknis Lokal Indonesia */}
-        <div
-          class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs"
-          >
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              ></path>
-            </svg>
+          {/* Cell 5: Card 4 - Arsitektur Fleksibel & On-Premise */}
+          <div class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors">
+            <div class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs">
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+              Fleksibel & Skalabel
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Deployment Cloud, Hybrid, atau On-Premise, menyesuaikan kebutuhan
+              infrastruktur Anda.
+            </p>
           </div>
-          <h3 class="text-sm sm:text-base font-bold text-slate-900">
-            Dukungan Berkelanjutan
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Monitoring dan pemeliharaan pasca-implementasi agar sistem tetap optimal jangka panjang.
-          </p>
+
+          {/* Cell 6: Card 5 - Dukungan Teknis Lokal Indonesia */}
+          <div class="p-4.5 bg-slate-50/60 border border-slate-200/80 rounded-xl space-y-2 hover:border-slate-300 transition-colors">
+            <div class="w-7 h-7 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center border border-slate-200/60 font-bold text-xs">
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+              Dukungan Berkelanjutan
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Monitoring dan pemeliharaan pasca-implementasi agar sistem tetap
+              optimal jangka panjang.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================================
+    <!-- =========================================================================
        6. PILIHAN UTAMA PERUSAHAAN TERKEMUKA DI ASIA PASIFIK
        ========================================================================= -->
-  <TrustRecognition />
+    <TrustRecognition />
 
-  <!-- =========================================================================
+    <!-- =========================================================================
        7. WAWASAN BISNIS (ARTICLES) - SLIM & POLISHED
        ========================================================================= -->
-  <section class="py-12 md:py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div
-        class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4"
-      >
-        <div>
-          <h2
-            class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
+    <section class="py-12 md:py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Wawasan Bisnis
+            </h2>
+            <p class="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+              Temukan berbagai wawasan bisnis enterprise yang dapat membantu
+              mengembangkan bisnis Anda.
+            </p>
+          </div>
+          <a
+            href="/articles"
+            class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0866D3] hover:bg-[#0756b3] text-white font-semibold text-xs sm:text-sm rounded-lg transition-colors whitespace-nowrap shadow-2xs"
           >
-            Wawasan Bisnis
-          </h2>
-          <p class="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
-            Temukan berbagai wawasan bisnis enterprise yang dapat membantu mengembangkan bisnis Anda.
-          </p>
+            <span>Lihat Semua Artikel</span>
+            <span>&rarr;</span>
+          </a>
         </div>
-        <a
-          href="/articles"
-          class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0866D3] hover:bg-[#0756b3] text-white font-semibold text-xs sm:text-sm rounded-lg transition-colors whitespace-nowrap shadow-2xs"
-        >
-          <span>Lihat Semua Artikel</span>
-          <span>&rarr;</span>
-        </a>
+
+        {/* 4 Article Cards with Category Tags & Reading Time */}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <article class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group">
+            <div>
+              <a
+                href="/articles"
+                class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
+              >
+                <img
+                  src="/images/articles/article-thumb-1.jpg"
+                  alt="Arsitektur Cloud Modern & Integrasi API"
+                  class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-slate-900/80 text-white backdrop-blur-xs">
+                  Arsitektur Cloud
+                </span>
+              </a>
+              <div class="p-4 space-y-1.5">
+                <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+                  4 mnt baca • Strategi API
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors">
+                  <a href="/articles">
+                    Arsitektur Cloud Modern &amp; Integrasi API Enterprise
+                  </a>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed">
+                  Panduan merancang microservices dan API gateway aman untuk
+                  volume transaksi korporasi tinggi.
+                </p>
+              </div>
+            </div>
+            <div class="p-4 pt-0">
+              <a
+                href="/articles"
+                class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
+              >
+                <span>Baca Selengkapnya</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group">
+            <div>
+              <a
+                href="/articles"
+                class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
+              >
+                <img
+                  src="/images/articles/article-thumb-2.jpg"
+                  alt="Mengenal AI OCR untuk Tim Finance"
+                  class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-sky-900/80 text-white backdrop-blur-xs">
+                  AI &amp; Finance
+                </span>
+              </a>
+              <div class="p-4 space-y-1.5">
+                <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+                  5 mnt baca • Otomasi Faktur
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors">
+                  <a href="/articles">
+                    Mengenal AI OCR: Solusi Cepat untuk Tim Finance
+                  </a>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed">
+                  Cara memangkas 90% waktu input invoice dan verifikasi faktur
+                  pajak dengan model AI vision adaptif.
+                </p>
+              </div>
+            </div>
+            <div class="p-4 pt-0">
+              <a
+                href="/articles"
+                class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
+              >
+                <span>Baca Selengkapnya</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group">
+            <div>
+              <a
+                href="/articles"
+                class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
+              >
+                <img
+                  src="/images/articles/article-thumb-3.jpg"
+                  alt="Tren Otomatisasi & Robotic Process Automation"
+                  class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-blue-900/80 text-white backdrop-blur-xs">
+                  Enterprise RPA
+                </span>
+              </a>
+              <div class="p-4 space-y-1.5">
+                <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+                  4 mnt baca • Robotic Process
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors">
+                  <a href="/articles">
+                    Tren Otomatisasi &amp; Robotic Process Automation 2026
+                  </a>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed">
+                  Strategi bot RPA cerdas untuk menghubungkan software warisan
+                  tanpa harus migrasi total berbiaya tinggi.
+                </p>
+              </div>
+            </div>
+            <div class="p-4 pt-0">
+              <a
+                href="/articles"
+                class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
+              >
+                <span>Baca Selengkapnya</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group">
+            <div>
+              <a
+                href="/articles"
+                class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
+              >
+                <img
+                  src="/images/articles/article-thumb-4.jpg"
+                  alt="Best Practice Manajemen Dokumen Terpusat"
+                  class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-900/80 text-white backdrop-blur-xs">
+                  Tata Kelola Arsip
+                </span>
+              </a>
+              <div class="p-4 space-y-1.5">
+                <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+                  6 mnt baca • Standar UU PDP
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors">
+                  <a href="/articles">
+                    Best Practice Manajemen Dokumen Terpusat &amp; Tata Kelola
+                  </a>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed">
+                  Kepatuhan retensi berkas, approval berjenjang digital, dan
+                  proteksi integritas arsip korporasi.
+                </p>
+              </div>
+            </div>
+            <div class="p-4 pt-0">
+              <a
+                href="/articles"
+                class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
+              >
+                <span>Baca Selengkapnya</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      {/* 4 Article Cards with Category Tags & Reading Time */}
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <article
-          class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group"
-        >
-          <div>
-            <a
-              href="/articles"
-              class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
-            >
-              <img
-                src="/images/articles/article-thumb-1.jpg"
-                alt="Arsitektur Cloud Modern & Integrasi API"
-                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
-                loading="eager"
-                decoding="async"
-              />
-              <span
-                class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-slate-900/80 text-white backdrop-blur-xs"
-              >
-                Arsitektur Cloud
-              </span>
-            </a>
-            <div class="p-4 space-y-1.5">
-              <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
-                4 mnt baca • Strategi API
-              </div>
-              <h3
-                class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors"
-              >
-                <a href="/articles">
-                  Arsitektur Cloud Modern &amp; Integrasi API Enterprise
-                </a>
-              </h3>
-              <p
-                class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed"
-              >
-                Panduan merancang microservices dan API gateway aman untuk
-                volume transaksi korporasi tinggi.
-              </p>
-            </div>
-          </div>
-          <div class="p-4 pt-0">
-            <a
-              href="/articles"
-              class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
-            >
-              <span>Baca Selengkapnya</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </article>
-
-        <article
-          class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group"
-        >
-          <div>
-            <a
-              href="/articles"
-              class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
-            >
-              <img
-                src="/images/articles/article-thumb-2.jpg"
-                alt="Mengenal AI OCR untuk Tim Finance"
-                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
-                loading="eager"
-                decoding="async"
-              />
-              <span
-                class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-sky-900/80 text-white backdrop-blur-xs"
-              >
-                AI &amp; Finance
-              </span>
-            </a>
-            <div class="p-4 space-y-1.5">
-              <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
-                5 mnt baca • Otomasi Faktur
-              </div>
-              <h3
-                class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors"
-              >
-                <a href="/articles">
-                  Mengenal AI OCR: Solusi Cepat untuk Tim Finance
-                </a>
-              </h3>
-              <p
-                class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed"
-              >
-                Cara memangkas 90% waktu input invoice dan verifikasi faktur
-                pajak dengan model AI vision adaptif.
-              </p>
-            </div>
-          </div>
-          <div class="p-4 pt-0">
-            <a
-              href="/articles"
-              class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
-            >
-              <span>Baca Selengkapnya</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </article>
-
-        <article
-          class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group"
-        >
-          <div>
-            <a
-              href="/articles"
-              class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
-            >
-              <img
-                src="/images/articles/article-thumb-3.jpg"
-                alt="Tren Otomatisasi & Robotic Process Automation"
-                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
-                loading="eager"
-                decoding="async"
-              />
-              <span
-                class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-blue-900/80 text-white backdrop-blur-xs"
-              >
-                Enterprise RPA
-              </span>
-            </a>
-            <div class="p-4 space-y-1.5">
-              <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
-                4 mnt baca • Robotic Process
-              </div>
-              <h3
-                class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors"
-              >
-                <a href="/articles">
-                  Tren Otomatisasi &amp; Robotic Process Automation 2026
-                </a>
-              </h3>
-              <p
-                class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed"
-              >
-                Strategi bot RPA cerdas untuk menghubungkan software warisan
-                tanpa harus migrasi total berbiaya tinggi.
-              </p>
-            </div>
-          </div>
-          <div class="p-4 pt-0">
-            <a
-              href="/articles"
-              class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
-            >
-              <span>Baca Selengkapnya</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </article>
-
-        <article
-          class="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between group"
-        >
-          <div>
-            <a
-              href="/articles"
-              class="block aspect-16/10 overflow-hidden bg-slate-100 relative"
-            >
-              <img
-                src="/images/articles/article-thumb-4.jpg"
-                alt="Best Practice Manajemen Dokumen Terpusat"
-                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
-                loading="eager"
-                decoding="async"
-              />
-              <span
-                class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-900/80 text-white backdrop-blur-xs"
-              >
-                Tata Kelola Arsip
-              </span>
-            </a>
-            <div class="p-4 space-y-1.5">
-              <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
-                6 mnt baca • Standar UU PDP
-              </div>
-              <h3
-                class="text-sm sm:text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors"
-              >
-                <a href="/articles">
-                  Best Practice Manajemen Dokumen Terpusat &amp; Tata Kelola
-                </a>
-              </h3>
-              <p
-                class="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed"
-              >
-                Kepatuhan retensi berkas, approval berjenjang digital, dan
-                proteksi integritas arsip korporasi.
-              </p>
-            </div>
-          </div>
-          <div class="p-4 pt-0">
-            <a
-              href="/articles"
-              class="text-xs sm:text-sm font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
-            >
-              <span>Baca Selengkapnya</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
+    <!-- =========================================================================
        8. LEAD CAPTURE / CONSULTATION CTA TEMPLATE
        ========================================================================= -->
-  <ConsultationCta />
+    <ConsultationCta />
   </div>
 
   <script>
     function setupCounters() {
-      const counters = document.querySelectorAll<HTMLElement>('.stat-count[data-target]');
+      const counters = document.querySelectorAll<HTMLElement>(
+        ".stat-count[data-target]",
+      );
       if (!counters.length) return;
 
       const animate = (el: HTMLElement) => {
         const target = Number(el.dataset.target || 0);
-        const suffix = el.dataset.suffix || '';
+        const suffix = el.dataset.suffix || "";
         const duration = 2500;
         const start = performance.now();
-        el.textContent = '0' + suffix;
+        el.textContent = "0" + suffix;
 
         const step = (now: number) => {
           const progress = Math.min((now - start) / duration, 1);
@@ -847,20 +944,23 @@ const schemas = [orgSchema, websiteSchema];
         requestAnimationFrame(step);
       };
 
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animate(entry.target as HTMLElement);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.3 });
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animate(entry.target as HTMLElement);
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
 
       counters.forEach((c) => observer.observe(c));
     }
 
-    document.addEventListener('DOMContentLoaded', setupCounters);
-    document.addEventListener('astro:page-load', setupCounters);
+    document.addEventListener("DOMContentLoaded", setupCounters);
+    document.addEventListener("astro:page-load", setupCounters);
     setupCounters();
   </script>
 </PageLayout>

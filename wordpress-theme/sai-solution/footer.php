@@ -13,9 +13,9 @@
             <div>
                 <h3 style="font-size:0.875rem;font-weight:700;color:#fff;margin-bottom:1rem;letter-spacing:0.05em;text-transform:uppercase">Company</h3>
                 <address style="font-style:normal;font-size:0.8125rem;color:rgba(255,255,255,0.85);line-height:1.7">
-                    Jl. Siantar No.18, Cideng, Gambir<br>
-                    Jakarta Pusat, DKI Jakarta 10150<br><br>
-                    <a href="tel:+62213506050" style="color:inherit;text-decoration:none">📞 +62 21 350-6050 (Hunting)</a><br>
+                    Block 21, Jl. Siantar No.18, Cideng, Kecamatan Gambir<br>
+                    Kota Jakarta Pusat, DKI Jakarta 10150<br><br>
+                    <a href="tel:+62213505050" style="color:inherit;text-decoration:none">📞 (021) 3505050</a><br>
                     <a href="https://wa.me/6282110009519?text=Halo%20PT%20Solusi%20Aplikasi%20Integrasi%20(SAI)%2C%20saya%20tertarik%20dengan%20solusi%20IT%20dan%20layanan%20Anda.%20Mohon%20info%20lebih%20lanjut." target="_blank" rel="noopener" style="color:inherit;text-decoration:none">💬 +62 821-1000-9519 (WhatsApp)</a><br>
                     <a href="mailto:sales@solusiaplikasi.id" style="color:inherit;text-decoration:none">✉️ sales@solusiaplikasi.id</a>
                 </address>
