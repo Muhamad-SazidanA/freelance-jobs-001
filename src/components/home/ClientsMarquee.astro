@@ -66,7 +66,6 @@ const row2: ClientLogo[] = [
     ></div>
 
     <div class="flex flex-col gap-6 sm:gap-8">
-      <!-- ROW 1: Glides Leftward -->
       <div class="marquee-group group flex overflow-hidden">
         <div class="marquee-track marquee-track-left flex shrink-0 items-center gap-10 sm:gap-14 md:gap-18">
           {[...row1, ...row1].map((logo) => (
@@ -77,7 +76,7 @@ const row2: ClientLogo[] = [
               <img
                 src={`/images/home/Client/${logo.file}`}
                 alt={logo.alt}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 class="max-h-8 sm:max-h-10 md:max-h-11 w-auto max-w-[120px] sm:max-w-[150px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
               />
@@ -86,7 +85,6 @@ const row2: ClientLogo[] = [
         </div>
       </div>
 
-      <!-- ROW 2: Glides Rightward (Opposite Direction for Dynamic Motion) -->
       <div class="marquee-group group flex overflow-hidden">
         <div class="marquee-track marquee-track-right flex shrink-0 items-center gap-10 sm:gap-14 md:gap-18">
           {[...row2, ...row2].map((logo) => (
@@ -97,7 +95,7 @@ const row2: ClientLogo[] = [
               <img
                 src={`/images/home/Client/${logo.file}`}
                 alt={logo.alt}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 class="max-h-8 sm:max-h-10 md:max-h-11 w-auto max-w-[120px] sm:max-w-[150px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
               />

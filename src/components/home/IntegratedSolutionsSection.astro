@@ -200,10 +200,9 @@ const products = [
 ];
 ---
 
-<section id="solusi" class="py-12 md:py-16 bg-slate-50/60">
+<section id="solusi" class="py-12 md:py-16 bg-slate-50/60 scroll-mt-20">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- Section Header - Clean & Understated -->
     <div class="max-w-2xl mx-auto text-center mb-8">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
         5 solusi Digital Automation<br>kebutuhan bisnis
@@ -213,10 +212,9 @@ const products = [
       </p>
     </div>
 
-    <!-- Floating Logo Tabs with Ambient Neon Glow -->
     <div
       id="iss-tabs"
-      class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6 mb-10 max-w-4xl mx-auto"
+      class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 lg:gap-6 mb-10 max-w-4xl mx-auto"
       role="tablist"
       aria-label="Pilihan Solusi Terintegrasi"
     >
@@ -229,7 +227,7 @@ const products = [
           aria-controls={`panel-${product.id}`}
           id={`tab-${product.id}`}
           style={`--neon-rgb: ${product.neonRgb};`}
-          class={`iss-tab relative py-2.5 px-4 sm:px-6 rounded-xl cursor-pointer flex items-center justify-center transition-all duration-200 ${i === 0 ? 'active' : ''}`}
+          class={`iss-tab relative py-2.5 px-4 sm:px-3 lg:px-6 rounded-xl cursor-pointer flex items-center justify-center transition-all duration-200 ${i === 0 ? 'active' : ''}`}
           title={product.name}
         >
           <img
