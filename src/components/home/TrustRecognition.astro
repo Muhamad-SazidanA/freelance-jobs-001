@@ -95,7 +95,7 @@ const certifications = [
         class="py-6 md:py-2 md:pr-10 md:pl-0 flex flex-col justify-start"
       >
         <!-- Ratings Showcase (Matches exact height & style of Column 2 badge grid) -->
-        <div class="grid grid-cols-3 gap-2.5 sm:gap-3 mb-6 md:h-[148px]">
+        <div class="grid grid-cols-3 gap-2.5 sm:gap-3 mb-6 md:h-[150px]">
           {ratings.map((item) => (
             <div class="group bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 rounded-xl px-3 py-3 flex flex-col items-center justify-center gap-2 transition-all duration-200 hover:shadow-2xs">
               <img
@@ -129,9 +129,9 @@ const certifications = [
         <!-- Content -->
         <div>
           <h3
-            class="text-base sm:text-lg font-bold text-slate-900 leading-snug tracking-tight mb-2"
+            class="text-base lg:text-lg font-bold text-slate-900 leading-snug tracking-tight mb-2"
           >
-            <span class="text-[#0866D3]">Pilihan Utama</span> dari Pengguna di<br class="hidden md:inline" />
+            <span class="text-[#0866D3]">Pilihan Utama</span> dari Pengguna di{' '}<br class="hidden lg:inline" />
             Berbagai Platform Global
           </h3>
           <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -146,10 +146,10 @@ const certifications = [
         class="py-6 md:py-2 md:pl-10 md:pr-0 flex flex-col justify-start"
       >
         <!-- Compliance & Certification Badge Grid (2 Rows x 5 Badges, exact height match) -->
-        <div class="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-6 md:h-[148px]">
+        <div class="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-6 md:h-[150px]">
           {certifications.map((cert) => (
             <div
-              class="group bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 rounded-xl px-1.5 py-2 flex flex-col items-center justify-center gap-1 transition-all duration-200 hover:shadow-2xs"
+              class="group bg-slate-50/70 hover:bg-white border border-slate-200/70 hover:border-slate-300 rounded-xl px-1 lg:px-1.5 py-2 flex flex-col items-center justify-center gap-1 transition-all duration-200 hover:shadow-2xs"
               title={cert.title}
             >
               <img
@@ -159,7 +159,7 @@ const certifications = [
                 loading="eager"
                 decoding="async"
               />
-              <span class="text-[10px] font-semibold text-slate-600 leading-tight text-center tracking-tight whitespace-nowrap">
+              <span class="text-[9.5px] lg:text-[10px] font-semibold text-slate-600 leading-tight text-center tracking-tight whitespace-nowrap">
                 {cert.label}
               </span>
             </div>
@@ -169,9 +169,9 @@ const certifications = [
         <!-- Content -->
         <div>
           <h3
-            class="text-base sm:text-lg font-bold text-slate-900 leading-snug tracking-tight mb-2"
+            class="text-base lg:text-lg font-bold text-slate-900 leading-snug tracking-tight mb-2"
           >
-            Beroperasi dengan <span class="text-[#0866D3]">Standar Keamanan</span><br class="hidden md:inline" />
+            Beroperasi dengan <span class="text-[#0866D3]">Standar Keamanan</span>{' '}<br class="hidden lg:inline" />
             yang Tersertifikasi
           </h3>
           <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
