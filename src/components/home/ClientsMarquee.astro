@@ -52,54 +52,58 @@ const row2: ClientLogo[] = [
   </div>
 
   <!-- Marquee Container with Soft Left & Right Fade Masks -->
-  <div class="relative w-full overflow-hidden space-y-6 sm:space-y-8">
+  <div class="relative w-full overflow-hidden">
     <!-- Left & Right Gradient Shadows for Seamless Infinite Fade -->
     <div
-      class="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-12 md:w-16 bg-gradient-to-r from-white to-white/0 z-10"
+      class="pointer-events-none absolute inset-y-0 left-0 w-10 sm:w-14 md:w-20 z-10"
+      style="background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);"
       aria-hidden="true"
     ></div>
     <div
-      class="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-12 md:w-16 bg-gradient-to-l from-white to-white/0 z-10"
+      class="pointer-events-none absolute inset-y-0 right-0 w-10 sm:w-14 md:w-20 z-10"
+      style="background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);"
       aria-hidden="true"
     ></div>
 
-    <!-- ROW 1: Glides Leftward -->
-    <div class="marquee-group group flex overflow-hidden">
-      <div class="marquee-track marquee-track-left flex shrink-0 items-center gap-10 sm:gap-14 md:gap-18">
-        {[...row1, ...row1].map((logo) => (
-          <div
-            class="flex items-center justify-center shrink-0 w-32 sm:w-40 md:w-44 h-12 sm:h-14 transition-all duration-300 hover:scale-110 cursor-pointer"
-            title={logo.name}
-          >
-            <img
-              src={`/images/home/Client/${logo.file}`}
-              alt={logo.alt}
-              loading="lazy"
-              decoding="async"
-              class="max-h-8 sm:max-h-10 md:max-h-11 w-auto max-w-[120px] sm:max-w-[150px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
-            />
-          </div>
-        ))}
+    <div class="flex flex-col gap-6 sm:gap-8">
+      <!-- ROW 1: Glides Leftward -->
+      <div class="marquee-group group flex overflow-hidden">
+        <div class="marquee-track marquee-track-left flex shrink-0 items-center gap-10 sm:gap-14 md:gap-18">
+          {[...row1, ...row1].map((logo) => (
+            <div
+              class="flex items-center justify-center shrink-0 w-32 sm:w-40 md:w-44 h-12 sm:h-14 transition-all duration-300 hover:scale-110 cursor-pointer"
+              title={logo.name}
+            >
+              <img
+                src={`/images/home/Client/${logo.file}`}
+                alt={logo.alt}
+                loading="lazy"
+                decoding="async"
+                class="max-h-8 sm:max-h-10 md:max-h-11 w-auto max-w-[120px] sm:max-w-[150px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
 
-    <!-- ROW 2: Glides Rightward (Opposite Direction for Dynamic Motion) -->
-    <div class="marquee-group group flex overflow-hidden">
-      <div class="marquee-track marquee-track-right flex shrink-0 items-center gap-10 sm:gap-14 md:gap-18">
-        {[...row2, ...row2].map((logo) => (
-          <div
-            class="flex items-center justify-center shrink-0 w-32 sm:w-40 md:w-44 h-12 sm:h-14 transition-all duration-300 hover:scale-110 cursor-pointer"
-            title={logo.name}
-          >
-            <img
-              src={`/images/home/Client/${logo.file}`}
-              alt={logo.alt}
-              loading="lazy"
-              decoding="async"
-              class="max-h-8 sm:max-h-10 md:max-h-11 w-auto max-w-[120px] sm:max-w-[150px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
-            />
-          </div>
-        ))}
+      <!-- ROW 2: Glides Rightward (Opposite Direction for Dynamic Motion) -->
+      <div class="marquee-group group flex overflow-hidden">
+        <div class="marquee-track marquee-track-right flex shrink-0 items-center gap-10 sm:gap-14 md:gap-18">
+          {[...row2, ...row2].map((logo) => (
+            <div
+              class="flex items-center justify-center shrink-0 w-32 sm:w-40 md:w-44 h-12 sm:h-14 transition-all duration-300 hover:scale-110 cursor-pointer"
+              title={logo.name}
+            >
+              <img
+                src={`/images/home/Client/${logo.file}`}
+                alt={logo.alt}
+                loading="lazy"
+                decoding="async"
+                class="max-h-8 sm:max-h-10 md:max-h-11 w-auto max-w-[120px] sm:max-w-[150px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
