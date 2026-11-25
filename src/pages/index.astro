@@ -85,13 +85,13 @@ const schemas = [orgSchema, websiteSchema];
         {/* Bottom 5-Solutions Blue Dock - Flush to Bottom Edge */}
         <div class="w-full">
           <div class="bg-[#1877F2] rounded-t-2xl md:rounded-t-3xl shadow-2xl shadow-blue-950/50 overflow-hidden">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/20">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_0.96fr_1.12fr_0.92fr_1.16fr] gap-px bg-white/20">
               <!-- 1. Intelligent Document Processing -->
               <a
                 href="/products/nanonets"
-                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-2.5 xl:px-3.5 flex items-center justify-between group"
               >
-                <div class="flex items-center gap-3 min-w-0">
+                <div class="flex items-center gap-3 lg:gap-2 xl:gap-2.5 min-w-0">
                   <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
                     <svg
                       class="w-5 h-5 text-white"
@@ -107,11 +107,11 @@ const schemas = [orgSchema, websiteSchema];
                     </svg>
                   </div>
                   <div class="min-w-0">
-                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                    <h4 class="text-xs sm:text-[13px] lg:text-[12.5px] xl:text-[13px] font-bold text-white leading-tight">
                       Intelligent Document
-                      <br class="hidden xl:inline" /> Processing
+                      <br class="hidden lg:inline" /> Processing
                     </h4>
-                    <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                    <p class="text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[11px] text-blue-100 mt-0.5 leading-tight">
                       Ekstraksi Data Otomatis
                     </p>
                   </div>
@@ -135,9 +135,9 @@ const schemas = [orgSchema, websiteSchema];
               <!-- 2. Robotic Process Automation -->
               <a
                 href="/products/cyclone"
-                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-2.5 xl:px-3.5 flex items-center justify-between group"
               >
-                <div class="flex items-center gap-3 min-w-0">
+                <div class="flex items-center gap-3 lg:gap-2 xl:gap-2.5 min-w-0">
                   <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
                     <svg
                       class="w-5 h-5 text-white"
@@ -155,11 +155,11 @@ const schemas = [orgSchema, websiteSchema];
                     </svg>
                   </div>
                   <div class="min-w-0">
-                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                    <h4 class="text-xs sm:text-[13px] lg:text-[12.5px] xl:text-[13px] font-bold text-white leading-tight">
                       Robotic Process
-                      <br class="hidden xl:inline" /> Automation
+                      <br class="hidden lg:inline" /> Automation
                     </h4>
-                    <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                    <p class="text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[11px] text-blue-100 mt-0.5 leading-tight">
                       Otomasi Tugas Berulang
                     </p>
                   </div>
@@ -183,9 +183,9 @@ const schemas = [orgSchema, websiteSchema];
               <!-- 3. Document Management System -->
               <a
                 href="/products/docuflo"
-                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-3 xl:px-3.5 flex items-center justify-between group"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-2.5 xl:px-3.5 flex items-center justify-between group"
               >
-                <div class="flex items-center gap-3 lg:gap-2.5 min-w-0">
+                <div class="flex items-center gap-3 lg:gap-2 xl:gap-2.5 min-w-0">
                   <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
                     <svg
                       class="w-5 h-5 text-white"
@@ -201,11 +201,11 @@ const schemas = [orgSchema, websiteSchema];
                     </svg>
                   </div>
                   <div class="min-w-0">
-                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight tracking-tight">
+                    <h4 class="text-xs sm:text-[13px] lg:text-[12.5px] xl:text-[13px] font-bold text-white leading-tight tracking-tight">
                       Document
-                      <br class="hidden xl:inline" /> Management System
+                      <br class="hidden lg:inline" /> Management System
                     </h4>
-                    <p class="text-[10px] sm:text-[10.5px] text-blue-100 mt-0.5 leading-tight tracking-[-0.015em] xl:whitespace-nowrap">
+                    <p class="text-[10px] sm:text-[10.5px] lg:text-[9.5px] xl:text-[10.5px] text-blue-100 mt-0.5 leading-tight tracking-[-0.02em] whitespace-nowrap">
                       Pengelolaan Dokumen Digital
                     </p>
                   </div>
@@ -229,9 +229,9 @@ const schemas = [orgSchema, websiteSchema];
               <!-- 4. Account Payable Automation -->
               <a
                 href="/products/syclus"
-                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 flex items-center justify-between group"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-2.5 xl:px-3.5 flex items-center justify-between group"
               >
-                <div class="flex items-center gap-3 min-w-0">
+                <div class="flex items-center gap-3 lg:gap-2 xl:gap-2.5 min-w-0">
                   <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
                     <svg
                       class="w-5 h-5 text-white"
@@ -249,11 +249,11 @@ const schemas = [orgSchema, websiteSchema];
                     </svg>
                   </div>
                   <div class="min-w-0">
-                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight">
+                    <h4 class="text-xs sm:text-[13px] lg:text-[12.5px] xl:text-[13px] font-bold text-white leading-tight">
                       Account Payable
-                      <br class="hidden xl:inline" /> Automation
+                      <br class="hidden lg:inline" /> Automation
                     </h4>
-                    <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                    <p class="text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[11px] text-blue-100 mt-0.5 leading-tight">
                       Otomasi Utang Usaha
                     </p>
                   </div>
@@ -277,9 +277,9 @@ const schemas = [orgSchema, websiteSchema];
               <!-- 5. Expense Management System -->
               <a
                 href="/products/spensify"
-                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-3 xl:px-3.5 flex items-center justify-between sm:col-span-2 lg:col-span-1 group"
+                class="bg-[#1877F2] hover:bg-[#1569d6] transition-colors p-3.5 sm:p-4 lg:px-2.5 xl:px-3.5 flex items-center justify-between sm:col-span-2 lg:col-span-1 group"
               >
-                <div class="flex items-center gap-3 lg:gap-2.5 min-w-0">
+                <div class="flex items-center gap-3 lg:gap-2 xl:gap-2.5 min-w-0">
                   <div class="shrink-0 p-2 rounded-xl bg-white/10 text-white group-hover:bg-white/20 transition-colors">
                     <svg
                       class="w-5 h-5 text-white"
@@ -297,11 +297,11 @@ const schemas = [orgSchema, websiteSchema];
                     </svg>
                   </div>
                   <div class="min-w-0">
-                    <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight tracking-tight">
+                    <h4 class="text-xs sm:text-[13px] lg:text-[12.5px] xl:text-[13px] font-bold text-white leading-tight tracking-tight">
                       Expense
-                      <br class="hidden xl:inline" /> Management System
+                      <br class="hidden lg:inline" /> Management System
                     </h4>
-                    <p class="text-[10px] sm:text-[11px] text-blue-100 mt-0.5 leading-tight">
+                    <p class="text-[10px] sm:text-[10.5px] lg:text-[9.5px] xl:text-[10.5px] text-blue-100 mt-0.5 leading-tight tracking-[-0.02em] whitespace-nowrap">
                       Platform Pengelolaan Pengeluaran
                     </p>
                   </div>
