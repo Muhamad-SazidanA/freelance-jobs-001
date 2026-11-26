@@ -1,0 +1,102 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./generated"
+  binaryTargets = ["native", "rhel-openssl-1.1.x", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum ContentStatus {
+  draft
+  published
+}
+
+model Post {
+  id              Int           @id @default(autoincrement())
+  title           String        @db.VarChar(255)
+  slug            String        @unique @db.VarChar(191)
+  content         String        @db.LongText
+  imageUrl        String?       @map("image_url") @db.LongText
+  subheading      String?       @db.VarChar(255)
+  category        String?       @db.VarChar(100)
+  author          String?       @default("Admin SAI") @db.VarChar(100)
+  authorImage     String?       @map("author_image") @db.LongText
+  authorBadge     String?       @map("author_badge") @db.VarChar(100)
+  authorBio       String?       @map("author_bio") @db.LongText
+  showAuthor      Boolean       @default(true) @map("show_author")
+  reviewerName    String?       @map("reviewer_name") @db.VarChar(100)
+  reviewerImage   String?       @map("reviewer_image") @db.LongText
+  reviewerBadge   String?       @map("reviewer_badge") @db.VarChar(100)
+  reviewerBio     String?       @map("reviewer_bio") @db.LongText
+  showReviewer    Boolean       @default(false) @map("show_reviewer")
+  metaTitle       String?       @map("meta_title") @db.VarChar(255)
+  metaDescription String?       @map("meta_description") @db.LongText
+  metaKeywords    String?       @map("meta_keywords") @db.LongText
+  status          ContentStatus @default(draft)
+  views           Int           @default(0)
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+
+  @@index([status, createdAt])
+  @@index([status, category])
+  @@index([views])
+  @@map("posts")
+}
+
+model LandingPage {
+  id                 Int           @id @default(autoincrement())
+  title              String        @db.VarChar(255)
+  slug               String        @unique @db.VarChar(191)
+  template           String        @default("hero") @db.VarChar(40)
+  badgeText          String?       @map("badge_text") @db.VarChar(120)
+  heroTitle          String?       @map("hero_title") @db.VarChar(255)
+  heroSubtitle       String?       @map("hero_subtitle") @db.LongText
+  heroImage          String?       @map("hero_image") @db.LongText
+  ctaLabel           String?       @map("cta_label") @db.VarChar(100)
+  ctaUrl             String?       @map("cta_url") @db.VarChar(500)
+  ctaSecondaryLabel  String?       @map("cta_secondary_label") @db.VarChar(100)
+  ctaSecondaryUrl    String?       @map("cta_secondary_url") @db.VarChar(500)
+  showTrustBar       Boolean       @default(false) @map("show_trust_bar")
+  featuresJson       String        @map("features_json") @db.LongText
+  content            String        @db.LongText
+  showHeader         Boolean       @default(true) @map("show_header")
+  showFooter         Boolean       @default(true) @map("show_footer")
+  showLeadForm       Boolean       @default(true) @map("show_lead_form")
+  leadDefaultProduct String?       @map("lead_default_product") @db.VarChar(80)
+  metaTitle          String?       @map("meta_title") @db.VarChar(255)
+  metaDescription    String?       @map("meta_description") @db.LongText
+  metaKeywords       String?       @map("meta_keywords") @db.LongText
+  status             ContentStatus @default(draft)
+  views              Int           @default(0)
+  createdAt          DateTime      @default(now()) @map("created_at")
+  updatedAt          DateTime      @updatedAt @map("updated_at")
+
+  @@index([status, createdAt])
+  @@map("landing_pages")
+}
+
+model AdminUser {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique @db.VarChar(191)
+  username     String   @unique @db.VarChar(120)
+  passwordHash String   @map("password_hash") @db.VarChar(255)
+  name         String   @db.VarChar(120)
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("admin_users")
+}
+
+model MediaAsset {
+  id        Int      @id @default(autoincrement())
+  filename  String   @db.VarChar(255)
+  mimeType  String   @map("mime_type") @db.VarChar(100)
+  size      Int
+  data      Bytes    @db.LongBlob
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("media_assets")
+}

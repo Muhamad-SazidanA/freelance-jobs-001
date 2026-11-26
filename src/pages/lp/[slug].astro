@@ -1,0 +1,31 @@
+---
+import StandaloneLandingView from '@/components/landing/StandaloneLandingView.astro';
+import { getLandingPageBySlug } from '@/lib/cms';
+
+export const prerender = false;
+
+const slug = Astro.params.slug || '';
+const { page } = await getLandingPageBySlug(slug, false);
+
+if (!page) {
+  Astro.response.status = 404;
+}
+---
+
+{page ? (
+  <StandaloneLandingView page={page} isPreview={false} />
+) : (
+  <html lang="id">
+    <head>
+      <meta charset="utf-8" />
+      <title>Halaman Tidak Ditemukan | SolusiAplikasi.id</title>
+    </head>
+    <body style="font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;background:#f8fafc;margin:0">
+      <div style="text-align:center;padding:2rem">
+        <h1 style="font-size:2rem;color:#0f172a;margin-bottom:.5rem">404 &bull; Halaman Tidak Ditemukan</h1>
+        <p style="color:#64748b;margin-bottom:1.5rem">Landing page tidak tersedia atau masih berstatus draft.</p>
+        <a href="/" style="padding:.75rem 1.25rem;background:#006cb7;color:#fff;border-radius:.75rem;text-decoration:none;font-weight:700">Kembali ke Beranda</a>
+      </div>
+    </body>
+  </html>
+)}

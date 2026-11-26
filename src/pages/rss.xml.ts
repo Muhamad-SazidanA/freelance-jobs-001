@@ -1,8 +1,13 @@
 import type { APIRoute } from 'astro';
+import { getPublishedPosts, postRecordToLegacy } from '@/lib/cms';
 import { getAllPosts, getSiteOptions } from '@/content/loaders/wp-graphql-loader';
 
+export const prerender = false;
+
 export const GET: APIRoute = async (context) => {
-  const posts = await getAllPosts();
+  const { posts: dbPosts, fromDb } = await getPublishedPosts();
+  const posts =
+    fromDb && dbPosts.length > 0 ? dbPosts.map(postRecordToLegacy) : await getAllPosts();
   const options = await getSiteOptions();
   const siteUrl = context.site?.origin || 'https://solusiaplikasi.id';
 
@@ -35,7 +40,7 @@ export const GET: APIRoute = async (context) => {
   return new Response(rssFeed, {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600',
+      'Cache-Control': 'public, max-age=300',
     },
   });
 };

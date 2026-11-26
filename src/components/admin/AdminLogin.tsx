@@ -1,202 +1,210 @@
-import { useState, useEffect, type SyntheticEvent } from 'react';
+import { useState, type MouseEvent, type SyntheticEvent } from 'react';
+import { ArrowRight, Eye, EyeOff, Loader2, Lock, Mail } from 'lucide-react';
+import { requestJson } from './cmsClient';
 
-// Cryptographic hashes for authorized credentials
-const VALID_USERNAMES = ['admin', 'admin@solusiaplikasi.id'];
-const VALID_PASSWORD_HASHES = [
-  '6051fc84a7a0d74c225fb18a496b09952da5642e60723ecae543298edd7d82d6', // SHA-256 hash
-  '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', // SHA-256 hash
-];
-
-async function computeSha256(input: string): Promise<string> {
-  try {
-    if (typeof window !== 'undefined' && window.crypto && window.crypto.subtle) {
-      const data = new TextEncoder().encode(input);
-      const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-      return hashArray.map((byte) => byte.toString(16).padStart(2, '0')).join('');
-    }
-  } catch (err) {
-    console.warn('SubtleCrypto error, falling back:', err);
-  }
-  return '';
+interface AdminLoginProps {
+  fromPath?: string;
 }
 
-export default function AdminLogin() {
-  const [hasSecretAccess, setHasSecretAccess] = useState<boolean | null>(null);
-  const [username, setUsername] = useState('admin');
+export default function AdminLogin({ fromPath = '/admin' }: AdminLoginProps) {
+  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [failedAttempts, setFailedAttempts] = useState(0);
-  const [lockedUntil, setLockedUntil] = useState<number | null>(null);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
-  useEffect(() => {
-    async function checkAccess() {
-      try {
-        if (typeof window === 'undefined') return;
+  const safeRedirect = fromPath.startsWith('/admin') ? fromPath : '/admin';
 
-        // Mode Dev / Tanpa Token: Langsung izinkan akses login
-        setHasSecretAccess(true);
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
 
-        // Jika sudah login sebelumnya, langsung teruskan ke /admin
-        if (localStorage.getItem('solusi_admin_session')) {
-          window.location.href = '/admin';
-        }
-      } catch (err) {
-        console.error('Error during access check:', err);
-        setHasSecretAccess(true);
-      }
-    }
-
-    checkAccess();
-  }, []);
-
-  const handleLogin = async (e: SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
 
-    const now = Date.now();
-    if (lockedUntil && now < lockedUntil) {
-      const remainingSec = Math.ceil((lockedUntil - now) / 1000);
-      setError(`Terlalu banyak percobaan gagal. Silakan tunggu ${remainingSec} detik.`);
+    if (!identifier.trim() || !password) {
+      setError('Silakan isi semua bidang input.');
       return;
     }
 
     setIsLoading(true);
-    setError('');
-
-    const cleanUser = username.trim().toLowerCase();
-    const cleanPass = password.trim();
-
-    const inputHash = await computeSha256(cleanPass);
-    const isUserValid = VALID_USERNAMES.includes(cleanUser);
-    const isPassValid = Boolean(inputHash && VALID_PASSWORD_HASHES.includes(inputHash));
-
-    if (isUserValid && isPassValid) {
-      setFailedAttempts(0);
-      setLockedUntil(null);
-      localStorage.setItem(
-        'solusi_admin_session',
-        JSON.stringify({
-          user: username.trim(),
-          role: 'Administrator',
-          loginTime: new Date().toISOString(),
-        })
+    try {
+      await requestJson('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ identifier: identifier.trim(), password }),
+      });
+      window.location.href = safeRedirect;
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : 'Gagal masuk. Silakan periksa kembali kredensial Anda.'
       );
-      window.location.href = '/admin';
-    } else {
       setIsLoading(false);
-      const newAttempts = failedAttempts + 1;
-      setFailedAttempts(newAttempts);
-
-      if (newAttempts >= 8) {
-        const lockDurationMs = 20000;
-        setLockedUntil(now + lockDurationMs);
-        setError('Terlalu banyak percobaan gagal. Akun dikunci sementara selama 20 detik.');
-      } else {
-        setError('Username atau kata sandi tidak cocok. Silakan coba lagi.');
-      }
     }
   };
 
-  if (hasSecretAccess === null) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white text-xs font-sans">
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
-          <span>Memverifikasi akses administrasi...</span>
-        </div>
-      </div>
-    );
-  }
-
-  // Jika tidak memiliki secret key dan bukan di localhost, tampilkan 404 terselubung
-  if (!hasSecretAccess) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 text-center font-sans">
-        <h1 className="text-6xl font-black text-slate-800 mb-2">404</h1>
-        <p className="text-lg font-bold text-slate-700 mb-1">Halaman Tidak Ditemukan</p>
-        <p className="text-xs text-slate-500 mb-6">Halaman yang Anda tuju tidak tersedia atau telah dipindahkan.</p>
-        <a href="/" className="px-4 py-2 bg-slate-900 text-white rounded-lg text-xs font-semibold">
-          Kembali ke Beranda
-        </a>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950 px-4 py-12 font-sans">
-      <div className="max-w-md w-full bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 mb-3 border border-sky-500/20 shadow-inner">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-              />
-            </svg>
+    <div className="min-h-screen overflow-hidden bg-slate-50 flex flex-col md:flex-row font-sans select-none relative">
+      <div
+        className="hidden md:flex md:w-1/2 bg-white flex-col justify-center items-center p-12 border-r border-slate-100 relative overflow-hidden min-h-screen"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div
+          className="absolute pointer-events-none rounded-full blur-[100px] transition-opacity duration-700 bg-gradient-to-r from-[#006cb7]/10 to-[#00a3e0]/10"
+          style={{
+            width: '450px',
+            height: '450px',
+            left: `${coords.x - 225}px`,
+            top: `${coords.y - 225}px`,
+            opacity: isHovered ? 1 : 0,
+          }}
+        />
+        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#006cb7]/5 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-[#00a3e0]/5 blur-3xl pointer-events-none" />
+
+        <div className="z-10 text-center space-y-8 max-w-md">
+          <div className="inline-block px-8 py-6 bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_15px_45px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_60px_rgba(0,108,183,0.08)] hover:-translate-y-1 transition-all duration-500 group">
+            <img
+              src="/images/LogoHeader.png"
+              alt="SolusiAplikasi.id Logo"
+              className="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
-          <h2 className="text-xl font-bold text-white tracking-tight">SolusiAplikasi Admin Panel</h2>
-          <p className="text-xs text-slate-400 mt-1">Masuk untuk mengelola artikel, leads, dan deployment</p>
+          <div className="space-y-3">
+            <h2 className="text-2xl font-extrabold text-slate-800 tracking-tight">
+              PT Solusi Aplikasi Integrasi
+            </h2>
+            <p className="text-sm text-slate-500 leading-relaxed max-w-sm mx-auto">
+              Enterprise Automation &amp; Intelligent Infrastructure Ecosystem. Solusi AI OCR, RPA,
+              DMS, Expense Management, dan ERP Integration.
+            </p>
+          </div>
         </div>
+      </div>
 
-        {error && (
-          <div className="mb-5 p-3.5 bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs rounded-xl leading-relaxed">
-            {error}
-          </div>
-        )}
-
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-              Username atau Email
-            </label>
-            <input
-              type="text"
-              required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Username atau Email"
-              className="w-full px-3.5 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all"
-            />
+      <div className="flex-1 min-h-screen flex flex-col justify-center items-center p-4 sm:p-12 relative overflow-hidden">
+        <div className="w-full max-w-md z-10">
+          <div className="flex flex-col items-center mb-6 md:hidden">
+            <div className="inline-block px-5 py-3.5 bg-white rounded-2xl border border-slate-100 shadow-sm mb-2.5">
+              <img
+                src="/images/LogoHeader.png"
+                alt="SolusiAplikasi.id Logo"
+                className="h-9 w-auto object-contain"
+              />
+            </div>
+            <h2 className="text-base font-bold text-slate-800">PT Solusi Aplikasi Integrasi</h2>
           </div>
 
-          <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-              Kata Sandi
-            </label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="w-full px-3.5 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all"
-            />
+          <div className="bg-white border border-slate-100 rounded-3xl p-8 sm:py-11 sm:px-10 shadow-[0_15px_45px_rgba(0,0,0,0.03)]">
+            <div className="mb-8">
+              <h1 className="text-2xl font-extrabold text-slate-800 tracking-tight">
+                Selamat Datang Kembali
+              </h1>
+              <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                Masuk ke dasbor administrator untuk mengelola artikel blog &amp; landing page.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {error && (
+                <div className="p-3.5 bg-rose-50 border border-rose-200 text-rose-600 rounded-2xl text-xs font-semibold leading-relaxed">
+                  {error}
+                </div>
+              )}
+
+              <div className="space-y-2.5">
+                <label
+                  htmlFor="admin-identifier"
+                  className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider pl-1"
+                >
+                  Email / Username Administrator
+                </label>
+                <div className="relative group">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#006cb7] transition-colors">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <input
+                    id="admin-identifier"
+                    type="text"
+                    value={identifier}
+                    onChange={(e) => setIdentifier(e.target.value)}
+                    placeholder="Masukkan email atau username"
+                    disabled={isLoading}
+                    autoComplete="username"
+                    required
+                    className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#006cb7] focus:ring-4 focus:ring-[#006cb7]/10 transition-all"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2.5">
+                <label
+                  htmlFor="admin-password"
+                  className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider pl-1"
+                >
+                  Kata Sandi
+                </label>
+                <div className="relative group">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#006cb7] transition-colors">
+                    <Lock className="w-4 h-4" />
+                  </div>
+                  <input
+                    id="admin-password"
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Masukkan kata sandi"
+                    disabled={isLoading}
+                    autoComplete="current-password"
+                    required
+                    className="w-full pl-11 pr-11 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#006cb7] focus:ring-4 focus:ring-[#006cb7]/10 transition-all"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    disabled={isLoading}
+                    tabIndex={-1}
+                    aria-label={showPassword ? 'Sembunyikan kata sandi' : 'Lihat kata sandi'}
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 transition-colors rounded-lg cursor-pointer"
+                  >
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full py-3.5 px-4 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-[#006cb7] to-[#0089e0] hover:from-[#005ba1] hover:to-[#007cc7] active:scale-[0.99] disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#006cb7]/20"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Memverifikasi...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Masuk ke Dasbor</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </form>
           </div>
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full py-2.5 px-4 bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-sky-600/25 transition-all disabled:opacity-50 mt-2 cursor-pointer"
-          >
-            {isLoading ? 'Memverifikasi...' : 'Masuk ke Dashboard'}
-          </button>
-        </form>
-
-        <div className="mt-6 pt-5 border-t border-slate-800 text-center">
-          <p className="text-[11px] text-slate-500">
-            Akses Admin WordPress (/solution) terpisah:&nbsp;
+          <div className="flex justify-center mt-5">
             <a
-              href="/solution/wp-login.php"
-              target="_blank"
-              rel="noreferrer"
-              className="text-sky-400 hover:underline"
+              href="/"
+              className="text-xs text-slate-500 hover:text-[#006cb7] font-semibold transition-colors"
             >
-              WP Login &rarr;
+              &larr; Kembali ke Website Utama
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </div>

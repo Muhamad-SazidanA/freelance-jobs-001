@@ -1,0 +1,37 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import ArticleEditorView from '@/components/admin/ArticleEditorView';
+import { resolveAdminPage } from '@/lib/admin-page';
+import { getDb } from '@/lib/db';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+
+const id = Number.parseInt(Astro.params.id || '', 10);
+if (!Number.isInteger(id) || id <= 0) {
+  return Astro.redirect('/admin/blog');
+}
+
+const db = getDb();
+const post = db ? await db.post.findUnique({ where: { id } }) : null;
+if (!post) {
+  return Astro.redirect('/admin/blog');
+}
+---
+
+<AdminLayout
+  title={`Edit: ${post.title} | Admin SolusiAplikasi.id`}
+  description="Ubah dan kelola artikel SolusiAplikasi.id."
+>
+  <ArticleEditorView
+    client:only="react"
+    user={ctx.session}
+    mode="edit"
+    initialPost={post}
+    dbConfigured={ctx.dbConfigured}
+  />
+</AdminLayout>

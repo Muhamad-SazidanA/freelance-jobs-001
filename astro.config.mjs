@@ -2,11 +2,26 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
 
-// https://astro.build/config
+const isVercel =
+  process.env.VERCEL === '1' ||
+  process.env.VERCEL === 'true' ||
+  Boolean(process.env.VERCEL_ENV);
+
 export default defineConfig({
   site: 'https://solusiaplikasi.id',
   output: 'static',
+  adapter: isVercel
+    ? vercel()
+    : node({
+        mode: 'standalone',
+      }),
+  server: {
+    host: true,
+    port: 4321,
+  },
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'hover',
@@ -23,10 +38,14 @@ export default defineConfig({
         if (item.url === 'https://solusiaplikasi.id/') {
           item.priority = 1.0;
           item.changefreq = 'weekly';
-        } else if (item.url.includes('/products/') || item.url.includes('/about-us') || item.url.includes('/request-demo')) {
+        } else if (
+          item.url.includes('/products/') ||
+          item.url.includes('/about-us') ||
+          item.url.includes('/request-demo')
+        ) {
           item.priority = 0.9;
           item.changefreq = 'weekly';
-        } else if (item.url.includes('/articles/')) {
+        } else if (item.url.includes('/articles/') || item.url.includes('/lp/')) {
           item.priority = 0.8;
           item.changefreq = 'weekly';
         } else {

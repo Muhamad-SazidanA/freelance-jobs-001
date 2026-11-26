@@ -1,0 +1,24 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import ArticleEditorView from '@/components/admin/ArticleEditorView';
+import { resolveAdminPage } from '@/lib/admin-page';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+---
+
+<AdminLayout
+  title="Buat Artikel Baru | Admin SolusiAplikasi.id"
+  description="Tulis dan publikasikan artikel baru ke portal berita SolusiAplikasi.id."
+>
+  <ArticleEditorView
+    client:only="react"
+    user={ctx.session}
+    mode="create"
+    dbConfigured={ctx.dbConfigured}
+  />
+</AdminLayout>

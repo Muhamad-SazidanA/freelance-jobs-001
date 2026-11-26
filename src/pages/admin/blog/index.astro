@@ -1,0 +1,29 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import BlogAdminView from '@/components/admin/BlogAdminView';
+import { resolveAdminPage } from '@/lib/admin-page';
+import { getAdminPosts } from '@/lib/cms';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+
+const { posts } = await getAdminPosts();
+const initialQuery = Astro.url.searchParams.get('q') || '';
+---
+
+<AdminLayout
+  title="Manajemen Blog | Admin SolusiAplikasi.id"
+  description="Daftar seluruh artikel dan draft blog SolusiAplikasi.id."
+>
+  <BlogAdminView
+    client:load
+    user={ctx.session}
+    initialPosts={posts}
+    dbConfigured={ctx.dbConfigured}
+    initialQuery={initialQuery}
+  />
+</AdminLayout>

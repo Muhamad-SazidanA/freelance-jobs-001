@@ -1,0 +1,24 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import LandingPageEditorView from '@/components/admin/LandingPageEditorView';
+import { resolveAdminPage } from '@/lib/admin-page';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+---
+
+<AdminLayout
+  title="Buat Landing Page | Admin SolusiAplikasi.id"
+  description="Buat halaman kampanye stand-alone baru untuk SolusiAplikasi.id."
+>
+  <LandingPageEditorView
+    client:only="react"
+    user={ctx.session}
+    mode="create"
+    dbConfigured={ctx.dbConfigured}
+  />
+</AdminLayout>

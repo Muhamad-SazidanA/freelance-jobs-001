@@ -1,12 +1,28 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import AdminDashboard from '@/components/admin/AdminDashboard';
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import AnalyticsDashboardView from '@/components/admin/AnalyticsDashboardView';
+import { resolveAdminPage } from '@/lib/admin-page';
+import { getAdminLandingPages, getAdminPosts } from '@/lib/cms';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+
+const [{ posts }, { pages: landingPages }] = await Promise.all([getAdminPosts(), getAdminLandingPages()]);
 ---
 
-<BaseLayout
-  title="Admin Dashboard | SolusiAplikasi.id"
-  description="Panel administrasi internal SolusiAplikasi.id."
-  noindex={true}
+<AdminLayout
+  title="Dashboard Admin | SolusiAplikasi.id"
+  description="Dashboard analitik konten & kampanye PT Solusi Aplikasi Integrasi."
 >
-  <AdminDashboard client:load />
-</BaseLayout>
+  <AnalyticsDashboardView
+    client:load
+    user={ctx.session}
+    posts={posts}
+    landingPages={landingPages}
+    dbConfigured={ctx.dbConfigured}
+  />
+</AdminLayout>

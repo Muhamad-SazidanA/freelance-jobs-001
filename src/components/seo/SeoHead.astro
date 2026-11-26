@@ -11,16 +11,21 @@ interface Props {
   schema?: Record<string, unknown> | Array<Record<string, unknown> | null | undefined>;
 }
 
+const siteUrl = (process.env.SITE_URL || Astro.site?.origin || 'https://solusiaplikasi.id').replace(/\/$/, '');
+
 const {
   title,
   description,
-  canonical = Astro.url.href,
+  canonical,
   ogImage = '/favicon.svg',
   noindex = false,
   schema,
 } = Astro.props;
 
-const siteUrl = Astro.site?.origin || 'https://solusiaplikasi.id';
+const pathname = Astro.url.pathname || '/';
+const resolvedCanonical = canonical
+  ? canonical.replace(/^http:\/\/localhost:\d+/, siteUrl)
+  : `${siteUrl}${pathname}`;
 const resolvedOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
 
@@ -28,12 +33,12 @@ const resolvedOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogIm
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonical} />
+<link rel="canonical" href={resolvedCanonical} />
 
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
 
-<OpenGraph title={title} description={description} url={canonical} image={resolvedOgImage} />
+<OpenGraph title={title} description={description} url={resolvedCanonical} image={resolvedOgImage} />
 
 {schema && <JsonLdSchema schema={schema} />}
 

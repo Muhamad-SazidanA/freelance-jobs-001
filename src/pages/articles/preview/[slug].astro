@@ -1,0 +1,29 @@
+---
+import ArticleDetailView from '@/components/articles/ArticleDetailView.astro';
+import { resolveAdminPage } from '@/lib/admin-page';
+import { getPostBySlug, getPublishedPosts } from '@/lib/cms';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+
+const slug = Astro.params.slug || '';
+const { post } = await getPostBySlug(slug, true);
+
+if (!post) {
+  return Astro.redirect('/admin/blog');
+}
+
+const { posts: publishedPool } = await getPublishedPosts(6);
+const relatedPosts = publishedPool.filter((item) => item.slug !== post.slug).slice(0, 3);
+---
+
+<ArticleDetailView
+  post={post}
+  relatedPosts={relatedPosts}
+  isPreview={true}
+  fromDb={false}
+/>

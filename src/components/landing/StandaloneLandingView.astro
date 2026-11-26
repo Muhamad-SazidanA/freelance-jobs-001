@@ -1,0 +1,218 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/common/Header.astro';
+import Footer from '@/components/common/Footer.astro';
+import ConsultationCta from '@/components/common/ConsultationCta.astro';
+import ClientsMarquee from '@/components/home/ClientsMarquee.astro';
+import type { LandingPageRecord } from '@/lib/cms';
+
+interface Props {
+  page: LandingPageRecord;
+  isPreview?: boolean;
+}
+
+const { page, isPreview = false } = Astro.props;
+const headline = page.heroTitle || page.title;
+const pageTitle = page.metaTitle || `${page.title} | SolusiAplikasi.id`;
+const pageDescription =
+  page.metaDescription ||
+  page.heroSubtitle ||
+  `${page.title} - Solusi Digital Automation Enterprise oleh PT Solusi Aplikasi Integrasi.`;
+const primaryUrl = page.ctaUrl || '#form-konsultasi';
+const primaryLabel = page.ctaLabel || 'Request Demo';
+const isHeroDark = page.template === 'hero';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={page.heroImage || undefined}
+  noindex={isPreview || page.status !== 'published'}
+>
+  {isPreview && (
+    <div class="sticky top-0 z-50 bg-amber-500 text-slate-950 px-4 py-2.5 text-xs font-bold text-center flex flex-wrap items-center justify-center gap-3 shadow-sm">
+      <span>MODE PRATINJAU DRAFT STAND-ALONE LANDING PAGE &bull; Halaman ini belum dirilis ke publik.</span>
+      <a
+        href={`/admin/landing-pages/edit/${page.id}`}
+        class="underline font-extrabold hover:text-slate-800"
+      >
+        &larr; Kembali ke Editor
+      </a>
+    </div>
+  )}
+
+  {page.showHeader && <Header currentPath={`/lp/${page.slug}`} />}
+
+  {!page.showHeader && (
+    <div class={isHeroDark ? 'bg-slate-950 border-b border-white/10' : 'bg-white border-b border-slate-100'}>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <a href="/" class="inline-flex items-center">
+          <span class="bg-white rounded-lg px-2.5 py-1 inline-flex items-center">
+            <img
+              src="/images/LogoHeader.png"
+              alt="SolusiAplikasi.id"
+              class="h-6 w-auto object-contain"
+            />
+          </span>
+        </a>
+        {page.showLeadForm && (
+          <a
+            href="#form-konsultasi"
+            class="px-4 py-2 rounded-xl bg-[#006cb7] hover:bg-[#005ba1] text-white text-xs font-bold transition-colors"
+          >
+            {primaryLabel}
+          </a>
+        )}
+      </div>
+    </div>
+  )}
+
+  <main>
+    {isHeroDark ? (
+      <section class="relative overflow-hidden bg-gradient-to-br from-slate-950 via-[#0a2540] to-[#005ba1] text-white py-16 sm:py-24">
+        <div
+          class="absolute inset-0 pointer-events-none opacity-20"
+          style="background: radial-gradient(circle at 25% 30%, #38bdf8 0%, transparent 55%);"
+        />
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class={page.heroImage ? 'lg:col-span-7 space-y-6' : 'lg:col-span-10 lg:col-start-2 text-center space-y-6'}>
+            {page.badgeText && (
+              <span class="inline-block px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-sky-200 text-xs font-bold uppercase tracking-wider">
+                {page.badgeText}
+              </span>
+            )}
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15]">
+              {headline}
+            </h1>
+            {page.heroSubtitle && (
+              <p class="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+                {page.heroSubtitle}
+              </p>
+            )}
+            <div class={`flex flex-wrap items-center gap-3.5 pt-2 ${page.heroImage ? '' : 'justify-center'}`}>
+              <a
+                href={primaryUrl}
+                class="px-6 py-3.5 rounded-xl bg-white text-[#006cb7] hover:bg-sky-50 font-extrabold text-sm shadow-lg transition-all"
+              >
+                {primaryLabel}
+              </a>
+              {page.ctaSecondaryLabel && page.ctaSecondaryUrl && (
+                <a
+                  href={page.ctaSecondaryUrl}
+                  class="px-6 py-3.5 rounded-xl border border-white/35 text-white hover:bg-white/10 font-bold text-sm transition-all"
+                >
+                  {page.ctaSecondaryLabel}
+                </a>
+              )}
+            </div>
+          </div>
+
+          {page.heroImage && (
+            <div class="lg:col-span-5">
+              <div class="rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-slate-900/40">
+                <img
+                  src={page.heroImage}
+                  alt={headline}
+                  class="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+    ) : (
+      <section class="bg-white border-b border-slate-100 py-14 sm:py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          {page.badgeText && (
+            <span class="inline-block px-3.5 py-1 rounded-full bg-sky-50 text-[#006cb7] border border-sky-100 text-xs font-bold uppercase tracking-wider">
+              {page.badgeText}
+            </span>
+          )}
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+            {headline}
+          </h1>
+          {page.heroSubtitle && (
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              {page.heroSubtitle}
+            </p>
+          )}
+          <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+            <a
+              href={primaryUrl}
+              class="px-6 py-3.5 rounded-xl bg-[#006cb7] hover:bg-[#005ba1] text-white font-extrabold text-sm shadow-md transition-all"
+            >
+              {primaryLabel}
+            </a>
+            {page.ctaSecondaryLabel && page.ctaSecondaryUrl && (
+              <a
+                href={page.ctaSecondaryUrl}
+                class="px-6 py-3.5 rounded-xl border border-slate-200 text-slate-700 hover:border-[#006cb7] hover:text-[#006cb7] font-bold text-sm transition-all"
+              >
+                {page.ctaSecondaryLabel}
+              </a>
+            )}
+          </div>
+          {page.heroImage && (
+            <div class="mt-8 rounded-2xl overflow-hidden border border-slate-200 shadow-lg max-w-4xl mx-auto">
+              <img src={page.heroImage} alt={headline} class="w-full h-auto object-cover" />
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
+    {page.showTrustBar && (
+      <section class="bg-slate-50/70 border-b border-slate-100">
+        <ClientsMarquee />
+      </section>
+    )}
+
+    {page.features.length > 0 && (
+      <section class="py-14 sm:py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {page.features.map((feat) => (
+              <div class="p-6 rounded-2xl border border-slate-200/80 bg-white shadow-xs hover:shadow-md hover:border-[#006cb7]/40 transition-all space-y-2.5">
+                {feat.badge && (
+                  <span class="inline-block px-2.5 py-1 rounded-lg bg-sky-50 text-[#006cb7] text-[11px] font-bold">
+                    {feat.badge}
+                  </span>
+                )}
+                <h2 class="text-lg font-extrabold text-slate-900">{feat.title}</h2>
+                {feat.description && (
+                  <p class="text-sm text-slate-600 leading-relaxed">{feat.description}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {page.content && (
+      <section id="detail-solusi" class="py-12 sm:py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="prose max-w-none" set:html={page.content} />
+        </div>
+      </section>
+    )}
+
+    {page.showLeadForm && (
+      <ConsultationCta
+        id="form-konsultasi"
+        defaultProduct={page.leadDefaultProduct || ''}
+      />
+    )}
+  </main>
+
+  {page.showFooter && <Footer />}
+
+  {!isPreview && (
+    <script define:vars={{ pageId: page.id }}>
+      fetch(`/api/landing-pages/${pageId}/view`, {
+        method: 'POST',
+        keepalive: true,
+      }).catch(() => {});
+    </script>
+  )}
+</BaseLayout>

@@ -1,5 +1,6 @@
 # build output
 dist/
+.vercel/
 # generated types
 .astro/
 .codegraph/
@@ -32,3 +33,4 @@ pnpm-debug.log*
 
 # raw uncompressed image backups
 public/images/home/Client_raw/
+prisma/generated/

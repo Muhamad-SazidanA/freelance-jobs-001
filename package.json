@@ -7,15 +7,25 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/generate-htaccess.js",
+    "build": "prisma generate && astro build",
+    "start": "node server.mjs",
     "check": "astro check",
     "test": "node --test tests/**/*.test.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
   },
   "dependencies": {
+    "@astrojs/node": "^11.1.14",
     "@astrojs/react": "^7.0.1",
     "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/vercel": "^11.0.22",
+    "@blocknote/core": "^0.57.0",
+    "@blocknote/mantine": "^0.57.0",
+    "@blocknote/react": "^0.57.0",
+    "@mantine/core": "^9.8.2",
+    "@mantine/hooks": "^9.8.2",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.6",
     "lucide-react": "^1.62.0",
@@ -26,10 +36,15 @@
     "zod": "^4.6.5"
   },
   "allowScripts": {
-    "esbuild": true
+    "@prisma/client": true,
+    "@prisma/engines": true,
+    "esbuild": true,
+    "prisma": true
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@prisma/client": "^6.19.3",
+    "prisma": "^6.19.3",
     "typescript": "^6.0.3"
   }
 }

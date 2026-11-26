@@ -1,38 +1,37 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
 import { getAllPosts } from '@/content/loaders/wp-graphql-loader';
+import { getPublishedPosts, postRecordToLegacy } from '@/lib/cms';
 import type { Post } from '@/types/content';
 import { generateBreadcrumbSchema } from '@/lib/schema-ld';
 
-export async function getStaticPaths() {
-  const posts = await getAllPosts();
-  const categoriesMap = new Map<string, { category: { id: string; name: string; slug: string }; posts: Post[] }>();
+export const prerender = false;
 
-  posts.forEach((post) => {
-    post.categories?.forEach((cat) => {
-      if (!categoriesMap.has(cat.slug)) {
-        categoriesMap.set(cat.slug, {
-          category: cat,
-          posts: [post],
-        });
-      } else {
-        categoriesMap.get(cat.slug)!.posts.push(post);
-      }
-    });
-  });
+const slug = Astro.params.slug || '';
+const mockAll = await getAllPosts();
+const { posts: dbPosts, fromDb } = await getPublishedPosts();
+const dbLegacy = fromDb ? dbPosts.map(postRecordToLegacy) : [];
+const seenSlugs = new Set(dbLegacy.map((item) => item.slug));
+const mergedPosts = [...dbLegacy, ...mockAll.filter((item) => !seenSlugs.has(item.slug))];
 
-  return Array.from(categoriesMap.values()).map(({ category, posts: catPosts }) => ({
-    params: { slug: category.slug },
-    props: { category, posts: catPosts },
-  }));
+const matchedPosts = mergedPosts.filter((post) =>
+  post.categories?.some((cat) => cat.slug === slug)
+);
+const matchedCategory =
+  matchedPosts
+    .flatMap((post) => post.categories || [])
+    .find((cat) => cat.slug === slug) || {
+    id: `cat-${slug}`,
+    name: slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) || 'Kategori',
+    slug,
+  };
+
+if (matchedPosts.length === 0) {
+  Astro.response.status = 404;
 }
 
-interface Props {
-  category: { id: string; name: string; slug: string };
-  posts: Post[];
-}
-
-const { category, posts } = Astro.props as Props;
+const category = matchedCategory;
+const posts = matchedPosts;
 
 const breadcrumbs = [
   { name: 'Articles', url: '/articles' },

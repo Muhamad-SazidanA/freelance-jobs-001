@@ -9,19 +9,23 @@ import {
   generateWebSiteSchema,
 } from "@/lib/schema-ld";
 import { getSiteOptions } from "@/content/loaders/wp-graphql-loader";
+import { getPublishedPosts } from "@/lib/cms";
+
+export const prerender = false;
 
 const options = await getSiteOptions();
 const orgSchema = generateOrganizationSchema(options);
 const websiteSchema = generateWebSiteSchema();
 const schemas = [orgSchema, websiteSchema];
 
-const featuredArticles = [
+const fallbackFeaturedArticles = [
   {
     title: "Arsitektur Cloud Modern & Integrasi API Enterprise",
     category: "Arsitektur Cloud",
     date: "23 November 2026",
     views: 17,
     image: "/images/articles/article-thumb-1.jpg",
+    href: "/articles",
   },
   {
     title: "Mengenal AI OCR: Solusi Cepat untuk Tim Finance",
@@ -29,6 +33,7 @@ const featuredArticles = [
     date: "23 November 2026",
     views: 21,
     image: "/images/articles/article-thumb-2.jpg",
+    href: "/articles",
   },
   {
     title: "Tren Otomatisasi & Robotic Process Automation 2026",
@@ -36,8 +41,27 @@ const featuredArticles = [
     date: "22 November 2026",
     views: 29,
     image: "/images/articles/article-thumb-3.jpg",
+    href: "/articles",
   },
 ];
+
+const { posts: liveDbPosts, fromDb } = await getPublishedPosts(3);
+const featuredArticles =
+  fromDb && liveDbPosts.length > 0
+    ? liveDbPosts.map((post, idx) => ({
+        title: post.title,
+        category: post.category || "Technology",
+        date: new Date(post.createdAt).toLocaleDateString("id-ID", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }),
+        views: post.views || 0,
+        image:
+          post.imageUrl || `/images/articles/article-thumb-${(idx % 3) + 1}.jpg`,
+        href: `/articles/${post.slug}`,
+      }))
+    : fallbackFeaturedArticles;
 ---
 
 <PageLayout
@@ -765,7 +789,7 @@ const featuredArticles = [
             <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group">
               <div>
                 <a
-                  href="/articles"
+                  href={article.href}
                   class="block aspect-[16/10] overflow-hidden bg-slate-900 relative"
                 >
                   <img
@@ -788,7 +812,7 @@ const featuredArticles = [
                     {article.category}
                   </span>
                   <h3 class="text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0866D3] transition-colors">
-                    <a href="/articles">{article.title}</a>
+                    <a href={article.href}>{article.title}</a>
                   </h3>
                   <p class="text-xs text-slate-500 font-medium">
                     {article.date}
@@ -797,7 +821,7 @@ const featuredArticles = [
               </div>
               <div class="border-t border-slate-100 px-5 py-3.5 flex items-center justify-between">
                 <a
-                  href="/articles"
+                  href={article.href}
                   class="text-xs font-bold text-[#0866D3] hover:underline inline-flex items-center gap-1"
                 >
                   <span>Read More</span>

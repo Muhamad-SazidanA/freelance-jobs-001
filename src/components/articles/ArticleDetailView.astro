@@ -1,0 +1,376 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import {
+  postRecordToLegacy,
+  type PostRecord,
+} from '@/lib/cms';
+import {
+  generateBlogPostSchema,
+  generateBreadcrumbSchema,
+} from '@/lib/schema-ld';
+import { parseHeadingsAndInjectIds } from '@/lib/toc';
+
+interface Props {
+  post: PostRecord;
+  relatedPosts?: PostRecord[];
+  isPreview?: boolean;
+  fromDb?: boolean;
+}
+
+const {
+  post,
+  relatedPosts = [],
+  isPreview = false,
+  fromDb = false,
+} = Astro.props;
+
+const { modifiedContent, tocItems } = parseHeadingsAndInjectIds(post.content || '');
+const legacyPost = postRecordToLegacy(post);
+
+const breadcrumbs = [
+  { name: 'Articles', url: '/articles' },
+  { name: post.title, url: `/articles/${post.slug}` },
+];
+
+const schemas = isPreview
+  ? undefined
+  : [
+      generateBlogPostSchema(legacyPost),
+      generateBreadcrumbSchema(breadcrumbs),
+    ];
+
+const formattedDate = new Date(post.createdAt).toLocaleDateString('id-ID', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const keywords = (post.metaKeywords || '')
+  .split(',')
+  .map((item) => item.trim())
+  .filter(Boolean);
+
+const shareUrl = `https://solusiaplikasi.id/articles/${post.slug}`;
+const catName = post.category || 'Technology';
+const catSlug =
+  catName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '') || 'technology';
+---
+
+<PageLayout
+  title={post.metaTitle || `${post.title} | SolusiAplikasi.id`}
+  description={post.metaDescription || post.subheading || post.title}
+  canonical={shareUrl}
+  ogImage={post.imageUrl || '/images/articles/article-thumb-1.jpg'}
+  noindex={isPreview || post.status !== 'published'}
+  breadcrumbs={breadcrumbs}
+  schema={schemas}
+>
+  {isPreview && (
+    <div class="sticky top-0 z-50 bg-amber-500 text-slate-950 px-4 py-2.5 text-xs font-bold text-center flex flex-wrap items-center justify-center gap-3 shadow-sm">
+      <span>MODE PRATINJAU DRAFT &bull; Artikel ini belum diterbitkan untuk publik.</span>
+      <a href={`/admin/blog/edit/${post.id}`} class="underline font-extrabold hover:text-slate-800">
+        &larr; Kembali ke Editor
+      </a>
+    </div>
+  )}
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      {tocItems.length > 0 && (
+        <aside class="hidden lg:block lg:col-span-3 sticky top-24">
+          <div class="bg-[#F3F7FC] border border-sky-100 rounded-2xl p-5 space-y-3">
+            <h2 class="text-xs font-extrabold uppercase tracking-wider text-[#006cb7]">
+              Daftar Isi
+            </h2>
+            <nav aria-label="Daftar Isi Artikel" class="space-y-1.5">
+              {tocItems.map((item) => (
+                <a
+                  href={`#${item.id}`}
+                  class={`block text-xs leading-snug hover:text-[#006cb7] transition-colors ${
+                    item.level === 2
+                      ? 'font-semibold text-slate-700 pt-1'
+                      : item.level === 3
+                      ? 'pl-3 text-slate-500'
+                      : 'pl-5 text-slate-400'
+                  }`}
+                >
+                  {item.text}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+      )}
+
+      <article
+        class={tocItems.length > 0 ? 'lg:col-span-9 min-w-0' : 'lg:col-span-10 lg:col-start-2 min-w-0'}
+        data-pagefind-body
+      >
+        <header class="space-y-4 mb-8">
+          <div class="flex flex-wrap items-center gap-2.5 text-xs">
+            <a
+              href={`/articles/category/${catSlug}`}
+              class="px-3 py-1 rounded-lg bg-sky-50 text-[#006cb7] font-bold border border-sky-100 hover:bg-sky-100 transition-colors"
+            >
+              {catName}
+            </a>
+            <span class="text-slate-300">&bull;</span>
+            <time datetime={new Date(post.createdAt).toISOString()} class="text-slate-500 font-medium">
+              {formattedDate}
+            </time>
+            <span class="text-slate-300">&bull;</span>
+            <span class="text-slate-500 font-medium">
+              {legacyPost.readingTimeMinutes} menit baca
+            </span>
+            <span class="text-slate-300">&bull;</span>
+            <span class="text-slate-500 font-medium">
+              {(post.views || 0).toLocaleString('id-ID')} views
+            </span>
+          </div>
+
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+            {post.title}
+          </h1>
+
+          {post.subheading && (
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+              {post.subheading}
+            </p>
+          )}
+
+          {(post.showAuthor || post.showReviewer) && (
+            <div class="flex flex-wrap items-center gap-4 pt-3 pb-4 border-b border-slate-200 text-xs">
+              {post.showAuthor && (
+                <div class="flex items-center gap-2">
+                  <img
+                    src={post.authorImage || '/images/LogoHeader.png'}
+                    alt={post.author || 'Penulis SAI'}
+                    onerror="this.onerror=null;this.src='/images/LogoHeader.png'"
+                    class="w-7 h-7 rounded-full object-cover border border-slate-200 bg-white"
+                  />
+                  <span class="text-slate-500">
+                    Ditulis oleh{' '}
+                    <strong class="text-slate-800">{post.author || 'Tim Redaksi SAI'}</strong>
+                    {post.authorBadge && (
+                      <span class="ml-1.5 px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold text-[10px]">
+                        {post.authorBadge}
+                      </span>
+                    )}
+                  </span>
+                </div>
+              )}
+
+              {post.showReviewer && post.reviewerName && (
+                <div class="flex items-center gap-2">
+                  <img
+                    src={post.reviewerImage || '/images/LogoHeader.png'}
+                    alt={post.reviewerName}
+                    onerror="this.onerror=null;this.src='/images/LogoHeader.png'"
+                    class="w-7 h-7 rounded-full object-cover border border-emerald-200 bg-white"
+                  />
+                  <span class="text-slate-500">
+                    Direview oleh <strong class="text-slate-800">{post.reviewerName}</strong>
+                    {post.reviewerBadge && (
+                      <span class="ml-1.5 px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold text-[10px]">
+                        {post.reviewerBadge}
+                      </span>
+                    )}
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
+        </header>
+
+        {tocItems.length > 0 && (
+          <details class="lg:hidden mb-6 bg-[#F3F7FC] border border-sky-100 rounded-2xl p-4">
+            <summary class="text-xs font-extrabold uppercase tracking-wider text-[#006cb7] cursor-pointer">
+              Daftar Isi Artikel ({tocItems.length} bagian)
+            </summary>
+            <nav class="mt-3 space-y-1.5 border-t border-sky-100 pt-3">
+              {tocItems.map((item) => (
+                <a
+                  href={`#${item.id}`}
+                  class={`block text-xs hover:text-[#006cb7] ${
+                    item.level === 2 ? 'font-semibold text-slate-700' : 'pl-3 text-slate-500'
+                  }`}
+                >
+                  {item.text}
+                </a>
+              ))}
+            </nav>
+          </details>
+        )}
+
+        {post.imageUrl && (
+          <div class="mb-8 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[21/9]">
+            <img
+              src={post.imageUrl}
+              alt={post.title}
+              onerror="this.onerror=null;this.src='/images/articles/article-thumb-1.jpg'"
+              class="w-full h-full object-cover"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+        )}
+
+        <div class="prose max-w-none text-sm sm:text-base leading-relaxed mb-10" set:html={modifiedContent} />
+
+        {keywords.length > 0 && (
+          <div class="flex flex-wrap items-center gap-2 mb-8">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mr-1">Topik:</span>
+            {keywords.map((kw) => (
+              <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
+                #{kw}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div class="my-8 py-4 border-y border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Bagikan Artikel:</span>
+          <div class="flex items-center gap-2">
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1.5 bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-[#006cb7] rounded-lg text-xs font-semibold transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(post.title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1.5 bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-[#006cb7] rounded-lg text-xs font-semibold transition-colors"
+            >
+              Twitter / X
+            </a>
+            <a
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${post.title} - ${shareUrl}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-lg text-xs font-semibold transition-colors"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        {(post.showAuthor || (post.showReviewer && post.reviewerName)) && (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+            {post.showAuthor && (
+              <div class="p-5 rounded-2xl bg-[#F3F7FC] border border-sky-100 flex items-start gap-3.5">
+                <img
+                  src={post.authorImage || '/images/LogoHeader.png'}
+                  alt={post.author || 'Penulis SAI'}
+                  onerror="this.onerror=null;this.src='/images/LogoHeader.png'"
+                  class="w-12 h-12 rounded-full object-cover border border-white shadow-xs shrink-0 bg-white"
+                />
+                <div class="space-y-1">
+                  <p class="text-[10px] font-bold uppercase tracking-wider text-[#006cb7]">
+                    Penulis Artikel
+                  </p>
+                  <h3 class="text-sm font-bold text-slate-900">
+                    {post.author || 'Tim Redaksi SAI'}
+                  </h3>
+                  {post.authorBadge && (
+                    <p class="text-xs font-semibold text-slate-600">{post.authorBadge}</p>
+                  )}
+                  {post.authorBio && (
+                    <p class="text-xs text-slate-500 leading-relaxed pt-1">{post.authorBio}</p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {post.showReviewer && post.reviewerName && (
+              <div class="p-5 rounded-2xl bg-[#F3F7FC] border border-emerald-100 flex items-start gap-3.5">
+                <img
+                  src={post.reviewerImage || '/images/LogoHeader.png'}
+                  alt={post.reviewerName}
+                  onerror="this.onerror=null;this.src='/images/LogoHeader.png'"
+                  class="w-12 h-12 rounded-full object-cover border border-white shadow-xs shrink-0 bg-white"
+                />
+                <div class="space-y-1">
+                  <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                    Technical Reviewer
+                  </p>
+                  <h3 class="text-sm font-bold text-slate-900">{post.reviewerName}</h3>
+                  {post.reviewerBadge && (
+                    <p class="text-xs font-semibold text-slate-600">{post.reviewerBadge}</p>
+                  )}
+                  {post.reviewerBio && (
+                    <p class="text-xs text-slate-500 leading-relaxed pt-1">{post.reviewerBio}</p>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {relatedPosts.length > 0 && (
+          <section class="mt-12 pt-8 border-t border-slate-200">
+            <h2 class="text-xl font-extrabold text-slate-900 mb-6">Artikel Terkait</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {relatedPosts.map((rel) => (
+                <article class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group">
+                  <div>
+                    <a
+                      href={`/articles/${rel.slug}`}
+                      class="block aspect-[21/9] bg-slate-100 overflow-hidden"
+                    >
+                      <img
+                        src={rel.imageUrl || '/images/articles/article-thumb-1.jpg'}
+                        alt={rel.title}
+                        onerror="this.onerror=null;this.src='/images/articles/article-thumb-1.jpg'"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </a>
+                    <div class="p-4 space-y-2">
+                      <span class="inline-block px-2 py-0.5 rounded bg-sky-50 text-[#006cb7] text-[10px] font-bold uppercase">
+                        {rel.category || 'Technology'}
+                      </span>
+                      <h3 class="text-sm font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#006cb7]">
+                        <a href={`/articles/${rel.slug}`}>{rel.title}</a>
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="px-4 py-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                    <span>
+                      {new Date(rel.createdAt).toLocaleDateString('id-ID', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                      })}
+                    </span>
+                    <span>{(rel.views || 0).toLocaleString('id-ID')} views</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <div class="mt-8">
+          <a href="/articles" class="text-xs font-bold text-[#006cb7] hover:underline">
+            &larr; Kembali ke Semua Artikel
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  {!isPreview && fromDb && (
+    <script define:vars={{ postId: post.id }}>
+      fetch(`/api/posts/${postId}/view`, {
+        method: 'POST',
+        keepalive: true,
+      }).catch(() => {});
+    </script>
+  )}
+</PageLayout>

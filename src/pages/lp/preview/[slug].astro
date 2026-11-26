@@ -1,0 +1,21 @@
+---
+import StandaloneLandingView from '@/components/landing/StandaloneLandingView.astro';
+import { resolveAdminPage } from '@/lib/admin-page';
+import { getLandingPageBySlug } from '@/lib/cms';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+
+const slug = Astro.params.slug || '';
+const { page } = await getLandingPageBySlug(slug, true);
+
+if (!page) {
+  return Astro.redirect('/admin/landing-pages');
+}
+---
+
+<StandaloneLandingView page={page} isPreview={true} />

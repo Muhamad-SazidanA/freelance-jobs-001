@@ -3,9 +3,16 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import { getAllPosts } from '@/content/loaders/wp-graphql-loader';
 import ConsultationCta from '@/components/common/ConsultationCta.astro';
 import { generateBreadcrumbSchema } from '@/lib/schema-ld';
+import { getPublishedPosts, postRecordToLegacy } from '@/lib/cms';
 import type { Post } from '@/types/content';
 
-const allPosts: Post[] = await getAllPosts();
+export const prerender = false;
+
+const mockAll = await getAllPosts();
+const { posts: dbPosts, fromDb } = await getPublishedPosts();
+const dbLegacy = fromDb ? dbPosts.map(postRecordToLegacy) : [];
+const seenSlugs = new Set(dbLegacy.map((item) => item.slug));
+const allPosts: Post[] = [...dbLegacy, ...mockAll.filter((item) => !seenSlugs.has(item.slug))];
 
 // Section 1: Top 3-Column Data (UTI Structure with SAI Theme)
 const featuredCarouselPosts = allPosts.slice(0, 4);

@@ -83,16 +83,13 @@ const submitBtnClass = isRedTheme
   : 'bg-[#3a5ae8] hover:bg-[#2e4ecf] active:bg-[#2541b3] shadow-blue-600/25';
 ---
 
-<section id={id} class={`relative w-full overflow-hidden ${className}`}>
-  <!-- Upper Spacer: Area where the top half of the card floats into on desktop only -->
+<section id={id} data-cta-section class={`relative w-full overflow-hidden scroll-mt-24 lg:scroll-mt-28 ${className}`}>
   <div class={`hidden md:block ${spacerBg} md:h-24 lg:h-28`}></div>
 
-  <!-- Body Section: Solid Royal Blue or Docuflo Red -->
   <div class={`${bgClass} text-white pt-10 sm:pt-12 md:pt-0 pb-12 sm:pb-16 lg:pb-20`}>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-10 items-center">
 
-        <!-- Left Column: Heading and Subtitle inside the colored area -->
         <div class="md:col-span-6 text-left pt-2 pb-2 md:pt-8 md:pb-8 lg:pt-12 lg:pb-12">
           <h2 class="text-2xl sm:text-3xl lg:text-[34px] font-bold text-white tracking-tight leading-[1.25] mb-3 sm:mb-4">
             {title.includes("Digital Automation") ? (
@@ -109,9 +106,8 @@ const submitBtnClass = isRedTheme
           </p>
         </div>
 
-        <!-- Right Column: Clean spacing on mobile, floating up only on desktop -->
         <div class="md:col-span-6 mt-4 sm:mt-6 md:mt-0 md:-mt-20 lg:-mt-24 flex justify-center md:justify-end relative z-10">
-          <div class="w-full max-w-[480px] bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-slate-100/90 p-5 sm:p-6 lg:p-7 text-slate-800">
+          <div data-cta-card class="w-full max-w-[480px] bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-slate-100/90 p-5 sm:p-6 lg:p-7 text-slate-800">
             <!-- Card Header -->
             <h3 class={`text-base sm:text-lg font-bold ${cardTitleClass} mb-3.5 tracking-tight`}>
               {cardTitle}
@@ -377,7 +373,69 @@ const submitBtnClass = isRedTheme
       });
   }
 
-  document.addEventListener('DOMContentLoaded', initConsultationCtaForms);
-  document.addEventListener('astro:page-load', initConsultationCtaForms);
-  initConsultationCtaForms();
+  function scrollToCtaCenter(targetId) {
+    const section = document.getElementById(targetId);
+    if (!section || !section.hasAttribute('data-cta-section')) return false;
+    const targetEl = section.querySelector('[data-cta-card]') || section;
+    const rect = targetEl.getBoundingClientRect();
+    const header = document.querySelector('header.site-header');
+    const headerHeight = header ? header.getBoundingClientRect().height : 64;
+    const usableHeight = Math.max(200, window.innerHeight - headerHeight);
+    const topOffset = Math.max(16, (usableHeight - rect.height) / 2);
+    const targetY = window.scrollY + rect.top - headerHeight - topOffset;
+    window.scrollTo({
+      top: Math.max(0, Math.round(targetY)),
+      behavior: 'smooth',
+    });
+    return true;
+  }
+
+  function bindCtaAnchorCentering() {
+    if (!window.__ctaAnchorBound) {
+      window.__ctaAnchorBound = true;
+      document.addEventListener('click', function (e) {
+        const anchor = e.target instanceof Element ? e.target.closest('a[href]') : null;
+        if (!anchor) return;
+        const href = anchor.getAttribute('href') || '';
+        if (!href.includes('#')) return;
+        let url;
+        try {
+          url = new URL(href, window.location.href);
+        } catch {
+          return;
+        }
+        if (url.pathname !== window.location.pathname || !url.hash) return;
+        const targetId = url.hash.slice(1);
+        if (!targetId) return;
+        if (scrollToCtaCenter(targetId)) {
+          e.preventDefault();
+          if (window.location.hash !== url.hash) {
+            history.pushState(null, '', url.hash);
+          }
+        }
+      });
+      window.addEventListener('hashchange', function () {
+        const idFromHash = window.location.hash.slice(1);
+        if (idFromHash) scrollToCtaCenter(idFromHash);
+      });
+    }
+
+    const initialHash = window.location.hash.slice(1);
+    if (initialHash) {
+      requestAnimationFrame(function () {
+        setTimeout(function () {
+          scrollToCtaCenter(initialHash);
+        }, 60);
+      });
+    }
+  }
+
+  function bootstrapConsultationCta() {
+    initConsultationCtaForms();
+    bindCtaAnchorCentering();
+  }
+
+  document.addEventListener('DOMContentLoaded', bootstrapConsultationCta);
+  document.addEventListener('astro:page-load', bootstrapConsultationCta);
+  bootstrapConsultationCta();
 </script>

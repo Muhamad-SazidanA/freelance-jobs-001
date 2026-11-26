@@ -1,12 +1,22 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdminLayout from '@/layouts/AdminLayout.astro';
 import AdminLogin from '@/components/admin/AdminLogin';
+import { getSessionFromCookies } from '@/lib/auth';
+
+export const prerender = false;
+
+const session = getSessionFromCookies(Astro.cookies);
+if (session) {
+  return Astro.redirect('/admin');
+}
+
+const fromParam = Astro.url.searchParams.get('from') || '/admin';
+const fromPath = fromParam.startsWith('/admin') ? fromParam : '/admin';
 ---
 
-<BaseLayout
+<AdminLayout
   title="Admin Login | SolusiAplikasi.id"
   description="Halaman autentikasi panel admin SolusiAplikasi.id."
-  noindex={true}
 >
-  <AdminLogin client:load />
-</BaseLayout>
+  <AdminLogin client:load fromPath={fromPath} />
+</AdminLayout>

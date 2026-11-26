@@ -1,0 +1,30 @@
+---
+import SeoHead from '@/components/seo/SeoHead.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Panel administrasi internal PT Solusi Aplikasi Integrasi.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <SeoHead title={title} description={description} noindex={true} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <slot />
+  </body>
+</html>

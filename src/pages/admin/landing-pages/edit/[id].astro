@@ -1,0 +1,44 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import LandingPageEditorView from '@/components/admin/LandingPageEditorView';
+import { resolveAdminPage } from '@/lib/admin-page';
+import { getDb } from '@/lib/db';
+import { parseLandingFeatures } from '@/lib/cms';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+
+const id = Number.parseInt(Astro.params.id || '', 10);
+if (!Number.isInteger(id) || id <= 0) {
+  return Astro.redirect('/admin/landing-pages');
+}
+
+const db = getDb();
+const rawPage = db ? await db.landingPage.findUnique({ where: { id } }) : null;
+if (!rawPage) {
+  return Astro.redirect('/admin/landing-pages');
+}
+
+const page = {
+  ...rawPage,
+  template: rawPage.template === 'minimal' ? ('minimal' as const) : ('hero' as const),
+  features: parseLandingFeatures(rawPage.featuresJson),
+};
+---
+
+<AdminLayout
+  title={`Edit LP: ${page.title} | Admin SolusiAplikasi.id`}
+  description="Edit stand-alone landing page SolusiAplikasi.id."
+>
+  <LandingPageEditorView
+    client:only="react"
+    user={ctx.session}
+    mode="edit"
+    initialPage={page}
+    dbConfigured={ctx.dbConfigured}
+  />
+</AdminLayout>

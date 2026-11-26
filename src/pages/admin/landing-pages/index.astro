@@ -1,0 +1,27 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import LandingPagesListView from '@/components/admin/LandingPagesListView';
+import { resolveAdminPage } from '@/lib/admin-page';
+import { getAdminLandingPages } from '@/lib/cms';
+
+export const prerender = false;
+
+const ctx = resolveAdminPage(Astro);
+if (ctx instanceof Response) {
+  return ctx;
+}
+
+const { pages } = await getAdminLandingPages();
+---
+
+<AdminLayout
+  title="Landing Pages | Admin SolusiAplikasi.id"
+  description="Kelola stand-alone landing page kampanye SolusiAplikasi.id."
+>
+  <LandingPagesListView
+    client:load
+    user={ctx.session}
+    initialPages={pages}
+    dbConfigured={ctx.dbConfigured}
+  />
+</AdminLayout>
