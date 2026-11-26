@@ -1,0 +1,431 @@
+---
+interface Props {
+  id?: string;
+  name?: string;
+  defaultProduct?: string;
+  theme?: string;
+  required?: boolean;
+}
+
+const {
+  id,
+  name = 'product',
+  defaultProduct = '',
+  theme = 'blue',
+  required = true,
+} = Astro.props;
+
+const productOptions = [
+  {
+    value: 'nanonets',
+    category: 'Intelligent Document Processing',
+    product: 'Nanonets',
+    label: 'Intelligent Document Processing (Nanonets)',
+  },
+  {
+    value: 'cyclone',
+    category: 'Robotic Process Automation',
+    product: 'Cyclone',
+    label: 'Robotic Process Automation (Cyclone)',
+  },
+  {
+    value: 'docuflo',
+    category: 'Document Management System',
+    product: 'DocuFlo',
+    label: 'Document Management System (DocuFlo)',
+  },
+  {
+    value: 'syclus',
+    category: 'Account Payable Automation',
+    product: 'Syclus',
+    label: 'Account Payable Automation (Syclus)',
+  },
+  {
+    value: 'spensify',
+    category: 'Expense Management System',
+    product: 'Spensify',
+    label: 'Expense Management System (Spensify)',
+  },
+  {
+    value: 'multi',
+    category: 'Konsultasi Multi-Platform',
+    product: 'Multi',
+    label: 'Konsultasi Solusi Multi-Platform',
+  },
+];
+
+const normalizedTheme =
+  theme === 'red' || theme === 'docuflo' || defaultProduct === 'docuflo'
+    ? 'red'
+    : theme === 'orange' || theme === 'cyclone' || defaultProduct === 'cyclone'
+      ? 'orange'
+      : theme === 'green' || theme === 'spensify' || defaultProduct === 'spensify'
+        ? 'green'
+        : 'blue';
+
+const themeStyles = {
+  red: {
+    activeBorder: 'border-[#E4001B] ring-2 ring-[#E4001B]/15 bg-white',
+    focusRing: 'focus-visible:border-[#E4001B] focus-visible:ring-2 focus-visible:ring-[#E4001B]/20',
+    activeRow: 'bg-rose-50/90 text-[#b30015]',
+    pillIdle: 'bg-slate-100 text-slate-600 border-slate-200/80',
+    pillActive: 'bg-[#E4001B] text-white border-[#E4001B]',
+    triggerPill: 'bg-rose-50 text-[#E4001B] border-rose-200/80',
+    checkColor: 'text-[#E4001B]',
+  },
+  orange: {
+    activeBorder: 'border-[#f4511e] ring-2 ring-[#f4511e]/15 bg-white',
+    focusRing: 'focus-visible:border-[#f4511e] focus-visible:ring-2 focus-visible:ring-[#f4511e]/20',
+    activeRow: 'bg-orange-50/90 text-[#b83307]',
+    pillIdle: 'bg-slate-100 text-slate-600 border-slate-200/80',
+    pillActive: 'bg-[#f4511e] text-white border-[#f4511e]',
+    triggerPill: 'bg-orange-50 text-[#d93f0d] border-orange-200/80',
+    checkColor: 'text-[#f4511e]',
+  },
+  green: {
+    activeBorder: 'border-[#0a4728] ring-2 ring-[#0a4728]/15 bg-white',
+    focusRing: 'focus-visible:border-[#0a4728] focus-visible:ring-2 focus-visible:ring-[#0a4728]/20',
+    activeRow: 'bg-emerald-50/90 text-[#07361e]',
+    pillIdle: 'bg-slate-100 text-slate-600 border-slate-200/80',
+    pillActive: 'bg-[#0a4728] text-white border-[#0a4728]',
+    triggerPill: 'bg-emerald-50 text-[#0a4728] border-emerald-200/80',
+    checkColor: 'text-[#0a4728]',
+  },
+  blue: {
+    activeBorder: 'border-[#3a5ae8] ring-2 ring-[#3a5ae8]/15 bg-white',
+    focusRing: 'focus-visible:border-[#3a5ae8] focus-visible:ring-2 focus-visible:ring-[#3a5ae8]/20',
+    activeRow: 'bg-blue-50/90 text-[#2541b3]',
+    pillIdle: 'bg-slate-100 text-slate-600 border-slate-200/80',
+    pillActive: 'bg-[#3a5ae8] text-white border-[#3a5ae8]',
+    triggerPill: 'bg-blue-50 text-[#3a5ae8] border-blue-200/80',
+    checkColor: 'text-[#3a5ae8]',
+  },
+}[normalizedTheme];
+
+const initialOption = productOptions.find((opt) => opt.value === defaultProduct) || null;
+const uid = `psd-${Math.random().toString(36).slice(2, 8)}`;
+const listboxId = `${uid}-listbox`;
+const triggerId = id || `${uid}-trigger`;
+---
+
+<div
+  class="relative"
+  data-product-select
+  data-default-value={defaultProduct}
+  data-active-border={themeStyles.activeBorder}
+  data-active-row={themeStyles.activeRow}
+  data-pill-idle={themeStyles.pillIdle}
+  data-pill-active={themeStyles.pillActive}
+>
+  <select
+    name={name}
+    required={required}
+    tabindex="-1"
+    aria-hidden="true"
+    data-native-select
+    class="absolute inset-0 w-full h-full opacity-0 pointer-events-none"
+  >
+    <option value="" disabled selected={!initialOption}>Pilih solusi yang dibutuhkan</option>
+    {productOptions.map((opt) => (
+      <option value={opt.value} selected={defaultProduct === opt.value}>
+        {opt.label}
+      </option>
+    ))}
+  </select>
+
+  <button
+    type="button"
+    id={triggerId}
+    data-select-trigger
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls={listboxId}
+    class={`w-full min-h-[38px] flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-[#fbfcfd] hover:bg-white hover:border-slate-300 text-left text-xs sm:text-[13px] transition-all cursor-pointer focus:outline-none focus-visible:outline-none ${themeStyles.focusRing}`}
+  >
+    <span class="flex items-center justify-between gap-2 min-w-0 flex-1">
+      <span
+        data-select-display
+        class={`truncate ${initialOption ? 'text-slate-800 font-medium' : 'text-slate-400'}`}
+      >
+        {initialOption ? initialOption.category : 'Pilih solusi yang dibutuhkan'}
+      </span>
+      <span
+        data-select-badge
+        class={`shrink-0 items-center px-2 py-0.5 rounded-full border text-[10px] font-bold tracking-tight ${themeStyles.triggerPill} ${initialOption ? 'inline-flex' : 'hidden'}`}
+      >
+        {initialOption ? initialOption.product : ''}
+      </span>
+    </span>
+    <svg
+      data-select-chevron
+      class="w-3.5 h-3.5 text-slate-400 shrink-0 transition-transform duration-200"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  </button>
+
+  <div
+    id={listboxId}
+    data-select-menu
+    role="listbox"
+    tabindex="-1"
+    class="hidden absolute left-0 right-0 z-50 top-full mt-1.5 rounded-xl bg-white border border-slate-200/90 shadow-xl shadow-slate-900/12 p-1.5 space-y-0.5 max-h-[268px] overflow-y-auto"
+  >
+    {productOptions.map((opt) => {
+      const selected = opt.value === defaultProduct;
+      return (
+        <button
+          type="button"
+          role="option"
+          aria-selected={selected ? 'true' : 'false'}
+          data-select-option
+          data-value={opt.value}
+          data-category={opt.category}
+          data-product={opt.product}
+          class={`w-full flex items-center justify-between gap-2.5 px-2.5 py-2 rounded-lg text-left text-xs transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
+            selected
+              ? themeStyles.activeRow
+              : 'text-slate-700 hover:bg-slate-50 active:bg-slate-100/80'
+          }`}
+        >
+          <span class="font-medium leading-snug truncate">{opt.category}</span>
+          <span class="flex items-center gap-1.5 shrink-0">
+            <span
+              data-option-pill
+              class={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold tracking-tight transition-colors ${
+                selected ? themeStyles.pillActive : themeStyles.pillIdle
+              }`}
+            >
+              {opt.product}
+            </span>
+            <svg
+              data-option-check
+              class={`w-3.5 h-3.5 shrink-0 ${themeStyles.checkColor} ${selected ? '' : 'opacity-0'}`}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </button>
+      );
+    })}
+  </div>
+</div>
+
+<script>
+  function splitClasses(raw: string | undefined): string[] {
+    return (raw || '').split(/\s+/).filter(Boolean);
+  }
+
+  function closeAllProductMenus(exceptRoot?: Element) {
+    document.querySelectorAll('[data-product-select]').forEach((root) => {
+      if (exceptRoot && root === exceptRoot) return;
+      const menu = root.querySelector('[data-select-menu]');
+      const trigger = root.querySelector('[data-select-trigger]');
+      const chevron = root.querySelector('[data-select-chevron]');
+      const activeBorder = splitClasses(root.getAttribute('data-active-border') || undefined);
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+      }
+      if (trigger) {
+        trigger.setAttribute('aria-expanded', 'false');
+        activeBorder.forEach((c) => trigger.classList.remove(c));
+      }
+      if (chevron) {
+        chevron.classList.remove('rotate-180');
+      }
+    });
+  }
+
+  function syncProductSelectUi(root: Element, value: string) {
+    const select = root.querySelector('[data-native-select]') as HTMLSelectElement | null;
+    const display = root.querySelector('[data-select-display]');
+    const badge = root.querySelector('[data-select-badge]');
+    const options = Array.from(root.querySelectorAll('[data-select-option]'));
+    const activeRowClasses = splitClasses(root.getAttribute('data-active-row') || undefined);
+    const pillIdleClasses = splitClasses(root.getAttribute('data-pill-idle') || undefined);
+    const pillActiveClasses = splitClasses(root.getAttribute('data-pill-active') || undefined);
+
+    if (select && select.value !== value) {
+      select.value = value;
+    }
+
+    const matched = options.find((el) => el.getAttribute('data-value') === value) || null;
+    if (display) {
+      if (matched) {
+        display.textContent = matched.getAttribute('data-category') || '';
+        display.classList.remove('text-slate-400');
+        display.classList.add('text-slate-800', 'font-medium');
+      } else {
+        display.textContent = 'Pilih solusi yang dibutuhkan';
+        display.classList.add('text-slate-400');
+        display.classList.remove('text-slate-800', 'font-medium');
+      }
+    }
+
+    if (badge) {
+      if (matched) {
+        badge.textContent = matched.getAttribute('data-product') || '';
+        badge.classList.remove('hidden');
+        badge.classList.add('inline-flex');
+      } else {
+        badge.textContent = '';
+        badge.classList.add('hidden');
+        badge.classList.remove('inline-flex');
+      }
+    }
+
+    options.forEach((opt) => {
+      const isSelected = opt.getAttribute('data-value') === value;
+      opt.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+      const pill = opt.querySelector('[data-option-pill]');
+      const check = opt.querySelector('[data-option-check]');
+
+      if (isSelected) {
+        activeRowClasses.forEach((c) => opt.classList.add(c));
+        opt.classList.remove('text-slate-700', 'hover:bg-slate-50', 'active:bg-slate-100/80');
+        if (pill) {
+          pillIdleClasses.forEach((c) => pill.classList.remove(c));
+          pillActiveClasses.forEach((c) => pill.classList.add(c));
+        }
+        if (check) check.classList.remove('opacity-0');
+      } else {
+        activeRowClasses.forEach((c) => opt.classList.remove(c));
+        opt.classList.add('text-slate-700', 'hover:bg-slate-50', 'active:bg-slate-100/80');
+        if (pill) {
+          pillActiveClasses.forEach((c) => pill.classList.remove(c));
+          pillIdleClasses.forEach((c) => pill.classList.add(c));
+        }
+        if (check) check.classList.add('opacity-0');
+      }
+    });
+  }
+
+  function initProductDropdowns() {
+    const w = window as unknown as { __productSelectGlobalBound?: boolean };
+    if (!w.__productSelectGlobalBound) {
+      w.__productSelectGlobalBound = true;
+      document.addEventListener('click', (e) => {
+        const target = e.target instanceof Element ? e.target : null;
+        if (!target || !target.closest('[data-product-select]')) {
+          closeAllProductMenus();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const openTrigger = document.querySelector(
+            '[data-select-trigger][aria-expanded="true"]'
+          ) as HTMLElement | null;
+          closeAllProductMenus();
+          if (openTrigger) openTrigger.focus();
+        }
+      });
+    }
+
+    document.querySelectorAll('[data-product-select]').forEach((root) => {
+      const rootEl = root as HTMLElement & { __psdInitialized?: boolean };
+      if (rootEl.__psdInitialized) return;
+      rootEl.__psdInitialized = true;
+
+      const trigger = root.querySelector('[data-select-trigger]') as HTMLButtonElement | null;
+      const menu = root.querySelector('[data-select-menu]') as HTMLElement | null;
+      const chevron = root.querySelector('[data-select-chevron]');
+      const options = Array.from(root.querySelectorAll('[data-select-option]')) as HTMLButtonElement[];
+      const activeBorder = splitClasses(root.getAttribute('data-active-border') || undefined);
+      const defaultValue = root.getAttribute('data-default-value') || '';
+
+      function openMenu() {
+        if (!menu || !trigger) return;
+        closeAllProductMenus(root);
+        const rect = trigger.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const spaceAbove = rect.top;
+        const openUp = spaceBelow < 245 && spaceAbove > spaceBelow;
+        menu.classList.remove('top-full', 'mt-1.5', 'bottom-full', 'mb-1.5');
+        if (openUp) {
+          menu.classList.add('bottom-full', 'mb-1.5');
+        } else {
+          menu.classList.add('top-full', 'mt-1.5');
+        }
+        menu.classList.remove('hidden');
+        trigger.setAttribute('aria-expanded', 'true');
+        activeBorder.forEach((c) => trigger.classList.add(c));
+        if (chevron) chevron.classList.add('rotate-180');
+      }
+
+      if (trigger && menu) {
+        trigger.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+          if (isOpen) {
+            closeAllProductMenus();
+          } else {
+            openMenu();
+          }
+        });
+
+        trigger.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (trigger.getAttribute('aria-expanded') !== 'true') {
+              openMenu();
+            }
+            const currentIdx = options.findIndex(
+              (o) => o.getAttribute('aria-selected') === 'true'
+            );
+            const nextIdx =
+              e.key === 'ArrowDown'
+                ? Math.min(options.length - 1, currentIdx + 1)
+                : Math.max(0, currentIdx <= 0 ? 0 : currentIdx - 1);
+            options[nextIdx]?.focus();
+          }
+        });
+      }
+
+      options.forEach((opt, idx) => {
+        opt.addEventListener('click', () => {
+          const val = opt.getAttribute('data-value') || '';
+          syncProductSelectUi(root, val);
+          closeAllProductMenus();
+          trigger?.focus();
+        });
+
+        opt.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            options[Math.min(options.length - 1, idx + 1)]?.focus();
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            options[Math.max(0, idx - 1)]?.focus();
+          }
+        });
+      });
+
+      const parentForm = root.closest('form');
+      if (parentForm) {
+        parentForm.addEventListener('reset', () => {
+          requestAnimationFrame(() => {
+            syncProductSelectUi(root, defaultValue);
+          });
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initProductDropdowns);
+  document.addEventListener('astro:page-load', initProductDropdowns);
+  initProductDropdowns();
+</script>

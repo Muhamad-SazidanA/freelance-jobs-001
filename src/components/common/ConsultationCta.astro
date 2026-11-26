@@ -3,6 +3,8 @@
 // Reusable CTA Template Component — Pure Astro + Vanilla JS
 // Visual 100% Matching Reference Image: Split Royal Blue + Compact Floating Discussion Card
 
+import ProductSelectDropdown from './ProductSelectDropdown.astro';
+
 interface Props {
   id?: string;
   title?: string;
@@ -190,29 +192,14 @@ const submitBtnClass = isRedTheme
 
               <!-- Row 3: Solusi Dibutuhkan -->
               <div>
-                <label class="block text-[11px] font-semibold text-slate-700 mb-1">
+                <label for={`${instanceId}-product`} class="block text-[11px] font-semibold text-slate-700 mb-1">
                   Solusi Dibutuhkan <span class="text-red-500">*</span>
                 </label>
-                <div class="relative">
-                  <select
-                    name="product"
-                    required
-                    class={`w-full appearance-none px-3 py-2 pr-8 rounded-lg border border-slate-200 bg-[#fbfcfd] focus:bg-white text-xs sm:text-[13px] text-slate-700 focus:outline-none ${inputFocusClass} transition-all cursor-pointer`}
-                  >
-                    <option value="" disabled selected={!defaultProduct}>Pilih solusi yang dibutuhkan</option>
-                    <option value="nanonets" selected={defaultProduct === 'nanonets'}>Intelligent Document Processing (Nanonets)</option>
-                    <option value="cyclone" selected={defaultProduct === 'cyclone'}>Robotic Process Automation (Cyclone)</option>
-                    <option value="docuflo" selected={defaultProduct === 'docuflo'}>Document Management System (DocuFlo)</option>
-                    <option value="syclus" selected={defaultProduct === 'syclus'}>Account Payable Automation (Syclus)</option>
-                    <option value="spensify" selected={defaultProduct === 'spensify'}>Expense Management System (Spensify)</option>
-                    <option value="multi" selected={defaultProduct === 'multi'}>Konsultasi Solusi Multi-Platform</option>
-                  </select>
-                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-400">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                  </div>
-                </div>
+                <ProductSelectDropdown
+                  id={`${instanceId}-product`}
+                  defaultProduct={defaultProduct}
+                  theme={theme}
+                />
               </div>
 
               <!-- Row 4: Kebutuhan Textarea -->
