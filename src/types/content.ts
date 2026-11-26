@@ -282,10 +282,9 @@ export interface SiteOptions {
     workingHours: string;
   };
   socialMedia: {
-    linkedin?: string;
-    github?: string;
-    twitter?: string;
     instagram?: string;
+    linkedin?: string;
+    youtube?: string;
   };
   organizationSchema: {
     legalName: string;

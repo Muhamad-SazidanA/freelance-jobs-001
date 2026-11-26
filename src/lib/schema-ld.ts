@@ -25,9 +25,9 @@ export function generateOrganizationSchema(options: SiteOptions) {
       addressCountry: options.address.country,
     },
     sameAs: [
+      options.socialMedia.instagram,
       options.socialMedia.linkedin,
-      options.socialMedia.github,
-      options.socialMedia.twitter,
+      options.socialMedia.youtube,
     ].filter(Boolean),
   };
 }
