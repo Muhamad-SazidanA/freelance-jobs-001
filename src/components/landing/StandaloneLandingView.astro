@@ -190,7 +190,7 @@ const isHeroDark = page.template === 'hero';
     )}
 
     {page.content && (
-      <section id="detail-solusi" class="py-12 sm:py-16 bg-white">
+      <section id="detail-solusi" data-scroll-align="section-top" class="py-12 sm:py-16 bg-white scroll-mt-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="prose max-w-none" set:html={page.content} />
         </div>

@@ -373,69 +373,7 @@ const submitBtnClass = isRedTheme
       });
   }
 
-  function scrollToCtaCenter(targetId) {
-    const section = document.getElementById(targetId);
-    if (!section || !section.hasAttribute('data-cta-section')) return false;
-    const targetEl = section.querySelector('[data-cta-card]') || section;
-    const rect = targetEl.getBoundingClientRect();
-    const header = document.querySelector('header.site-header');
-    const headerHeight = header ? header.getBoundingClientRect().height : 64;
-    const usableHeight = Math.max(200, window.innerHeight - headerHeight);
-    const topOffset = Math.max(16, (usableHeight - rect.height) / 2);
-    const targetY = window.scrollY + rect.top - headerHeight - topOffset;
-    window.scrollTo({
-      top: Math.max(0, Math.round(targetY)),
-      behavior: 'smooth',
-    });
-    return true;
-  }
-
-  function bindCtaAnchorCentering() {
-    if (!window.__ctaAnchorBound) {
-      window.__ctaAnchorBound = true;
-      document.addEventListener('click', function (e) {
-        const anchor = e.target instanceof Element ? e.target.closest('a[href]') : null;
-        if (!anchor) return;
-        const href = anchor.getAttribute('href') || '';
-        if (!href.includes('#')) return;
-        let url;
-        try {
-          url = new URL(href, window.location.href);
-        } catch {
-          return;
-        }
-        if (url.pathname !== window.location.pathname || !url.hash) return;
-        const targetId = url.hash.slice(1);
-        if (!targetId) return;
-        if (scrollToCtaCenter(targetId)) {
-          e.preventDefault();
-          if (window.location.hash !== url.hash) {
-            history.pushState(null, '', url.hash);
-          }
-        }
-      });
-      window.addEventListener('hashchange', function () {
-        const idFromHash = window.location.hash.slice(1);
-        if (idFromHash) scrollToCtaCenter(idFromHash);
-      });
-    }
-
-    const initialHash = window.location.hash.slice(1);
-    if (initialHash) {
-      requestAnimationFrame(function () {
-        setTimeout(function () {
-          scrollToCtaCenter(initialHash);
-        }, 60);
-      });
-    }
-  }
-
-  function bootstrapConsultationCta() {
-    initConsultationCtaForms();
-    bindCtaAnchorCentering();
-  }
-
-  document.addEventListener('DOMContentLoaded', bootstrapConsultationCta);
-  document.addEventListener('astro:page-load', bootstrapConsultationCta);
-  bootstrapConsultationCta();
+  document.addEventListener('DOMContentLoaded', initConsultationCtaForms);
+  document.addEventListener('astro:page-load', initConsultationCtaForms);
+  initConsultationCtaForms();
 </script>
