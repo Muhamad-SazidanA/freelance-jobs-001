@@ -200,11 +200,11 @@ const products = [
 ];
 ---
 
-<section id="solusi" data-scroll-align="section-top" class="py-12 md:py-16 bg-slate-50/60 scroll-mt-16">
+<section id="solusi" data-scroll-align="section-top" class="py-12 md:py-16 bg-slate-50/70 scroll-mt-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="max-w-2xl mx-auto text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+    <div class="max-w-2xl mx-auto text-center mb-9 sm:mb-10">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0c2340] tracking-tight mb-2.5">
         5 solusi Digital Automation<br>kebutuhan bisnis
       </h2>
       <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -214,7 +214,7 @@ const products = [
 
     <div
       id="iss-tabs"
-      class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 lg:gap-6 mb-10 max-w-4xl mx-auto"
+      class="flex flex-wrap md:grid md:grid-cols-5 items-stretch justify-center gap-3 sm:gap-4 lg:gap-5 mb-10 max-w-6xl mx-auto"
       role="tablist"
       aria-label="Pilihan Solusi Terintegrasi"
     >
@@ -227,16 +227,16 @@ const products = [
           aria-controls={`panel-${product.id}`}
           id={`tab-${product.id}`}
           style={`--neon-rgb: ${product.neonRgb};`}
-          class={`iss-tab relative py-2.5 px-4 sm:px-3 lg:px-6 rounded-xl cursor-pointer flex items-center justify-center transition-all duration-200 ${i === 0 ? 'active' : ''}`}
+          class={`iss-tab relative w-[calc(50%-0.375rem)] sm:w-[calc(33.333%-0.75rem)] md:w-full min-h-[72px] sm:min-h-[80px] lg:min-h-[86px] py-3.5 px-3 sm:px-3.5 lg:px-4 rounded-2xl cursor-pointer flex items-center justify-center transition-all duration-200 ${i === 0 ? 'active' : ''}`}
           title={product.name}
         >
           <img
             src={product.logo}
             alt={product.name}
-            class={`iss-tab-img w-auto max-w-[90px] sm:max-w-[110px] md:max-w-[125px] object-contain transition-all duration-200 pointer-events-none select-none ${
+            class={`iss-tab-img w-auto max-w-full object-contain pointer-events-none select-none ${
               product.id === 'syclus'
-                ? 'h-7.5 sm:h-8.5 md:h-9 -my-[3px]'
-                : 'h-6 sm:h-7 md:h-7.5'
+                ? 'h-11 sm:h-12 lg:h-[54px]'
+                : 'h-9 sm:h-10 lg:h-[44px]'
             }`}
             loading="eager" decoding="async"
           />
@@ -629,41 +629,41 @@ const products = [
 
 <style>
   .iss-tab {
-    background-color: transparent;
-    border: 1px solid transparent;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+      0 2px 6px rgba(15, 23, 42, 0.04),
+      0 1px 2px rgba(15, 23, 42, 0.03);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Inactive tab state: clean, floating brand logos with muted natural colors */
-  .iss-tab:not(.active) .iss-tab-img {
-    opacity: 0.52;
+  .iss-tab .iss-tab-img {
+    opacity: 1;
     filter: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    image-rendering: -webkit-optimize-contrast;
+    transition: transform 0.2s ease;
   }
 
-  /* Inactive tab hover: soft lift & clear logo, no harsh borders */
   .iss-tab:not(.active):hover {
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-  .iss-tab:not(.active):hover .iss-tab-img {
-    opacity: 0.92;
+    border-color: #cbd5e1;
+    box-shadow:
+      0 4px 12px rgba(15, 23, 42, 0.07),
+      0 2px 4px rgba(15, 23, 42, 0.04);
     transform: translateY(-1px);
   }
 
-  /* Active tab: floating crisp white card with soft ambient neon glow underneath */
+  .iss-tab:not(.active):hover .iss-tab-img {
+    transform: scale(1.02);
+  }
+
   .iss-tab.active {
     background-color: #ffffff;
-    border-color: rgba(var(--neon-rgb), 0.35);
-    box-shadow: 
-      0 1px 3px rgba(0, 0, 0, 0.05),
-      0 6px 18px -2px rgba(var(--neon-rgb), 0.35),
-      0 12px 28px -4px rgba(var(--neon-rgb), 0.15);
+    border-color: rgba(var(--neon-rgb), 0.45);
+    box-shadow:
+      0 2px 6px rgba(15, 23, 42, 0.06),
+      0 8px 22px -3px rgba(var(--neon-rgb), 0.35),
+      0 14px 32px -6px rgba(var(--neon-rgb), 0.16);
     transform: translateY(-2px);
-  }
-  .iss-tab.active .iss-tab-img {
-    opacity: 1;
-    filter: none;
   }
 </style>
 
