@@ -1,5 +1,6 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import ProductHeroLogo from '@/components/common/ProductHeroLogo.astro';
 import ConsultationCta from '@/components/common/ConsultationCta.astro';
 import { generateBreadcrumbSchema, generateProductSchema, generateFaqSchema } from '@/lib/schema-ld';
 import type { Product } from '@/types/content';
@@ -223,6 +224,13 @@ const deploymentOptions = [
       <div class="nanonets-glow-circle"></div>
 
       <div class="max-w-4xl mx-auto relative z-10 w-full">
+        <ProductHeroLogo
+          src="/images/home/Product/Logo/nanonets.webp"
+          alt="Logo Nanonets"
+          align="center"
+          framed={true}
+          heightClass="h-8 sm:h-9 md:h-10"
+        />
         <!-- New Badge (Sesuai Foto 1) -->
         <div class="nanonets-badge">
           <span class="nanonets-badge-pill">New</span>

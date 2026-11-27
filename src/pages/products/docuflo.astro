@@ -1,5 +1,6 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import ProductHeroLogo from '@/components/common/ProductHeroLogo.astro';
 import ConsultationCta from '@/components/common/ConsultationCta.astro';
 import DocufloCapturingCard from '@/components/docuflo/DocufloCapturingCard.astro';
 import DocufloWebAdminCard from '@/components/docuflo/DocufloWebAdminCard.astro';
@@ -107,6 +108,13 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
 
     <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-22 flex items-center min-h-[460px] sm:min-h-[500px] lg:min-h-[540px]">
       <div class="max-w-2xl text-white">
+        <ProductHeroLogo
+          src="/images/home/Product/Logo/docuflo.webp"
+          alt="Logo Docuflo"
+          align="left"
+          framed={true}
+          heightClass="h-8 sm:h-9 md:h-10"
+        />
         <div class="mb-5 sm:mb-6">
           <span class="docuflo-badge-pill-card">Enterprise Document Management System</span>
         </div>

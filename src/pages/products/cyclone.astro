@@ -1,5 +1,6 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
+import ProductHeroLogo from "@/components/common/ProductHeroLogo.astro";
 import ConsultationCta from "@/components/common/ConsultationCta.astro";
 import CycloneFlowDiagram from "@/components/cyclone/CycloneFlowDiagram.astro";
 import {
@@ -116,6 +117,13 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
       <div class="w">
         <div class="hg">
           <div>
+            <ProductHeroLogo
+              src="/images/home/Product/Article/Cyclone/Cyclone-White.webp"
+              alt="Logo Cyclone"
+              align="left"
+              framed={false}
+              heightClass="h-10 sm:h-11 md:h-12"
+            />
             <h1>Robot yang bekerja tanpa henti, tepat seperti yang Anda minta.</h1>
             <p class="l">
               Cyclone mengotomasi pekerjaan digital yang berulang, dari membuka aplikasi hingga mengirim laporan, langsung di atas sistem yang sudah Anda pakai.
