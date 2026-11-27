@@ -93,47 +93,39 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
   <!-- =========================================================================
        BAGIAN 1: HERO SECTION BANNER CARD (SESUAI FOTO REFERENSI)
        ========================================================================= -->
-  <section class="docuflo-hero-section bg-white text-slate-900 border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="docuflo-hero-card relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl min-h-[460px] sm:min-h-[500px] lg:min-h-[540px] flex items-center">
-        <!-- Background Image Container with cover & dark gradient overlay -->
-        <div class="absolute inset-0 z-0">
-          <img
-            src="/images/product/docuflo/docuflo-dashboard.webp"
-            alt="Docuflo Enterprise Document Management System"
-            class="w-full h-full object-cover object-right"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <div class="docuflo-hero-card-overlay absolute inset-0"></div>
+  <section class="docuflo-hero-section relative overflow-hidden bg-black text-white">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/product/docuflo/docuflo-dashboard.webp"
+        alt="Docuflo Enterprise Document Management System"
+        class="w-full h-full object-cover object-[72%_center] md:object-right"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="docuflo-hero-card-overlay absolute inset-0"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 md:py-22 flex items-center min-h-[460px] sm:min-h-[500px] lg:min-h-[540px]">
+      <div class="max-w-2xl text-white">
+        <div class="mb-5 sm:mb-6">
+          <span class="docuflo-badge-pill-card">Enterprise Document Management System</span>
         </div>
 
-        <!-- Content Overlay on Left Side -->
-        <div class="relative z-10 max-w-2xl p-6 sm:p-10 md:p-12 lg:p-14 text-white">
-          <!-- Badge Atas Sesuai Foto Referensi -->
-          <div class="mb-5 sm:mb-6">
-            <span class="docuflo-badge-pill-card">Enterprise Document Management System</span>
-          </div>
+        <h1 class="docuflo-hero-card-title mb-4 sm:mb-5">
+          Kendalikan Seluruh Dokumen dalam Satu Platform
+        </h1>
 
-          <!-- Headline Sesuai Foto Referensi (3 baris rapi, warna putih) -->
-          <h1 class="docuflo-hero-card-title mb-4 sm:mb-5">
-            Kendalikan Seluruh Dokumen dalam Satu Platform
-          </h1>
+        <p class="docuflo-hero-card-subtitle mb-6 sm:mb-8">
+          Docuflo merupakan solusi Document Management System (DMS) yang mendukung perusahaan untuk menyimpan, mencari, mengelola, dan memproses persetujuan dokumen melalui workflow dalam satu platform terpusat yang aman, terstruktur, dan audit-ready.
+        </p>
 
-          <!-- Subtitle Sesuai Foto Referensi -->
-          <p class="docuflo-hero-card-subtitle mb-6 sm:mb-8">
-            Docuflo merupakan solusi Document Management System (DMS) yang mendukung perusahaan untuk menyimpan, mencari, mengelola, dan memproses persetujuan dokumen melalui workflow dalam satu platform terpusat yang aman, terstruktur, dan audit-ready.
-          </p>
-
-          <!-- CTA Buttons Sesuai Foto Referensi -->
-          <div class="flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <a href="#form-konsultasi" class="docuflo-btn-primary">
-              Jadwalkan Demo
-            </a>
-            <a href="#modul-docuflo" class="docuflo-btn-card-secondary">
-              Lihat Kemampuan Produk
-            </a>
-          </div>
+        <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+          <a href="#form-konsultasi" class="docuflo-btn-primary">
+            Jadwalkan Demo
+          </a>
+          <a href="#cara-kerja" class="docuflo-btn-card-secondary">
+            Lihat Cara Kerja
+          </a>
         </div>
       </div>
     </div>
@@ -300,7 +292,7 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
   <!-- =========================================================================
        BAGIAN 4: MODUL DOCUFLO (4 ALTERNATING ROWS SESUAI FOTO 3)
        ========================================================================= -->
-  <section id="modul-docuflo" data-scroll-align="section-top" class="docuflo-section scroll-mt-16 bg-white text-slate-900 border-b border-slate-100">
+  <section id="cara-kerja" data-scroll-align="section-top" class="docuflo-section scroll-mt-16 bg-white text-slate-900 border-b border-slate-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-12 lg:space-y-16">
         <!-- Row 1: Capturing (Text Left, Card Right) Sesuai Foto 3 -->
@@ -707,32 +699,15 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
 
-    /* Section vertical padding */
-    .docuflo-hero-section {
-      padding-top: 36px;
-      padding-bottom: 48px;
-    }
-
     .docuflo-section {
       padding-top: 48px;
       padding-bottom: 56px;
     }
 
     @media (min-width: 768px) {
-      .docuflo-hero-section {
-        padding-top: 44px;
-        padding-bottom: 56px;
-      }
       .docuflo-section {
         padding-top: 56px;
         padding-bottom: 72px;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .docuflo-hero-section {
-        padding-top: 48px;
-        padding-bottom: 64px;
       }
     }
 
@@ -763,21 +738,14 @@ const schema = [productSchema, breadcrumbSchema, faqSchema];
       font-weight: 700;
     }
 
-    /* Hero Banner Card Sesuai Foto Referensi */
-    .docuflo-hero-card {
-      background-color: transparent;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35);
-    }
-
     .docuflo-hero-card-overlay {
       background: linear-gradient(
         90deg,
         #000000 0%,
-        rgba(0, 0, 0, 0.95) 32%,
-        rgba(0, 0, 0, 0.8) 50%,
-        rgba(0, 0, 0, 0.35) 68%,
-        rgba(0, 0, 0, 0.05) 100%
+        rgba(0, 0, 0, 0.96) 36%,
+        rgba(0, 0, 0, 0.84) 52%,
+        rgba(0, 0, 0, 0.42) 68%,
+        rgba(0, 0, 0, 0.08) 100%
       );
     }
 
